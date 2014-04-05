@@ -170,7 +170,6 @@ void vTaskUSARTLog(void *pvParameters){
 uint8_t USART_GetChar(){
     uint8_t data;
     if(xQueueReceive(USART_ReadQueue,&data,1) == pdTRUE){
-        //USART_AddToQueue('~');
         return data;
     } else {
         return 255;
@@ -192,14 +191,9 @@ void vTaskUSARTRead(void *pvParameters){
     Command command;
     Response response;
     while(1){
-        //PORTB = 0;
-        //Get Header
         bytesRecieved = 0;
         timeout = 0;
         while(bytesRecieved < 4){
-            //if there is data to be read...
-            //if((UCSR1A & (1<<RXC1))){
-            //    rxData = UDR1;
             if((rxData = USART_GetChar()) != 255){
             //if(xQueueReceive(USART_ReadQueue,&rxData,portMAX_DELAY) == pdTRUE){
                 buffer[bytesRecieved] = rxData;

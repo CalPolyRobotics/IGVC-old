@@ -53,6 +53,7 @@ int main( void )
     
 	DDRD = 0xFF;
 	DDRE = 0xFF;
+	DDRB = 0xFF; 
 	DDRK = 0;
 
 	PORTD = 0;

@@ -113,6 +113,14 @@ char processLightCommand(char commandCode, void* commandData, void* responseDate
 //Function that will take in a command (as char array) and process it into a
 //correct response to be stored into response
 char processCommand(Command *command, Response *response) {
+   response->size = 6;
+   response->payload[0] = 0;
+   response->payload[1] = 2;
+   response->payload[2] = 4;
+   response->payload[3] = 6;
+   response->payload[4] = 8;
+   response->payload[5] = 10;
+   return;
    if(commandIntegCheck(command)) {
       switch(command->groupID) {
          case ULTRASONIC_GROUP:

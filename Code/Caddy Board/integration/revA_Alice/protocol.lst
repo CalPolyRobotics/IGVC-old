@@ -734,117 +734,111 @@
  748 03ba 8983      		std Y+1,r24
  749 03bc 7C83      		std Y+4,r23
  750 03be 6B83      		std Y+3,r22
- 116:protocol.c    ****    if(commandIntegCheck(command)) {
+ 116:protocol.c    ****    response->size = 6;
  752               	.LM46:
- 753 03c0 8981      		ldd r24,Y+1
- 754 03c2 9A81      		ldd r25,Y+2
- 755 03c4 0E94 0000 		call commandIntegCheck
- 756 03c8 8823      		tst r24
- 757 03ca 01F0      		breq .L47
- 117:protocol.c    ****       switch(command->groupID) {
- 759               	.LM47:
- 760 03cc E981      		ldd r30,Y+1
- 761 03ce FA81      		ldd r31,Y+2
- 762 03d0 8081      		ld r24,Z
- 763 03d2 9927      		clr r25
- 764 03d4 87FD      		sbrc r24,7
- 765 03d6 9095      		com r25
- 766 03d8 8130      		cpi r24,1
- 767 03da 9105      		cpc r25,__zero_reg__
- 768 03dc 01F4      		brne .L48
- 769               	.L49:
- 118:protocol.c    ****          case ULTRASONIC_GROUP:
- 119:protocol.c    ****             processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payl
- 771               	.LM48:
- 772 03de E981      		ldd r30,Y+1
- 773 03e0 FA81      		ldd r31,Y+2
- 774 03e2 E181      		ldd r30,Z+1
- 775 03e4 8981      		ldd r24,Y+1
- 776 03e6 9A81      		ldd r25,Y+2
- 777 03e8 BC01      		movw r22,r24
- 778 03ea 6D5F      		subi r22,lo8(-(3))
- 779 03ec 7F4F      		sbci r23,hi8(-(3))
- 780 03ee 8B81      		ldd r24,Y+3
- 781 03f0 9C81      		ldd r25,Y+4
- 782 03f2 AC01      		movw r20,r24
- 783 03f4 4F5F      		subi r20,lo8(-(1))
- 784 03f6 5F4F      		sbci r21,hi8(-(1))
- 785 03f8 8B81      		ldd r24,Y+3
- 786 03fa 9C81      		ldd r25,Y+4
- 787 03fc 9C01      		movw r18,r24
- 788 03fe 2E5F      		subi r18,lo8(-(2))
- 789 0400 3F4F      		sbci r19,hi8(-(2))
- 790 0402 8E2F      		mov r24,r30
- 791 0404 0E94 0000 		call processUltrasonicCommand
- 792               	.L48:
- 120:protocol.c    ****             break;
- 121:protocol.c    ****          case SPEED_GROUP:
- 122:protocol.c    ****             /*do speed things*/
- 123:protocol.c    ****             break;
- 124:protocol.c    ****          case STEERING_GROUP:
- 125:protocol.c    ****             /*do steering things*/
- 126:protocol.c    ****             break;
- 127:protocol.c    ****          case FNR_GROUP:
- 128:protocol.c    ****             /*do FRN things*/
- 129:protocol.c    ****             break;
- 130:protocol.c    ****          case BRAKES_GROUP:
- 131:protocol.c    ****             /*do brakes things*/
- 132:protocol.c    ****             break;
- 133:protocol.c    ****          case BATTERY_GROUP:
- 134:protocol.c    ****             /*do battery things*/
- 135:protocol.c    ****             break;
- 136:protocol.c    ****          case LIGHTS_GROUP:
- 137:protocol.c    ****             /*do light things*/
- 138:protocol.c    ****             break;
- 139:protocol.c    ****          case ERROR_GROUP:
- 140:protocol.c    ****             /*do error things*/
- 141:protocol.c    ****             break;
- 142:protocol.c    ****       }
- 143:protocol.c    ****       //return a dummy success for now
- 144:protocol.c    ****       return 1;
- 794               	.LM49:
- 795 0408 81E0      		ldi r24,lo8(1)
- 796 040a 8D83      		std Y+5,r24
- 797 040c 00C0      		rjmp .L50
- 798               	.L47:
- 145:protocol.c    ****    } else {
- 146:protocol.c    ****       return 0;
- 800               	.LM50:
- 801 040e 1D82      		std Y+5,__zero_reg__
- 802               	.L50:
- 803 0410 8D81      		ldd r24,Y+5
- 804               	/* epilogue start */
- 147:protocol.c    ****    }
- 148:protocol.c    **** }
- 806               	.LM51:
- 807 0412 0F90      		pop __tmp_reg__
- 808 0414 0F90      		pop __tmp_reg__
- 809 0416 0F90      		pop __tmp_reg__
- 810 0418 0F90      		pop __tmp_reg__
- 811 041a 0F90      		pop __tmp_reg__
- 812 041c CF91      		pop r28
- 813 041e DF91      		pop r29
- 814 0420 0895      		ret
- 816               	.Lscope9:
- 818               		.stabd	78,0,0
- 820               	.Letext0:
+ 753 03c0 EB81      		ldd r30,Y+3
+ 754 03c2 FC81      		ldd r31,Y+4
+ 755 03c4 86E0      		ldi r24,lo8(6)
+ 756 03c6 8183      		std Z+1,r24
+ 117:protocol.c    ****    response->payload[0] = 0;
+ 758               	.LM47:
+ 759 03c8 EB81      		ldd r30,Y+3
+ 760 03ca FC81      		ldd r31,Y+4
+ 761 03cc 1282      		std Z+2,__zero_reg__
+ 118:protocol.c    ****    response->payload[1] = 2;
+ 763               	.LM48:
+ 764 03ce EB81      		ldd r30,Y+3
+ 765 03d0 FC81      		ldd r31,Y+4
+ 766 03d2 82E0      		ldi r24,lo8(2)
+ 767 03d4 8383      		std Z+3,r24
+ 119:protocol.c    ****    response->payload[2] = 4;
+ 769               	.LM49:
+ 770 03d6 EB81      		ldd r30,Y+3
+ 771 03d8 FC81      		ldd r31,Y+4
+ 772 03da 84E0      		ldi r24,lo8(4)
+ 773 03dc 8483      		std Z+4,r24
+ 120:protocol.c    ****    response->payload[3] = 6;
+ 775               	.LM50:
+ 776 03de EB81      		ldd r30,Y+3
+ 777 03e0 FC81      		ldd r31,Y+4
+ 778 03e2 86E0      		ldi r24,lo8(6)
+ 779 03e4 8583      		std Z+5,r24
+ 121:protocol.c    ****    response->payload[4] = 8;
+ 781               	.LM51:
+ 782 03e6 EB81      		ldd r30,Y+3
+ 783 03e8 FC81      		ldd r31,Y+4
+ 784 03ea 88E0      		ldi r24,lo8(8)
+ 785 03ec 8683      		std Z+6,r24
+ 122:protocol.c    ****    response->payload[5] = 10;
+ 787               	.LM52:
+ 788 03ee EB81      		ldd r30,Y+3
+ 789 03f0 FC81      		ldd r31,Y+4
+ 790 03f2 8AE0      		ldi r24,lo8(10)
+ 791 03f4 8783      		std Z+7,r24
+ 792               	/* epilogue start */
+ 123:protocol.c    ****    return;
+ 124:protocol.c    ****    if(commandIntegCheck(command)) {
+ 125:protocol.c    ****       switch(command->groupID) {
+ 126:protocol.c    ****          case ULTRASONIC_GROUP:
+ 127:protocol.c    ****             processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payl
+ 128:protocol.c    ****             break;
+ 129:protocol.c    ****          case SPEED_GROUP:
+ 130:protocol.c    ****             /*do speed things*/
+ 131:protocol.c    ****             break;
+ 132:protocol.c    ****          case STEERING_GROUP:
+ 133:protocol.c    ****             /*do steering things*/
+ 134:protocol.c    ****             break;
+ 135:protocol.c    ****          case FNR_GROUP:
+ 136:protocol.c    ****             /*do FRN things*/
+ 137:protocol.c    ****             break;
+ 138:protocol.c    ****          case BRAKES_GROUP:
+ 139:protocol.c    ****             /*do brakes things*/
+ 140:protocol.c    ****             break;
+ 141:protocol.c    ****          case BATTERY_GROUP:
+ 142:protocol.c    ****             /*do battery things*/
+ 143:protocol.c    ****             break;
+ 144:protocol.c    ****          case LIGHTS_GROUP:
+ 145:protocol.c    ****             /*do light things*/
+ 146:protocol.c    ****             break;
+ 147:protocol.c    ****          case ERROR_GROUP:
+ 148:protocol.c    ****             /*do error things*/
+ 149:protocol.c    ****             break;
+ 150:protocol.c    ****       }
+ 151:protocol.c    ****       //return a dummy success for now
+ 152:protocol.c    ****       return 1;
+ 153:protocol.c    ****    } else {
+ 154:protocol.c    ****       return 0;
+ 155:protocol.c    ****    }
+ 156:protocol.c    **** }
+ 794               	.LM53:
+ 795 03f6 0F90      		pop __tmp_reg__
+ 796 03f8 0F90      		pop __tmp_reg__
+ 797 03fa 0F90      		pop __tmp_reg__
+ 798 03fc 0F90      		pop __tmp_reg__
+ 799 03fe 0F90      		pop __tmp_reg__
+ 800 0400 CF91      		pop r28
+ 801 0402 DF91      		pop r29
+ 802 0404 0895      		ret
+ 804               	.Lscope9:
+ 806               		.stabd	78,0,0
+ 808               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 protocol.c
-     /tmp/cctvcmSO.s:2      *ABS*:0000003f __SREG__
-     /tmp/cctvcmSO.s:3      *ABS*:0000003e __SP_H__
-     /tmp/cctvcmSO.s:4      *ABS*:0000003d __SP_L__
-     /tmp/cctvcmSO.s:5      *ABS*:00000034 __CCP__
-     /tmp/cctvcmSO.s:6      *ABS*:00000000 __tmp_reg__
-     /tmp/cctvcmSO.s:7      *ABS*:00000001 __zero_reg__
-     /tmp/cctvcmSO.s:38     .text:00000000 commandIntegCheck
-     /tmp/cctvcmSO.s:75     .text:0000001c processUltrasonicCommand
-     /tmp/cctvcmSO.s:183    .text:000000b2 processSpeedCommand
-     /tmp/cctvcmSO.s:267    .text:00000120 processSteeringCommand
-     /tmp/cctvcmSO.s:436    .text:0000022a processFNRCommand
-     /tmp/cctvcmSO.s:517    .text:00000296 processBrakeCommand
-     /tmp/cctvcmSO.s:598    .text:00000302 processBatteryCommand
-     /tmp/cctvcmSO.s:675    .text:00000366 processLightCommand
-     /tmp/cctvcmSO.s:733    .text:000003aa processCommand
+     /tmp/ccdfVQPL.s:2      *ABS*:0000003f __SREG__
+     /tmp/ccdfVQPL.s:3      *ABS*:0000003e __SP_H__
+     /tmp/ccdfVQPL.s:4      *ABS*:0000003d __SP_L__
+     /tmp/ccdfVQPL.s:5      *ABS*:00000034 __CCP__
+     /tmp/ccdfVQPL.s:6      *ABS*:00000000 __tmp_reg__
+     /tmp/ccdfVQPL.s:7      *ABS*:00000001 __zero_reg__
+     /tmp/ccdfVQPL.s:38     .text:00000000 commandIntegCheck
+     /tmp/ccdfVQPL.s:75     .text:0000001c processUltrasonicCommand
+     /tmp/ccdfVQPL.s:183    .text:000000b2 processSpeedCommand
+     /tmp/ccdfVQPL.s:267    .text:00000120 processSteeringCommand
+     /tmp/ccdfVQPL.s:436    .text:0000022a processFNRCommand
+     /tmp/ccdfVQPL.s:517    .text:00000296 processBrakeCommand
+     /tmp/ccdfVQPL.s:598    .text:00000302 processBatteryCommand
+     /tmp/ccdfVQPL.s:675    .text:00000366 processLightCommand
+     /tmp/ccdfVQPL.s:733    .text:000003aa processCommand
 
 UNDEFINED SYMBOLS
 getAllSensors

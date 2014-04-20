@@ -24,7 +24,7 @@ void vTaskUSARTRead(void *param);
 uint8_t calcChecksum(uint8_t* buffer,uint8_t size);
 void sendACK();
 void sendNACK();
-char waitForChecksum();
+char waitForAck();
 
 void USART_LogChar(uint8_t data);
 void USART_LogString(char* str);

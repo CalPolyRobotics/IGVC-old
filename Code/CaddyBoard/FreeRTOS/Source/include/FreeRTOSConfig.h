@@ -74,7 +74,7 @@
 
 #if defined(__AVR_ATmega640__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega2561__)
 	#define portUSE_TIMER3											// portUSE_TIMER3 to use 16 bit Timer3
-    #define configTICK_RATE_HZ		( ( portTickType ) 2000 )		// Use 500Hz for TIMER3
+    #define configTICK_RATE_HZ		( ( portTickType ) 500 )		// Use 500Hz for TIMER3
                                                                     // Use 1000Hz to get mSec timing.
 
 //	#define configCPU_CLOCK_HZ		( ( uint32_t ) F_CPU)			// This define set by Eclipse environment

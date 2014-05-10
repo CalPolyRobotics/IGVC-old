@@ -1,4 +1,5 @@
 //FNR controller functions
+#include <avr/io.h>
 
 //set the FNR controller, inputs are either -1, 0, or 1.
 char setFNR(char FNR) {

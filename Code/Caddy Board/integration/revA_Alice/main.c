@@ -19,8 +19,13 @@
 #include "usart.h"
 #include "Components/Sonar/Sonar.h"
 #include "queue.h"
+#include "spi.h"
+#include "Components/Speed/Speed.h"
 
 void vTaskFunction_1(void *pvParameters);
+void vTaskFunction_2(void *pvParameters);
+void vTaskFunction_3(void *pvParameters);
+void vTaskPot(void *pvParameters);
 void vIO_init(void);
 void vApplicationTickHook();
 void printNum(unsigned char i);
@@ -66,7 +71,14 @@ int main( void )
 	//- Create a 
 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
-    
+   /*xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );
+   xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );
+	xTaskCreate( (pdTASK_CODE) vTaskPot, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );*/
+
+ 
    xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
 
@@ -127,34 +139,68 @@ unsigned int getTimerCount2(){
 
 void vTaskFunction_1(void *pvParameters)
 {	
-    USART_Init(9600, 16000000);
-    for(;;);
-	//static const char* str = "Hello World\n";
-	//for(;;){
-		//PORTB = 0;
-
-		//USART_TransmitString("Hello World!\n");
-	//	USART_AddToQueue('I');
-		//USART_TransmitString("H\n");
-	//	vTaskDelay(25);
-	//}
-	/*for(;;){
-		printNum(getTimerCount2());
-		USART_Write('\n');
-	}*/
-
-    for (;;)  {
-//        PORTB ^=  0xff;j
-		//PCMSK2 = 1;
-    	printNum(getSonarData(0));
-		USART_AddToQueue(' ');
-		//printNum(getSonarData(1));
-		//USART_Write('\n');
-      	vTaskDelay(25);
-        /* Get and return received data from buffer */
-        // UDR0;
-    }
+   USART_Init(9600, 16000000);
+	for(;;);
+	for(;;){
+		PORTL = 0x10;
+		vTaskDelay(200);
+		PORTL = 0x20;
+		vTaskDelay(200);
+		PORTL = 0x40;
+		vTaskDelay(200);
+		PORTL = 0x80;
+		vTaskDelay(200);
+	}
 }
+
+void vTaskFunction_2(void *pvParameters){
+	DDRA = ~(1 << 3);
+	PORTA |= 3;
+	for(;;){
+		PORTA &= ~3;
+		vTaskDelay(200); 
+		PORTA &= ~3;
+		PORTA |= 1;
+		vTaskDelay(200); 
+		PORTA &= ~3;
+		PORTA |= 2;
+		vTaskDelay(200);
+	}	
+}
+
+void vTaskFunction_3(void *pvParameters){
+
+	for(;;){
+		if(PINA & 0x08){
+			PORTA |= 0x80;
+		} else {
+			PORTA &= ~0x80;
+		}
+	}
+
+}
+
+void vTaskPot(void *pvParameters){
+	initializeSPI();
+	int a = 0;
+	initSpeedController();
+	/*for(;;){
+		setPot(a);
+		vTaskDelay(80);
+		a++;
+	}*/
+	for(;;){
+		setPot(1);
+		vTaskDelay(500);
+		setPot(0x40);
+		vTaskDelay(500);
+		setPot(0x7F);
+		vTaskDelay(500);
+		setPot(0x40);
+		vTaskDelay(500);
+	}
+}
+
 
 void vIO_init(void)
 {

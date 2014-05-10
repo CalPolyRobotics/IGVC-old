@@ -55,7 +55,7 @@ DEMO_DIR = ../Common/Minimal
 SOURCE_DIR = ../../FreeRTOS/Source  
 PORT_DIR = ../../Source/portable/GCC/ATMega323
 
-SRC	= \
+SRC = \
 main.c \
 $(RTOS_SOURCE)/tasks.c \
 $(RTOS_SOURCE)/queue.c \
@@ -72,7 +72,8 @@ Components/FNR/FNR.c \
 Components/Lights/Lights.c \
 Components/Sonar/Sonar.c \
 Components/Speed/Speed.c \
-Components/Steering/Steering.c
+Components/Steering/Steering.c \
+spi.c
 
 
 # If there is more than one source file, append them above, or modify and
@@ -171,15 +172,15 @@ LDFLAGS += -lm
 # Type: avrdude -c ?
 # to get a full listing.
 #
-AVRDUDE_PROGRAMMER =avrispmkII
+AVRDUDE_PROGRAMMER = avrispmkII 
 
-AVRDUDE_PORT = /dev/ttyACM2	   # programmer connected to serial device
+AVRDUDE_PORT = /dev/ttyACM0	   # programmer connected to serial device
 #AVRDUDE_PORT = lpt1	# programmer connected to parallel port
 
 AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
 #AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
 
-AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
+AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)  -V
 
 # Uncomment the following if you want avrdude's erase cycle counter.
 # Note that this counter needs to be initialized first using -Yn,

@@ -20,8 +20,10 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-
 #include "usart.h"
+
+#define NACK_BYTE 0 
+#define ACK_BYTE	128
 
 xQueueHandle USART_WriteQueue;
 xQueueHandle USART_ReadQueue;
@@ -183,95 +185,128 @@ uint8_t USART_GetChar(){
     }
 }
 
+void delay(int a){
+	int i;
+	for(i = 0;i < a;i++);
+}
+
+void sendACK(){
+    USART_Write(ACK_BYTE);
+}
+
+void sendNACK(){
+    USART_Write(NACK_BYTE);
+}
+
+int recievePayload(int size,unsigned char *buffer){
+
+	int bytesRecieved = 0;
+	int numTries = 0;
+	const int maxNumTries = 3;
+	unsigned char data;
+	int timeout;
+
+	while(numTries < maxNumTries){
+		PORTB = 0;
+		while(bytesRecieved < size){
+			timeout = 50;
+			while ( !(UCSR2A & (1<<RXC2)) ){
+  				timeout--;
+     			if(timeout == 0){
+					PORTB &= ~0x80;
+					return -1;
+     			}
+     			vTaskDelay(1);
+   		}
+			data = UDR2;
+			buffer[bytesRecieved] = data;
+			bytesRecieved++;
+			PORTB = bytesRecieved << 4;
+		}
+		
+		timeout = 50;
+		while ( !(UCSR2A & (1<<RXC2)) ){
+  			timeout--;
+     		if(timeout == 0){
+				PORTB &= ~0x80;
+				return -1;
+     		}
+     		vTaskDelay(1);
+   	}	
+		data = UDR2;
+		PORTB = (bytesRecieved + 1) << 4;
+		if(data != calcChecksum(buffer,size)){
+			sendNACK();
+			numTries++;
+		} else {
+			sendACK();
+			return 0;
+		}
+	}
+	return -1;
+}
+
 void vTaskUSARTRead(void *pvParameters){
 
     char bytesRecieved;
     uint8_t rxData;
     uint8_t data;
-    uint8_t buffer[8];
-    char size;
+    uint8_t buffer[16];
+    unsigned char size;
     char groupID;
     char cmd;
     unsigned int timeout;
 
+	DDRB = 0xFF;
     PORTB = 0;
-
-    /*while(1){
-        while ( !(UCSR2A & (1<<RXC2)) );
-        PORTB = 0x10;
-        //USART_AddToQueue(UDR2);
-        USART_Write(UDR2);
-    }*/
-
-    /*while(1){
-        USART_AddToQueue(USART_GetChar());
-//        USART_AddToQueue(0x96);
-        vTaskDelay(1);
-    }*/
 
     Command command;
     Response response;
     while(1){
         bytesRecieved = 0;
-        int timeout = 7000;
-        PORTB = 0x00;
+        int timeout = 30;
         while(bytesRecieved < 4){
             
             while ( !(UCSR2A & (1<<RXC2)) ){
                 timeout--;
                 if(timeout == 0){
                     bytesRecieved = 0;
-                    timeout = 7000;
+							PORTB &= ~0x80;
+                    timeout = 30;
                 }
                 vTaskDelay(1);
             }
             data = UDR2;
             buffer[bytesRecieved] = data;
             bytesRecieved++;        
+				//PORTB &= ~0x30;
+				PORTB |= bytesRecieved << 4;
             
         }
 
-        //if(calcChecksum(buffer,3) != buffer[3]){
-        //    sendNACK();
-        //    bytesRecieved = 0;
-        //} else {
+        if(calcChecksum(buffer,3) != buffer[3]){
+            sendNACK();
+            bytesRecieved = 0;
+        } else {
             PORTB |= 0x10;
             sendACK();
             bytesRecieved = 0;
-            buffer[2] = 6;
-            /*if(size != 0){
-                while(1) {
-                    while((bytesRecieved < size+1) && (timeout < 50)){  //1 for crc
-                        if(UCSR1A & (1<<RXC1)){
-                            rxData = UDR1;
+				command.groupID = buffer[0];
+				command.cmd = buffer[1];
+				size = buffer[2];
 
-                            //PORTB = 0xFF;
-                        //if(xQueueReceive(USART_ReadQueue,&rxData,portMAX_DELAY) == pdTRUE){
-                            buffer[bytesRecieved] = rxData;
-                            bytesRecieved++;
-                        } else {
-                            //timeout++;
-                            timeout = 1;
-                        }
-                    } 
-                    if(timeout >= 50){
-                        break;
-                    }
-                    if(calcChecksum(buffer,size) != buffer[size]){
-                        sendNACK();
-                        bytesRecieved = 0;
-                    } else {
-                        //PORTB = buffer[0];
-                        sendACK();
-                        memcpy(command.payload,buffer,size);
-                        break;
-                    }
-                }
-            }*/
+				/*if(size > 0){ //No dynamic memory allocations. 16 is the size of the buffer
+					
+					if(recievePayload(buffer,size) == -1){
+						continue;	//Restart comms
+					}
+				}*/
+           
+ 
             processCommand(&command,&response);
             sendResponse(&response);
 
-        //}
+        }
 
     }
 
@@ -280,37 +315,44 @@ void vTaskUSARTRead(void *pvParameters){
 int sendResponse(Response* response){
     char checksumBuffer[2];
     int i;
-    int timeout = 1500;
+    int timeout = 50;
     while(1){
-        PORTB = 0x20;
-        USART_Write(response->commandBack);
-        USART_Write(response->size);
-        checksumBuffer[0] = response->commandBack;
-        checksumBuffer[1] = response->size;
-        USART_Write(calcChecksum(checksumBuffer,2));
-        switch(waitForAck()){
-        case 1:
-            goto outOfWhile;
-        case -1:
-            return -1;
-        case 0:
-            timeout--;
-            if(!timeout){
-                return -1;
-            }
-        }
+        	PORTB = 0x20;
+        	USART_Write(response->commandBack);
+			PORTB = 0x10;
+			vTaskDelay(1);
+        	USART_Write(response->size);
+			PORTB = 0x20;
+			vTaskDelay(1);
+        	checksumBuffer[0] = response->commandBack;
+        	checksumBuffer[1] = response->size;
+        	USART_Write(calcChecksum(checksumBuffer,2));
+			PORTB = 0x30;
+        	switch(waitForAck()){
+        	case 1:
+           	goto outOfWhile;
+        	case -1:
+           	return -1;
+        	case 0:
+           	timeout--;
+           	if(!timeout){
+              	return -1;
+           	}
+        	}
     }
 
     outOfWhile:
 
-    PORTB = 0x30;
+    PORTB = 0;
 
     for(i=0;i<response->size;i++){
         USART_Write(response->payload[i]);
-        //USART_AddToQueue(0x30 | (i + 2));
+			vTaskDelay(1);
+		  //USART_AddToQueue(0x30 | (i + 2));
         //USART_AddToQueue()
     }
-    USART_Write(calcChecksum(response->payload,response->size));
+    USART_Write(calcChecksum((uint8_t*)response->payload,response->size));
+	 
 
     waitForAck();
 
@@ -318,23 +360,15 @@ int sendResponse(Response* response){
 
 }
 
-void sendACK(){
-    USART_Write(128);
-}
-
-void sendNACK(){
-    USART_Write(80);
-}
-
 char waitForAck(){
-    int timeout = 1500;
+    int timeout = 5000;
     while ( !(UCSR2A & (1<<RXC2)) ){
         timeout--;
         if(!timeout){
             return -1;
         }
     }
-    if(UDR2 == 128){
+    if(UDR2 == ACK_BYTE){
         return 1;
     } else {
         return 0;

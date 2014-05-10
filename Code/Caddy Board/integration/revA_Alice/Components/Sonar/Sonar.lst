@@ -471,7 +471,7 @@
  572 021c 9A81      		ldd r25,Y+2
  573 021e 622F      		mov r22,r18
  574 0220 0E94 0000 		call setSonarData
-  91:Components/Sonar/Sonar.c ****       for(i=0;i<2;i++){
+  91:Components/Sonar/Sonar.c ****          currSonar = i;
  576               	.LM40:
  577 0224 8981      		ldd r24,Y+1
  578 0226 9A81      		ldd r25,Y+2
@@ -479,7 +479,7 @@
  580 022a 9A83      		std Y+2,r25
  581 022c 8983      		std Y+1,r24
  582               	.L13:
-  91:Components/Sonar/Sonar.c ****       for(i=0;i<2;i++){
+  91:Components/Sonar/Sonar.c ****          currSonar = i;
  584               	.LM41:
  585 022e 8981      		ldd r24,Y+1
  586 0230 9A81      		ldd r25,Y+2
@@ -538,7 +538,7 @@
  641 0268 FC01      		movw r30,r24
  642 026a 3183      		std Z+1,r19
  643 026c 2083      		st Z,r18
- 103:Components/Sonar/Sonar.c ****    for(i=0;i<6;i++){
+ 103:Components/Sonar/Sonar.c ****       //responseData[i] = getSonarData(i);
  645               	.LM46:
  646 026e 8981      		ldd r24,Y+1
  647 0270 9A81      		ldd r25,Y+2
@@ -546,7 +546,7 @@
  649 0274 9A83      		std Y+2,r25
  650 0276 8983      		std Y+1,r24
  651               	.L17:
- 103:Components/Sonar/Sonar.c ****    for(i=0;i<6;i++){
+ 103:Components/Sonar/Sonar.c ****       //responseData[i] = getSonarData(i);
  653               	.LM47:
  654 0278 8981      		ldd r24,Y+1
  655 027a 9A81      		ldd r25,Y+2
@@ -783,26 +783,26 @@
  899               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Sonar.c
-     /tmp/cclV6VEa.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cclV6VEa.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cclV6VEa.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cclV6VEa.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cclV6VEa.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cclV6VEa.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc0MRA2Y.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc0MRA2Y.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc0MRA2Y.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc0MRA2Y.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/cc0MRA2Y.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc0MRA2Y.s:7      *ABS*:0000000000000001 __zero_reg__
                             *COM*:0000000000000002 sonarSemaphore
                             *COM*:000000000000000c sonarDataMutex
                             *COM*:0000000000000006 sonarData
                             *COM*:0000000000000001 currSonar
-     /tmp/cclV6VEa.s:141    .bss:0000000000000000 lastSonarData
-     /tmp/cclV6VEa.s:149    .text:0000000000000000 setSonarData
-     /tmp/cclV6VEa.s:192    .text:000000000000002a getSonarData
-     /tmp/cclV6VEa.s:228    .text:0000000000000048 getTimerCount
-     /tmp/cclV6VEa.s:260    .text:000000000000005e __vector_11
-     /tmp/cclV6VEa.s:407    .text:000000000000013c initializeSonarSensors
-     /tmp/cclV6VEa.s:485    .text:0000000000000190 vTaskSonar
-     /tmp/cclV6VEa.s:604    .text:000000000000023a getAllSensors
-     /tmp/cclV6VEa.s:681    .text:0000000000000290 getCertainSensor
-     /tmp/cclV6VEa.s:749    .text:00000000000002e6 getSensorGroup
+     /tmp/cc0MRA2Y.s:141    .bss:0000000000000000 lastSonarData
+     /tmp/cc0MRA2Y.s:149    .text:0000000000000000 setSonarData
+     /tmp/cc0MRA2Y.s:192    .text:000000000000002a getSonarData
+     /tmp/cc0MRA2Y.s:228    .text:0000000000000048 getTimerCount
+     /tmp/cc0MRA2Y.s:260    .text:000000000000005e __vector_11
+     /tmp/cc0MRA2Y.s:407    .text:000000000000013c initializeSonarSensors
+     /tmp/cc0MRA2Y.s:485    .text:0000000000000190 vTaskSonar
+     /tmp/cc0MRA2Y.s:604    .text:000000000000023a getAllSensors
+     /tmp/cc0MRA2Y.s:681    .text:0000000000000290 getCertainSensor
+     /tmp/cc0MRA2Y.s:749    .text:00000000000002e6 getSensorGroup
 
 UNDEFINED SYMBOLS
 xQueueGenericSendFromISR

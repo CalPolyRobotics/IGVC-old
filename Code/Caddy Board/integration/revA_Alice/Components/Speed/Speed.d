@@ -1,1 +1,1 @@
-Speed.o Speed.d : Components/Speed/Speed.c
+Speed.o Speed.d : Components/Speed/Speed.c spi.h

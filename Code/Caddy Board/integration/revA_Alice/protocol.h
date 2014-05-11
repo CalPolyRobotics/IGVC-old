@@ -56,11 +56,11 @@ struct command {
    char payload[MAX_PAYLOAD_SIZE];
 };
 
-struct response {
+typedef struct response {
    char commandBack;
    char size;
    char payload[MAX_PAYLOAD_SIZE];
-};
+} Response;
 
 typedef struct command Command;
 typedef struct response Response;

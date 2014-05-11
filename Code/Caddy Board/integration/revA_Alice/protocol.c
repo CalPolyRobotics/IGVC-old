@@ -100,11 +100,12 @@ char processBatteryCommand(char commandCode, void* commandData, void* responseDa
    }
 }
 
-char processLightCommand(char commandCode, void* commandData, void* responseDate) {
+char processLightCommand(char commandCode, void* commandData, Response* responseData) {
+	responseData->size = 0;
    switch(commandCode) {
-      case SET_LIGHT:
-	 setLight(*((char*)commandData));
-         break;
+   case SET_LIGHT:
+	 	setLight(*((char*)commandData));
+      break;
    }
 }
 
@@ -113,41 +114,33 @@ char processLightCommand(char commandCode, void* commandData, void* responseDate
 //Function that will take in a command (as char array) and process it into a
 //correct response to be stored into response
 char processCommand(Command *command, Response *response) {
-	response->size = 2;
 	response->commandBack = command->cmd;
-	response->payload[0] = 0xF;
-	response->payload[1] = 9;
-	return 1;
-   if(commandIntegCheck(command)) {
-      switch(command->groupID) {
-         case ULTRASONIC_GROUP:
-            processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payload);
-            break;
-         case SPEED_GROUP:
-            /*do speed things*/
-            break;
-         case STEERING_GROUP:
-            /*do steering things*/
-            break;
-         case FNR_GROUP:
-            /*do FRN things*/
-            break;
-         case BRAKES_GROUP:
-            /*do brakes things*/
-            break;
-         case BATTERY_GROUP:
-            /*do battery things*/
-            break;
-         case LIGHTS_GROUP:
-				processLightCommand(command->cmd,command->payload,response);
-            break;
-         case ERROR_GROUP:
-            /*do error things*/
-            break;
-      }
-      //return a dummy success for now
-      return 1;
-   } else {
-      return 0;
+   switch(command->groupID) {
+      case ULTRASONIC_GROUP:
+         processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payload);
+         break;
+      case SPEED_GROUP:
+         /*do speed things*/
+         break;
+      case STEERING_GROUP:
+         /*do steering things*/
+         break;
+      case FNR_GROUP:
+         /*do FRN things*/
+         break;
+      case BRAKES_GROUP:
+         /*do brakes things*/
+         break;
+      case BATTERY_GROUP:
+         /*do battery things*/
+         break;
+      case LIGHTS_GROUP:
+	      processLightCommand(command->cmd,command->payload,response);
+         break;
+      case ERROR_GROUP:
+         /*do error things*/
+         break;
    }
+   //return a dummy success for now
+   return 1;
 }

@@ -2,8 +2,9 @@
 #include <avr/io.h>
 
 //turn lights on and off
-char setLight(char lightTarget) {
+char setLight(unsigned char lightTarget) {
    //dummy function, nothing happens
+	//PORTB ^= 0x80;
 	if(lightTarget == 1){
 		PORTB |= 0x80;
 	} else {

@@ -120,7 +120,6 @@ ISR(USART1_RX_vect){
     data = UDR1;
 
     //while(!(UCSR1A & (1<<UDRE1)));
-    PORTB ^= 0x10;
     //UDR1 = data;
     
 
@@ -207,13 +206,11 @@ int recievePayload(int size,unsigned char *buffer){
 	int timeout;
 
 	while(numTries < maxNumTries){
-		PORTB = 0;
 		while(bytesRecieved < size){
 			timeout = 50;
 			while ( !(UCSR2A & (1<<RXC2)) ){
   				timeout--;
      			if(timeout == 0){
-					PORTB &= ~0x80;
 					return -1;
      			}
      			vTaskDelay(1);
@@ -221,20 +218,17 @@ int recievePayload(int size,unsigned char *buffer){
 			data = UDR2;
 			buffer[bytesRecieved] = data;
 			bytesRecieved++;
-			PORTB = bytesRecieved << 4;
 		}
 		
 		timeout = 50;
 		while ( !(UCSR2A & (1<<RXC2)) ){
   			timeout--;
      		if(timeout == 0){
-				PORTB &= ~0x80;
 				return -1;
      		}
      		vTaskDelay(1);
    	}	
 		data = UDR2;
-		PORTB = (bytesRecieved + 1) << 4;
 		if(data != calcChecksum(buffer,size)){
 			sendNACK();
 			numTries++;
@@ -258,7 +252,6 @@ void vTaskUSARTRead(void *pvParameters){
     unsigned int timeout;
 
 	DDRB = 0xFF;
-    PORTB = 0;
 
     Command command;
     Response response;
@@ -271,7 +264,6 @@ void vTaskUSARTRead(void *pvParameters){
                 timeout--;
                 if(timeout == 0){
                     bytesRecieved = 0;
-							PORTB &= ~0x80;
                     timeout = 30;
                 }
                 vTaskDelay(1);
@@ -279,29 +271,24 @@ void vTaskUSARTRead(void *pvParameters){
             data = UDR2;
             buffer[bytesRecieved] = data;
             bytesRecieved++;        
-				//PORTB &= ~0x30;
-				PORTB |= bytesRecieved << 4;
-            
         }
 
         if(calcChecksum(buffer,3) != buffer[3]){
             sendNACK();
             bytesRecieved = 0;
         } else {
-            PORTB |= 0x10;
             sendACK();
             bytesRecieved = 0;
 				command.groupID = buffer[0];
 				command.cmd = buffer[1];
 				size = buffer[2];
 
-				/*if(size > 0){ //No dynamic memory allocations. 16 is the size of the buffer
-					
-					if(recievePayload(buffer,size) == -1){
+				if(size > 0){ //No dynamic memory allocations. 16 is the size of the buffer
+					if(recievePayload(size,command.payload) == -1){
 						continue;	//Restart comms
 					}
-				}*/
-           
+				}
+				
  
             processCommand(&command,&response);
             sendResponse(&response);
@@ -317,17 +304,13 @@ int sendResponse(Response* response){
     int i;
     int timeout = 50;
     while(1){
-        	PORTB = 0x20;
         	USART_Write(response->commandBack);
-			PORTB = 0x10;
 			vTaskDelay(1);
         	USART_Write(response->size);
-			PORTB = 0x20;
 			vTaskDelay(1);
         	checksumBuffer[0] = response->commandBack;
         	checksumBuffer[1] = response->size;
         	USART_Write(calcChecksum(checksumBuffer,2));
-			PORTB = 0x30;
         	switch(waitForAck()){
         	case 1:
            	goto outOfWhile;
@@ -343,7 +326,6 @@ int sendResponse(Response* response){
 
     outOfWhile:
 
-    PORTB = 0;
 
     for(i=0;i<response->size;i++){
         USART_Write(response->payload[i]);

@@ -59,7 +59,7 @@ int main( void )
 	val1 = val + 1;
     
 	DDRA = 0xF7;
-	PORTA = 0;
+	//PORTA = 0;
 	DDRD = 0xFF;
 	DDRE = 0xFF;
 	DDRB = 0xFF; 
@@ -75,7 +75,7 @@ int main( void )
 	//- Create a 
 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
-   xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+   xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
@@ -149,12 +149,12 @@ unsigned int getTimerCount2(){
 int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x){
 	int value;	
 	if(x < sonarMin){
-		return 0;
+		return potMin;
 	} else if (x > sonarMax){
-		return 0x7F;
+		return potMax;
 	} else {
-		value = x / 4;
-		return value > potMax?potMax:value;
+		value = x / 4 - 140;
+		return value > potMax?potMax:value < potMin?potMin:value;
 	}
 } 
 
@@ -166,18 +166,18 @@ void vTaskFunction_1(void *pvParameters)
 	int sonarMax = 0x31C;
 	int sonarMin = 0xE0;
 	int potMin = 0x18;
-	int potMax = 0x7F;
+	int potMax = 0x40;;
 	int backwardSwitch = 0xE1;
 	int forwardSwitch = 0x160;
 
-	
+	PORTA = 4;
 
    USART_Init(9600, 16000000);
+
 
 	initializeSPI();
 	initSpeedController();
 	
-	PORTA |= 4;
 	
 	//PORTC = 0x2;
 	setFNR(1);
@@ -186,17 +186,17 @@ void vTaskFunction_1(void *pvParameters)
 
 		sonarResult = getSonarResult();
 		if(movingForward == 1){
-			if(sonarResult < backwardSwitch && sonarResult < 0x300){
+			if(sonarResult < backwardSwitch) {
 				movingForward = -1;
 				setFNR(-1);
 			}
 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
 		} else {
-			if(sonarResult > forwardSwitch && sonarResult < 0x300){
+			if(sonarResult > forwardSwitch ){
 				movingForward = 1;
 				setFNR(1);
 			}
-			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult) + 0x10);
+			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
 		}
 		printHex(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
 		USART_Write('\n');
@@ -217,24 +217,12 @@ void vTaskFunction_1(void *pvParameters)
 }
 
 void vTaskFunction_2(void *pvParameters){
-	DDRL = 0xC0;
+	DDRL = 0xF0;
+	PORTL = 0;
 	for(;;){
 		PORTL ^= 0xC0;
 		vTaskDelay(300);
 	}	
-}
-
-void vTaskFunction_3(void *pvParameters){
-	
-	/*for(;;){
-		if(PINA & 0x08){
-			PORTA |= 0x84;
-		} else {
-			PORTA &= ~0x84;
-		}
-		vTaskDelay(5);
-	}*/
-
 }
 
 void vTaskPot(void *pvParameters){

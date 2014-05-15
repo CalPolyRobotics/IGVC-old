@@ -89,306 +89,341 @@
  173 0056 2160      		ori r18,lo8(1)
  174 0058 FC01      		movw r30,r24
  175 005a 2083      		st Z,r18
- 176               	/* epilogue start */
-  18:Components/FNR/FNR.c **** }
- 178               	.LM7:
- 179 005c DF91      		pop r29
- 180 005e CF91      		pop r28
- 181 0060 0895      		ret
- 183               	.Lscope1:
- 185               		.stabd	78,0,0
- 187               	.global	FNRReverse
- 189               	FNRReverse:
- 190               		.stabd	46,0,0
-  19:Components/FNR/FNR.c **** 
-  20:Components/FNR/FNR.c **** void FNRReverse(){
- 192               	.LM8:
- 193               	.LFBB2:
- 194 0062 CF93      		push r28
- 195 0064 DF93      		push r29
- 196 0066 CDB7      		in r28,__SP_L__
- 197 0068 DEB7      		in r29,__SP_H__
- 198               	/* prologue: function */
- 199               	/* frame size = 0 */
- 200               	/* stack size = 2 */
- 201               	.L__stack_usage = 2
-  21:Components/FNR/FNR.c **** 	clearABit(0);
+  18:Components/FNR/FNR.c **** 
+  19:Components/FNR/FNR.c **** 	PORTL &= ~0x30;
+ 177               	.LM7:
+ 178 005c 8BE0      		ldi r24,lo8(11)
+ 179 005e 91E0      		ldi r25,lo8(1)
+ 180 0060 2BE0      		ldi r18,lo8(11)
+ 181 0062 31E0      		ldi r19,lo8(1)
+ 182 0064 F901      		movw r30,r18
+ 183 0066 2081      		ld r18,Z
+ 184 0068 2F7C      		andi r18,lo8(-49)
+ 185 006a FC01      		movw r30,r24
+ 186 006c 2083      		st Z,r18
+ 187               	/* epilogue start */
+  20:Components/FNR/FNR.c **** }
+ 189               	.LM8:
+ 190 006e DF91      		pop r29
+ 191 0070 CF91      		pop r28
+ 192 0072 0895      		ret
+ 194               	.Lscope1:
+ 196               		.stabd	78,0,0
+ 198               	.global	FNRReverse
+ 200               	FNRReverse:
+ 201               		.stabd	46,0,0
+  21:Components/FNR/FNR.c **** 
+  22:Components/FNR/FNR.c **** void FNRReverse(){
  203               	.LM9:
- 204 006a 82E2      		ldi r24,lo8(34)
- 205 006c 90E0      		ldi r25,0
- 206 006e 22E2      		ldi r18,lo8(34)
- 207 0070 30E0      		ldi r19,0
- 208 0072 F901      		movw r30,r18
- 209 0074 2081      		ld r18,Z
- 210 0076 2E7F      		andi r18,lo8(-2)
- 211 0078 FC01      		movw r30,r24
- 212 007a 2083      		st Z,r18
-  22:Components/FNR/FNR.c **** 	while((PORTA & 0x1) != 0){
+ 204               	.LFBB2:
+ 205 0074 CF93      		push r28
+ 206 0076 DF93      		push r29
+ 207 0078 CDB7      		in r28,__SP_L__
+ 208 007a DEB7      		in r29,__SP_H__
+ 209               	/* prologue: function */
+ 210               	/* frame size = 0 */
+ 211               	/* stack size = 2 */
+ 212               	.L__stack_usage = 2
+  23:Components/FNR/FNR.c **** 	clearABit(0);
  214               	.LM10:
- 215 007c 00C0      		rjmp .L5
- 216               	.L6:
- 217               	.LBB3:
-  23:Components/FNR/FNR.c **** 		clearABit(0);
- 219               	.LM11:
- 220 007e 82E2      		ldi r24,lo8(34)
- 221 0080 90E0      		ldi r25,0
- 222 0082 22E2      		ldi r18,lo8(34)
- 223 0084 30E0      		ldi r19,0
- 224 0086 F901      		movw r30,r18
- 225 0088 2081      		ld r18,Z
- 226 008a 2E7F      		andi r18,lo8(-2)
- 227 008c FC01      		movw r30,r24
- 228 008e 2083      		st Z,r18
-  24:Components/FNR/FNR.c **** 		vTaskDelay(1);
+ 215 007c 82E2      		ldi r24,lo8(34)
+ 216 007e 90E0      		ldi r25,0
+ 217 0080 22E2      		ldi r18,lo8(34)
+ 218 0082 30E0      		ldi r19,0
+ 219 0084 F901      		movw r30,r18
+ 220 0086 2081      		ld r18,Z
+ 221 0088 2E7F      		andi r18,lo8(-2)
+ 222 008a FC01      		movw r30,r24
+ 223 008c 2083      		st Z,r18
+  24:Components/FNR/FNR.c **** 	while((PORTA & 0x1) != 0){
+ 225               	.LM11:
+ 226 008e 00C0      		rjmp .L5
+ 227               	.L6:
+ 228               	.LBB3:
+  25:Components/FNR/FNR.c **** 		clearABit(0);
  230               	.LM12:
- 231 0090 81E0      		ldi r24,lo8(1)
+ 231 0090 82E2      		ldi r24,lo8(34)
  232 0092 90E0      		ldi r25,0
- 233 0094 0E94 0000 		call vTaskDelay
- 234               	.L5:
- 235               	.LBE3:
-  22:Components/FNR/FNR.c **** 	while((PORTA & 0x1) != 0){
- 237               	.LM13:
- 238 0098 82E2      		ldi r24,lo8(34)
- 239 009a 90E0      		ldi r25,0
- 240 009c FC01      		movw r30,r24
- 241 009e 8081      		ld r24,Z
- 242 00a0 882F      		mov r24,r24
- 243 00a2 90E0      		ldi r25,0
- 244 00a4 8170      		andi r24,1
- 245 00a6 9927      		clr r25
- 246 00a8 0097      		sbiw r24,0
- 247 00aa 01F4      		brne .L6
-  25:Components/FNR/FNR.c **** 	}
-  26:Components/FNR/FNR.c **** 	setABit(1);
- 249               	.LM14:
- 250 00ac 82E2      		ldi r24,lo8(34)
- 251 00ae 90E0      		ldi r25,0
- 252 00b0 22E2      		ldi r18,lo8(34)
- 253 00b2 30E0      		ldi r19,0
- 254 00b4 F901      		movw r30,r18
- 255 00b6 2081      		ld r18,Z
- 256 00b8 2260      		ori r18,lo8(2)
- 257 00ba FC01      		movw r30,r24
- 258 00bc 2083      		st Z,r18
- 259               	/* epilogue start */
-  27:Components/FNR/FNR.c **** }
- 261               	.LM15:
- 262 00be DF91      		pop r29
- 263 00c0 CF91      		pop r28
- 264 00c2 0895      		ret
- 266               	.Lscope2:
- 268               		.stabd	78,0,0
- 270               	.global	FNRNeutral
- 272               	FNRNeutral:
- 273               		.stabd	46,0,0
-  28:Components/FNR/FNR.c **** 
-  29:Components/FNR/FNR.c **** void FNRNeutral(){
- 275               	.LM16:
- 276               	.LFBB3:
- 277 00c4 CF93      		push r28
- 278 00c6 DF93      		push r29
- 279 00c8 CDB7      		in r28,__SP_L__
- 280 00ca DEB7      		in r29,__SP_H__
- 281               	/* prologue: function */
- 282               	/* frame size = 0 */
- 283               	/* stack size = 2 */
- 284               	.L__stack_usage = 2
-  30:Components/FNR/FNR.c **** 	clearABit(0);
- 286               	.LM17:
- 287 00cc 82E2      		ldi r24,lo8(34)
- 288 00ce 90E0      		ldi r25,0
- 289 00d0 22E2      		ldi r18,lo8(34)
- 290 00d2 30E0      		ldi r19,0
- 291 00d4 F901      		movw r30,r18
- 292 00d6 2081      		ld r18,Z
- 293 00d8 2E7F      		andi r18,lo8(-2)
- 294 00da FC01      		movw r30,r24
- 295 00dc 2083      		st Z,r18
-  31:Components/FNR/FNR.c **** 	clearABit(1);
+ 233 0094 22E2      		ldi r18,lo8(34)
+ 234 0096 30E0      		ldi r19,0
+ 235 0098 F901      		movw r30,r18
+ 236 009a 2081      		ld r18,Z
+ 237 009c 2E7F      		andi r18,lo8(-2)
+ 238 009e FC01      		movw r30,r24
+ 239 00a0 2083      		st Z,r18
+  26:Components/FNR/FNR.c **** 		vTaskDelay(1);
+ 241               	.LM13:
+ 242 00a2 81E0      		ldi r24,lo8(1)
+ 243 00a4 90E0      		ldi r25,0
+ 244 00a6 0E94 0000 		call vTaskDelay
+ 245               	.L5:
+ 246               	.LBE3:
+  24:Components/FNR/FNR.c **** 	while((PORTA & 0x1) != 0){
+ 248               	.LM14:
+ 249 00aa 82E2      		ldi r24,lo8(34)
+ 250 00ac 90E0      		ldi r25,0
+ 251 00ae FC01      		movw r30,r24
+ 252 00b0 8081      		ld r24,Z
+ 253 00b2 882F      		mov r24,r24
+ 254 00b4 90E0      		ldi r25,0
+ 255 00b6 8170      		andi r24,1
+ 256 00b8 9927      		clr r25
+ 257 00ba 0097      		sbiw r24,0
+ 258 00bc 01F4      		brne .L6
+  27:Components/FNR/FNR.c **** 	}
+  28:Components/FNR/FNR.c **** 	setABit(1);
+ 260               	.LM15:
+ 261 00be 82E2      		ldi r24,lo8(34)
+ 262 00c0 90E0      		ldi r25,0
+ 263 00c2 22E2      		ldi r18,lo8(34)
+ 264 00c4 30E0      		ldi r19,0
+ 265 00c6 F901      		movw r30,r18
+ 266 00c8 2081      		ld r18,Z
+ 267 00ca 2260      		ori r18,lo8(2)
+ 268 00cc FC01      		movw r30,r24
+ 269 00ce 2083      		st Z,r18
+  29:Components/FNR/FNR.c **** 
+  30:Components/FNR/FNR.c **** 	PORTL |= 0x30;
+ 271               	.LM16:
+ 272 00d0 8BE0      		ldi r24,lo8(11)
+ 273 00d2 91E0      		ldi r25,lo8(1)
+ 274 00d4 2BE0      		ldi r18,lo8(11)
+ 275 00d6 31E0      		ldi r19,lo8(1)
+ 276 00d8 F901      		movw r30,r18
+ 277 00da 2081      		ld r18,Z
+ 278 00dc 2063      		ori r18,lo8(48)
+ 279 00de FC01      		movw r30,r24
+ 280 00e0 2083      		st Z,r18
+ 281               	/* epilogue start */
+  31:Components/FNR/FNR.c **** }
+ 283               	.LM17:
+ 284 00e2 DF91      		pop r29
+ 285 00e4 CF91      		pop r28
+ 286 00e6 0895      		ret
+ 288               	.Lscope2:
+ 290               		.stabd	78,0,0
+ 292               	.global	FNRNeutral
+ 294               	FNRNeutral:
+ 295               		.stabd	46,0,0
+  32:Components/FNR/FNR.c **** 
+  33:Components/FNR/FNR.c **** void FNRNeutral(){
  297               	.LM18:
- 298 00de 82E2      		ldi r24,lo8(34)
- 299 00e0 90E0      		ldi r25,0
- 300 00e2 22E2      		ldi r18,lo8(34)
- 301 00e4 30E0      		ldi r19,0
- 302 00e6 F901      		movw r30,r18
- 303 00e8 2081      		ld r18,Z
- 304 00ea 2D7F      		andi r18,lo8(-3)
- 305 00ec FC01      		movw r30,r24
- 306 00ee 2083      		st Z,r18
-  32:Components/FNR/FNR.c **** 	while((PORTA & 0x3) != 0){
+ 298               	.LFBB3:
+ 299 00e8 CF93      		push r28
+ 300 00ea DF93      		push r29
+ 301 00ec CDB7      		in r28,__SP_L__
+ 302 00ee DEB7      		in r29,__SP_H__
+ 303               	/* prologue: function */
+ 304               	/* frame size = 0 */
+ 305               	/* stack size = 2 */
+ 306               	.L__stack_usage = 2
+  34:Components/FNR/FNR.c **** 	clearABit(0);
  308               	.LM19:
- 309 00f0 00C0      		rjmp .L8
- 310               	.L9:
- 311               	.LBB4:
-  33:Components/FNR/FNR.c **** 		clearABit(0);
- 313               	.LM20:
- 314 00f2 82E2      		ldi r24,lo8(34)
- 315 00f4 90E0      		ldi r25,0
- 316 00f6 22E2      		ldi r18,lo8(34)
- 317 00f8 30E0      		ldi r19,0
- 318 00fa F901      		movw r30,r18
- 319 00fc 2081      		ld r18,Z
- 320 00fe 2E7F      		andi r18,lo8(-2)
- 321 0100 FC01      		movw r30,r24
- 322 0102 2083      		st Z,r18
-  34:Components/FNR/FNR.c **** 		clearABit(1);
- 324               	.LM21:
- 325 0104 82E2      		ldi r24,lo8(34)
- 326 0106 90E0      		ldi r25,0
- 327 0108 22E2      		ldi r18,lo8(34)
- 328 010a 30E0      		ldi r19,0
- 329 010c F901      		movw r30,r18
- 330 010e 2081      		ld r18,Z
- 331 0110 2D7F      		andi r18,lo8(-3)
- 332 0112 FC01      		movw r30,r24
- 333 0114 2083      		st Z,r18
-  35:Components/FNR/FNR.c **** 		vTaskDelay(1);
+ 309 00f0 82E2      		ldi r24,lo8(34)
+ 310 00f2 90E0      		ldi r25,0
+ 311 00f4 22E2      		ldi r18,lo8(34)
+ 312 00f6 30E0      		ldi r19,0
+ 313 00f8 F901      		movw r30,r18
+ 314 00fa 2081      		ld r18,Z
+ 315 00fc 2E7F      		andi r18,lo8(-2)
+ 316 00fe FC01      		movw r30,r24
+ 317 0100 2083      		st Z,r18
+  35:Components/FNR/FNR.c **** 	clearABit(1);
+ 319               	.LM20:
+ 320 0102 82E2      		ldi r24,lo8(34)
+ 321 0104 90E0      		ldi r25,0
+ 322 0106 22E2      		ldi r18,lo8(34)
+ 323 0108 30E0      		ldi r19,0
+ 324 010a F901      		movw r30,r18
+ 325 010c 2081      		ld r18,Z
+ 326 010e 2D7F      		andi r18,lo8(-3)
+ 327 0110 FC01      		movw r30,r24
+ 328 0112 2083      		st Z,r18
+  36:Components/FNR/FNR.c **** 	while((PORTA & 0x3) != 0){
+ 330               	.LM21:
+ 331 0114 00C0      		rjmp .L8
+ 332               	.L9:
+ 333               	.LBB4:
+  37:Components/FNR/FNR.c **** 		clearABit(0);
  335               	.LM22:
- 336 0116 81E0      		ldi r24,lo8(1)
+ 336 0116 82E2      		ldi r24,lo8(34)
  337 0118 90E0      		ldi r25,0
- 338 011a 0E94 0000 		call vTaskDelay
- 339               	.L8:
- 340               	.LBE4:
-  32:Components/FNR/FNR.c **** 		clearABit(0);
- 342               	.LM23:
- 343 011e 82E2      		ldi r24,lo8(34)
- 344 0120 90E0      		ldi r25,0
- 345 0122 FC01      		movw r30,r24
- 346 0124 8081      		ld r24,Z
- 347 0126 882F      		mov r24,r24
- 348 0128 90E0      		ldi r25,0
- 349 012a 8370      		andi r24,3
- 350 012c 9927      		clr r25
- 351 012e 0097      		sbiw r24,0
- 352 0130 01F4      		brne .L9
- 353               	/* epilogue start */
-  36:Components/FNR/FNR.c **** 	}
-  37:Components/FNR/FNR.c **** }
- 355               	.LM24:
- 356 0132 DF91      		pop r29
- 357 0134 CF91      		pop r28
- 358 0136 0895      		ret
- 360               	.Lscope3:
- 362               		.stabd	78,0,0
- 365               	.global	setFNR
- 367               	setFNR:
- 368               		.stabd	46,0,0
-  38:Components/FNR/FNR.c **** 
-  39:Components/FNR/FNR.c **** //set the FNR controller, inputs are either -1, 0, or 1.
-  40:Components/FNR/FNR.c **** char setFNR(char FNR) {
- 370               	.LM25:
- 371               	.LFBB4:
- 372 0138 CF93      		push r28
- 373 013a DF93      		push r29
- 374 013c 1F92      		push __zero_reg__
- 375 013e CDB7      		in r28,__SP_L__
- 376 0140 DEB7      		in r29,__SP_H__
- 377               	/* prologue: function */
- 378               	/* frame size = 1 */
- 379               	/* stack size = 3 */
- 380               	.L__stack_usage = 3
- 381 0142 8983      		std Y+1,r24
-  41:Components/FNR/FNR.c ****    //dummy function, nothing happens
-  42:Components/FNR/FNR.c ****    //return success
-  43:Components/FNR/FNR.c **** 	if(FNR == 0){
- 383               	.LM26:
- 384 0144 8981      		ldd r24,Y+1
- 385 0146 8823      		tst r24
- 386 0148 01F4      		brne .L11
-  44:Components/FNR/FNR.c **** 		FNRNeutral();
+ 338 011a 22E2      		ldi r18,lo8(34)
+ 339 011c 30E0      		ldi r19,0
+ 340 011e F901      		movw r30,r18
+ 341 0120 2081      		ld r18,Z
+ 342 0122 2E7F      		andi r18,lo8(-2)
+ 343 0124 FC01      		movw r30,r24
+ 344 0126 2083      		st Z,r18
+  38:Components/FNR/FNR.c **** 		clearABit(1);
+ 346               	.LM23:
+ 347 0128 82E2      		ldi r24,lo8(34)
+ 348 012a 90E0      		ldi r25,0
+ 349 012c 22E2      		ldi r18,lo8(34)
+ 350 012e 30E0      		ldi r19,0
+ 351 0130 F901      		movw r30,r18
+ 352 0132 2081      		ld r18,Z
+ 353 0134 2D7F      		andi r18,lo8(-3)
+ 354 0136 FC01      		movw r30,r24
+ 355 0138 2083      		st Z,r18
+  39:Components/FNR/FNR.c **** 		vTaskDelay(1);
+ 357               	.LM24:
+ 358 013a 81E0      		ldi r24,lo8(1)
+ 359 013c 90E0      		ldi r25,0
+ 360 013e 0E94 0000 		call vTaskDelay
+ 361               	.L8:
+ 362               	.LBE4:
+  36:Components/FNR/FNR.c **** 		clearABit(0);
+ 364               	.LM25:
+ 365 0142 82E2      		ldi r24,lo8(34)
+ 366 0144 90E0      		ldi r25,0
+ 367 0146 FC01      		movw r30,r24
+ 368 0148 8081      		ld r24,Z
+ 369 014a 882F      		mov r24,r24
+ 370 014c 90E0      		ldi r25,0
+ 371 014e 8370      		andi r24,3
+ 372 0150 9927      		clr r25
+ 373 0152 0097      		sbiw r24,0
+ 374 0154 01F4      		brne .L9
+  40:Components/FNR/FNR.c **** 	}
+  41:Components/FNR/FNR.c **** 	PORTL &= ~0x30;
+ 376               	.LM26:
+ 377 0156 8BE0      		ldi r24,lo8(11)
+ 378 0158 91E0      		ldi r25,lo8(1)
+ 379 015a 2BE0      		ldi r18,lo8(11)
+ 380 015c 31E0      		ldi r19,lo8(1)
+ 381 015e F901      		movw r30,r18
+ 382 0160 2081      		ld r18,Z
+ 383 0162 2F7C      		andi r18,lo8(-49)
+ 384 0164 FC01      		movw r30,r24
+ 385 0166 2083      		st Z,r18
+ 386               	/* epilogue start */
+  42:Components/FNR/FNR.c **** }
  388               	.LM27:
- 389 014a 0E94 0000 		call FNRNeutral
- 390 014e 00C0      		rjmp .L12
- 391               	.L11:
-  45:Components/FNR/FNR.c **** 	} else if(FNR == 1){
- 393               	.LM28:
- 394 0150 8981      		ldd r24,Y+1
- 395 0152 8130      		cpi r24,lo8(1)
- 396 0154 01F4      		brne .L13
-  46:Components/FNR/FNR.c **** 		FNRForward();
- 398               	.LM29:
- 399 0156 0E94 0000 		call FNRForward
- 400 015a 00C0      		rjmp .L12
- 401               	.L13:
-  47:Components/FNR/FNR.c **** 	} else if(FNR == -1){
- 403               	.LM30:
- 404 015c 8981      		ldd r24,Y+1
- 405 015e 8F3F      		cpi r24,lo8(-1)
- 406 0160 01F4      		brne .L12
-  48:Components/FNR/FNR.c **** 		FNRReverse();
- 408               	.LM31:
- 409 0162 0E94 0000 		call FNRReverse
- 410               	.L12:
-  49:Components/FNR/FNR.c **** 	}
-  50:Components/FNR/FNR.c **** 
-  51:Components/FNR/FNR.c ****    return 1;
- 412               	.LM32:
- 413 0166 81E0      		ldi r24,lo8(1)
- 414               	/* epilogue start */
-  52:Components/FNR/FNR.c **** }
- 416               	.LM33:
- 417 0168 0F90      		pop __tmp_reg__
- 418 016a DF91      		pop r29
- 419 016c CF91      		pop r28
- 420 016e 0895      		ret
- 422               	.Lscope4:
- 424               		.stabd	78,0,0
- 427               	.global	getFNR
- 429               	getFNR:
- 430               		.stabd	46,0,0
-  53:Components/FNR/FNR.c **** 
-  54:Components/FNR/FNR.c **** //get the current FNR state. Function follows same format for consistancy
-  55:Components/FNR/FNR.c **** char getFNR(char *sensorResponse) {
- 432               	.LM34:
- 433               	.LFBB5:
- 434 0170 CF93      		push r28
- 435 0172 DF93      		push r29
- 436 0174 1F92      		push __zero_reg__
- 437 0176 1F92      		push __zero_reg__
- 438 0178 CDB7      		in r28,__SP_L__
- 439 017a DEB7      		in r29,__SP_H__
- 440               	/* prologue: function */
- 441               	/* frame size = 2 */
- 442               	/* stack size = 4 */
- 443               	.L__stack_usage = 4
- 444 017c 9A83      		std Y+2,r25
- 445 017e 8983      		std Y+1,r24
-  56:Components/FNR/FNR.c ****    //fake reading
-  57:Components/FNR/FNR.c ****    *sensorResponse = 0;
- 447               	.LM35:
- 448 0180 8981      		ldd r24,Y+1
- 449 0182 9A81      		ldd r25,Y+2
- 450 0184 FC01      		movw r30,r24
- 451 0186 1082      		st Z,__zero_reg__
-  58:Components/FNR/FNR.c ****    //return success
-  59:Components/FNR/FNR.c ****    return 1;
- 453               	.LM36:
- 454 0188 81E0      		ldi r24,lo8(1)
- 455               	/* epilogue start */
-  60:Components/FNR/FNR.c **** }
- 457               	.LM37:
- 458 018a 0F90      		pop __tmp_reg__
- 459 018c 0F90      		pop __tmp_reg__
- 460 018e DF91      		pop r29
- 461 0190 CF91      		pop r28
- 462 0192 0895      		ret
- 464               	.Lscope5:
- 466               		.stabd	78,0,0
- 468               	.Letext0:
- 469               		.ident	"GCC: (GNU) 4.8.2"
+ 389 0168 DF91      		pop r29
+ 390 016a CF91      		pop r28
+ 391 016c 0895      		ret
+ 393               	.Lscope3:
+ 395               		.stabd	78,0,0
+ 398               	.global	setFNR
+ 400               	setFNR:
+ 401               		.stabd	46,0,0
+  43:Components/FNR/FNR.c **** 
+  44:Components/FNR/FNR.c **** //set the FNR controller, inputs are either -1, 0, or 1.
+  45:Components/FNR/FNR.c **** char setFNR(char FNR) {
+ 403               	.LM28:
+ 404               	.LFBB4:
+ 405 016e CF93      		push r28
+ 406 0170 DF93      		push r29
+ 407 0172 1F92      		push __zero_reg__
+ 408 0174 CDB7      		in r28,__SP_L__
+ 409 0176 DEB7      		in r29,__SP_H__
+ 410               	/* prologue: function */
+ 411               	/* frame size = 1 */
+ 412               	/* stack size = 3 */
+ 413               	.L__stack_usage = 3
+ 414 0178 8983      		std Y+1,r24
+  46:Components/FNR/FNR.c ****    //dummy function, nothing happens
+  47:Components/FNR/FNR.c ****    //return success
+  48:Components/FNR/FNR.c **** 	if(FNR == 0){
+ 416               	.LM29:
+ 417 017a 8981      		ldd r24,Y+1
+ 418 017c 8823      		tst r24
+ 419 017e 01F4      		brne .L11
+  49:Components/FNR/FNR.c **** 		FNRNeutral();
+ 421               	.LM30:
+ 422 0180 0E94 0000 		call FNRNeutral
+ 423 0184 00C0      		rjmp .L12
+ 424               	.L11:
+  50:Components/FNR/FNR.c **** 	} else if(FNR == 1){
+ 426               	.LM31:
+ 427 0186 8981      		ldd r24,Y+1
+ 428 0188 8130      		cpi r24,lo8(1)
+ 429 018a 01F4      		brne .L13
+  51:Components/FNR/FNR.c **** 		FNRForward();
+ 431               	.LM32:
+ 432 018c 0E94 0000 		call FNRForward
+ 433 0190 00C0      		rjmp .L12
+ 434               	.L13:
+  52:Components/FNR/FNR.c **** 	} else if(FNR == -1){
+ 436               	.LM33:
+ 437 0192 8981      		ldd r24,Y+1
+ 438 0194 8F3F      		cpi r24,lo8(-1)
+ 439 0196 01F4      		brne .L12
+  53:Components/FNR/FNR.c **** 		FNRReverse();
+ 441               	.LM34:
+ 442 0198 0E94 0000 		call FNRReverse
+ 443               	.L12:
+  54:Components/FNR/FNR.c **** 	}
+  55:Components/FNR/FNR.c **** 
+  56:Components/FNR/FNR.c ****    return 1;
+ 445               	.LM35:
+ 446 019c 81E0      		ldi r24,lo8(1)
+ 447               	/* epilogue start */
+  57:Components/FNR/FNR.c **** }
+ 449               	.LM36:
+ 450 019e 0F90      		pop __tmp_reg__
+ 451 01a0 DF91      		pop r29
+ 452 01a2 CF91      		pop r28
+ 453 01a4 0895      		ret
+ 455               	.Lscope4:
+ 457               		.stabd	78,0,0
+ 460               	.global	getFNR
+ 462               	getFNR:
+ 463               		.stabd	46,0,0
+  58:Components/FNR/FNR.c **** 
+  59:Components/FNR/FNR.c **** //get the current FNR state. Function follows same format for consistancy
+  60:Components/FNR/FNR.c **** char getFNR(char *sensorResponse) {
+ 465               	.LM37:
+ 466               	.LFBB5:
+ 467 01a6 CF93      		push r28
+ 468 01a8 DF93      		push r29
+ 469 01aa 1F92      		push __zero_reg__
+ 470 01ac 1F92      		push __zero_reg__
+ 471 01ae CDB7      		in r28,__SP_L__
+ 472 01b0 DEB7      		in r29,__SP_H__
+ 473               	/* prologue: function */
+ 474               	/* frame size = 2 */
+ 475               	/* stack size = 4 */
+ 476               	.L__stack_usage = 4
+ 477 01b2 9A83      		std Y+2,r25
+ 478 01b4 8983      		std Y+1,r24
+  61:Components/FNR/FNR.c ****    //fake reading
+  62:Components/FNR/FNR.c ****    *sensorResponse = 0;
+ 480               	.LM38:
+ 481 01b6 8981      		ldd r24,Y+1
+ 482 01b8 9A81      		ldd r25,Y+2
+ 483 01ba FC01      		movw r30,r24
+ 484 01bc 1082      		st Z,__zero_reg__
+  63:Components/FNR/FNR.c ****    //return success
+  64:Components/FNR/FNR.c ****    return 1;
+ 486               	.LM39:
+ 487 01be 81E0      		ldi r24,lo8(1)
+ 488               	/* epilogue start */
+  65:Components/FNR/FNR.c **** }
+ 490               	.LM40:
+ 491 01c0 0F90      		pop __tmp_reg__
+ 492 01c2 0F90      		pop __tmp_reg__
+ 493 01c4 DF91      		pop r29
+ 494 01c6 CF91      		pop r28
+ 495 01c8 0895      		ret
+ 497               	.Lscope5:
+ 499               		.stabd	78,0,0
+ 501               	.Letext0:
+ 502               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 FNR.c
-     /tmp/cc25QgPG.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cc25QgPG.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cc25QgPG.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cc25QgPG.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cc25QgPG.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cc25QgPG.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cc25QgPG.s:106    .text:0000000000000000 FNRForward
-     /tmp/cc25QgPG.s:189    .text:0000000000000062 FNRReverse
-     /tmp/cc25QgPG.s:272    .text:00000000000000c4 FNRNeutral
-     /tmp/cc25QgPG.s:367    .text:0000000000000138 setFNR
-     /tmp/cc25QgPG.s:429    .text:0000000000000170 getFNR
+     /tmp/ccWGDJYU.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccWGDJYU.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccWGDJYU.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccWGDJYU.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccWGDJYU.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccWGDJYU.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccWGDJYU.s:106    .text:0000000000000000 FNRForward
+     /tmp/ccWGDJYU.s:200    .text:0000000000000074 FNRReverse
+     /tmp/ccWGDJYU.s:294    .text:00000000000000e8 FNRNeutral
+     /tmp/ccWGDJYU.s:400    .text:000000000000016e setFNR
+     /tmp/ccWGDJYU.s:462    .text:00000000000001a6 getFNR
 
 UNDEFINED SYMBOLS
 vTaskDelay

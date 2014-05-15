@@ -95,42 +95,42 @@
   48:usart.c       ****     //UBRR1H = (unsigned char)(ubrr>>8) ;// & 0x7F;
   49:usart.c       ****     //UBRR1L = (unsigned char)ubrr;
   50:usart.c       ****     
-  51:usart.c       ****     UBRR2H = 0; //115200
+  51:usart.c       ****     UBRR0H = 0; //115200
  184               	.LM3:
- 185 003c 85ED      		ldi r24,lo8(-43)
+ 185 003c 85EC      		ldi r24,lo8(-59)
  186 003e 90E0      		ldi r25,0
  187 0040 FC01      		movw r30,r24
  188 0042 1082      		st Z,__zero_reg__
-  52:usart.c       ****     UBRR2L = 8;
+  52:usart.c       ****     UBRR0L = 8;
  190               	.LM4:
- 191 0044 84ED      		ldi r24,lo8(-44)
+ 191 0044 84EC      		ldi r24,lo8(-60)
  192 0046 90E0      		ldi r25,0
  193 0048 28E0      		ldi r18,lo8(8)
  194 004a FC01      		movw r30,r24
  195 004c 2083      		st Z,r18
   53:usart.c       **** 
   54:usart.c       ****     /* Enable receiver and transmitter */
-  55:usart.c       ****     UCSR2B = (1<<RXEN2)|(1<<TXEN2);//|(1<<RXCIE1);
+  55:usart.c       ****     UCSR0B = (1<<RXEN0)|(1<<TXEN0);//|(1<<RXCIE1);
  197               	.LM5:
- 198 004e 81ED      		ldi r24,lo8(-47)
+ 198 004e 81EC      		ldi r24,lo8(-63)
  199 0050 90E0      		ldi r25,0
  200 0052 28E1      		ldi r18,lo8(24)
  201 0054 FC01      		movw r30,r24
  202 0056 2083      		st Z,r18
   56:usart.c       ****     /* Set frame format: 8data, 1stop bit */
-  57:usart.c       ****     UCSR2C = (1<<UCSZ21)|(1<<UCSZ20);
+  57:usart.c       ****     UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
  204               	.LM6:
- 205 0058 82ED      		ldi r24,lo8(-46)
+ 205 0058 82EC      		ldi r24,lo8(-62)
  206 005a 90E0      		ldi r25,0
  207 005c 26E0      		ldi r18,lo8(6)
  208 005e FC01      		movw r30,r24
  209 0060 2083      		st Z,r18
   58:usart.c       **** 	 // clear U2X0 for Synchronous operation
-  59:usart.c       ****     UCSR2A &= ~(1<<U2X2);
+  59:usart.c       ****     UCSR0A &= ~(1<<U2X0);
  211               	.LM7:
- 212 0062 80ED      		ldi r24,lo8(-48)
+ 212 0062 80EC      		ldi r24,lo8(-64)
  213 0064 90E0      		ldi r25,0
- 214 0066 20ED      		ldi r18,lo8(-48)
+ 214 0066 20EC      		ldi r18,lo8(-64)
  215 0068 30E0      		ldi r19,0
  216 006a F901      		movw r30,r18
  217 006c 2081      		ld r18,Z
@@ -193,12 +193,12 @@
  254               	.L__stack_usage = 3
  255 0090 8983      		std Y+1,r24
   87:usart.c       **** 		/* Wait for empty transmit buffer */
-  88:usart.c       **** 		while ( !( UCSR2A & (1<<UDRE2)) )
+  88:usart.c       **** 		while ( !( UCSR0A & (1<<UDRE0)) )
  257               	.LM10:
  258 0092 0000      		nop
  259               	.L3:
  261               	.LM11:
- 262 0094 80ED      		ldi r24,lo8(-48)
+ 262 0094 80EC      		ldi r24,lo8(-64)
  263 0096 90E0      		ldi r25,0
  264 0098 FC01      		movw r30,r24
  265 009a 8081      		ld r24,Z
@@ -210,9 +210,9 @@
  271 00a6 01F0      		breq .L3
   89:usart.c       **** 		;
   90:usart.c       **** 		/* Put data into buffer, sends the data */
-  91:usart.c       **** 		UDR2 = data;
+  91:usart.c       **** 		UDR0 = data;
  273               	.LM12:
- 274 00a8 86ED      		ldi r24,lo8(-42)
+ 274 00a8 86EC      		ldi r24,lo8(-58)
  275 00aa 90E0      		ldi r25,0
  276 00ac 2981      		ldd r18,Y+1
  277 00ae FC01      		movw r30,r24
@@ -919,7 +919,7 @@
  1005 038e 90E0      		ldi r25,0
  1006 0390 9E83      		std Y+6,r25
  1007 0392 8D83      		std Y+5,r24
- 211:usart.c       **** 			while ( !(UCSR2A & (1<<RXC2)) ){
+ 211:usart.c       **** 			while ( !(UCSR0A & (1<<RXC0)) ){
  1009               	.LM80:
  1010 0394 00C0      		rjmp .L36
  1011               	.L39:
@@ -953,16 +953,16 @@
  1038               	.LBE2:
  211:usart.c       ****   				timeout--;
  1040               	.LM85:
- 1041 03b6 80ED      		ldi r24,lo8(-48)
+ 1041 03b6 80EC      		ldi r24,lo8(-64)
  1042 03b8 90E0      		ldi r25,0
  1043 03ba FC01      		movw r30,r24
  1044 03bc 8081      		ld r24,Z
  1045 03be 8823      		tst r24
  1046 03c0 04F4      		brge .L39
  217:usart.c       ****    		}
- 218:usart.c       **** 			data = UDR2;
+ 218:usart.c       **** 			data = UDR0;
  1048               	.LM86:
- 1049 03c2 86ED      		ldi r24,lo8(-42)
+ 1049 03c2 86EC      		ldi r24,lo8(-58)
  1050 03c4 90E0      		ldi r25,0
  1051 03c6 FC01      		movw r30,r24
  1052 03c8 8081      		ld r24,Z
@@ -1003,7 +1003,7 @@
  1085 03f8 90E0      		ldi r25,0
  1086 03fa 9E83      		std Y+6,r25
  1087 03fc 8D83      		std Y+5,r24
- 224:usart.c       **** 		while ( !(UCSR2A & (1<<RXC2)) ){
+ 224:usart.c       **** 		while ( !(UCSR0A & (1<<RXC0)) ){
  1089               	.LM91:
  1090 03fe 00C0      		rjmp .L41
  1091               	.L43:
@@ -1037,16 +1037,16 @@
  1118               	.LBE3:
  224:usart.c       ****   			timeout--;
  1120               	.LM96:
- 1121 0420 80ED      		ldi r24,lo8(-48)
+ 1121 0420 80EC      		ldi r24,lo8(-64)
  1122 0422 90E0      		ldi r25,0
  1123 0424 FC01      		movw r30,r24
  1124 0426 8081      		ld r24,Z
  1125 0428 8823      		tst r24
  1126 042a 04F4      		brge .L43
  230:usart.c       ****    	}	
- 231:usart.c       **** 		data = UDR2;
+ 231:usart.c       **** 		data = UDR0;
  1128               	.LM97:
- 1129 042c 86ED      		ldi r24,lo8(-42)
+ 1129 042c 86EC      		ldi r24,lo8(-58)
  1130 042e 90E0      		ldi r25,0
  1131 0430 FC01      		movw r30,r24
  1132 0432 8081      		ld r24,Z
@@ -1180,7 +1180,7 @@
  1254 04c0 00C0      		rjmp .L47
  1255               	.L51:
  262:usart.c       ****             
- 263:usart.c       ****             while ( !(UCSR2A & (1<<RXC2)) ){
+ 263:usart.c       ****             while ( !(UCSR0A & (1<<RXC0)) ){
  1257               	.LM111:
  1258 04c2 00C0      		rjmp .L48
  1259               	.L50:
@@ -1218,16 +1218,16 @@
  1290               	.LBE5:
  263:usart.c       ****                 timeout--;
  1292               	.LM117:
- 1293 04e8 80ED      		ldi r24,lo8(-48)
+ 1293 04e8 80EC      		ldi r24,lo8(-64)
  1294 04ea 90E0      		ldi r25,0
  1295 04ec FC01      		movw r30,r24
  1296 04ee 8081      		ld r24,Z
  1297 04f0 8823      		tst r24
  1298 04f2 04F4      		brge .L50
  270:usart.c       ****             }
- 271:usart.c       ****             data = UDR2;
+ 271:usart.c       ****             data = UDR0;
  1300               	.LM118:
- 1301 04f4 86ED      		ldi r24,lo8(-42)
+ 1301 04f4 86EC      		ldi r24,lo8(-58)
  1302 04f6 90E0      		ldi r25,0
  1303 04f8 FC01      		movw r30,r24
  1304 04fa 8081      		ld r24,Z
@@ -1764,35 +1764,35 @@
  1837               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usart.c
-     /tmp/ccKNaTVF.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccKNaTVF.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccKNaTVF.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccKNaTVF.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccKNaTVF.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccKNaTVF.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccvsIq3f.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccvsIq3f.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccvsIq3f.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccvsIq3f.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccvsIq3f.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccvsIq3f.s:7      *ABS*:0000000000000001 __zero_reg__
                             *COM*:0000000000000002 USART_WriteQueue
                             *COM*:0000000000000002 USART_ReadQueue
                             *COM*:0000000000000002 USART_WriteQueueLog
-     /tmp/ccKNaTVF.s:146    .text:0000000000000000 USART_Init
-     /tmp/ccKNaTVF.s:241    .text:0000000000000086 USART_Write
-     /tmp/ccKNaTVF.s:294    .text:00000000000000ba USART_Write_Unprotected
-     /tmp/ccKNaTVF.s:346    .text:00000000000000ee USART_Read
-     /tmp/ccKNaTVF.s:390    .text:0000000000000112 __vector_36
-     /tmp/ccKNaTVF.s:450    .text:0000000000000160 USART_AddToQueue
-     /tmp/ccKNaTVF.s:491    .text:000000000000018c USART_TransmitString
-     /tmp/ccKNaTVF.s:551    .text:00000000000001ca vTaskUSARTWrite
-     /tmp/ccKNaTVF.s:616    .text:0000000000000212 USART_LogChar
-     /tmp/ccKNaTVF.s:657    .text:000000000000023e USART_LogString
-     /tmp/ccKNaTVF.s:717    .text:000000000000027c vTaskUSARTLog
-     /tmp/ccKNaTVF.s:781    .text:00000000000002c4 USART_GetChar
-     /tmp/ccKNaTVF.s:835    .text:00000000000002f8 delay
-     /tmp/ccKNaTVF.s:895    .text:0000000000000334 sendACK
-     /tmp/ccKNaTVF.s:925    .text:0000000000000348 sendNACK
-     /tmp/ccKNaTVF.s:957    .text:000000000000035c recievePayload
-     /tmp/ccKNaTVF.s:1745   .text:000000000000070a calcChecksum
-     /tmp/ccKNaTVF.s:1208   .text:000000000000048a vTaskUSARTRead
-     /tmp/ccKNaTVF.s:1433   .text:0000000000000590 sendResponse
-     /tmp/ccKNaTVF.s:1657   .text:00000000000006b6 waitForAck
+     /tmp/ccvsIq3f.s:146    .text:0000000000000000 USART_Init
+     /tmp/ccvsIq3f.s:241    .text:0000000000000086 USART_Write
+     /tmp/ccvsIq3f.s:294    .text:00000000000000ba USART_Write_Unprotected
+     /tmp/ccvsIq3f.s:346    .text:00000000000000ee USART_Read
+     /tmp/ccvsIq3f.s:390    .text:0000000000000112 __vector_36
+     /tmp/ccvsIq3f.s:450    .text:0000000000000160 USART_AddToQueue
+     /tmp/ccvsIq3f.s:491    .text:000000000000018c USART_TransmitString
+     /tmp/ccvsIq3f.s:551    .text:00000000000001ca vTaskUSARTWrite
+     /tmp/ccvsIq3f.s:616    .text:0000000000000212 USART_LogChar
+     /tmp/ccvsIq3f.s:657    .text:000000000000023e USART_LogString
+     /tmp/ccvsIq3f.s:717    .text:000000000000027c vTaskUSARTLog
+     /tmp/ccvsIq3f.s:781    .text:00000000000002c4 USART_GetChar
+     /tmp/ccvsIq3f.s:835    .text:00000000000002f8 delay
+     /tmp/ccvsIq3f.s:895    .text:0000000000000334 sendACK
+     /tmp/ccvsIq3f.s:925    .text:0000000000000348 sendNACK
+     /tmp/ccvsIq3f.s:957    .text:000000000000035c recievePayload
+     /tmp/ccvsIq3f.s:1745   .text:000000000000070a calcChecksum
+     /tmp/ccvsIq3f.s:1208   .text:000000000000048a vTaskUSARTRead
+     /tmp/ccvsIq3f.s:1433   .text:0000000000000590 sendResponse
+     /tmp/ccvsIq3f.s:1657   .text:00000000000006b6 waitForAck
 
 UNDEFINED SYMBOLS
 xQueueGenericCreate

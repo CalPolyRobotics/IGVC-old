@@ -203,34 +203,41 @@
  267 00a4 8983      		std Y+1,r24
   34:Components/Speed/Speed.c ****    //nothing done down here
   35:Components/Speed/Speed.c ****    //return success
-  36:Components/Speed/Speed.c ****    return 1;
+  36:Components/Speed/Speed.c **** 	setPot(speedTarget);
  269               	.LM19:
- 270 00a6 81E0      		ldi r24,lo8(1)
- 271               	/* epilogue start */
-  37:Components/Speed/Speed.c **** }
- 273               	.LM20:
- 274 00a8 0F90      		pop __tmp_reg__
- 275 00aa DF91      		pop r29
- 276 00ac CF91      		pop r28
- 277 00ae 0895      		ret
- 279               	.Lscope6:
- 281               		.stabd	78,0,0
- 283               	.Letext0:
- 284               		.ident	"GCC: (GNU) 4.8.2"
+ 270 00a6 8981      		ldd r24,Y+1
+ 271 00a8 9927      		clr r25
+ 272 00aa 87FD      		sbrc r24,7
+ 273 00ac 9095      		com r25
+ 274 00ae 0E94 0000 		call setPot
+  37:Components/Speed/Speed.c ****    return 1;
+ 276               	.LM20:
+ 277 00b2 81E0      		ldi r24,lo8(1)
+ 278               	/* epilogue start */
+  38:Components/Speed/Speed.c **** }
+ 280               	.LM21:
+ 281 00b4 0F90      		pop __tmp_reg__
+ 282 00b6 DF91      		pop r29
+ 283 00b8 CF91      		pop r28
+ 284 00ba 0895      		ret
+ 286               	.Lscope6:
+ 288               		.stabd	78,0,0
+ 290               	.Letext0:
+ 291               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Speed.c
-     /tmp/cckYlLQL.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cckYlLQL.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cckYlLQL.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cckYlLQL.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cckYlLQL.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cckYlLQL.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cckYlLQL.s:63     .text:0000000000000000 initSpeedController
-     /tmp/cckYlLQL.s:95     .text:0000000000000016 setPot
-     /tmp/cckYlLQL.s:148    .text:000000000000004a decrementPot
-     /tmp/cckYlLQL.s:179    .text:0000000000000060 incrementPot
-     /tmp/cckYlLQL.s:211    .text:0000000000000076 getSpeed
-     /tmp/cckYlLQL.s:253    .text:000000000000009a setSpeed
+     /tmp/ccH1oTcU.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccH1oTcU.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccH1oTcU.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccH1oTcU.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccH1oTcU.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccH1oTcU.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccH1oTcU.s:63     .text:0000000000000000 initSpeedController
+     /tmp/ccH1oTcU.s:95     .text:0000000000000016 setPot
+     /tmp/ccH1oTcU.s:148    .text:000000000000004a decrementPot
+     /tmp/ccH1oTcU.s:179    .text:0000000000000060 incrementPot
+     /tmp/ccH1oTcU.s:211    .text:0000000000000076 getSpeed
+     /tmp/ccH1oTcU.s:253    .text:000000000000009a setSpeed
 
 UNDEFINED SYMBOLS
 SPIsendShort

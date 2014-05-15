@@ -48,15 +48,15 @@ void USART_Init(uint16_t baudin, uint32_t clk_speedin) {
     //UBRR1H = (unsigned char)(ubrr>>8) ;// & 0x7F;
     //UBRR1L = (unsigned char)ubrr;
     
-    UBRR2H = 0; //115200
-    UBRR2L = 8;
+    UBRR0H = 0; //115200
+    UBRR0L = 8;
 
     /* Enable receiver and transmitter */
-    UCSR2B = (1<<RXEN2)|(1<<TXEN2);//|(1<<RXCIE1);
+    UCSR0B = (1<<RXEN0)|(1<<TXEN0);//|(1<<RXCIE1);
     /* Set frame format: 8data, 1stop bit */
-    UCSR2C = (1<<UCSZ21)|(1<<UCSZ20);
+    UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
 	 // clear U2X0 for Synchronous operation
-    UCSR2A &= ~(1<<U2X2);
+    UCSR0A &= ~(1<<U2X0);
 
     //UCSR0B |= (1<<UDRIE0);
 
@@ -85,10 +85,10 @@ void USART_Init(uint16_t baudin, uint32_t clk_speedin) {
 /*the send function will put 8bits on the trans line. */
 void USART_Write(uint8_t data) {
 		/* Wait for empty transmit buffer */
-		while ( !( UCSR2A & (1<<UDRE2)) )
+		while ( !( UCSR0A & (1<<UDRE0)) )
 		;
 		/* Put data into buffer, sends the data */
-		UDR2 = data;
+		UDR0 = data;
 }
 
 /*the send function will put 8bits on the trans line. */
@@ -208,27 +208,27 @@ int recievePayload(int size,unsigned char *buffer){
 	while(numTries < maxNumTries){
 		while(bytesRecieved < size){
 			timeout = 50;
-			while ( !(UCSR2A & (1<<RXC2)) ){
+			while ( !(UCSR0A & (1<<RXC0)) ){
   				timeout--;
      			if(timeout == 0){
 					return -1;
      			}
      			vTaskDelay(1);
    		}
-			data = UDR2;
+			data = UDR0;
 			buffer[bytesRecieved] = data;
 			bytesRecieved++;
 		}
 		
 		timeout = 50;
-		while ( !(UCSR2A & (1<<RXC2)) ){
+		while ( !(UCSR0A & (1<<RXC0)) ){
   			timeout--;
      		if(timeout == 0){
 				return -1;
      		}
      		vTaskDelay(1);
    	}	
-		data = UDR2;
+		data = UDR0;
 		if(data != calcChecksum(buffer,size)){
 			sendNACK();
 			numTries++;
@@ -260,7 +260,7 @@ void vTaskUSARTRead(void *pvParameters){
         int timeout = 30;
         while(bytesRecieved < 4){
             
-            while ( !(UCSR2A & (1<<RXC2)) ){
+            while ( !(UCSR0A & (1<<RXC0)) ){
                 timeout--;
                 if(timeout == 0){
                     bytesRecieved = 0;
@@ -268,7 +268,7 @@ void vTaskUSARTRead(void *pvParameters){
                 }
                 vTaskDelay(1);
             }
-            data = UDR2;
+            data = UDR0;
             buffer[bytesRecieved] = data;
             bytesRecieved++;        
         }

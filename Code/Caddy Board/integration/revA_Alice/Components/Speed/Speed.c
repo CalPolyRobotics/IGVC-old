@@ -33,6 +33,7 @@ char getSpeed(char* sensorResponse) {
 char setSpeed(char speedTarget) {
    //nothing done down here
    //return success
+	setPot(speedTarget);
    return 1;
 }
 

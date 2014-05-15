@@ -32,12 +32,13 @@ char processUltrasonicCommand(char commandCode, void* commandData,char* size, vo
    return 1;
 }
 
-char processSpeedCommand(char commandCode, void* commandData, void* responseData) {
+char processSpeedCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case GET_SPEED:
          getSpeed((char*) responseData);
          break;
       case SET_SPEED:
+			responseData->size = 0;
          setSpeed(((char*)commandData)[0]);
          break;
    }
@@ -67,7 +68,8 @@ char processSteeringCommand(char commandCode, void* commandData, void* responseD
    return 1;
 }
 
-char processFNRCommand(char commandCode, void* commandData, void* responseData) {
+char processFNRCommand(char commandCode, void* commandData, Response* responseData) {
+	responseData->size = 0;	
    switch(commandCode) {
       case SET_FNR:
          setFNR(*((char*)commandData));
@@ -120,13 +122,13 @@ char processCommand(Command *command, Response *response) {
          processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payload);
          break;
       case SPEED_GROUP:
-         /*do speed things*/
+			processSpeedCommand(command->cmd,command->payload,response);
          break;
       case STEERING_GROUP:
          /*do steering things*/
          break;
       case FNR_GROUP:
-         /*do FRN things*/
+			processFNRCommand(command->cmd,command->payload,response);
          break;
       case BRAKES_GROUP:
          /*do brakes things*/

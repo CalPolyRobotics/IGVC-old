@@ -199,16 +199,16 @@
  255               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Steering.c
-     /tmp/cc65y63a.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cc65y63a.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cc65y63a.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cc65y63a.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cc65y63a.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cc65y63a.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cc65y63a.s:64     .text:0000000000000000 setAngle
-     /tmp/cc65y63a.s:97     .text:0000000000000016 getAngle
-     /tmp/cc65y63a.s:139    .text:000000000000003a getDesiredAngle
-     /tmp/cc65y63a.s:183    .text:000000000000005e changePID
-     /tmp/cc65y63a.s:221    .text:000000000000007c setLimits
+     /tmp/ccbjGrRa.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccbjGrRa.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccbjGrRa.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccbjGrRa.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccbjGrRa.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccbjGrRa.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccbjGrRa.s:64     .text:0000000000000000 setAngle
+     /tmp/ccbjGrRa.s:97     .text:0000000000000016 getAngle
+     /tmp/ccbjGrRa.s:139    .text:000000000000003a getDesiredAngle
+     /tmp/ccbjGrRa.s:183    .text:000000000000005e changePID
+     /tmp/ccbjGrRa.s:221    .text:000000000000007c setLimits
 
 NO UNDEFINED SYMBOLS

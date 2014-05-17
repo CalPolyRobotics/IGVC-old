@@ -7,237 +7,268 @@
    7               	__zero_reg__ = 1
   10               		.text
   11               	.Ltext0:
-  61               	.global	initSpeedController
-  63               	initSpeedController:
-  64               		.stabd	46,0,0
+ 104               	.global	initSpeedController
+ 106               	initSpeedController:
+ 107               		.stabd	46,0,0
    1:Components/Speed/Speed.c **** //Speed Sensor group
-   2:Components/Speed/Speed.c **** 
+   2:Components/Speed/Speed.c **** #include <avr/io.h>
    3:Components/Speed/Speed.c **** #include "spi.h"
    4:Components/Speed/Speed.c **** 
    5:Components/Speed/Speed.c **** void initSpeedController(){
-  66               	.LM0:
-  67               	.LFBB1:
-  68 0000 CF93      		push r28
-  69 0002 DF93      		push r29
-  70 0004 CDB7      		in r28,__SP_L__
-  71 0006 DEB7      		in r29,__SP_H__
-  72               	/* prologue: function */
-  73               	/* frame size = 0 */
-  74               	/* stack size = 2 */
-  75               	.L__stack_usage = 2
+ 109               	.LM0:
+ 110               	.LFBB1:
+ 111 0000 CF93      		push r28
+ 112 0002 DF93      		push r29
+ 113 0004 CDB7      		in r28,__SP_L__
+ 114 0006 DEB7      		in r29,__SP_H__
+ 115               	/* prologue: function */
+ 116               	/* frame size = 0 */
+ 117               	/* stack size = 2 */
+ 118               	.L__stack_usage = 2
    6:Components/Speed/Speed.c **** 	SPIsendShort(0x400F);
-  77               	.LM1:
-  78 0008 8FE0      		ldi r24,lo8(15)
-  79 000a 90E4      		ldi r25,lo8(64)
-  80 000c 0E94 0000 		call SPIsendShort
-  81               	/* epilogue start */
+ 120               	.LM1:
+ 121 0008 8FE0      		ldi r24,lo8(15)
+ 122 000a 90E4      		ldi r25,lo8(64)
+ 123 000c 0E94 0000 		call SPIsendShort
+ 124               	/* epilogue start */
    7:Components/Speed/Speed.c **** }
-  83               	.LM2:
-  84 0010 DF91      		pop r29
-  85 0012 CF91      		pop r28
-  86 0014 0895      		ret
-  88               	.Lscope1:
-  90               		.stabd	78,0,0
-  93               	.global	setPot
-  95               	setPot:
-  96               		.stabd	46,0,0
+ 126               	.LM2:
+ 127 0010 DF91      		pop r29
+ 128 0012 CF91      		pop r28
+ 129 0014 0895      		ret
+ 131               	.Lscope1:
+ 133               		.stabd	78,0,0
+ 136               	.global	setPot
+ 138               	setPot:
+ 139               		.stabd	46,0,0
    8:Components/Speed/Speed.c **** 
    9:Components/Speed/Speed.c **** void setPot(int value){
-  98               	.LM3:
-  99               	.LFBB2:
- 100 0016 CF93      		push r28
- 101 0018 DF93      		push r29
- 102 001a 00D0      		rcall .
- 103 001c 1F92      		push __zero_reg__
- 104 001e CDB7      		in r28,__SP_L__
- 105 0020 DEB7      		in r29,__SP_H__
- 106               	/* prologue: function */
- 107               	/* frame size = 4 */
- 108               	/* stack size = 6 */
- 109               	.L__stack_usage = 6
- 110 0022 9C83      		std Y+4,r25
- 111 0024 8B83      		std Y+3,r24
+ 141               	.LM3:
+ 142               	.LFBB2:
+ 143 0016 CF93      		push r28
+ 144 0018 DF93      		push r29
+ 145 001a 00D0      		rcall .
+ 146 001c 1F92      		push __zero_reg__
+ 147 001e CDB7      		in r28,__SP_L__
+ 148 0020 DEB7      		in r29,__SP_H__
+ 149               	/* prologue: function */
+ 150               	/* frame size = 4 */
+ 151               	/* stack size = 6 */
+ 152               	.L__stack_usage = 6
+ 153 0022 9C83      		std Y+4,r25
+ 154 0024 8B83      		std Y+3,r24
   10:Components/Speed/Speed.c **** 	unsigned short data = 0;
- 113               	.LM4:
- 114 0026 1A82      		std Y+2,__zero_reg__
- 115 0028 1982      		std Y+1,__zero_reg__
+ 156               	.LM4:
+ 157 0026 1A82      		std Y+2,__zero_reg__
+ 158 0028 1982      		std Y+1,__zero_reg__
   11:Components/Speed/Speed.c **** 	data = value & 0xFF;
- 117               	.LM5:
- 118 002a 8B81      		ldd r24,Y+3
- 119 002c 9C81      		ldd r25,Y+4
- 120 002e 9927      		clr r25
- 121 0030 9A83      		std Y+2,r25
- 122 0032 8983      		std Y+1,r24
+ 160               	.LM5:
+ 161 002a 8B81      		ldd r24,Y+3
+ 162 002c 9C81      		ldd r25,Y+4
+ 163 002e 9927      		clr r25
+ 164 0030 9A83      		std Y+2,r25
+ 165 0032 8983      		std Y+1,r24
   12:Components/Speed/Speed.c **** 
   13:Components/Speed/Speed.c **** 	SPIsendShort(data);
- 124               	.LM6:
- 125 0034 8981      		ldd r24,Y+1
- 126 0036 9A81      		ldd r25,Y+2
- 127 0038 0E94 0000 		call SPIsendShort
- 128               	/* epilogue start */
+ 167               	.LM6:
+ 168 0034 8981      		ldd r24,Y+1
+ 169 0036 9A81      		ldd r25,Y+2
+ 170 0038 0E94 0000 		call SPIsendShort
+ 171               	/* epilogue start */
   14:Components/Speed/Speed.c **** }
- 130               	.LM7:
- 131 003c 0F90      		pop __tmp_reg__
- 132 003e 0F90      		pop __tmp_reg__
- 133 0040 0F90      		pop __tmp_reg__
- 134 0042 0F90      		pop __tmp_reg__
- 135 0044 DF91      		pop r29
- 136 0046 CF91      		pop r28
- 137 0048 0895      		ret
- 142               	.Lscope2:
- 144               		.stabd	78,0,0
- 146               	.global	decrementPot
- 148               	decrementPot:
- 149               		.stabd	46,0,0
+ 173               	.LM7:
+ 174 003c 0F90      		pop __tmp_reg__
+ 175 003e 0F90      		pop __tmp_reg__
+ 176 0040 0F90      		pop __tmp_reg__
+ 177 0042 0F90      		pop __tmp_reg__
+ 178 0044 DF91      		pop r29
+ 179 0046 CF91      		pop r28
+ 180 0048 0895      		ret
+ 185               	.Lscope2:
+ 187               		.stabd	78,0,0
+ 189               	.global	decrementPot
+ 191               	decrementPot:
+ 192               		.stabd	46,0,0
   15:Components/Speed/Speed.c **** 
   16:Components/Speed/Speed.c **** void decrementPot(){
- 151               	.LM8:
- 152               	.LFBB3:
- 153 004a CF93      		push r28
- 154 004c DF93      		push r29
- 155 004e CDB7      		in r28,__SP_L__
- 156 0050 DEB7      		in r29,__SP_H__
- 157               	/* prologue: function */
- 158               	/* frame size = 0 */
- 159               	/* stack size = 2 */
- 160               	.L__stack_usage = 2
+ 194               	.LM8:
+ 195               	.LFBB3:
+ 196 004a CF93      		push r28
+ 197 004c DF93      		push r29
+ 198 004e CDB7      		in r28,__SP_L__
+ 199 0050 DEB7      		in r29,__SP_H__
+ 200               	/* prologue: function */
+ 201               	/* frame size = 0 */
+ 202               	/* stack size = 2 */
+ 203               	.L__stack_usage = 2
   17:Components/Speed/Speed.c **** 	SPIsendByte(0x06);
- 162               	.LM9:
- 163 0052 86E0      		ldi r24,lo8(6)
- 164 0054 90E0      		ldi r25,0
- 165 0056 0E94 0000 		call SPIsendByte
- 166               	/* epilogue start */
+ 205               	.LM9:
+ 206 0052 86E0      		ldi r24,lo8(6)
+ 207 0054 90E0      		ldi r25,0
+ 208 0056 0E94 0000 		call SPIsendByte
+ 209               	/* epilogue start */
   18:Components/Speed/Speed.c **** }
- 168               	.LM10:
- 169 005a DF91      		pop r29
- 170 005c CF91      		pop r28
- 171 005e 0895      		ret
- 173               	.Lscope3:
- 175               		.stabd	78,0,0
- 177               	.global	incrementPot
- 179               	incrementPot:
- 180               		.stabd	46,0,0
+ 211               	.LM10:
+ 212 005a DF91      		pop r29
+ 213 005c CF91      		pop r28
+ 214 005e 0895      		ret
+ 216               	.Lscope3:
+ 218               		.stabd	78,0,0
+ 220               	.global	incrementPot
+ 222               	incrementPot:
+ 223               		.stabd	46,0,0
   19:Components/Speed/Speed.c **** 
   20:Components/Speed/Speed.c **** void incrementPot(){
- 182               	.LM11:
- 183               	.LFBB4:
- 184 0060 CF93      		push r28
- 185 0062 DF93      		push r29
- 186 0064 CDB7      		in r28,__SP_L__
- 187 0066 DEB7      		in r29,__SP_H__
- 188               	/* prologue: function */
- 189               	/* frame size = 0 */
- 190               	/* stack size = 2 */
- 191               	.L__stack_usage = 2
+ 225               	.LM11:
+ 226               	.LFBB4:
+ 227 0060 CF93      		push r28
+ 228 0062 DF93      		push r29
+ 229 0064 CDB7      		in r28,__SP_L__
+ 230 0066 DEB7      		in r29,__SP_H__
+ 231               	/* prologue: function */
+ 232               	/* frame size = 0 */
+ 233               	/* stack size = 2 */
+ 234               	.L__stack_usage = 2
   21:Components/Speed/Speed.c **** 	SPIsendByte(0x0A);
- 193               	.LM12:
- 194 0068 8AE0      		ldi r24,lo8(10)
- 195 006a 90E0      		ldi r25,0
- 196 006c 0E94 0000 		call SPIsendByte
- 197               	/* epilogue start */
+ 236               	.LM12:
+ 237 0068 8AE0      		ldi r24,lo8(10)
+ 238 006a 90E0      		ldi r25,0
+ 239 006c 0E94 0000 		call SPIsendByte
+ 240               	/* epilogue start */
   22:Components/Speed/Speed.c **** }
- 199               	.LM13:
- 200 0070 DF91      		pop r29
- 201 0072 CF91      		pop r28
- 202 0074 0895      		ret
- 204               	.Lscope4:
- 206               		.stabd	78,0,0
- 209               	.global	getSpeed
- 211               	getSpeed:
- 212               		.stabd	46,0,0
+ 242               	.LM13:
+ 243 0070 DF91      		pop r29
+ 244 0072 CF91      		pop r28
+ 245 0074 0895      		ret
+ 247               	.Lscope4:
+ 249               		.stabd	78,0,0
+ 252               	.global	getSpeed
+ 254               	getSpeed:
+ 255               		.stabd	46,0,0
   23:Components/Speed/Speed.c **** 
   24:Components/Speed/Speed.c **** //get the speed of the vehicle
   25:Components/Speed/Speed.c **** char getSpeed(char* sensorResponse) {
- 214               	.LM14:
- 215               	.LFBB5:
- 216 0076 CF93      		push r28
- 217 0078 DF93      		push r29
- 218 007a 1F92      		push __zero_reg__
- 219 007c 1F92      		push __zero_reg__
- 220 007e CDB7      		in r28,__SP_L__
- 221 0080 DEB7      		in r29,__SP_H__
- 222               	/* prologue: function */
- 223               	/* frame size = 2 */
- 224               	/* stack size = 4 */
- 225               	.L__stack_usage = 4
- 226 0082 9A83      		std Y+2,r25
- 227 0084 8983      		std Y+1,r24
+ 257               	.LM14:
+ 258               	.LFBB5:
+ 259 0076 CF93      		push r28
+ 260 0078 DF93      		push r29
+ 261 007a 1F92      		push __zero_reg__
+ 262 007c 1F92      		push __zero_reg__
+ 263 007e CDB7      		in r28,__SP_L__
+ 264 0080 DEB7      		in r29,__SP_H__
+ 265               	/* prologue: function */
+ 266               	/* frame size = 2 */
+ 267               	/* stack size = 4 */
+ 268               	.L__stack_usage = 4
+ 269 0082 9A83      		std Y+2,r25
+ 270 0084 8983      		std Y+1,r24
   26:Components/Speed/Speed.c ****    //store dummy speed value
   27:Components/Speed/Speed.c ****    *sensorResponse = 0;
- 229               	.LM15:
- 230 0086 8981      		ldd r24,Y+1
- 231 0088 9A81      		ldd r25,Y+2
- 232 008a FC01      		movw r30,r24
- 233 008c 1082      		st Z,__zero_reg__
+ 272               	.LM15:
+ 273 0086 8981      		ldd r24,Y+1
+ 274 0088 9A81      		ldd r25,Y+2
+ 275 008a FC01      		movw r30,r24
+ 276 008c 1082      		st Z,__zero_reg__
   28:Components/Speed/Speed.c ****    //return success
   29:Components/Speed/Speed.c ****    return 1;
- 235               	.LM16:
- 236 008e 81E0      		ldi r24,lo8(1)
- 237               	/* epilogue start */
+ 278               	.LM16:
+ 279 008e 81E0      		ldi r24,lo8(1)
+ 280               	/* epilogue start */
   30:Components/Speed/Speed.c **** }
- 239               	.LM17:
- 240 0090 0F90      		pop __tmp_reg__
- 241 0092 0F90      		pop __tmp_reg__
- 242 0094 DF91      		pop r29
- 243 0096 CF91      		pop r28
- 244 0098 0895      		ret
- 246               	.Lscope5:
- 248               		.stabd	78,0,0
- 251               	.global	setSpeed
- 253               	setSpeed:
- 254               		.stabd	46,0,0
+ 282               	.LM17:
+ 283 0090 0F90      		pop __tmp_reg__
+ 284 0092 0F90      		pop __tmp_reg__
+ 285 0094 DF91      		pop r29
+ 286 0096 CF91      		pop r28
+ 287 0098 0895      		ret
+ 289               	.Lscope5:
+ 291               		.stabd	78,0,0
+ 294               	.global	setSpeed
+ 296               	setSpeed:
+ 297               		.stabd	46,0,0
   31:Components/Speed/Speed.c **** 
   32:Components/Speed/Speed.c **** //will set just the speed of the wheels of the car
-  33:Components/Speed/Speed.c **** char setSpeed(char speedTarget) {
- 256               	.LM18:
- 257               	.LFBB6:
- 258 009a CF93      		push r28
- 259 009c DF93      		push r29
- 260 009e 1F92      		push __zero_reg__
- 261 00a0 CDB7      		in r28,__SP_L__
- 262 00a2 DEB7      		in r29,__SP_H__
- 263               	/* prologue: function */
- 264               	/* frame size = 1 */
- 265               	/* stack size = 3 */
- 266               	.L__stack_usage = 3
- 267 00a4 8983      		std Y+1,r24
+  33:Components/Speed/Speed.c **** char setSpeed(unsigned char speedTarget) {
+ 299               	.LM18:
+ 300               	.LFBB6:
+ 301 009a CF93      		push r28
+ 302 009c DF93      		push r29
+ 303 009e 1F92      		push __zero_reg__
+ 304 00a0 CDB7      		in r28,__SP_L__
+ 305 00a2 DEB7      		in r29,__SP_H__
+ 306               	/* prologue: function */
+ 307               	/* frame size = 1 */
+ 308               	/* stack size = 3 */
+ 309               	.L__stack_usage = 3
+ 310 00a4 8983      		std Y+1,r24
   34:Components/Speed/Speed.c ****    //nothing done down here
   35:Components/Speed/Speed.c ****    //return success
-  36:Components/Speed/Speed.c **** 	setPot(speedTarget);
- 269               	.LM19:
- 270 00a6 8981      		ldd r24,Y+1
- 271 00a8 9927      		clr r25
- 272 00aa 87FD      		sbrc r24,7
- 273 00ac 9095      		com r25
- 274 00ae 0E94 0000 		call setPot
-  37:Components/Speed/Speed.c ****    return 1;
- 276               	.LM20:
- 277 00b2 81E0      		ldi r24,lo8(1)
- 278               	/* epilogue start */
-  38:Components/Speed/Speed.c **** }
- 280               	.LM21:
- 281 00b4 0F90      		pop __tmp_reg__
- 282 00b6 DF91      		pop r29
- 283 00b8 CF91      		pop r28
- 284 00ba 0895      		ret
- 286               	.Lscope6:
- 288               		.stabd	78,0,0
- 290               	.Letext0:
- 291               		.ident	"GCC: (GNU) 4.8.2"
+  36:Components/Speed/Speed.c **** 	if(speedTarget == 0){
+ 312               	.LM19:
+ 313 00a6 8981      		ldd r24,Y+1
+ 314 00a8 8823      		tst r24
+ 315 00aa 01F4      		brne .L8
+  37:Components/Speed/Speed.c **** 		PORTA &= ~4;
+ 317               	.LM20:
+ 318 00ac 82E2      		ldi r24,lo8(34)
+ 319 00ae 90E0      		ldi r25,0
+ 320 00b0 22E2      		ldi r18,lo8(34)
+ 321 00b2 30E0      		ldi r19,0
+ 322 00b4 F901      		movw r30,r18
+ 323 00b6 2081      		ld r18,Z
+ 324 00b8 2B7F      		andi r18,lo8(-5)
+ 325 00ba FC01      		movw r30,r24
+ 326 00bc 2083      		st Z,r18
+ 327 00be 00C0      		rjmp .L9
+ 328               	.L8:
+  38:Components/Speed/Speed.c **** 	} else {
+  39:Components/Speed/Speed.c **** 		PORTA |= 4;
+ 330               	.LM21:
+ 331 00c0 82E2      		ldi r24,lo8(34)
+ 332 00c2 90E0      		ldi r25,0
+ 333 00c4 22E2      		ldi r18,lo8(34)
+ 334 00c6 30E0      		ldi r19,0
+ 335 00c8 F901      		movw r30,r18
+ 336 00ca 2081      		ld r18,Z
+ 337 00cc 2460      		ori r18,lo8(4)
+ 338 00ce FC01      		movw r30,r24
+ 339 00d0 2083      		st Z,r18
+ 340               	.L9:
+  40:Components/Speed/Speed.c **** 	}
+  41:Components/Speed/Speed.c **** 	setPot(speedTarget);
+ 342               	.LM22:
+ 343 00d2 8981      		ldd r24,Y+1
+ 344 00d4 882F      		mov r24,r24
+ 345 00d6 90E0      		ldi r25,0
+ 346 00d8 0E94 0000 		call setPot
+  42:Components/Speed/Speed.c ****    return 1;
+ 348               	.LM23:
+ 349 00dc 81E0      		ldi r24,lo8(1)
+ 350               	/* epilogue start */
+  43:Components/Speed/Speed.c **** }
+ 352               	.LM24:
+ 353 00de 0F90      		pop __tmp_reg__
+ 354 00e0 DF91      		pop r29
+ 355 00e2 CF91      		pop r28
+ 356 00e4 0895      		ret
+ 358               	.Lscope6:
+ 360               		.stabd	78,0,0
+ 362               	.Letext0:
+ 363               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Speed.c
-     /tmp/ccH1oTcU.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccH1oTcU.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccH1oTcU.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccH1oTcU.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccH1oTcU.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccH1oTcU.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccH1oTcU.s:63     .text:0000000000000000 initSpeedController
-     /tmp/ccH1oTcU.s:95     .text:0000000000000016 setPot
-     /tmp/ccH1oTcU.s:148    .text:000000000000004a decrementPot
-     /tmp/ccH1oTcU.s:179    .text:0000000000000060 incrementPot
-     /tmp/ccH1oTcU.s:211    .text:0000000000000076 getSpeed
-     /tmp/ccH1oTcU.s:253    .text:000000000000009a setSpeed
+     /tmp/ccanmgE5.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccanmgE5.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccanmgE5.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccanmgE5.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccanmgE5.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccanmgE5.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccanmgE5.s:106    .text:0000000000000000 initSpeedController
+     /tmp/ccanmgE5.s:138    .text:0000000000000016 setPot
+     /tmp/ccanmgE5.s:191    .text:000000000000004a decrementPot
+     /tmp/ccanmgE5.s:222    .text:0000000000000060 incrementPot
+     /tmp/ccanmgE5.s:254    .text:0000000000000076 getSpeed
+     /tmp/ccanmgE5.s:296    .text:000000000000009a setSpeed
 
 UNDEFINED SYMBOLS
 SPIsendShort

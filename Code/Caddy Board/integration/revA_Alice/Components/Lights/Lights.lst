@@ -77,12 +77,12 @@
  168               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Lights.c
-     /tmp/ccnownec.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccnownec.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccnownec.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccnownec.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccnownec.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccnownec.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccnownec.s:107    .text:0000000000000000 setLight
+     /tmp/ccbEU2fT.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccbEU2fT.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccbEU2fT.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccbEU2fT.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccbEU2fT.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccbEU2fT.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccbEU2fT.s:107    .text:0000000000000000 setLight
 
 NO UNDEFINED SYMBOLS

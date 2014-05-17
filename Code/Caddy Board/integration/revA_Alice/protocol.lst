@@ -916,21 +916,21 @@
  965               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 protocol.c
-     /tmp/cck2kNQR.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cck2kNQR.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cck2kNQR.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cck2kNQR.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cck2kNQR.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cck2kNQR.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cck2kNQR.s:70     .text:0000000000000000 commandIntegCheck
-     /tmp/cck2kNQR.s:109    .text:000000000000001c processUltrasonicCommand
-     /tmp/cck2kNQR.s:221    .text:00000000000000ac processSpeedCommand
-     /tmp/cck2kNQR.s:310    .text:0000000000000110 processSteeringCommand
-     /tmp/cck2kNQR.s:473    .text:00000000000001f2 processFNRCommand
-     /tmp/cck2kNQR.s:559    .text:0000000000000254 processBrakeCommand
-     /tmp/cck2kNQR.s:639    .text:00000000000002ae processBatteryCommand
-     /tmp/cck2kNQR.s:714    .text:00000000000002fe processLightCommand
-     /tmp/cck2kNQR.s:785    .text:000000000000034e processCommand
+     /tmp/ccf0V7au.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccf0V7au.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccf0V7au.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccf0V7au.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccf0V7au.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccf0V7au.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccf0V7au.s:70     .text:0000000000000000 commandIntegCheck
+     /tmp/ccf0V7au.s:109    .text:000000000000001c processUltrasonicCommand
+     /tmp/ccf0V7au.s:221    .text:00000000000000ac processSpeedCommand
+     /tmp/ccf0V7au.s:310    .text:0000000000000110 processSteeringCommand
+     /tmp/ccf0V7au.s:473    .text:00000000000001f2 processFNRCommand
+     /tmp/ccf0V7au.s:559    .text:0000000000000254 processBrakeCommand
+     /tmp/ccf0V7au.s:639    .text:00000000000002ae processBatteryCommand
+     /tmp/ccf0V7au.s:714    .text:00000000000002fe processLightCommand
+     /tmp/ccf0V7au.s:785    .text:000000000000034e processCommand
 
 UNDEFINED SYMBOLS
 getAllSensors

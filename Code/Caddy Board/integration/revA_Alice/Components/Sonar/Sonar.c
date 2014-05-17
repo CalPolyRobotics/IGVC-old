@@ -5,27 +5,40 @@
 #include <avr/io.h>
 
 #include "../../protocol.h"
+#include "../../ADC.h"
+#include "../../usart.h"
 #include "Sonar.h"
 
 xSemaphoreHandle* sonarSemaphore;
 xSemaphoreHandle* sonarDataMutex[6];
 
-unsigned char sonarData[6];
-extern int count;
+static int sonarData[6];
+static int sonarNum0 = 0;
+static int sonarNum1 = 1;
+static int sonarNum2 = 2;
 
-unsigned char currSonar;
-unsigned char lastSonarData = 0;
-   
-void setSonarData(int i,unsigned char data){
+static unsigned char currSonar;
+static unsigned char lastSonarData = 0;
+
+/*void printHex(int i){
+	char hex[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+
+	USART_Write(hex[(i&0xF000) >> 12]);
+	USART_Write(hex[(i&0xF00) >> 8]);
+	USART_Write(hex[(i&0xF0) >> 4]);
+	USART_Write(hex[i&0xF]);
+
+}   */
+
+void setSonarData(int i,int data){
 // xSemaphoreTake(sonarDataMutex[i],portMAX_DELAY);
    sonarData[i] = data;
    //xSemaphoreGive(sonarDataMutex[i]);
 }
 
-unsigned char getSonarData(int i){
+int getSonarData(int i){
    //xSemaphoreTake(sonarDataMutex[i],portMAX_DELAY);
-   //return sonarData[i];
-   return i + 2;
+   return sonarData[i];
    //xSemaphoreGive(sonarDataMutex[i]);
 }
 
@@ -59,9 +72,19 @@ ISR(PCINT2_vect) {
 
 }
 
+void sonarADCHandler(int result,void *sonarNum){
+
+	/*printHex(*((int *)sonarNum));
+	USART_Write('\n');
+	USART_Write('\r');*/
+
+	setSonarData(*((int *)sonarNum),result);
+
+}
+
 void initializeSonarSensors(){
    //DDRD &= 0xFE;   
-   DIDR2 = 0;
+   /*DIDR2 = 0;
    DDRK = 0;
    DDRC = 0;
 
@@ -74,7 +97,11 @@ void initializeSonarSensors(){
    PCICR = 0x7;
 
    TCCR0A = 0;
-   TCCR0B = 5;
+   TCCR0B = 5;*/
+
+	addADCDevice(0,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum0);			
+	addADCDevice(12,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum1);			
+	addADCDevice(15,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum2);			
 
 }
 
@@ -82,6 +109,9 @@ void vTaskSonar(void* parameter){
 
    int i;
    initializeSonarSensors();
+	for(;;){
+		vTaskDelay(300);
+	}
    
    vSemaphoreCreateBinary(sonarSemaphore);
       

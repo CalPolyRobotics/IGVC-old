@@ -96,13 +96,13 @@
  146               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Battery.c
-     /tmp/ccyRfD6J.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccyRfD6J.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccyRfD6J.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccyRfD6J.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccyRfD6J.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccyRfD6J.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccyRfD6J.s:64     .text:0000000000000000 getBatteryVoltage
-     /tmp/ccyRfD6J.s:106    .text:0000000000000024 getSteeringVoltage
+     /tmp/ccgQXoLI.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccgQXoLI.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccgQXoLI.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccgQXoLI.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccgQXoLI.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccgQXoLI.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccgQXoLI.s:64     .text:0000000000000000 getBatteryVoltage
+     /tmp/ccgQXoLI.s:106    .text:0000000000000024 getSteeringVoltage
 
 NO UNDEFINED SYMBOLS

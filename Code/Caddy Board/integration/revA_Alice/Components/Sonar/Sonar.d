@@ -7,4 +7,5 @@ Sonar.o Sonar.d : Components/Sonar/Sonar.c \
  ../../FreeRTOS/Source/include/mpu_wrappers.h \
  ../../FreeRTOS/Source/include/semphr.h \
  ../../FreeRTOS/Source/include/queue.h Components/Sonar/../../protocol.h \
+ Components/Sonar/../../ADC.h Components/Sonar/../../usart.h \
  Components/Sonar/Sonar.h

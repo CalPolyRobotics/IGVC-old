@@ -75,25 +75,25 @@ int main( void )
 	//- Create a 
 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
-   xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );
+   /*xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );*/
    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
 	xTaskCreate( (pdTASK_CODE) vTaskPot, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );*/
 
  
-   /*xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );*/
+   xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );
 
-   xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+1000,
-   				(void *) val1, 1, NULL);
+   /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+1000,
+   				(void *) val1, 1, NULL);*/
 
    xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
    				(void *) val1, 1, NULL);
 
 	
-	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
+	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T5", configMINIMAL_STACK_SIZE+1000,
    				(void *) val1, 1, NULL);
 
 //   xTaskCreate( (pdTASK_CODE) vTaskUSARTLog, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
@@ -167,8 +167,14 @@ void vTaskFunction_1(void *pvParameters)
 	int sonarMin = 0xE0;
 	int potMin = 0x18;
 	int potMax = 0x40;;
-	int backwardSwitch = 0xE1;
+	int backwardSwitch = 0x100;
+	int neutralSwitch = 0x140;
 	int forwardSwitch = 0x160;
+	int minTicks = 450;
+
+	int tickCount;
+
+	char a = 'a';
 
 	PORTA = 4;
 
@@ -177,7 +183,22 @@ void vTaskFunction_1(void *pvParameters)
 
 	initializeSPI();
 	initSpeedController();
-	
+
+	//setPot(0x20);
+
+	for(;;){
+		int sonarData = getSonarData(0);
+		printHex(sonarData);
+		USART_Write(' ');
+		sonarData = getSonarData(1);
+		printHex(sonarData);
+		USART_Write(' ');
+		sonarData = getSonarData(2);
+		printHex(sonarData);
+		USART_Write('\n');
+		USART_Write('\r');	
+		vTaskDelay(5);	
+	}
 	
 	//PORTC = 0x2;
 	setFNR(1);
@@ -189,19 +210,36 @@ void vTaskFunction_1(void *pvParameters)
 			if(sonarResult < backwardSwitch) {
 				movingForward = -1;
 				setFNR(-1);
+				tickCount = 0;
+			} else if(sonarResult < neutralSwitch){
+				setFNR(0);
+				movingForward = 0;
+				tickCount = 0;
 			}
 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
-		} else {
-			if(sonarResult > forwardSwitch ){
+		} else if(movingForward == 0){
+			if(sonarResult < backwardSwitch){
+				movingForward = -1;
+				setFNR(-1);
+				tickCount = 0;
+			} if(tickCount > minTicks){
 				movingForward = 1;
+				setFNR(1);
+			}	
+		} else {
+			if(sonarResult > forwardSwitch && tickCount > minTicks){
+				movingForward = 1;
+				setFNR(0);
+				vTaskDelay(100);
 				setFNR(1);
 			}
 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
 		}
-		printHex(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
+		/*printHex(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
 		USART_Write('\n');
-		USART_Write('\r');
+		USART_Write('\r');*/
 		vTaskDelay(1);
+		tickCount++;
 	}
 
 	for(;;){
@@ -218,9 +256,8 @@ void vTaskFunction_1(void *pvParameters)
 
 void vTaskFunction_2(void *pvParameters){
 	DDRL = 0xF0;
-	PORTL = 0;
+	PORTL = 0xC0;
 	for(;;){
-		PORTL ^= 0xC0;
 		vTaskDelay(300);
 	}	
 }

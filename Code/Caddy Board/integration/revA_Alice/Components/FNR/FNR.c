@@ -16,7 +16,7 @@ void FNRForward(){
 	}
 	setABit(0);
 
-	PORTL &= ~0x30;
+	//PORTL &= ~0x30;
 }
 
 void FNRReverse(){
@@ -27,7 +27,7 @@ void FNRReverse(){
 	}
 	setABit(1);
 
-	PORTL |= 0x30;
+	//PORTL |= 0x30;
 }
 
 void FNRNeutral(){
@@ -38,7 +38,7 @@ void FNRNeutral(){
 		clearABit(1);
 		vTaskDelay(1);
 	}
-	PORTL &= ~0x30;
+	//PORTL &= ~0x30;
 }
 
 //set the FNR controller, inputs are either -1, 0, or 1.

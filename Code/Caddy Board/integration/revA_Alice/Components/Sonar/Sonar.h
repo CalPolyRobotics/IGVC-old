@@ -28,8 +28,8 @@
 	//stores cm values of a sensor group in sensorResponse
 	char getSensorGroup(char groupID, int *sensorResponse);
 
-	void setSonarData(int i,unsigned char data);
-	unsigned char getSonarData(int i);
+	void setSonarData(int i,int data);
+	int getSonarData(int i);
 	void vTaskSonar(void* parameter);
 
 #endif

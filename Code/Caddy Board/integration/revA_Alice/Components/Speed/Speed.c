@@ -1,5 +1,5 @@
 //Speed Sensor group
-
+#include <avr/io.h>
 #include "spi.h"
 
 void initSpeedController(){
@@ -30,9 +30,14 @@ char getSpeed(char* sensorResponse) {
 }
 
 //will set just the speed of the wheels of the car
-char setSpeed(char speedTarget) {
+char setSpeed(unsigned char speedTarget) {
    //nothing done down here
    //return success
+	if(speedTarget == 0){
+		PORTA &= ~4;
+	} else {
+		PORTA |= 4;
+	}
 	setPot(speedTarget);
    return 1;
 }

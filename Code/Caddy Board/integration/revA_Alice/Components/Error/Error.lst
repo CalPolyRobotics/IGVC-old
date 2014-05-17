@@ -11,11 +11,11 @@
   62               		.ident	"GCC: (GNU) 4.8.2"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Error.c
-     /tmp/ccvSE0DV.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccvSE0DV.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccvSE0DV.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccvSE0DV.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccvSE0DV.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccvSE0DV.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccaxwDQG.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccaxwDQG.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccaxwDQG.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccaxwDQG.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccaxwDQG.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccaxwDQG.s:7      *ABS*:0000000000000001 __zero_reg__
 
 NO UNDEFINED SYMBOLS

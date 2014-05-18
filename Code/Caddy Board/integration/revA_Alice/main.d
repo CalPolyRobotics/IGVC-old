@@ -7,4 +7,4 @@ main.o main.d : main.c ../../FreeRTOS/Source/include/FreeRTOS.h \
  ../../FreeRTOS/Source/include/task.h \
  ../../FreeRTOS/Source/include/list.h usart.h Components/Sonar/Sonar.h \
  ../../FreeRTOS/Source/include/queue.h spi.h ADC.h Components/FNR/FNR.h \
- Components/Speed/Speed.h
+ Components/Speed/Speed.h Components/Steering/Steering.h

@@ -23,6 +23,7 @@
 #include "ADC.h"
 #include "Components/FNR/FNR.h"
 #include "Components/Speed/Speed.h"
+#include "Components/Steering/Steering.h"
 
 void vTaskFunction_1(void *pvParameters);
 void vTaskFunction_2(void *pvParameters);
@@ -83,9 +84,11 @@ int main( void )
                 (void *) val1, 1, NULL );*/
 
  
-   xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
+  	xTaskCreate( (pdTASK_CODE) vTaskSteer, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
-
+	xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );
+ 
    /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+1000,
    				(void *) val1, 1, NULL);*/
 
@@ -180,24 +183,29 @@ void vTaskFunction_1(void *pvParameters)
 
    USART_Init(9600, 16000000);
 
+	initializeSteeringTimer();
 
 	initializeSPI();
 	initSpeedController();
+	setSteeringPWMSpeed(0xB0);
 
 	//setPot(0x20);
-
+	for(;;){
+		vTaskDelay(200);
+	}
 	for(;;){
 		int sonarData = getSonarData(0);
-		printHex(sonarData);
-		USART_Write(' ');
-		sonarData = getSonarData(1);
-		printHex(sonarData);
-		USART_Write(' ');
-		sonarData = getSonarData(2);
-		printHex(sonarData);
-		USART_Write('\n');
-		USART_Write('\r');	
-		vTaskDelay(5);	
+		if(sonarData > 0x300){
+			setSteeringDirection(1);
+			USART_Write('F');
+		} else if(sonarData < 0x50){
+			setSteeringDirection(-1);
+			USART_Write('R');
+		} else {
+			setSteeringDirection(0);
+			USART_Write('N');
+		}
+		vTaskDelay(10);	
 	}
 	
 	//PORTC = 0x2;

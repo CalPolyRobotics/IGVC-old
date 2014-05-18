@@ -41,22 +41,23 @@
   23:main.c        **** #include "ADC.h"
   24:main.c        **** #include "Components/FNR/FNR.h"
   25:main.c        **** #include "Components/Speed/Speed.h"
-  26:main.c        **** 
-  27:main.c        **** void vTaskFunction_1(void *pvParameters);
-  28:main.c        **** void vTaskFunction_2(void *pvParameters);
-  29:main.c        **** void vTaskFunction_3(void *pvParameters);
-  30:main.c        **** void vTaskPot(void *pvParameters);
-  31:main.c        **** void vIO_init(void);
-  32:main.c        **** void vApplicationTickHook();
-  33:main.c        **** void printNum(unsigned char i);
-  34:main.c        **** void printHex(int i);
-  35:main.c        **** 
-  36:main.c        **** int count = 0;
-  37:main.c        **** 
-  38:main.c        **** int sonarTime;
-  39:main.c        **** 
-  40:main.c        **** void vApplicationTickHook()
-  41:main.c        **** {
+  26:main.c        **** #include "Components/Steering/Steering.h"
+  27:main.c        **** 
+  28:main.c        **** void vTaskFunction_1(void *pvParameters);
+  29:main.c        **** void vTaskFunction_2(void *pvParameters);
+  30:main.c        **** void vTaskFunction_3(void *pvParameters);
+  31:main.c        **** void vTaskPot(void *pvParameters);
+  32:main.c        **** void vIO_init(void);
+  33:main.c        **** void vApplicationTickHook();
+  34:main.c        **** void printNum(unsigned char i);
+  35:main.c        **** void printHex(int i);
+  36:main.c        **** 
+  37:main.c        **** int count = 0;
+  38:main.c        **** 
+  39:main.c        **** int sonarTime;
+  40:main.c        **** 
+  41:main.c        **** void vApplicationTickHook()
+  42:main.c        **** {
  176               	.LM0:
  177               	.LFBB1:
  178 0000 CF93      		push r28
@@ -67,7 +68,7 @@
  183               	/* frame size = 0 */
  184               	/* stack size = 2 */
  185               	.L__stack_usage = 2
-  42:main.c        ****     count++;
+  43:main.c        ****     count++;
  187               	.LM1:
  188 0008 8091 0000 		lds r24,count
  189 000c 9091 0000 		lds r25,count+1
@@ -75,7 +76,7 @@
  191 0012 9093 0000 		sts count+1,r25
  192 0016 8093 0000 		sts count,r24
  193               	/* epilogue start */
-  43:main.c        **** }
+  44:main.c        **** }
  195               	.LM2:
  196 001a DF91      		pop r29
  197 001c CF91      		pop r28
@@ -85,8 +86,8 @@
  204               	.global	vApplicationStackOverflowHook
  206               	vApplicationStackOverflowHook:
  207               		.stabd	46,0,0
-  44:main.c        **** 
-  45:main.c        **** void vApplicationStackOverflowHook(){
+  45:main.c        **** 
+  46:main.c        **** void vApplicationStackOverflowHook(){
  209               	.LM3:
  210               	.LFBB2:
  211 0020 CF93      		push r28
@@ -97,11 +98,11 @@
  216               	/* frame size = 0 */
  217               	/* stack size = 2 */
  218               	.L__stack_usage = 2
-  46:main.c        **** 	return;
+  47:main.c        **** 	return;
  220               	.LM4:
  221 0028 0000      		nop
  222               	/* epilogue start */
-  47:main.c        **** }
+  48:main.c        **** }
  224               	.LM5:
  225 002a DF91      		pop r29
  226 002c CF91      		pop r28
@@ -112,1152 +113,1142 @@
  233               	.LC1:
  234 0000 5430 00   		.string	"T0"
  235               	.LC2:
- 236 0003 5453 00   		.string	"TS"
+ 236 0003 5434 00   		.string	"T4"
  237               	.LC3:
- 238 0006 5433 00   		.string	"T3"
+ 238 0006 5453 00   		.string	"TS"
  239               	.LC4:
- 240 0009 5435 00   		.string	"T5"
- 241               		.text
- 243               	.global	main
- 245               	main:
- 246               		.stabd	46,0,0
-  48:main.c        **** /*-----------------------------------------------------------*/
-  49:main.c        **** 
-  50:main.c        **** int main( void )
-  51:main.c        **** {
- 248               	.LM6:
- 249               	.LFBB3:
- 250 0030 AF92      		push r10
- 251 0032 BF92      		push r11
- 252 0034 CF92      		push r12
- 253 0036 DF92      		push r13
- 254 0038 EF92      		push r14
- 255 003a FF92      		push r15
- 256 003c 0F93      		push r16
- 257 003e CF93      		push r28
- 258 0040 DF93      		push r29
- 259 0042 00D0      		rcall .
- 260 0044 00D0      		rcall .
- 261 0046 CDB7      		in r28,__SP_L__
- 262 0048 DEB7      		in r29,__SP_H__
- 263               	/* prologue: function */
- 264               	/* frame size = 6 */
- 265               	/* stack size = 15 */
- 266               	.L__stack_usage = 15
-  52:main.c        ****     
-  53:main.c        ****     //- wimpy variable defs
-  54:main.c        **** 	uint8_t val[2] = {0x3F, 0xFE};
- 268               	.LM7:
- 269 004a 8FE3      		ldi r24,lo8(63)
- 270 004c 8D83      		std Y+5,r24
- 271 004e 8EEF      		ldi r24,lo8(-2)
- 272 0050 8E83      		std Y+6,r24
-  55:main.c        ****     uint8_t *val0, *val1;
-  56:main.c        ****     
-  57:main.c        **** 	//- avoid pesky warnings...
-  58:main.c        **** 	val0 = val + 0;
- 274               	.LM8:
- 275 0052 CE01      		movw r24,r28
- 276 0054 0596      		adiw r24,5
- 277 0056 9A83      		std Y+2,r25
- 278 0058 8983      		std Y+1,r24
-  59:main.c        **** 	val1 = val + 1;
- 280               	.LM9:
- 281 005a CE01      		movw r24,r28
- 282 005c 0596      		adiw r24,5
- 283 005e 0196      		adiw r24,1
- 284 0060 9C83      		std Y+4,r25
- 285 0062 8B83      		std Y+3,r24
-  60:main.c        ****     
-  61:main.c        **** 	DDRA = 0xF7;
- 287               	.LM10:
- 288 0064 81E2      		ldi r24,lo8(33)
- 289 0066 90E0      		ldi r25,0
- 290 0068 27EF      		ldi r18,lo8(-9)
- 291 006a FC01      		movw r30,r24
- 292 006c 2083      		st Z,r18
-  62:main.c        **** 	//PORTA = 0;
-  63:main.c        **** 	DDRD = 0xFF;
- 294               	.LM11:
- 295 006e 8AE2      		ldi r24,lo8(42)
- 296 0070 90E0      		ldi r25,0
- 297 0072 2FEF      		ldi r18,lo8(-1)
- 298 0074 FC01      		movw r30,r24
- 299 0076 2083      		st Z,r18
-  64:main.c        **** 	DDRE = 0xFF;
- 301               	.LM12:
- 302 0078 8DE2      		ldi r24,lo8(45)
- 303 007a 90E0      		ldi r25,0
- 304 007c 2FEF      		ldi r18,lo8(-1)
- 305 007e FC01      		movw r30,r24
- 306 0080 2083      		st Z,r18
-  65:main.c        **** 	DDRB = 0xFF; 
- 308               	.LM13:
- 309 0082 84E2      		ldi r24,lo8(36)
- 310 0084 90E0      		ldi r25,0
- 311 0086 2FEF      		ldi r18,lo8(-1)
- 312 0088 FC01      		movw r30,r24
- 313 008a 2083      		st Z,r18
-  66:main.c        **** 	DDRK = 0;
- 315               	.LM14:
- 316 008c 87E0      		ldi r24,lo8(7)
- 317 008e 91E0      		ldi r25,lo8(1)
- 318 0090 FC01      		movw r30,r24
- 319 0092 1082      		st Z,__zero_reg__
-  67:main.c        **** 
-  68:main.c        **** 	PORTD = 0;
- 321               	.LM15:
- 322 0094 8BE2      		ldi r24,lo8(43)
- 323 0096 90E0      		ldi r25,0
- 324 0098 FC01      		movw r30,r24
- 325 009a 1082      		st Z,__zero_reg__
-  69:main.c        **** 	PORTE = 0;
- 327               	.LM16:
- 328 009c 8EE2      		ldi r24,lo8(46)
- 329 009e 90E0      		ldi r25,0
- 330 00a0 FC01      		movw r30,r24
- 331 00a2 1082      		st Z,__zero_reg__
-  70:main.c        **** 	PORTK = 2;
- 333               	.LM17:
- 334 00a4 88E0      		ldi r24,lo8(8)
- 335 00a6 91E0      		ldi r25,lo8(1)
- 336 00a8 22E0      		ldi r18,lo8(2)
- 337 00aa FC01      		movw r30,r24
- 338 00ac 2083      		st Z,r18
-  71:main.c        **** 
-  72:main.c        ****     //- init IO with goodness
-  73:main.c        **** 	vIO_init();
- 340               	.LM18:
- 341 00ae 0E94 0000 		call vIO_init
-  74:main.c        **** 
-  75:main.c        **** 	//- Create a 
-  76:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
- 343               	.LM19:
- 344 00b2 8B81      		ldd r24,Y+3
- 345 00b4 9C81      		ldd r25,Y+4
- 346 00b6 A12C      		mov r10,__zero_reg__
- 347 00b8 B12C      		mov r11,__zero_reg__
- 348 00ba C12C      		mov r12,__zero_reg__
- 349 00bc D12C      		mov r13,__zero_reg__
- 350 00be E12C      		mov r14,__zero_reg__
- 351 00c0 F12C      		mov r15,__zero_reg__
- 352 00c2 01E0      		ldi r16,lo8(1)
- 353 00c4 9C01      		movw r18,r24
- 354 00c6 4DE3      		ldi r20,lo8(61)
- 355 00c8 54E0      		ldi r21,lo8(4)
- 356 00ca 60E0      		ldi r22,lo8(.LC1)
- 357 00cc 70E0      		ldi r23,hi8(.LC1)
- 358 00ce 80E0      		ldi r24,lo8(gs(vTaskFunction_1))
- 359 00d0 90E0      		ldi r25,hi8(gs(vTaskFunction_1))
- 360 00d2 0E94 0000 		call xTaskGenericCreate
-  77:main.c        ****                 (void *) val1, 1, NULL );
-  78:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+100
-  79:main.c        ****                 (void *) val1, 1, NULL );*/
-  80:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+100
-  81:main.c        ****                 (void *) val1, 1, NULL );
-  82:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskPot, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
-  83:main.c        ****                 (void *) val1, 1, NULL );*/
-  84:main.c        **** 
-  85:main.c        ****  
-  86:main.c        ****    xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
- 362               	.LM20:
- 363 00d6 8B81      		ldd r24,Y+3
- 364 00d8 9C81      		ldd r25,Y+4
- 365 00da A12C      		mov r10,__zero_reg__
- 366 00dc B12C      		mov r11,__zero_reg__
- 367 00de C12C      		mov r12,__zero_reg__
- 368 00e0 D12C      		mov r13,__zero_reg__
- 369 00e2 E12C      		mov r14,__zero_reg__
- 370 00e4 F12C      		mov r15,__zero_reg__
- 371 00e6 01E0      		ldi r16,lo8(1)
- 372 00e8 9C01      		movw r18,r24
- 373 00ea 4DE3      		ldi r20,lo8(61)
- 374 00ec 54E0      		ldi r21,lo8(4)
- 375 00ee 60E0      		ldi r22,lo8(.LC2)
- 376 00f0 70E0      		ldi r23,hi8(.LC2)
- 377 00f2 80E0      		ldi r24,lo8(gs(vTaskSonar))
- 378 00f4 90E0      		ldi r25,hi8(gs(vTaskSonar))
- 379 00f6 0E94 0000 		call xTaskGenericCreate
-  87:main.c        ****                 (void *) val1, 1, NULL );
-  88:main.c        **** 
-  89:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+100
-  90:main.c        ****    				(void *) val1, 1, NULL);*/
-  91:main.c        **** 
-  92:main.c        ****    xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
- 381               	.LM21:
- 382 00fa 8B81      		ldd r24,Y+3
- 383 00fc 9C81      		ldd r25,Y+4
- 384 00fe A12C      		mov r10,__zero_reg__
- 385 0100 B12C      		mov r11,__zero_reg__
- 386 0102 C12C      		mov r12,__zero_reg__
- 387 0104 D12C      		mov r13,__zero_reg__
- 388 0106 E12C      		mov r14,__zero_reg__
- 389 0108 F12C      		mov r15,__zero_reg__
- 390 010a 01E0      		ldi r16,lo8(1)
- 391 010c 9C01      		movw r18,r24
- 392 010e 4DE3      		ldi r20,lo8(61)
- 393 0110 54E0      		ldi r21,lo8(4)
- 394 0112 60E0      		ldi r22,lo8(.LC3)
- 395 0114 70E0      		ldi r23,hi8(.LC3)
- 396 0116 80E0      		ldi r24,lo8(gs(vTaskUSARTRead))
- 397 0118 90E0      		ldi r25,hi8(gs(vTaskUSARTRead))
- 398 011a 0E94 0000 		call xTaskGenericCreate
-  93:main.c        ****    				(void *) val1, 1, NULL);
+ 240 0009 5433 00   		.string	"T3"
+ 241               	.LC5:
+ 242 000c 5435 00   		.string	"T5"
+ 243               		.text
+ 245               	.global	main
+ 247               	main:
+ 248               		.stabd	46,0,0
+  49:main.c        **** /*-----------------------------------------------------------*/
+  50:main.c        **** 
+  51:main.c        **** int main( void )
+  52:main.c        **** {
+ 250               	.LM6:
+ 251               	.LFBB3:
+ 252 0030 AF92      		push r10
+ 253 0032 BF92      		push r11
+ 254 0034 CF92      		push r12
+ 255 0036 DF92      		push r13
+ 256 0038 EF92      		push r14
+ 257 003a FF92      		push r15
+ 258 003c 0F93      		push r16
+ 259 003e CF93      		push r28
+ 260 0040 DF93      		push r29
+ 261 0042 00D0      		rcall .
+ 262 0044 00D0      		rcall .
+ 263 0046 CDB7      		in r28,__SP_L__
+ 264 0048 DEB7      		in r29,__SP_H__
+ 265               	/* prologue: function */
+ 266               	/* frame size = 6 */
+ 267               	/* stack size = 15 */
+ 268               	.L__stack_usage = 15
+  53:main.c        ****     
+  54:main.c        ****     //- wimpy variable defs
+  55:main.c        **** 	uint8_t val[2] = {0x3F, 0xFE};
+ 270               	.LM7:
+ 271 004a 8FE3      		ldi r24,lo8(63)
+ 272 004c 8D83      		std Y+5,r24
+ 273 004e 8EEF      		ldi r24,lo8(-2)
+ 274 0050 8E83      		std Y+6,r24
+  56:main.c        ****     uint8_t *val0, *val1;
+  57:main.c        ****     
+  58:main.c        **** 	//- avoid pesky warnings...
+  59:main.c        **** 	val0 = val + 0;
+ 276               	.LM8:
+ 277 0052 CE01      		movw r24,r28
+ 278 0054 0596      		adiw r24,5
+ 279 0056 9A83      		std Y+2,r25
+ 280 0058 8983      		std Y+1,r24
+  60:main.c        **** 	val1 = val + 1;
+ 282               	.LM9:
+ 283 005a CE01      		movw r24,r28
+ 284 005c 0596      		adiw r24,5
+ 285 005e 0196      		adiw r24,1
+ 286 0060 9C83      		std Y+4,r25
+ 287 0062 8B83      		std Y+3,r24
+  61:main.c        ****     
+  62:main.c        **** 	DDRA = 0xF7;
+ 289               	.LM10:
+ 290 0064 81E2      		ldi r24,lo8(33)
+ 291 0066 90E0      		ldi r25,0
+ 292 0068 27EF      		ldi r18,lo8(-9)
+ 293 006a FC01      		movw r30,r24
+ 294 006c 2083      		st Z,r18
+  63:main.c        **** 	//PORTA = 0;
+  64:main.c        **** 	DDRD = 0xFF;
+ 296               	.LM11:
+ 297 006e 8AE2      		ldi r24,lo8(42)
+ 298 0070 90E0      		ldi r25,0
+ 299 0072 2FEF      		ldi r18,lo8(-1)
+ 300 0074 FC01      		movw r30,r24
+ 301 0076 2083      		st Z,r18
+  65:main.c        **** 	DDRE = 0xFF;
+ 303               	.LM12:
+ 304 0078 8DE2      		ldi r24,lo8(45)
+ 305 007a 90E0      		ldi r25,0
+ 306 007c 2FEF      		ldi r18,lo8(-1)
+ 307 007e FC01      		movw r30,r24
+ 308 0080 2083      		st Z,r18
+  66:main.c        **** 	DDRB = 0xFF; 
+ 310               	.LM13:
+ 311 0082 84E2      		ldi r24,lo8(36)
+ 312 0084 90E0      		ldi r25,0
+ 313 0086 2FEF      		ldi r18,lo8(-1)
+ 314 0088 FC01      		movw r30,r24
+ 315 008a 2083      		st Z,r18
+  67:main.c        **** 	DDRK = 0;
+ 317               	.LM14:
+ 318 008c 87E0      		ldi r24,lo8(7)
+ 319 008e 91E0      		ldi r25,lo8(1)
+ 320 0090 FC01      		movw r30,r24
+ 321 0092 1082      		st Z,__zero_reg__
+  68:main.c        **** 
+  69:main.c        **** 	PORTD = 0;
+ 323               	.LM15:
+ 324 0094 8BE2      		ldi r24,lo8(43)
+ 325 0096 90E0      		ldi r25,0
+ 326 0098 FC01      		movw r30,r24
+ 327 009a 1082      		st Z,__zero_reg__
+  70:main.c        **** 	PORTE = 0;
+ 329               	.LM16:
+ 330 009c 8EE2      		ldi r24,lo8(46)
+ 331 009e 90E0      		ldi r25,0
+ 332 00a0 FC01      		movw r30,r24
+ 333 00a2 1082      		st Z,__zero_reg__
+  71:main.c        **** 	PORTK = 2;
+ 335               	.LM17:
+ 336 00a4 88E0      		ldi r24,lo8(8)
+ 337 00a6 91E0      		ldi r25,lo8(1)
+ 338 00a8 22E0      		ldi r18,lo8(2)
+ 339 00aa FC01      		movw r30,r24
+ 340 00ac 2083      		st Z,r18
+  72:main.c        **** 
+  73:main.c        ****     //- init IO with goodness
+  74:main.c        **** 	vIO_init();
+ 342               	.LM18:
+ 343 00ae 0E94 0000 		call vIO_init
+  75:main.c        **** 
+  76:main.c        **** 	//- Create a 
+  77:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+ 345               	.LM19:
+ 346 00b2 8B81      		ldd r24,Y+3
+ 347 00b4 9C81      		ldd r25,Y+4
+ 348 00b6 A12C      		mov r10,__zero_reg__
+ 349 00b8 B12C      		mov r11,__zero_reg__
+ 350 00ba C12C      		mov r12,__zero_reg__
+ 351 00bc D12C      		mov r13,__zero_reg__
+ 352 00be E12C      		mov r14,__zero_reg__
+ 353 00c0 F12C      		mov r15,__zero_reg__
+ 354 00c2 01E0      		ldi r16,lo8(1)
+ 355 00c4 9C01      		movw r18,r24
+ 356 00c6 4DE3      		ldi r20,lo8(61)
+ 357 00c8 54E0      		ldi r21,lo8(4)
+ 358 00ca 60E0      		ldi r22,lo8(.LC1)
+ 359 00cc 70E0      		ldi r23,hi8(.LC1)
+ 360 00ce 80E0      		ldi r24,lo8(gs(vTaskFunction_1))
+ 361 00d0 90E0      		ldi r25,hi8(gs(vTaskFunction_1))
+ 362 00d2 0E94 0000 		call xTaskGenericCreate
+  78:main.c        ****                 (void *) val1, 1, NULL );
+  79:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+100
+  80:main.c        ****                 (void *) val1, 1, NULL );*/
+  81:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+100
+  82:main.c        ****                 (void *) val1, 1, NULL );
+  83:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskPot, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
+  84:main.c        ****                 (void *) val1, 1, NULL );*/
+  85:main.c        **** 
+  86:main.c        ****  
+  87:main.c        ****   	xTaskCreate( (pdTASK_CODE) vTaskSteer, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
+ 364               	.LM20:
+ 365 00d6 8B81      		ldd r24,Y+3
+ 366 00d8 9C81      		ldd r25,Y+4
+ 367 00da A12C      		mov r10,__zero_reg__
+ 368 00dc B12C      		mov r11,__zero_reg__
+ 369 00de C12C      		mov r12,__zero_reg__
+ 370 00e0 D12C      		mov r13,__zero_reg__
+ 371 00e2 E12C      		mov r14,__zero_reg__
+ 372 00e4 F12C      		mov r15,__zero_reg__
+ 373 00e6 01E0      		ldi r16,lo8(1)
+ 374 00e8 9C01      		movw r18,r24
+ 375 00ea 4DE3      		ldi r20,lo8(61)
+ 376 00ec 54E0      		ldi r21,lo8(4)
+ 377 00ee 60E0      		ldi r22,lo8(.LC2)
+ 378 00f0 70E0      		ldi r23,hi8(.LC2)
+ 379 00f2 80E0      		ldi r24,lo8(gs(vTaskSteer))
+ 380 00f4 90E0      		ldi r25,hi8(gs(vTaskSteer))
+ 381 00f6 0E94 0000 		call xTaskGenericCreate
+  88:main.c        ****                 (void *) val1, 1, NULL );
+  89:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
+ 383               	.LM21:
+ 384 00fa 8B81      		ldd r24,Y+3
+ 385 00fc 9C81      		ldd r25,Y+4
+ 386 00fe A12C      		mov r10,__zero_reg__
+ 387 0100 B12C      		mov r11,__zero_reg__
+ 388 0102 C12C      		mov r12,__zero_reg__
+ 389 0104 D12C      		mov r13,__zero_reg__
+ 390 0106 E12C      		mov r14,__zero_reg__
+ 391 0108 F12C      		mov r15,__zero_reg__
+ 392 010a 01E0      		ldi r16,lo8(1)
+ 393 010c 9C01      		movw r18,r24
+ 394 010e 4DE3      		ldi r20,lo8(61)
+ 395 0110 54E0      		ldi r21,lo8(4)
+ 396 0112 60E0      		ldi r22,lo8(.LC3)
+ 397 0114 70E0      		ldi r23,hi8(.LC3)
+ 398 0116 80E0      		ldi r24,lo8(gs(vTaskSonar))
+ 399 0118 90E0      		ldi r25,hi8(gs(vTaskSonar))
+ 400 011a 0E94 0000 		call xTaskGenericCreate
+  90:main.c        ****                 (void *) val1, 1, NULL );
+  91:main.c        ****  
+  92:main.c        ****    /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+100
+  93:main.c        ****    				(void *) val1, 1, NULL);*/
   94:main.c        **** 
-  95:main.c        **** 	
-  96:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T5", configMINIMAL_STACK_SIZE+1000,
- 400               	.LM22:
- 401 011e 8B81      		ldd r24,Y+3
- 402 0120 9C81      		ldd r25,Y+4
- 403 0122 A12C      		mov r10,__zero_reg__
- 404 0124 B12C      		mov r11,__zero_reg__
- 405 0126 C12C      		mov r12,__zero_reg__
- 406 0128 D12C      		mov r13,__zero_reg__
- 407 012a E12C      		mov r14,__zero_reg__
- 408 012c F12C      		mov r15,__zero_reg__
- 409 012e 01E0      		ldi r16,lo8(1)
- 410 0130 9C01      		movw r18,r24
- 411 0132 4DE3      		ldi r20,lo8(61)
- 412 0134 54E0      		ldi r21,lo8(4)
- 413 0136 60E0      		ldi r22,lo8(.LC4)
- 414 0138 70E0      		ldi r23,hi8(.LC4)
- 415 013a 80E0      		ldi r24,lo8(gs(vTaskADC))
- 416 013c 90E0      		ldi r25,hi8(gs(vTaskADC))
- 417 013e 0E94 0000 		call xTaskGenericCreate
-  97:main.c        ****    				(void *) val1, 1, NULL);
-  98:main.c        **** 
-  99:main.c        **** //   xTaskCreate( (pdTASK_CODE) vTaskUSARTLog, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
- 100:main.c        **** //   				(void *) val1, 1, NULL);
- 101:main.c        ****     
- 102:main.c        ****     //- kick off the scheduler
- 103:main.c        **** 	vTaskStartScheduler();
- 419               	.LM23:
- 420 0142 0E94 0000 		call vTaskStartScheduler
+  95:main.c        ****    xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
+ 402               	.LM22:
+ 403 011e 8B81      		ldd r24,Y+3
+ 404 0120 9C81      		ldd r25,Y+4
+ 405 0122 A12C      		mov r10,__zero_reg__
+ 406 0124 B12C      		mov r11,__zero_reg__
+ 407 0126 C12C      		mov r12,__zero_reg__
+ 408 0128 D12C      		mov r13,__zero_reg__
+ 409 012a E12C      		mov r14,__zero_reg__
+ 410 012c F12C      		mov r15,__zero_reg__
+ 411 012e 01E0      		ldi r16,lo8(1)
+ 412 0130 9C01      		movw r18,r24
+ 413 0132 4DE3      		ldi r20,lo8(61)
+ 414 0134 54E0      		ldi r21,lo8(4)
+ 415 0136 60E0      		ldi r22,lo8(.LC4)
+ 416 0138 70E0      		ldi r23,hi8(.LC4)
+ 417 013a 80E0      		ldi r24,lo8(gs(vTaskUSARTRead))
+ 418 013c 90E0      		ldi r25,hi8(gs(vTaskUSARTRead))
+ 419 013e 0E94 0000 		call xTaskGenericCreate
+  96:main.c        ****    				(void *) val1, 1, NULL);
+  97:main.c        **** 
+  98:main.c        **** 	
+  99:main.c        **** 	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T5", configMINIMAL_STACK_SIZE+1000,
+ 421               	.LM23:
+ 422 0142 8B81      		ldd r24,Y+3
+ 423 0144 9C81      		ldd r25,Y+4
+ 424 0146 A12C      		mov r10,__zero_reg__
+ 425 0148 B12C      		mov r11,__zero_reg__
+ 426 014a C12C      		mov r12,__zero_reg__
+ 427 014c D12C      		mov r13,__zero_reg__
+ 428 014e E12C      		mov r14,__zero_reg__
+ 429 0150 F12C      		mov r15,__zero_reg__
+ 430 0152 01E0      		ldi r16,lo8(1)
+ 431 0154 9C01      		movw r18,r24
+ 432 0156 4DE3      		ldi r20,lo8(61)
+ 433 0158 54E0      		ldi r21,lo8(4)
+ 434 015a 60E0      		ldi r22,lo8(.LC5)
+ 435 015c 70E0      		ldi r23,hi8(.LC5)
+ 436 015e 80E0      		ldi r24,lo8(gs(vTaskADC))
+ 437 0160 90E0      		ldi r25,hi8(gs(vTaskADC))
+ 438 0162 0E94 0000 		call xTaskGenericCreate
+ 100:main.c        ****    				(void *) val1, 1, NULL);
+ 101:main.c        **** 
+ 102:main.c        **** //   xTaskCreate( (pdTASK_CODE) vTaskUSARTLog, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
+ 103:main.c        **** //   				(void *) val1, 1, NULL);
  104:main.c        ****     
- 105:main.c        **** 	return 0;
- 422               	.LM24:
- 423 0146 80E0      		ldi r24,0
- 424 0148 90E0      		ldi r25,0
- 425               	/* epilogue start */
- 106:main.c        **** }
- 427               	.LM25:
- 428 014a 2696      		adiw r28,6
- 429 014c 0FB6      		in __tmp_reg__,__SREG__
- 430 014e F894      		cli
- 431 0150 DEBF      		out __SP_H__,r29
- 432 0152 0FBE      		out __SREG__,__tmp_reg__
- 433 0154 CDBF      		out __SP_L__,r28
- 434 0156 DF91      		pop r29
- 435 0158 CF91      		pop r28
- 436 015a 0F91      		pop r16
- 437 015c FF90      		pop r15
- 438 015e EF90      		pop r14
- 439 0160 DF90      		pop r13
- 440 0162 CF90      		pop r12
- 441 0164 BF90      		pop r11
- 442 0166 AF90      		pop r10
- 443 0168 0895      		ret
- 450               	.Lscope3:
- 452               		.stabd	78,0,0
- 453               		.section	.rodata
- 454               	.LC0:
- 455 000c 30        		.byte	48
- 456 000d 31        		.byte	49
- 457 000e 32        		.byte	50
- 458 000f 33        		.byte	51
- 459 0010 34        		.byte	52
- 460 0011 35        		.byte	53
- 461 0012 36        		.byte	54
- 462 0013 37        		.byte	55
- 463 0014 38        		.byte	56
- 464 0015 39        		.byte	57
- 465 0016 41        		.byte	65
- 466 0017 42        		.byte	66
- 467 0018 43        		.byte	67
- 468 0019 44        		.byte	68
- 469 001a 45        		.byte	69
- 470 001b 46        		.byte	70
- 471               		.text
- 474               	.global	printHex
- 476               	printHex:
- 477               		.stabd	46,0,0
- 107:main.c        **** /*-----------------------------------------------------------*/
- 108:main.c        **** 
- 109:main.c        **** void printHex(int i){
- 479               	.LM26:
- 480               	.LFBB4:
- 481 016a CF93      		push r28
- 482 016c DF93      		push r29
- 483 016e CDB7      		in r28,__SP_L__
- 484 0170 DEB7      		in r29,__SP_H__
- 485 0172 6297      		sbiw r28,18
- 486 0174 0FB6      		in __tmp_reg__,__SREG__
- 487 0176 F894      		cli
- 488 0178 DEBF      		out __SP_H__,r29
- 489 017a 0FBE      		out __SREG__,__tmp_reg__
- 490 017c CDBF      		out __SP_L__,r28
- 491               	/* prologue: function */
- 492               	/* frame size = 18 */
- 493               	/* stack size = 20 */
- 494               	.L__stack_usage = 20
- 495 017e 9A8B      		std Y+18,r25
- 496 0180 898B      		std Y+17,r24
- 110:main.c        **** 	char hex[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
- 498               	.LM27:
- 499 0182 20E1      		ldi r18,lo8(16)
- 500 0184 E0E0      		ldi r30,lo8(.LC0)
- 501 0186 F0E0      		ldi r31,hi8(.LC0)
- 502 0188 CE01      		movw r24,r28
- 503 018a 0196      		adiw r24,1
- 504 018c DC01      		movw r26,r24
- 505               		0:
- 506 018e 0190      		ld r0,Z+
- 507 0190 0D92      		st X+,r0
- 508 0192 2A95      		dec r18
- 509 0194 01F4      		brne 0b
+ 105:main.c        ****     //- kick off the scheduler
+ 106:main.c        **** 	vTaskStartScheduler();
+ 440               	.LM24:
+ 441 0166 0E94 0000 		call vTaskStartScheduler
+ 107:main.c        ****     
+ 108:main.c        **** 	return 0;
+ 443               	.LM25:
+ 444 016a 80E0      		ldi r24,0
+ 445 016c 90E0      		ldi r25,0
+ 446               	/* epilogue start */
+ 109:main.c        **** }
+ 448               	.LM26:
+ 449 016e 2696      		adiw r28,6
+ 450 0170 0FB6      		in __tmp_reg__,__SREG__
+ 451 0172 F894      		cli
+ 452 0174 DEBF      		out __SP_H__,r29
+ 453 0176 0FBE      		out __SREG__,__tmp_reg__
+ 454 0178 CDBF      		out __SP_L__,r28
+ 455 017a DF91      		pop r29
+ 456 017c CF91      		pop r28
+ 457 017e 0F91      		pop r16
+ 458 0180 FF90      		pop r15
+ 459 0182 EF90      		pop r14
+ 460 0184 DF90      		pop r13
+ 461 0186 CF90      		pop r12
+ 462 0188 BF90      		pop r11
+ 463 018a AF90      		pop r10
+ 464 018c 0895      		ret
+ 471               	.Lscope3:
+ 473               		.stabd	78,0,0
+ 474               		.section	.rodata
+ 475               	.LC0:
+ 476 000f 30        		.byte	48
+ 477 0010 31        		.byte	49
+ 478 0011 32        		.byte	50
+ 479 0012 33        		.byte	51
+ 480 0013 34        		.byte	52
+ 481 0014 35        		.byte	53
+ 482 0015 36        		.byte	54
+ 483 0016 37        		.byte	55
+ 484 0017 38        		.byte	56
+ 485 0018 39        		.byte	57
+ 486 0019 41        		.byte	65
+ 487 001a 42        		.byte	66
+ 488 001b 43        		.byte	67
+ 489 001c 44        		.byte	68
+ 490 001d 45        		.byte	69
+ 491 001e 46        		.byte	70
+ 492               		.text
+ 495               	.global	printHex
+ 497               	printHex:
+ 498               		.stabd	46,0,0
+ 110:main.c        **** /*-----------------------------------------------------------*/
  111:main.c        **** 
- 112:main.c        **** 	USART_Write(hex[(i&0xF000) >> 12]);
- 511               	.LM28:
- 512 0196 8989      		ldd r24,Y+17
- 513 0198 9A89      		ldd r25,Y+18
- 514 019a 892F      		mov r24,r25
- 515 019c 9927      		clr r25
- 516 019e 8295      		swap r24
- 517 01a0 8F70      		andi r24,0x0f
- 518 01a2 9E01      		movw r18,r28
- 519 01a4 2F5F      		subi r18,-1
- 520 01a6 3F4F      		sbci r19,-1
- 521 01a8 820F      		add r24,r18
- 522 01aa 931F      		adc r25,r19
- 523 01ac FC01      		movw r30,r24
- 524 01ae 8081      		ld r24,Z
- 525 01b0 0E94 0000 		call USART_Write
- 113:main.c        **** 	USART_Write(hex[(i&0xF00) >> 8]);
- 527               	.LM29:
- 528 01b4 8989      		ldd r24,Y+17
- 529 01b6 9A89      		ldd r25,Y+18
- 530 01b8 8827      		clr r24
- 531 01ba 9F70      		andi r25,15
- 532 01bc 892F      		mov r24,r25
- 533 01be 990F      		lsl r25
- 534 01c0 990B      		sbc r25,r25
- 535 01c2 9E01      		movw r18,r28
- 536 01c4 2F5F      		subi r18,-1
- 537 01c6 3F4F      		sbci r19,-1
- 538 01c8 820F      		add r24,r18
- 539 01ca 931F      		adc r25,r19
- 540 01cc FC01      		movw r30,r24
- 541 01ce 8081      		ld r24,Z
- 542 01d0 0E94 0000 		call USART_Write
- 114:main.c        **** 	USART_Write(hex[(i&0xF0) >> 4]);
- 544               	.LM30:
- 545 01d4 8989      		ldd r24,Y+17
- 546 01d6 9A89      		ldd r25,Y+18
- 547 01d8 807F      		andi r24,240
- 548 01da 9927      		clr r25
- 549 01dc 9595      		asr r25
- 550 01de 8795      		ror r24
- 551 01e0 9595      		asr r25
- 552 01e2 8795      		ror r24
- 553 01e4 9595      		asr r25
- 554 01e6 8795      		ror r24
- 555 01e8 9595      		asr r25
- 556 01ea 8795      		ror r24
- 557 01ec 9E01      		movw r18,r28
- 558 01ee 2F5F      		subi r18,-1
- 559 01f0 3F4F      		sbci r19,-1
- 560 01f2 820F      		add r24,r18
- 561 01f4 931F      		adc r25,r19
- 562 01f6 FC01      		movw r30,r24
- 563 01f8 8081      		ld r24,Z
- 564 01fa 0E94 0000 		call USART_Write
- 115:main.c        **** 	USART_Write(hex[i&0xF]);
- 566               	.LM31:
- 567 01fe 8989      		ldd r24,Y+17
- 568 0200 9A89      		ldd r25,Y+18
- 569 0202 8F70      		andi r24,15
- 570 0204 9927      		clr r25
- 571 0206 9E01      		movw r18,r28
- 572 0208 2F5F      		subi r18,-1
- 573 020a 3F4F      		sbci r19,-1
- 574 020c 820F      		add r24,r18
- 575 020e 931F      		adc r25,r19
- 576 0210 FC01      		movw r30,r24
- 577 0212 8081      		ld r24,Z
- 578 0214 0E94 0000 		call USART_Write
- 579               	/* epilogue start */
- 116:main.c        **** 
- 117:main.c        **** }
- 581               	.LM32:
- 582 0218 6296      		adiw r28,18
- 583 021a 0FB6      		in __tmp_reg__,__SREG__
- 584 021c F894      		cli
- 585 021e DEBF      		out __SP_H__,r29
- 586 0220 0FBE      		out __SREG__,__tmp_reg__
- 587 0222 CDBF      		out __SP_L__,r28
- 588 0224 DF91      		pop r29
- 589 0226 CF91      		pop r28
- 590 0228 0895      		ret
- 595               	.Lscope4:
- 597               		.stabd	78,0,0
- 600               	.global	printNum
- 602               	printNum:
- 603               		.stabd	46,0,0
- 118:main.c        **** 
- 119:main.c        **** void printNum(unsigned char i){
- 605               	.LM33:
- 606               	.LFBB5:
- 607 022a CF93      		push r28
- 608 022c DF93      		push r29
- 609 022e CDB7      		in r28,__SP_L__
- 610 0230 DEB7      		in r29,__SP_H__
- 611 0232 2D97      		sbiw r28,13
- 612 0234 0FB6      		in __tmp_reg__,__SREG__
- 613 0236 F894      		cli
- 614 0238 DEBF      		out __SP_H__,r29
- 615 023a 0FBE      		out __SREG__,__tmp_reg__
- 616 023c CDBF      		out __SP_L__,r28
- 617               	/* prologue: function */
- 618               	/* frame size = 13 */
- 619               	/* stack size = 15 */
- 620               	.L__stack_usage = 15
- 621 023e 8D87      		std Y+13,r24
- 120:main.c        ****     
- 121:main.c        ****     char str[10];
- 122:main.c        ****     memset(str,0,10);
- 623               	.LM34:
- 624 0240 CE01      		movw r24,r28
- 625 0242 0396      		adiw r24,3
- 626 0244 4AE0      		ldi r20,lo8(10)
- 627 0246 50E0      		ldi r21,0
- 628 0248 60E0      		ldi r22,0
- 629 024a 70E0      		ldi r23,0
- 630 024c 0E94 0000 		call memset
- 123:main.c        ****     itoa(i,str,10);
- 632               	.LM35:
- 633 0250 8D85      		ldd r24,Y+13
- 634 0252 882F      		mov r24,r24
- 635 0254 90E0      		ldi r25,0
- 636 0256 9E01      		movw r18,r28
- 637 0258 2D5F      		subi r18,-3
- 638 025a 3F4F      		sbci r19,-1
- 639 025c 4AE0      		ldi r20,lo8(10)
- 640 025e 50E0      		ldi r21,0
- 641 0260 B901      		movw r22,r18
- 642 0262 0E94 0000 		call itoa
- 124:main.c        ****     char * irr = str;
- 644               	.LM36:
- 645 0266 CE01      		movw r24,r28
- 646 0268 0396      		adiw r24,3
- 647 026a 9A83      		std Y+2,r25
- 648 026c 8983      		std Y+1,r24
- 125:main.c        ****     while(*irr){
- 650               	.LM37:
- 651 026e 00C0      		rjmp .L8
- 652               	.L9:
- 126:main.c        ****         USART_AddToQueue((unsigned char )*irr);
- 654               	.LM38:
- 655 0270 8981      		ldd r24,Y+1
- 656 0272 9A81      		ldd r25,Y+2
- 657 0274 FC01      		movw r30,r24
- 658 0276 8081      		ld r24,Z
- 659 0278 0E94 0000 		call USART_AddToQueue
- 127:main.c        ****         irr++;
- 661               	.LM39:
- 662 027c 8981      		ldd r24,Y+1
- 663 027e 9A81      		ldd r25,Y+2
- 664 0280 0196      		adiw r24,1
- 665 0282 9A83      		std Y+2,r25
- 666 0284 8983      		std Y+1,r24
- 667               	.L8:
- 125:main.c        ****     while(*irr){
- 669               	.LM40:
- 670 0286 8981      		ldd r24,Y+1
- 671 0288 9A81      		ldd r25,Y+2
- 672 028a FC01      		movw r30,r24
- 673 028c 8081      		ld r24,Z
- 674 028e 8823      		tst r24
- 675 0290 01F4      		brne .L9
- 676               	/* epilogue start */
- 128:main.c        ****     }
- 129:main.c        ****     
- 130:main.c        **** }
- 678               	.LM41:
- 679 0292 2D96      		adiw r28,13
- 680 0294 0FB6      		in __tmp_reg__,__SREG__
- 681 0296 F894      		cli
- 682 0298 DEBF      		out __SP_H__,r29
- 683 029a 0FBE      		out __SREG__,__tmp_reg__
- 684 029c CDBF      		out __SP_L__,r28
- 685 029e DF91      		pop r29
- 686 02a0 CF91      		pop r28
- 687 02a2 0895      		ret
- 693               	.Lscope5:
- 695               		.stabd	78,0,0
- 697               	.global	__vector_50
- 699               	__vector_50:
- 700               		.stabd	46,0,0
- 131:main.c        **** 
- 132:main.c        **** ISR(TIMER5_OVF_vect){
- 702               	.LM42:
- 703               	.LFBB6:
- 704 02a4 1F92      		push r1
- 705 02a6 0F92      		push r0
- 706 02a8 0090 5F00 		lds r0,95
- 707 02ac 0F92      		push r0
- 708 02ae 1124      		clr __zero_reg__
- 709 02b0 0090 5B00 		lds r0,91
- 710 02b4 0F92      		push r0
- 711 02b6 2F93      		push r18
- 712 02b8 3F93      		push r19
- 713 02ba 8F93      		push r24
- 714 02bc 9F93      		push r25
- 715 02be EF93      		push r30
- 716 02c0 FF93      		push r31
- 717 02c2 CF93      		push r28
- 718 02c4 DF93      		push r29
- 719 02c6 CDB7      		in r28,__SP_L__
- 720 02c8 DEB7      		in r29,__SP_H__
- 721               	/* prologue: Signal */
- 722               	/* frame size = 0 */
- 723               	/* stack size = 12 */
- 724               	.L__stack_usage = 12
- 133:main.c        **** 
- 134:main.c        **** 	PORTB ^= 0xFF;
- 726               	.LM43:
- 727 02ca 85E2      		ldi r24,lo8(37)
- 728 02cc 90E0      		ldi r25,0
- 729 02ce 25E2      		ldi r18,lo8(37)
- 730 02d0 30E0      		ldi r19,0
- 731 02d2 F901      		movw r30,r18
- 732 02d4 2081      		ld r18,Z
- 733 02d6 2095      		com r18
- 734 02d8 FC01      		movw r30,r24
- 735 02da 2083      		st Z,r18
- 135:main.c        **** 	TCNT3L = 0;
- 737               	.LM44:
- 738 02dc 84E9      		ldi r24,lo8(-108)
- 739 02de 90E0      		ldi r25,0
- 740 02e0 FC01      		movw r30,r24
- 741 02e2 1082      		st Z,__zero_reg__
- 136:main.c        **** 	TCNT3H = 0;
- 743               	.LM45:
- 744 02e4 85E9      		ldi r24,lo8(-107)
- 745 02e6 90E0      		ldi r25,0
- 746 02e8 FC01      		movw r30,r24
- 747 02ea 1082      		st Z,__zero_reg__
- 748               	/* epilogue start */
- 137:main.c        **** 
- 138:main.c        **** }
- 750               	.LM46:
- 751 02ec DF91      		pop r29
- 752 02ee CF91      		pop r28
- 753 02f0 FF91      		pop r31
- 754 02f2 EF91      		pop r30
- 755 02f4 9F91      		pop r25
- 756 02f6 8F91      		pop r24
- 757 02f8 3F91      		pop r19
- 758 02fa 2F91      		pop r18
- 759 02fc 0F90      		pop r0
- 760 02fe 0092 5B00 		sts 91,r0
- 761 0302 0F90      		pop r0
- 762 0304 0092 5F00 		sts 95,r0
- 763 0308 0F90      		pop r0
- 764 030a 1F90      		pop r1
- 765 030c 1895      		reti
- 767               	.Lscope6:
- 769               		.stabd	78,0,0
- 771               	.global	getTimerCount2
- 773               	getTimerCount2:
- 774               		.stabd	46,0,0
- 139:main.c        **** 
- 140:main.c        **** unsigned int getTimerCount2(){
- 776               	.LM47:
- 777               	.LFBB7:
- 778 030e CF93      		push r28
- 779 0310 DF93      		push r29
- 780 0312 CDB7      		in r28,__SP_L__
- 781 0314 DEB7      		in r29,__SP_H__
- 782               	/* prologue: function */
- 783               	/* frame size = 0 */
- 784               	/* stack size = 2 */
- 785               	.L__stack_usage = 2
- 141:main.c        **** 
- 142:main.c        **** 	//volatile char timerLow = TCNT3L;
- 143:main.c        **** 
- 144:main.c        **** 	return TCNT0;
- 787               	.LM48:
- 788 0316 86E4      		ldi r24,lo8(70)
- 789 0318 90E0      		ldi r25,0
- 790 031a FC01      		movw r30,r24
- 791 031c 8081      		ld r24,Z
- 792 031e 882F      		mov r24,r24
- 793 0320 90E0      		ldi r25,0
- 794               	/* epilogue start */
- 145:main.c        **** 
- 146:main.c        **** }
- 796               	.LM49:
- 797 0322 DF91      		pop r29
- 798 0324 CF91      		pop r28
- 799 0326 0895      		ret
- 801               	.Lscope7:
- 803               		.stabd	78,0,0
- 810               	.global	potValue
- 812               	potValue:
- 813               		.stabd	46,0,0
- 147:main.c        **** 
+ 112:main.c        **** void printHex(int i){
+ 500               	.LM27:
+ 501               	.LFBB4:
+ 502 018e CF93      		push r28
+ 503 0190 DF93      		push r29
+ 504 0192 CDB7      		in r28,__SP_L__
+ 505 0194 DEB7      		in r29,__SP_H__
+ 506 0196 6297      		sbiw r28,18
+ 507 0198 0FB6      		in __tmp_reg__,__SREG__
+ 508 019a F894      		cli
+ 509 019c DEBF      		out __SP_H__,r29
+ 510 019e 0FBE      		out __SREG__,__tmp_reg__
+ 511 01a0 CDBF      		out __SP_L__,r28
+ 512               	/* prologue: function */
+ 513               	/* frame size = 18 */
+ 514               	/* stack size = 20 */
+ 515               	.L__stack_usage = 20
+ 516 01a2 9A8B      		std Y+18,r25
+ 517 01a4 898B      		std Y+17,r24
+ 113:main.c        **** 	char hex[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+ 519               	.LM28:
+ 520 01a6 20E1      		ldi r18,lo8(16)
+ 521 01a8 E0E0      		ldi r30,lo8(.LC0)
+ 522 01aa F0E0      		ldi r31,hi8(.LC0)
+ 523 01ac CE01      		movw r24,r28
+ 524 01ae 0196      		adiw r24,1
+ 525 01b0 DC01      		movw r26,r24
+ 526               		0:
+ 527 01b2 0190      		ld r0,Z+
+ 528 01b4 0D92      		st X+,r0
+ 529 01b6 2A95      		dec r18
+ 530 01b8 01F4      		brne 0b
+ 114:main.c        **** 
+ 115:main.c        **** 	USART_Write(hex[(i&0xF000) >> 12]);
+ 532               	.LM29:
+ 533 01ba 8989      		ldd r24,Y+17
+ 534 01bc 9A89      		ldd r25,Y+18
+ 535 01be 892F      		mov r24,r25
+ 536 01c0 9927      		clr r25
+ 537 01c2 8295      		swap r24
+ 538 01c4 8F70      		andi r24,0x0f
+ 539 01c6 9E01      		movw r18,r28
+ 540 01c8 2F5F      		subi r18,-1
+ 541 01ca 3F4F      		sbci r19,-1
+ 542 01cc 820F      		add r24,r18
+ 543 01ce 931F      		adc r25,r19
+ 544 01d0 FC01      		movw r30,r24
+ 545 01d2 8081      		ld r24,Z
+ 546 01d4 0E94 0000 		call USART_Write
+ 116:main.c        **** 	USART_Write(hex[(i&0xF00) >> 8]);
+ 548               	.LM30:
+ 549 01d8 8989      		ldd r24,Y+17
+ 550 01da 9A89      		ldd r25,Y+18
+ 551 01dc 8827      		clr r24
+ 552 01de 9F70      		andi r25,15
+ 553 01e0 892F      		mov r24,r25
+ 554 01e2 990F      		lsl r25
+ 555 01e4 990B      		sbc r25,r25
+ 556 01e6 9E01      		movw r18,r28
+ 557 01e8 2F5F      		subi r18,-1
+ 558 01ea 3F4F      		sbci r19,-1
+ 559 01ec 820F      		add r24,r18
+ 560 01ee 931F      		adc r25,r19
+ 561 01f0 FC01      		movw r30,r24
+ 562 01f2 8081      		ld r24,Z
+ 563 01f4 0E94 0000 		call USART_Write
+ 117:main.c        **** 	USART_Write(hex[(i&0xF0) >> 4]);
+ 565               	.LM31:
+ 566 01f8 8989      		ldd r24,Y+17
+ 567 01fa 9A89      		ldd r25,Y+18
+ 568 01fc 807F      		andi r24,240
+ 569 01fe 9927      		clr r25
+ 570 0200 9595      		asr r25
+ 571 0202 8795      		ror r24
+ 572 0204 9595      		asr r25
+ 573 0206 8795      		ror r24
+ 574 0208 9595      		asr r25
+ 575 020a 8795      		ror r24
+ 576 020c 9595      		asr r25
+ 577 020e 8795      		ror r24
+ 578 0210 9E01      		movw r18,r28
+ 579 0212 2F5F      		subi r18,-1
+ 580 0214 3F4F      		sbci r19,-1
+ 581 0216 820F      		add r24,r18
+ 582 0218 931F      		adc r25,r19
+ 583 021a FC01      		movw r30,r24
+ 584 021c 8081      		ld r24,Z
+ 585 021e 0E94 0000 		call USART_Write
+ 118:main.c        **** 	USART_Write(hex[i&0xF]);
+ 587               	.LM32:
+ 588 0222 8989      		ldd r24,Y+17
+ 589 0224 9A89      		ldd r25,Y+18
+ 590 0226 8F70      		andi r24,15
+ 591 0228 9927      		clr r25
+ 592 022a 9E01      		movw r18,r28
+ 593 022c 2F5F      		subi r18,-1
+ 594 022e 3F4F      		sbci r19,-1
+ 595 0230 820F      		add r24,r18
+ 596 0232 931F      		adc r25,r19
+ 597 0234 FC01      		movw r30,r24
+ 598 0236 8081      		ld r24,Z
+ 599 0238 0E94 0000 		call USART_Write
+ 600               	/* epilogue start */
+ 119:main.c        **** 
+ 120:main.c        **** }
+ 602               	.LM33:
+ 603 023c 6296      		adiw r28,18
+ 604 023e 0FB6      		in __tmp_reg__,__SREG__
+ 605 0240 F894      		cli
+ 606 0242 DEBF      		out __SP_H__,r29
+ 607 0244 0FBE      		out __SREG__,__tmp_reg__
+ 608 0246 CDBF      		out __SP_L__,r28
+ 609 0248 DF91      		pop r29
+ 610 024a CF91      		pop r28
+ 611 024c 0895      		ret
+ 616               	.Lscope4:
+ 618               		.stabd	78,0,0
+ 621               	.global	printNum
+ 623               	printNum:
+ 624               		.stabd	46,0,0
+ 121:main.c        **** 
+ 122:main.c        **** void printNum(unsigned char i){
+ 626               	.LM34:
+ 627               	.LFBB5:
+ 628 024e CF93      		push r28
+ 629 0250 DF93      		push r29
+ 630 0252 CDB7      		in r28,__SP_L__
+ 631 0254 DEB7      		in r29,__SP_H__
+ 632 0256 2D97      		sbiw r28,13
+ 633 0258 0FB6      		in __tmp_reg__,__SREG__
+ 634 025a F894      		cli
+ 635 025c DEBF      		out __SP_H__,r29
+ 636 025e 0FBE      		out __SREG__,__tmp_reg__
+ 637 0260 CDBF      		out __SP_L__,r28
+ 638               	/* prologue: function */
+ 639               	/* frame size = 13 */
+ 640               	/* stack size = 15 */
+ 641               	.L__stack_usage = 15
+ 642 0262 8D87      		std Y+13,r24
+ 123:main.c        ****     
+ 124:main.c        ****     char str[10];
+ 125:main.c        ****     memset(str,0,10);
+ 644               	.LM35:
+ 645 0264 CE01      		movw r24,r28
+ 646 0266 0396      		adiw r24,3
+ 647 0268 4AE0      		ldi r20,lo8(10)
+ 648 026a 50E0      		ldi r21,0
+ 649 026c 60E0      		ldi r22,0
+ 650 026e 70E0      		ldi r23,0
+ 651 0270 0E94 0000 		call memset
+ 126:main.c        ****     itoa(i,str,10);
+ 653               	.LM36:
+ 654 0274 8D85      		ldd r24,Y+13
+ 655 0276 882F      		mov r24,r24
+ 656 0278 90E0      		ldi r25,0
+ 657 027a 9E01      		movw r18,r28
+ 658 027c 2D5F      		subi r18,-3
+ 659 027e 3F4F      		sbci r19,-1
+ 660 0280 4AE0      		ldi r20,lo8(10)
+ 661 0282 50E0      		ldi r21,0
+ 662 0284 B901      		movw r22,r18
+ 663 0286 0E94 0000 		call itoa
+ 127:main.c        ****     char * irr = str;
+ 665               	.LM37:
+ 666 028a CE01      		movw r24,r28
+ 667 028c 0396      		adiw r24,3
+ 668 028e 9A83      		std Y+2,r25
+ 669 0290 8983      		std Y+1,r24
+ 128:main.c        ****     while(*irr){
+ 671               	.LM38:
+ 672 0292 00C0      		rjmp .L8
+ 673               	.L9:
+ 129:main.c        ****         USART_AddToQueue((unsigned char )*irr);
+ 675               	.LM39:
+ 676 0294 8981      		ldd r24,Y+1
+ 677 0296 9A81      		ldd r25,Y+2
+ 678 0298 FC01      		movw r30,r24
+ 679 029a 8081      		ld r24,Z
+ 680 029c 0E94 0000 		call USART_AddToQueue
+ 130:main.c        ****         irr++;
+ 682               	.LM40:
+ 683 02a0 8981      		ldd r24,Y+1
+ 684 02a2 9A81      		ldd r25,Y+2
+ 685 02a4 0196      		adiw r24,1
+ 686 02a6 9A83      		std Y+2,r25
+ 687 02a8 8983      		std Y+1,r24
+ 688               	.L8:
+ 128:main.c        ****     while(*irr){
+ 690               	.LM41:
+ 691 02aa 8981      		ldd r24,Y+1
+ 692 02ac 9A81      		ldd r25,Y+2
+ 693 02ae FC01      		movw r30,r24
+ 694 02b0 8081      		ld r24,Z
+ 695 02b2 8823      		tst r24
+ 696 02b4 01F4      		brne .L9
+ 697               	/* epilogue start */
+ 131:main.c        ****     }
+ 132:main.c        ****     
+ 133:main.c        **** }
+ 699               	.LM42:
+ 700 02b6 2D96      		adiw r28,13
+ 701 02b8 0FB6      		in __tmp_reg__,__SREG__
+ 702 02ba F894      		cli
+ 703 02bc DEBF      		out __SP_H__,r29
+ 704 02be 0FBE      		out __SREG__,__tmp_reg__
+ 705 02c0 CDBF      		out __SP_L__,r28
+ 706 02c2 DF91      		pop r29
+ 707 02c4 CF91      		pop r28
+ 708 02c6 0895      		ret
+ 714               	.Lscope5:
+ 716               		.stabd	78,0,0
+ 718               	.global	__vector_50
+ 720               	__vector_50:
+ 721               		.stabd	46,0,0
+ 134:main.c        **** 
+ 135:main.c        **** ISR(TIMER5_OVF_vect){
+ 723               	.LM43:
+ 724               	.LFBB6:
+ 725 02c8 1F92      		push r1
+ 726 02ca 0F92      		push r0
+ 727 02cc 0090 5F00 		lds r0,95
+ 728 02d0 0F92      		push r0
+ 729 02d2 1124      		clr __zero_reg__
+ 730 02d4 0090 5B00 		lds r0,91
+ 731 02d8 0F92      		push r0
+ 732 02da 2F93      		push r18
+ 733 02dc 3F93      		push r19
+ 734 02de 8F93      		push r24
+ 735 02e0 9F93      		push r25
+ 736 02e2 EF93      		push r30
+ 737 02e4 FF93      		push r31
+ 738 02e6 CF93      		push r28
+ 739 02e8 DF93      		push r29
+ 740 02ea CDB7      		in r28,__SP_L__
+ 741 02ec DEB7      		in r29,__SP_H__
+ 742               	/* prologue: Signal */
+ 743               	/* frame size = 0 */
+ 744               	/* stack size = 12 */
+ 745               	.L__stack_usage = 12
+ 136:main.c        **** 
+ 137:main.c        **** 	PORTB ^= 0xFF;
+ 747               	.LM44:
+ 748 02ee 85E2      		ldi r24,lo8(37)
+ 749 02f0 90E0      		ldi r25,0
+ 750 02f2 25E2      		ldi r18,lo8(37)
+ 751 02f4 30E0      		ldi r19,0
+ 752 02f6 F901      		movw r30,r18
+ 753 02f8 2081      		ld r18,Z
+ 754 02fa 2095      		com r18
+ 755 02fc FC01      		movw r30,r24
+ 756 02fe 2083      		st Z,r18
+ 138:main.c        **** 	TCNT3L = 0;
+ 758               	.LM45:
+ 759 0300 84E9      		ldi r24,lo8(-108)
+ 760 0302 90E0      		ldi r25,0
+ 761 0304 FC01      		movw r30,r24
+ 762 0306 1082      		st Z,__zero_reg__
+ 139:main.c        **** 	TCNT3H = 0;
+ 764               	.LM46:
+ 765 0308 85E9      		ldi r24,lo8(-107)
+ 766 030a 90E0      		ldi r25,0
+ 767 030c FC01      		movw r30,r24
+ 768 030e 1082      		st Z,__zero_reg__
+ 769               	/* epilogue start */
+ 140:main.c        **** 
+ 141:main.c        **** }
+ 771               	.LM47:
+ 772 0310 DF91      		pop r29
+ 773 0312 CF91      		pop r28
+ 774 0314 FF91      		pop r31
+ 775 0316 EF91      		pop r30
+ 776 0318 9F91      		pop r25
+ 777 031a 8F91      		pop r24
+ 778 031c 3F91      		pop r19
+ 779 031e 2F91      		pop r18
+ 780 0320 0F90      		pop r0
+ 781 0322 0092 5B00 		sts 91,r0
+ 782 0326 0F90      		pop r0
+ 783 0328 0092 5F00 		sts 95,r0
+ 784 032c 0F90      		pop r0
+ 785 032e 1F90      		pop r1
+ 786 0330 1895      		reti
+ 788               	.Lscope6:
+ 790               		.stabd	78,0,0
+ 792               	.global	getTimerCount2
+ 794               	getTimerCount2:
+ 795               		.stabd	46,0,0
+ 142:main.c        **** 
+ 143:main.c        **** unsigned int getTimerCount2(){
+ 797               	.LM48:
+ 798               	.LFBB7:
+ 799 0332 CF93      		push r28
+ 800 0334 DF93      		push r29
+ 801 0336 CDB7      		in r28,__SP_L__
+ 802 0338 DEB7      		in r29,__SP_H__
+ 803               	/* prologue: function */
+ 804               	/* frame size = 0 */
+ 805               	/* stack size = 2 */
+ 806               	.L__stack_usage = 2
+ 144:main.c        **** 
+ 145:main.c        **** 	//volatile char timerLow = TCNT3L;
+ 146:main.c        **** 
+ 147:main.c        **** 	return TCNT0;
+ 808               	.LM49:
+ 809 033a 86E4      		ldi r24,lo8(70)
+ 810 033c 90E0      		ldi r25,0
+ 811 033e FC01      		movw r30,r24
+ 812 0340 8081      		ld r24,Z
+ 813 0342 882F      		mov r24,r24
+ 814 0344 90E0      		ldi r25,0
+ 815               	/* epilogue start */
  148:main.c        **** 
- 149:main.c        **** int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x){
- 815               	.LM50:
- 816               	.LFBB8:
- 817 0328 0F93      		push r16
- 818 032a 1F93      		push r17
- 819 032c CF93      		push r28
- 820 032e DF93      		push r29
- 821 0330 CDB7      		in r28,__SP_L__
- 822 0332 DEB7      		in r29,__SP_H__
- 823 0334 2C97      		sbiw r28,12
- 824 0336 0FB6      		in __tmp_reg__,__SREG__
- 825 0338 F894      		cli
- 826 033a DEBF      		out __SP_H__,r29
- 827 033c 0FBE      		out __SREG__,__tmp_reg__
- 828 033e CDBF      		out __SP_L__,r28
- 829               	/* prologue: function */
- 830               	/* frame size = 12 */
- 831               	/* stack size = 16 */
- 832               	.L__stack_usage = 16
- 833 0340 9C83      		std Y+4,r25
- 834 0342 8B83      		std Y+3,r24
- 835 0344 7E83      		std Y+6,r23
- 836 0346 6D83      		std Y+5,r22
- 837 0348 5887      		std Y+8,r21
- 838 034a 4F83      		std Y+7,r20
- 839 034c 3A87      		std Y+10,r19
- 840 034e 2987      		std Y+9,r18
- 841 0350 1C87      		std Y+12,r17
- 842 0352 0B87      		std Y+11,r16
- 150:main.c        **** 	int value;	
- 151:main.c        **** 	if(x < sonarMin){
- 844               	.LM51:
- 845 0354 2B85      		ldd r18,Y+11
- 846 0356 3C85      		ldd r19,Y+12
- 847 0358 8D81      		ldd r24,Y+5
- 848 035a 9E81      		ldd r25,Y+6
- 849 035c 2817      		cp r18,r24
- 850 035e 3907      		cpc r19,r25
- 851 0360 04F4      		brge .L14
- 152:main.c        **** 		return potMin;
- 853               	.LM52:
- 854 0362 8985      		ldd r24,Y+9
- 855 0364 9A85      		ldd r25,Y+10
- 856 0366 00C0      		rjmp .L15
- 857               	.L14:
- 153:main.c        **** 	} else if (x > sonarMax){
- 859               	.LM53:
- 860 0368 2B85      		ldd r18,Y+11
- 861 036a 3C85      		ldd r19,Y+12
- 862 036c 8B81      		ldd r24,Y+3
- 863 036e 9C81      		ldd r25,Y+4
- 864 0370 8217      		cp r24,r18
- 865 0372 9307      		cpc r25,r19
- 866 0374 04F4      		brge .L16
- 154:main.c        **** 		return potMax;
- 868               	.LM54:
- 869 0376 8F81      		ldd r24,Y+7
- 870 0378 9885      		ldd r25,Y+8
- 871 037a 00C0      		rjmp .L15
- 872               	.L16:
- 155:main.c        **** 	} else {
- 156:main.c        **** 		value = x / 4 - 140;
- 874               	.LM55:
- 875 037c 8B85      		ldd r24,Y+11
- 876 037e 9C85      		ldd r25,Y+12
- 877 0380 9923      		tst r25
- 878 0382 04F4      		brge .L17
- 879 0384 0396      		adiw r24,3
- 880               	.L17:
- 881 0386 9595      		asr r25
- 882 0388 8795      		ror r24
- 883 038a 9595      		asr r25
- 884 038c 8795      		ror r24
- 885 038e 8C58      		subi r24,-116
- 886 0390 9109      		sbc r25,__zero_reg__
- 887 0392 9A83      		std Y+2,r25
- 888 0394 8983      		std Y+1,r24
- 157:main.c        **** 		return value > potMax?potMax:value < potMin?potMin:value;
- 890               	.LM56:
- 891 0396 2981      		ldd r18,Y+1
- 892 0398 3A81      		ldd r19,Y+2
- 893 039a 8F81      		ldd r24,Y+7
- 894 039c 9885      		ldd r25,Y+8
- 895 039e 8217      		cp r24,r18
- 896 03a0 9307      		cpc r25,r19
- 897 03a2 04F0      		brlt .L18
- 899               	.LM57:
- 900 03a4 2985      		ldd r18,Y+9
- 901 03a6 3A85      		ldd r19,Y+10
- 902 03a8 8981      		ldd r24,Y+1
- 903 03aa 9A81      		ldd r25,Y+2
- 904 03ac 8217      		cp r24,r18
- 905 03ae 9307      		cpc r25,r19
- 906 03b0 04F4      		brge .L20
- 907 03b2 C901      		movw r24,r18
- 908 03b4 00C0      		rjmp .L15
- 909               	.L18:
- 911               	.LM58:
- 912 03b6 8F81      		ldd r24,Y+7
- 913 03b8 9885      		ldd r25,Y+8
- 914               	.L20:
- 915               	.L15:
- 916               	/* epilogue start */
- 158:main.c        **** 	}
- 159:main.c        **** } 
- 918               	.LM59:
- 919 03ba 2C96      		adiw r28,12
- 920 03bc 0FB6      		in __tmp_reg__,__SREG__
- 921 03be F894      		cli
- 922 03c0 DEBF      		out __SP_H__,r29
- 923 03c2 0FBE      		out __SREG__,__tmp_reg__
- 924 03c4 CDBF      		out __SP_L__,r28
- 925 03c6 DF91      		pop r29
- 926 03c8 CF91      		pop r28
- 927 03ca 1F91      		pop r17
- 928 03cc 0F91      		pop r16
- 929 03ce 0895      		ret
- 934               	.Lscope8:
- 936               		.stabd	78,0,0
- 939               	.global	vTaskFunction_1
- 941               	vTaskFunction_1:
- 942               		.stabd	46,0,0
- 160:main.c        **** 
- 161:main.c        **** void vTaskFunction_1(void *pvParameters)
- 162:main.c        **** {	
- 944               	.LM60:
- 945               	.LFBB9:
- 946 03d0 CF93      		push r28
- 947 03d2 DF93      		push r29
- 948 03d4 CDB7      		in r28,__SP_L__
- 949 03d6 DEB7      		in r29,__SP_H__
- 950 03d8 6797      		sbiw r28,23
- 951 03da 0FB6      		in __tmp_reg__,__SREG__
- 952 03dc F894      		cli
- 953 03de DEBF      		out __SP_H__,r29
- 954 03e0 0FBE      		out __SREG__,__tmp_reg__
- 955 03e2 CDBF      		out __SP_L__,r28
- 956               	/* prologue: function */
- 957               	/* frame size = 23 */
- 958               	/* stack size = 25 */
- 959               	.L__stack_usage = 25
- 960 03e4 9F8B      		std Y+23,r25
- 961 03e6 8E8B      		std Y+22,r24
- 163:main.c        **** 	int sonarResult;
- 164:main.c        **** 	int movingForward = 1;
- 963               	.LM61:
- 964 03e8 81E0      		ldi r24,lo8(1)
- 965 03ea 90E0      		ldi r25,0
- 966 03ec 9A83      		std Y+2,r25
- 967 03ee 8983      		std Y+1,r24
- 165:main.c        **** 
- 166:main.c        **** 	int sonarMax = 0x31C;
- 969               	.LM62:
- 970 03f0 8CE1      		ldi r24,lo8(28)
- 971 03f2 93E0      		ldi r25,lo8(3)
- 972 03f4 9C83      		std Y+4,r25
- 973 03f6 8B83      		std Y+3,r24
- 167:main.c        **** 	int sonarMin = 0xE0;
- 975               	.LM63:
- 976 03f8 80EE      		ldi r24,lo8(-32)
- 977 03fa 90E0      		ldi r25,0
- 978 03fc 9E83      		std Y+6,r25
- 979 03fe 8D83      		std Y+5,r24
- 168:main.c        **** 	int potMin = 0x18;
- 981               	.LM64:
- 982 0400 88E1      		ldi r24,lo8(24)
- 983 0402 90E0      		ldi r25,0
- 984 0404 9887      		std Y+8,r25
- 985 0406 8F83      		std Y+7,r24
- 169:main.c        **** 	int potMax = 0x40;;
- 987               	.LM65:
- 988 0408 80E4      		ldi r24,lo8(64)
- 989 040a 90E0      		ldi r25,0
- 990 040c 9A87      		std Y+10,r25
- 991 040e 8987      		std Y+9,r24
- 170:main.c        **** 	int backwardSwitch = 0x100;
- 993               	.LM66:
- 994 0410 80E0      		ldi r24,0
- 995 0412 91E0      		ldi r25,lo8(1)
- 996 0414 9C87      		std Y+12,r25
- 997 0416 8B87      		std Y+11,r24
- 171:main.c        **** 	int neutralSwitch = 0x140;
- 999               	.LM67:
- 1000 0418 80E4      		ldi r24,lo8(64)
- 1001 041a 91E0      		ldi r25,lo8(1)
- 1002 041c 9E87      		std Y+14,r25
- 1003 041e 8D87      		std Y+13,r24
- 172:main.c        **** 	int forwardSwitch = 0x160;
- 1005               	.LM68:
- 1006 0420 80E6      		ldi r24,lo8(96)
- 1007 0422 91E0      		ldi r25,lo8(1)
- 1008 0424 988B      		std Y+16,r25
- 1009 0426 8F87      		std Y+15,r24
- 173:main.c        **** 	int minTicks = 450;
- 1011               	.LM69:
- 1012 0428 82EC      		ldi r24,lo8(-62)
- 1013 042a 91E0      		ldi r25,lo8(1)
- 1014 042c 9A8B      		std Y+18,r25
- 1015 042e 898B      		std Y+17,r24
- 174:main.c        **** 
- 175:main.c        **** 	int tickCount;
- 176:main.c        **** 
- 177:main.c        **** 	char a = 'a';
- 1017               	.LM70:
- 1018 0430 81E6      		ldi r24,lo8(97)
- 1019 0432 8B8B      		std Y+19,r24
- 178:main.c        **** 
- 179:main.c        **** 	PORTA = 4;
- 1021               	.LM71:
- 1022 0434 82E2      		ldi r24,lo8(34)
- 1023 0436 90E0      		ldi r25,0
- 1024 0438 24E0      		ldi r18,lo8(4)
- 1025 043a FC01      		movw r30,r24
- 1026 043c 2083      		st Z,r18
- 180:main.c        **** 
- 181:main.c        ****    USART_Init(9600, 16000000);
- 1028               	.LM72:
- 1029 043e 40E0      		ldi r20,0
- 1030 0440 54E2      		ldi r21,lo8(36)
- 1031 0442 64EF      		ldi r22,lo8(-12)
- 1032 0444 70E0      		ldi r23,0
- 1033 0446 80E8      		ldi r24,lo8(-128)
- 1034 0448 95E2      		ldi r25,lo8(37)
- 1035 044a 0E94 0000 		call USART_Init
- 182:main.c        **** 
+ 149:main.c        **** }
+ 817               	.LM50:
+ 818 0346 DF91      		pop r29
+ 819 0348 CF91      		pop r28
+ 820 034a 0895      		ret
+ 822               	.Lscope7:
+ 824               		.stabd	78,0,0
+ 831               	.global	potValue
+ 833               	potValue:
+ 834               		.stabd	46,0,0
+ 150:main.c        **** 
+ 151:main.c        **** 
+ 152:main.c        **** int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x){
+ 836               	.LM51:
+ 837               	.LFBB8:
+ 838 034c 0F93      		push r16
+ 839 034e 1F93      		push r17
+ 840 0350 CF93      		push r28
+ 841 0352 DF93      		push r29
+ 842 0354 CDB7      		in r28,__SP_L__
+ 843 0356 DEB7      		in r29,__SP_H__
+ 844 0358 2C97      		sbiw r28,12
+ 845 035a 0FB6      		in __tmp_reg__,__SREG__
+ 846 035c F894      		cli
+ 847 035e DEBF      		out __SP_H__,r29
+ 848 0360 0FBE      		out __SREG__,__tmp_reg__
+ 849 0362 CDBF      		out __SP_L__,r28
+ 850               	/* prologue: function */
+ 851               	/* frame size = 12 */
+ 852               	/* stack size = 16 */
+ 853               	.L__stack_usage = 16
+ 854 0364 9C83      		std Y+4,r25
+ 855 0366 8B83      		std Y+3,r24
+ 856 0368 7E83      		std Y+6,r23
+ 857 036a 6D83      		std Y+5,r22
+ 858 036c 5887      		std Y+8,r21
+ 859 036e 4F83      		std Y+7,r20
+ 860 0370 3A87      		std Y+10,r19
+ 861 0372 2987      		std Y+9,r18
+ 862 0374 1C87      		std Y+12,r17
+ 863 0376 0B87      		std Y+11,r16
+ 153:main.c        **** 	int value;	
+ 154:main.c        **** 	if(x < sonarMin){
+ 865               	.LM52:
+ 866 0378 2B85      		ldd r18,Y+11
+ 867 037a 3C85      		ldd r19,Y+12
+ 868 037c 8D81      		ldd r24,Y+5
+ 869 037e 9E81      		ldd r25,Y+6
+ 870 0380 2817      		cp r18,r24
+ 871 0382 3907      		cpc r19,r25
+ 872 0384 04F4      		brge .L14
+ 155:main.c        **** 		return potMin;
+ 874               	.LM53:
+ 875 0386 8985      		ldd r24,Y+9
+ 876 0388 9A85      		ldd r25,Y+10
+ 877 038a 00C0      		rjmp .L15
+ 878               	.L14:
+ 156:main.c        **** 	} else if (x > sonarMax){
+ 880               	.LM54:
+ 881 038c 2B85      		ldd r18,Y+11
+ 882 038e 3C85      		ldd r19,Y+12
+ 883 0390 8B81      		ldd r24,Y+3
+ 884 0392 9C81      		ldd r25,Y+4
+ 885 0394 8217      		cp r24,r18
+ 886 0396 9307      		cpc r25,r19
+ 887 0398 04F4      		brge .L16
+ 157:main.c        **** 		return potMax;
+ 889               	.LM55:
+ 890 039a 8F81      		ldd r24,Y+7
+ 891 039c 9885      		ldd r25,Y+8
+ 892 039e 00C0      		rjmp .L15
+ 893               	.L16:
+ 158:main.c        **** 	} else {
+ 159:main.c        **** 		value = x / 4 - 140;
+ 895               	.LM56:
+ 896 03a0 8B85      		ldd r24,Y+11
+ 897 03a2 9C85      		ldd r25,Y+12
+ 898 03a4 9923      		tst r25
+ 899 03a6 04F4      		brge .L17
+ 900 03a8 0396      		adiw r24,3
+ 901               	.L17:
+ 902 03aa 9595      		asr r25
+ 903 03ac 8795      		ror r24
+ 904 03ae 9595      		asr r25
+ 905 03b0 8795      		ror r24
+ 906 03b2 8C58      		subi r24,-116
+ 907 03b4 9109      		sbc r25,__zero_reg__
+ 908 03b6 9A83      		std Y+2,r25
+ 909 03b8 8983      		std Y+1,r24
+ 160:main.c        **** 		return value > potMax?potMax:value < potMin?potMin:value;
+ 911               	.LM57:
+ 912 03ba 2981      		ldd r18,Y+1
+ 913 03bc 3A81      		ldd r19,Y+2
+ 914 03be 8F81      		ldd r24,Y+7
+ 915 03c0 9885      		ldd r25,Y+8
+ 916 03c2 8217      		cp r24,r18
+ 917 03c4 9307      		cpc r25,r19
+ 918 03c6 04F0      		brlt .L18
+ 920               	.LM58:
+ 921 03c8 2985      		ldd r18,Y+9
+ 922 03ca 3A85      		ldd r19,Y+10
+ 923 03cc 8981      		ldd r24,Y+1
+ 924 03ce 9A81      		ldd r25,Y+2
+ 925 03d0 8217      		cp r24,r18
+ 926 03d2 9307      		cpc r25,r19
+ 927 03d4 04F4      		brge .L20
+ 928 03d6 C901      		movw r24,r18
+ 929 03d8 00C0      		rjmp .L15
+ 930               	.L18:
+ 932               	.LM59:
+ 933 03da 8F81      		ldd r24,Y+7
+ 934 03dc 9885      		ldd r25,Y+8
+ 935               	.L20:
+ 936               	.L15:
+ 937               	/* epilogue start */
+ 161:main.c        **** 	}
+ 162:main.c        **** } 
+ 939               	.LM60:
+ 940 03de 2C96      		adiw r28,12
+ 941 03e0 0FB6      		in __tmp_reg__,__SREG__
+ 942 03e2 F894      		cli
+ 943 03e4 DEBF      		out __SP_H__,r29
+ 944 03e6 0FBE      		out __SREG__,__tmp_reg__
+ 945 03e8 CDBF      		out __SP_L__,r28
+ 946 03ea DF91      		pop r29
+ 947 03ec CF91      		pop r28
+ 948 03ee 1F91      		pop r17
+ 949 03f0 0F91      		pop r16
+ 950 03f2 0895      		ret
+ 955               	.Lscope8:
+ 957               		.stabd	78,0,0
+ 960               	.global	vTaskFunction_1
+ 962               	vTaskFunction_1:
+ 963               		.stabd	46,0,0
+ 163:main.c        **** 
+ 164:main.c        **** void vTaskFunction_1(void *pvParameters)
+ 165:main.c        **** {	
+ 965               	.LM61:
+ 966               	.LFBB9:
+ 967 03f4 CF93      		push r28
+ 968 03f6 DF93      		push r29
+ 969 03f8 CDB7      		in r28,__SP_L__
+ 970 03fa DEB7      		in r29,__SP_H__
+ 971 03fc 6597      		sbiw r28,21
+ 972 03fe 0FB6      		in __tmp_reg__,__SREG__
+ 973 0400 F894      		cli
+ 974 0402 DEBF      		out __SP_H__,r29
+ 975 0404 0FBE      		out __SREG__,__tmp_reg__
+ 976 0406 CDBF      		out __SP_L__,r28
+ 977               	/* prologue: function */
+ 978               	/* frame size = 21 */
+ 979               	/* stack size = 23 */
+ 980               	.L__stack_usage = 23
+ 981 0408 9D8B      		std Y+21,r25
+ 982 040a 8C8B      		std Y+20,r24
+ 166:main.c        **** 	int sonarResult;
+ 167:main.c        **** 	int movingForward = 1;
+ 984               	.LM62:
+ 985 040c 81E0      		ldi r24,lo8(1)
+ 986 040e 90E0      		ldi r25,0
+ 987 0410 9A83      		std Y+2,r25
+ 988 0412 8983      		std Y+1,r24
+ 168:main.c        **** 
+ 169:main.c        **** 	int sonarMax = 0x31C;
+ 990               	.LM63:
+ 991 0414 8CE1      		ldi r24,lo8(28)
+ 992 0416 93E0      		ldi r25,lo8(3)
+ 993 0418 9C83      		std Y+4,r25
+ 994 041a 8B83      		std Y+3,r24
+ 170:main.c        **** 	int sonarMin = 0xE0;
+ 996               	.LM64:
+ 997 041c 80EE      		ldi r24,lo8(-32)
+ 998 041e 90E0      		ldi r25,0
+ 999 0420 9E83      		std Y+6,r25
+ 1000 0422 8D83      		std Y+5,r24
+ 171:main.c        **** 	int potMin = 0x18;
+ 1002               	.LM65:
+ 1003 0424 88E1      		ldi r24,lo8(24)
+ 1004 0426 90E0      		ldi r25,0
+ 1005 0428 9887      		std Y+8,r25
+ 1006 042a 8F83      		std Y+7,r24
+ 172:main.c        **** 	int potMax = 0x40;;
+ 1008               	.LM66:
+ 1009 042c 80E4      		ldi r24,lo8(64)
+ 1010 042e 90E0      		ldi r25,0
+ 1011 0430 9A87      		std Y+10,r25
+ 1012 0432 8987      		std Y+9,r24
+ 173:main.c        **** 	int backwardSwitch = 0x100;
+ 1014               	.LM67:
+ 1015 0434 80E0      		ldi r24,0
+ 1016 0436 91E0      		ldi r25,lo8(1)
+ 1017 0438 9C87      		std Y+12,r25
+ 1018 043a 8B87      		std Y+11,r24
+ 174:main.c        **** 	int neutralSwitch = 0x140;
+ 1020               	.LM68:
+ 1021 043c 80E4      		ldi r24,lo8(64)
+ 1022 043e 91E0      		ldi r25,lo8(1)
+ 1023 0440 9E87      		std Y+14,r25
+ 1024 0442 8D87      		std Y+13,r24
+ 175:main.c        **** 	int forwardSwitch = 0x160;
+ 1026               	.LM69:
+ 1027 0444 80E6      		ldi r24,lo8(96)
+ 1028 0446 91E0      		ldi r25,lo8(1)
+ 1029 0448 988B      		std Y+16,r25
+ 1030 044a 8F87      		std Y+15,r24
+ 176:main.c        **** 	int minTicks = 450;
+ 1032               	.LM70:
+ 1033 044c 82EC      		ldi r24,lo8(-62)
+ 1034 044e 91E0      		ldi r25,lo8(1)
+ 1035 0450 9A8B      		std Y+18,r25
+ 1036 0452 898B      		std Y+17,r24
+ 177:main.c        **** 
+ 178:main.c        **** 	int tickCount;
+ 179:main.c        **** 
+ 180:main.c        **** 	char a = 'a';
+ 1038               	.LM71:
+ 1039 0454 81E6      		ldi r24,lo8(97)
+ 1040 0456 8B8B      		std Y+19,r24
+ 181:main.c        **** 
+ 182:main.c        **** 	PORTA = 4;
+ 1042               	.LM72:
+ 1043 0458 82E2      		ldi r24,lo8(34)
+ 1044 045a 90E0      		ldi r25,0
+ 1045 045c 24E0      		ldi r18,lo8(4)
+ 1046 045e FC01      		movw r30,r24
+ 1047 0460 2083      		st Z,r18
  183:main.c        **** 
- 184:main.c        **** 	initializeSPI();
- 1037               	.LM73:
- 1038 044e 0E94 0000 		call initializeSPI
- 185:main.c        **** 	initSpeedController();
- 1040               	.LM74:
- 1041 0452 0E94 0000 		call initSpeedController
- 1042               	.L22:
- 1043               	.LBB2:
- 186:main.c        **** 
- 187:main.c        **** 	//setPot(0x20);
- 188:main.c        **** 
- 189:main.c        **** 	for(;;){
- 190:main.c        **** 		int sonarData = getSonarData(0);
- 1045               	.LM75:
- 1046 0456 80E0      		ldi r24,0
- 1047 0458 90E0      		ldi r25,0
- 1048 045a 0E94 0000 		call getSonarData
- 1049 045e 9D8B      		std Y+21,r25
- 1050 0460 8C8B      		std Y+20,r24
- 191:main.c        **** 		printHex(sonarData);
- 1052               	.LM76:
- 1053 0462 8C89      		ldd r24,Y+20
- 1054 0464 9D89      		ldd r25,Y+21
- 1055 0466 0E94 0000 		call printHex
- 192:main.c        **** 		USART_Write(' ');
- 1057               	.LM77:
- 1058 046a 80E2      		ldi r24,lo8(32)
- 1059 046c 0E94 0000 		call USART_Write
- 193:main.c        **** 		sonarData = getSonarData(1);
- 1061               	.LM78:
- 1062 0470 81E0      		ldi r24,lo8(1)
- 1063 0472 90E0      		ldi r25,0
- 1064 0474 0E94 0000 		call getSonarData
- 1065 0478 9D8B      		std Y+21,r25
- 1066 047a 8C8B      		std Y+20,r24
- 194:main.c        **** 		printHex(sonarData);
- 1068               	.LM79:
- 1069 047c 8C89      		ldd r24,Y+20
- 1070 047e 9D89      		ldd r25,Y+21
- 1071 0480 0E94 0000 		call printHex
- 195:main.c        **** 		USART_Write(' ');
- 1073               	.LM80:
- 1074 0484 80E2      		ldi r24,lo8(32)
- 1075 0486 0E94 0000 		call USART_Write
- 196:main.c        **** 		sonarData = getSonarData(2);
- 1077               	.LM81:
- 1078 048a 82E0      		ldi r24,lo8(2)
- 1079 048c 90E0      		ldi r25,0
- 1080 048e 0E94 0000 		call getSonarData
- 1081 0492 9D8B      		std Y+21,r25
- 1082 0494 8C8B      		std Y+20,r24
- 197:main.c        **** 		printHex(sonarData);
- 1084               	.LM82:
- 1085 0496 8C89      		ldd r24,Y+20
- 1086 0498 9D89      		ldd r25,Y+21
- 1087 049a 0E94 0000 		call printHex
- 198:main.c        **** 		USART_Write('\n');
- 1089               	.LM83:
- 1090 049e 8AE0      		ldi r24,lo8(10)
- 1091 04a0 0E94 0000 		call USART_Write
- 199:main.c        **** 		USART_Write('\r');	
- 1093               	.LM84:
- 1094 04a4 8DE0      		ldi r24,lo8(13)
- 1095 04a6 0E94 0000 		call USART_Write
- 200:main.c        **** 		vTaskDelay(5);	
- 1097               	.LM85:
- 1098 04aa 85E0      		ldi r24,lo8(5)
- 1099 04ac 90E0      		ldi r25,0
- 1100 04ae 0E94 0000 		call vTaskDelay
- 1101               	.LBE2:
- 201:main.c        **** 	}
- 1103               	.LM86:
- 1104 04b2 00C0      		rjmp .L22
- 1121               	.Lscope9:
- 1123               		.stabd	78,0,0
- 1126               	.global	vTaskFunction_2
- 1128               	vTaskFunction_2:
- 1129               		.stabd	46,0,0
- 202:main.c        **** 	
- 203:main.c        **** 	//PORTC = 0x2;
- 204:main.c        **** 	setFNR(1);
- 205:main.c        **** 	
- 206:main.c        **** 	for(;;){
- 207:main.c        **** 
- 208:main.c        **** 		sonarResult = getSonarResult();
- 209:main.c        **** 		if(movingForward == 1){
- 210:main.c        **** 			if(sonarResult < backwardSwitch) {
- 211:main.c        **** 				movingForward = -1;
- 212:main.c        **** 				setFNR(-1);
- 213:main.c        **** 				tickCount = 0;
- 214:main.c        **** 			} else if(sonarResult < neutralSwitch){
- 215:main.c        **** 				setFNR(0);
- 216:main.c        **** 				movingForward = 0;
- 217:main.c        **** 				tickCount = 0;
- 218:main.c        **** 			}
- 219:main.c        **** 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
- 220:main.c        **** 		} else if(movingForward == 0){
- 221:main.c        **** 			if(sonarResult < backwardSwitch){
- 222:main.c        **** 				movingForward = -1;
- 223:main.c        **** 				setFNR(-1);
- 224:main.c        **** 				tickCount = 0;
- 225:main.c        **** 			} if(tickCount > minTicks){
- 226:main.c        **** 				movingForward = 1;
- 227:main.c        **** 				setFNR(1);
- 228:main.c        **** 			}	
- 229:main.c        **** 		} else {
- 230:main.c        **** 			if(sonarResult > forwardSwitch && tickCount > minTicks){
- 231:main.c        **** 				movingForward = 1;
- 232:main.c        **** 				setFNR(0);
- 233:main.c        **** 				vTaskDelay(100);
- 234:main.c        **** 				setFNR(1);
- 235:main.c        **** 			}
- 236:main.c        **** 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
- 237:main.c        **** 		}
- 238:main.c        **** 		/*printHex(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
- 239:main.c        **** 		USART_Write('\n');
- 240:main.c        **** 		USART_Write('\r');*/
- 241:main.c        **** 		vTaskDelay(1);
- 242:main.c        **** 		tickCount++;
- 243:main.c        **** 	}
- 244:main.c        **** 
- 245:main.c        **** 	for(;;){
- 246:main.c        **** 		PORTL = 0x10;
- 247:main.c        **** 		vTaskDelay(200);
- 248:main.c        **** 		PORTL = 0x20;
- 249:main.c        **** 		vTaskDelay(200);
- 250:main.c        **** 		PORTL = 0x40;
- 251:main.c        **** 		vTaskDelay(200);
- 252:main.c        **** 		PORTL = 0x80;
- 253:main.c        **** 		vTaskDelay(200);
- 254:main.c        **** 	}
- 255:main.c        **** }
- 256:main.c        **** 
- 257:main.c        **** void vTaskFunction_2(void *pvParameters){
- 1131               	.LM87:
- 1132               	.LFBB10:
- 1133 04b4 CF93      		push r28
- 1134 04b6 DF93      		push r29
- 1135 04b8 1F92      		push __zero_reg__
- 1136 04ba 1F92      		push __zero_reg__
- 1137 04bc CDB7      		in r28,__SP_L__
- 1138 04be DEB7      		in r29,__SP_H__
- 1139               	/* prologue: function */
- 1140               	/* frame size = 2 */
- 1141               	/* stack size = 4 */
- 1142               	.L__stack_usage = 4
- 1143 04c0 9A83      		std Y+2,r25
- 1144 04c2 8983      		std Y+1,r24
- 258:main.c        **** 	DDRL = 0xF0;
- 1146               	.LM88:
- 1147 04c4 8AE0      		ldi r24,lo8(10)
- 1148 04c6 91E0      		ldi r25,lo8(1)
- 1149 04c8 20EF      		ldi r18,lo8(-16)
- 1150 04ca FC01      		movw r30,r24
- 1151 04cc 2083      		st Z,r18
- 259:main.c        **** 	PORTL = 0xC0;
- 1153               	.LM89:
- 1154 04ce 8BE0      		ldi r24,lo8(11)
- 1155 04d0 91E0      		ldi r25,lo8(1)
- 1156 04d2 20EC      		ldi r18,lo8(-64)
- 1157 04d4 FC01      		movw r30,r24
- 1158 04d6 2083      		st Z,r18
- 1159               	.L24:
- 260:main.c        **** 	for(;;){
- 261:main.c        **** 		vTaskDelay(300);
- 1161               	.LM90:
- 1162 04d8 8CE2      		ldi r24,lo8(44)
- 1163 04da 91E0      		ldi r25,lo8(1)
- 1164 04dc 0E94 0000 		call vTaskDelay
- 262:main.c        **** 	}	
- 1166               	.LM91:
- 1167 04e0 00C0      		rjmp .L24
- 1169               	.Lscope10:
- 1171               		.stabd	78,0,0
- 1174               	.global	vTaskPot
- 1176               	vTaskPot:
- 1177               		.stabd	46,0,0
+ 184:main.c        ****    USART_Init(9600, 16000000);
+ 1049               	.LM73:
+ 1050 0462 40E0      		ldi r20,0
+ 1051 0464 54E2      		ldi r21,lo8(36)
+ 1052 0466 64EF      		ldi r22,lo8(-12)
+ 1053 0468 70E0      		ldi r23,0
+ 1054 046a 80E8      		ldi r24,lo8(-128)
+ 1055 046c 95E2      		ldi r25,lo8(37)
+ 1056 046e 0E94 0000 		call USART_Init
+ 185:main.c        **** 
+ 186:main.c        **** 	initializeSteeringTimer();
+ 1058               	.LM74:
+ 1059 0472 0E94 0000 		call initializeSteeringTimer
+ 187:main.c        **** 
+ 188:main.c        **** 	initializeSPI();
+ 1061               	.LM75:
+ 1062 0476 0E94 0000 		call initializeSPI
+ 189:main.c        **** 	initSpeedController();
+ 1064               	.LM76:
+ 1065 047a 0E94 0000 		call initSpeedController
+ 190:main.c        **** 	setSteeringPWMSpeed(0xB0);
+ 1067               	.LM77:
+ 1068 047e 80EB      		ldi r24,lo8(-80)
+ 1069 0480 90E0      		ldi r25,0
+ 1070 0482 0E94 0000 		call setSteeringPWMSpeed
+ 1071               	.L22:
+ 191:main.c        **** 
+ 192:main.c        **** 	//setPot(0x20);
+ 193:main.c        **** 	for(;;){
+ 194:main.c        **** 		vTaskDelay(200);
+ 1073               	.LM78:
+ 1074 0486 88EC      		ldi r24,lo8(-56)
+ 1075 0488 90E0      		ldi r25,0
+ 1076 048a 0E94 0000 		call vTaskDelay
+ 195:main.c        **** 	}
+ 1078               	.LM79:
+ 1079 048e 00C0      		rjmp .L22
+ 1093               	.Lscope9:
+ 1095               		.stabd	78,0,0
+ 1098               	.global	vTaskFunction_2
+ 1100               	vTaskFunction_2:
+ 1101               		.stabd	46,0,0
+ 196:main.c        **** 	for(;;){
+ 197:main.c        **** 		int sonarData = getSonarData(0);
+ 198:main.c        **** 		if(sonarData > 0x300){
+ 199:main.c        **** 			setSteeringDirection(1);
+ 200:main.c        **** 			USART_Write('F');
+ 201:main.c        **** 		} else if(sonarData < 0x50){
+ 202:main.c        **** 			setSteeringDirection(-1);
+ 203:main.c        **** 			USART_Write('R');
+ 204:main.c        **** 		} else {
+ 205:main.c        **** 			setSteeringDirection(0);
+ 206:main.c        **** 			USART_Write('N');
+ 207:main.c        **** 		}
+ 208:main.c        **** 		vTaskDelay(10);	
+ 209:main.c        **** 	}
+ 210:main.c        **** 	
+ 211:main.c        **** 	//PORTC = 0x2;
+ 212:main.c        **** 	setFNR(1);
+ 213:main.c        **** 	
+ 214:main.c        **** 	for(;;){
+ 215:main.c        **** 
+ 216:main.c        **** 		sonarResult = getSonarResult();
+ 217:main.c        **** 		if(movingForward == 1){
+ 218:main.c        **** 			if(sonarResult < backwardSwitch) {
+ 219:main.c        **** 				movingForward = -1;
+ 220:main.c        **** 				setFNR(-1);
+ 221:main.c        **** 				tickCount = 0;
+ 222:main.c        **** 			} else if(sonarResult < neutralSwitch){
+ 223:main.c        **** 				setFNR(0);
+ 224:main.c        **** 				movingForward = 0;
+ 225:main.c        **** 				tickCount = 0;
+ 226:main.c        **** 			}
+ 227:main.c        **** 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
+ 228:main.c        **** 		} else if(movingForward == 0){
+ 229:main.c        **** 			if(sonarResult < backwardSwitch){
+ 230:main.c        **** 				movingForward = -1;
+ 231:main.c        **** 				setFNR(-1);
+ 232:main.c        **** 				tickCount = 0;
+ 233:main.c        **** 			} if(tickCount > minTicks){
+ 234:main.c        **** 				movingForward = 1;
+ 235:main.c        **** 				setFNR(1);
+ 236:main.c        **** 			}	
+ 237:main.c        **** 		} else {
+ 238:main.c        **** 			if(sonarResult > forwardSwitch && tickCount > minTicks){
+ 239:main.c        **** 				movingForward = 1;
+ 240:main.c        **** 				setFNR(0);
+ 241:main.c        **** 				vTaskDelay(100);
+ 242:main.c        **** 				setFNR(1);
+ 243:main.c        **** 			}
+ 244:main.c        **** 			setPot(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
+ 245:main.c        **** 		}
+ 246:main.c        **** 		/*printHex(potValue(sonarMax,sonarMin,potMax,potMin,sonarResult));
+ 247:main.c        **** 		USART_Write('\n');
+ 248:main.c        **** 		USART_Write('\r');*/
+ 249:main.c        **** 		vTaskDelay(1);
+ 250:main.c        **** 		tickCount++;
+ 251:main.c        **** 	}
+ 252:main.c        **** 
+ 253:main.c        **** 	for(;;){
+ 254:main.c        **** 		PORTL = 0x10;
+ 255:main.c        **** 		vTaskDelay(200);
+ 256:main.c        **** 		PORTL = 0x20;
+ 257:main.c        **** 		vTaskDelay(200);
+ 258:main.c        **** 		PORTL = 0x40;
+ 259:main.c        **** 		vTaskDelay(200);
+ 260:main.c        **** 		PORTL = 0x80;
+ 261:main.c        **** 		vTaskDelay(200);
+ 262:main.c        **** 	}
  263:main.c        **** }
  264:main.c        **** 
- 265:main.c        **** void vTaskPot(void *pvParameters){
- 1179               	.LM92:
- 1180               	.LFBB11:
- 1181 04e2 CF93      		push r28
- 1182 04e4 DF93      		push r29
- 1183 04e6 00D0      		rcall .
- 1184 04e8 1F92      		push __zero_reg__
- 1185 04ea CDB7      		in r28,__SP_L__
- 1186 04ec DEB7      		in r29,__SP_H__
- 1187               	/* prologue: function */
- 1188               	/* frame size = 4 */
- 1189               	/* stack size = 6 */
- 1190               	.L__stack_usage = 6
- 1191 04ee 9C83      		std Y+4,r25
- 1192 04f0 8B83      		std Y+3,r24
- 266:main.c        **** 	initializeSPI();
- 1194               	.LM93:
- 1195 04f2 0E94 0000 		call initializeSPI
- 267:main.c        **** 	int a = 0;
- 1197               	.LM94:
- 1198 04f6 1A82      		std Y+2,__zero_reg__
- 1199 04f8 1982      		std Y+1,__zero_reg__
- 268:main.c        **** 	initSpeedController();
- 1201               	.LM95:
- 1202 04fa 0E94 0000 		call initSpeedController
- 1203               	.L26:
- 269:main.c        **** 	/*for(;;){
- 270:main.c        **** 		setPot(a);
- 271:main.c        **** 		vTaskDelay(80);
- 272:main.c        **** 		a++;
- 273:main.c        **** 	}*/
- 274:main.c        **** 	for(;;){
- 275:main.c        **** 		setPot(1);
- 1205               	.LM96:
- 1206 04fe 81E0      		ldi r24,lo8(1)
- 1207 0500 90E0      		ldi r25,0
- 1208 0502 0E94 0000 		call setPot
- 276:main.c        **** 		vTaskDelay(500);
- 1210               	.LM97:
- 1211 0506 84EF      		ldi r24,lo8(-12)
- 1212 0508 91E0      		ldi r25,lo8(1)
- 1213 050a 0E94 0000 		call vTaskDelay
- 277:main.c        **** 		setPot(0x40);
- 1215               	.LM98:
- 1216 050e 80E4      		ldi r24,lo8(64)
- 1217 0510 90E0      		ldi r25,0
- 1218 0512 0E94 0000 		call setPot
- 278:main.c        **** 		vTaskDelay(500);
- 1220               	.LM99:
- 1221 0516 84EF      		ldi r24,lo8(-12)
- 1222 0518 91E0      		ldi r25,lo8(1)
- 1223 051a 0E94 0000 		call vTaskDelay
- 279:main.c        **** 		setPot(0x7F);
- 1225               	.LM100:
- 1226 051e 8FE7      		ldi r24,lo8(127)
- 1227 0520 90E0      		ldi r25,0
- 1228 0522 0E94 0000 		call setPot
- 280:main.c        **** 		vTaskDelay(500);
- 1230               	.LM101:
- 1231 0526 84EF      		ldi r24,lo8(-12)
- 1232 0528 91E0      		ldi r25,lo8(1)
- 1233 052a 0E94 0000 		call vTaskDelay
- 281:main.c        **** 		setPot(0x40);
- 1235               	.LM102:
- 1236 052e 80E4      		ldi r24,lo8(64)
- 1237 0530 90E0      		ldi r25,0
- 1238 0532 0E94 0000 		call setPot
- 282:main.c        **** 		vTaskDelay(500);
- 1240               	.LM103:
- 1241 0536 84EF      		ldi r24,lo8(-12)
- 1242 0538 91E0      		ldi r25,lo8(1)
- 1243 053a 0E94 0000 		call vTaskDelay
- 283:main.c        **** 	}
- 1245               	.LM104:
- 1246 053e 00C0      		rjmp .L26
- 1251               	.Lscope11:
- 1253               		.stabd	78,0,0
- 1255               	.global	vIO_init
- 1257               	vIO_init:
- 1258               		.stabd	46,0,0
- 284:main.c        **** }
- 285:main.c        **** 
- 286:main.c        **** 
- 287:main.c        **** void vIO_init(void)
- 288:main.c        **** {
- 1260               	.LM105:
- 1261               	.LFBB12:
- 1262 0540 CF93      		push r28
- 1263 0542 DF93      		push r29
- 1264 0544 CDB7      		in r28,__SP_L__
- 1265 0546 DEB7      		in r29,__SP_H__
- 1266               	/* prologue: function */
- 1267               	/* frame size = 0 */
- 1268               	/* stack size = 2 */
- 1269               	.L__stack_usage = 2
- 289:main.c        ****     //- set PortB as output
- 290:main.c        **** 	DDRB = 0xFF; 
- 1271               	.LM106:
- 1272 0548 84E2      		ldi r24,lo8(36)
- 1273 054a 90E0      		ldi r25,0
- 1274 054c 2FEF      		ldi r18,lo8(-1)
- 1275 054e FC01      		movw r30,r24
- 1276 0550 2083      		st Z,r18
- 291:main.c        ****     PORTB = 0; 
- 1278               	.LM107:
- 1279 0552 85E2      		ldi r24,lo8(37)
- 1280 0554 90E0      		ldi r25,0
- 1281 0556 FC01      		movw r30,r24
- 1282 0558 1082      		st Z,__zero_reg__
- 1283               	/* epilogue start */
+ 265:main.c        **** void vTaskFunction_2(void *pvParameters){
+ 1103               	.LM80:
+ 1104               	.LFBB10:
+ 1105 0490 CF93      		push r28
+ 1106 0492 DF93      		push r29
+ 1107 0494 1F92      		push __zero_reg__
+ 1108 0496 1F92      		push __zero_reg__
+ 1109 0498 CDB7      		in r28,__SP_L__
+ 1110 049a DEB7      		in r29,__SP_H__
+ 1111               	/* prologue: function */
+ 1112               	/* frame size = 2 */
+ 1113               	/* stack size = 4 */
+ 1114               	.L__stack_usage = 4
+ 1115 049c 9A83      		std Y+2,r25
+ 1116 049e 8983      		std Y+1,r24
+ 266:main.c        **** 	DDRL = 0xF0;
+ 1118               	.LM81:
+ 1119 04a0 8AE0      		ldi r24,lo8(10)
+ 1120 04a2 91E0      		ldi r25,lo8(1)
+ 1121 04a4 20EF      		ldi r18,lo8(-16)
+ 1122 04a6 FC01      		movw r30,r24
+ 1123 04a8 2083      		st Z,r18
+ 267:main.c        **** 	PORTL = 0xC0;
+ 1125               	.LM82:
+ 1126 04aa 8BE0      		ldi r24,lo8(11)
+ 1127 04ac 91E0      		ldi r25,lo8(1)
+ 1128 04ae 20EC      		ldi r18,lo8(-64)
+ 1129 04b0 FC01      		movw r30,r24
+ 1130 04b2 2083      		st Z,r18
+ 1131               	.L24:
+ 268:main.c        **** 	for(;;){
+ 269:main.c        **** 		vTaskDelay(300);
+ 1133               	.LM83:
+ 1134 04b4 8CE2      		ldi r24,lo8(44)
+ 1135 04b6 91E0      		ldi r25,lo8(1)
+ 1136 04b8 0E94 0000 		call vTaskDelay
+ 270:main.c        **** 	}	
+ 1138               	.LM84:
+ 1139 04bc 00C0      		rjmp .L24
+ 1141               	.Lscope10:
+ 1143               		.stabd	78,0,0
+ 1146               	.global	vTaskPot
+ 1148               	vTaskPot:
+ 1149               		.stabd	46,0,0
+ 271:main.c        **** }
+ 272:main.c        **** 
+ 273:main.c        **** void vTaskPot(void *pvParameters){
+ 1151               	.LM85:
+ 1152               	.LFBB11:
+ 1153 04be CF93      		push r28
+ 1154 04c0 DF93      		push r29
+ 1155 04c2 00D0      		rcall .
+ 1156 04c4 1F92      		push __zero_reg__
+ 1157 04c6 CDB7      		in r28,__SP_L__
+ 1158 04c8 DEB7      		in r29,__SP_H__
+ 1159               	/* prologue: function */
+ 1160               	/* frame size = 4 */
+ 1161               	/* stack size = 6 */
+ 1162               	.L__stack_usage = 6
+ 1163 04ca 9C83      		std Y+4,r25
+ 1164 04cc 8B83      		std Y+3,r24
+ 274:main.c        **** 	initializeSPI();
+ 1166               	.LM86:
+ 1167 04ce 0E94 0000 		call initializeSPI
+ 275:main.c        **** 	int a = 0;
+ 1169               	.LM87:
+ 1170 04d2 1A82      		std Y+2,__zero_reg__
+ 1171 04d4 1982      		std Y+1,__zero_reg__
+ 276:main.c        **** 	initSpeedController();
+ 1173               	.LM88:
+ 1174 04d6 0E94 0000 		call initSpeedController
+ 1175               	.L26:
+ 277:main.c        **** 	/*for(;;){
+ 278:main.c        **** 		setPot(a);
+ 279:main.c        **** 		vTaskDelay(80);
+ 280:main.c        **** 		a++;
+ 281:main.c        **** 	}*/
+ 282:main.c        **** 	for(;;){
+ 283:main.c        **** 		setPot(1);
+ 1177               	.LM89:
+ 1178 04da 81E0      		ldi r24,lo8(1)
+ 1179 04dc 90E0      		ldi r25,0
+ 1180 04de 0E94 0000 		call setPot
+ 284:main.c        **** 		vTaskDelay(500);
+ 1182               	.LM90:
+ 1183 04e2 84EF      		ldi r24,lo8(-12)
+ 1184 04e4 91E0      		ldi r25,lo8(1)
+ 1185 04e6 0E94 0000 		call vTaskDelay
+ 285:main.c        **** 		setPot(0x40);
+ 1187               	.LM91:
+ 1188 04ea 80E4      		ldi r24,lo8(64)
+ 1189 04ec 90E0      		ldi r25,0
+ 1190 04ee 0E94 0000 		call setPot
+ 286:main.c        **** 		vTaskDelay(500);
+ 1192               	.LM92:
+ 1193 04f2 84EF      		ldi r24,lo8(-12)
+ 1194 04f4 91E0      		ldi r25,lo8(1)
+ 1195 04f6 0E94 0000 		call vTaskDelay
+ 287:main.c        **** 		setPot(0x7F);
+ 1197               	.LM93:
+ 1198 04fa 8FE7      		ldi r24,lo8(127)
+ 1199 04fc 90E0      		ldi r25,0
+ 1200 04fe 0E94 0000 		call setPot
+ 288:main.c        **** 		vTaskDelay(500);
+ 1202               	.LM94:
+ 1203 0502 84EF      		ldi r24,lo8(-12)
+ 1204 0504 91E0      		ldi r25,lo8(1)
+ 1205 0506 0E94 0000 		call vTaskDelay
+ 289:main.c        **** 		setPot(0x40);
+ 1207               	.LM95:
+ 1208 050a 80E4      		ldi r24,lo8(64)
+ 1209 050c 90E0      		ldi r25,0
+ 1210 050e 0E94 0000 		call setPot
+ 290:main.c        **** 		vTaskDelay(500);
+ 1212               	.LM96:
+ 1213 0512 84EF      		ldi r24,lo8(-12)
+ 1214 0514 91E0      		ldi r25,lo8(1)
+ 1215 0516 0E94 0000 		call vTaskDelay
+ 291:main.c        **** 	}
+ 1217               	.LM97:
+ 1218 051a 00C0      		rjmp .L26
+ 1223               	.Lscope11:
+ 1225               		.stabd	78,0,0
+ 1227               	.global	vIO_init
+ 1229               	vIO_init:
+ 1230               		.stabd	46,0,0
  292:main.c        **** }
- 1285               	.LM108:
- 1286 055a DF91      		pop r29
- 1287 055c CF91      		pop r28
- 1288 055e 0895      		ret
- 1290               	.Lscope12:
- 1292               		.stabd	78,0,0
- 1296               	.Letext0:
- 1297               		.ident	"GCC: (GNU) 4.8.2"
- 1298               	.global __do_copy_data
- 1299               	.global __do_clear_bss
+ 293:main.c        **** 
+ 294:main.c        **** 
+ 295:main.c        **** void vIO_init(void)
+ 296:main.c        **** {
+ 1232               	.LM98:
+ 1233               	.LFBB12:
+ 1234 051c CF93      		push r28
+ 1235 051e DF93      		push r29
+ 1236 0520 CDB7      		in r28,__SP_L__
+ 1237 0522 DEB7      		in r29,__SP_H__
+ 1238               	/* prologue: function */
+ 1239               	/* frame size = 0 */
+ 1240               	/* stack size = 2 */
+ 1241               	.L__stack_usage = 2
+ 297:main.c        ****     //- set PortB as output
+ 298:main.c        **** 	DDRB = 0xFF; 
+ 1243               	.LM99:
+ 1244 0524 84E2      		ldi r24,lo8(36)
+ 1245 0526 90E0      		ldi r25,0
+ 1246 0528 2FEF      		ldi r18,lo8(-1)
+ 1247 052a FC01      		movw r30,r24
+ 1248 052c 2083      		st Z,r18
+ 299:main.c        ****     PORTB = 0; 
+ 1250               	.LM100:
+ 1251 052e 85E2      		ldi r24,lo8(37)
+ 1252 0530 90E0      		ldi r25,0
+ 1253 0532 FC01      		movw r30,r24
+ 1254 0534 1082      		st Z,__zero_reg__
+ 1255               	/* epilogue start */
+ 300:main.c        **** }
+ 1257               	.LM101:
+ 1258 0536 DF91      		pop r29
+ 1259 0538 CF91      		pop r28
+ 1260 053a 0895      		ret
+ 1262               	.Lscope12:
+ 1264               		.stabd	78,0,0
+ 1268               	.Letext0:
+ 1269               		.ident	"GCC: (GNU) 4.8.2"
+ 1270               	.global __do_copy_data
+ 1271               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/cctgd11z.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cctgd11z.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cctgd11z.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cctgd11z.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cctgd11z.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cctgd11z.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cctgd11z.s:166    .bss:0000000000000000 count
+     /tmp/ccSltdiO.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccSltdiO.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccSltdiO.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccSltdiO.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccSltdiO.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccSltdiO.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccSltdiO.s:166    .bss:0000000000000000 count
                             *COM*:0000000000000002 sonarTime
-     /tmp/cctgd11z.s:173    .text:0000000000000000 vApplicationTickHook
-     /tmp/cctgd11z.s:206    .text:0000000000000020 vApplicationStackOverflowHook
-     /tmp/cctgd11z.s:245    .text:0000000000000030 main
-     /tmp/cctgd11z.s:1257   .text:0000000000000540 vIO_init
-     /tmp/cctgd11z.s:941    .text:00000000000003d0 vTaskFunction_1
-     /tmp/cctgd11z.s:476    .text:000000000000016a printHex
-     /tmp/cctgd11z.s:602    .text:000000000000022a printNum
-     /tmp/cctgd11z.s:699    .text:00000000000002a4 __vector_50
-     /tmp/cctgd11z.s:773    .text:000000000000030e getTimerCount2
-     /tmp/cctgd11z.s:812    .text:0000000000000328 potValue
-     /tmp/cctgd11z.s:1128   .text:00000000000004b4 vTaskFunction_2
-     /tmp/cctgd11z.s:1176   .text:00000000000004e2 vTaskPot
+     /tmp/ccSltdiO.s:173    .text:0000000000000000 vApplicationTickHook
+     /tmp/ccSltdiO.s:206    .text:0000000000000020 vApplicationStackOverflowHook
+     /tmp/ccSltdiO.s:247    .text:0000000000000030 main
+     /tmp/ccSltdiO.s:1229   .text:000000000000051c vIO_init
+     /tmp/ccSltdiO.s:962    .text:00000000000003f4 vTaskFunction_1
+     /tmp/ccSltdiO.s:497    .text:000000000000018e printHex
+     /tmp/ccSltdiO.s:623    .text:000000000000024e printNum
+     /tmp/ccSltdiO.s:720    .text:00000000000002c8 __vector_50
+     /tmp/ccSltdiO.s:794    .text:0000000000000332 getTimerCount2
+     /tmp/ccSltdiO.s:833    .text:000000000000034c potValue
+     /tmp/ccSltdiO.s:1100   .text:0000000000000490 vTaskFunction_2
+     /tmp/ccSltdiO.s:1148   .text:00000000000004be vTaskPot
 
 UNDEFINED SYMBOLS
 xTaskGenericCreate
+vTaskSteer
 vTaskSonar
 vTaskUSARTRead
 vTaskADC
@@ -1267,9 +1258,10 @@ memset
 itoa
 USART_AddToQueue
 USART_Init
+initializeSteeringTimer
 initializeSPI
 initSpeedController
-getSonarData
+setSteeringPWMSpeed
 vTaskDelay
 setPot
 __do_copy_data

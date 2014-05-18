@@ -1,5 +1,9 @@
 //Steering group
 
+void initializeSteeringTimer();
+void setSteeringPWMSpeed(int spd);
+void setSteeringDirection(int dir);
+
 //JUST SETS ANGLE TARGET. Actual angle changing is lower level
 char setAngle(char angleTarget);
 
@@ -15,4 +19,6 @@ char changePID(char P, char I, char D);
 //not sure what this does. Also not sure why upper and lower are separated
 //but its in the specs so...
 char setLimits(char upper, char lower);
+
+void vTaskSteer(void* parameter);
 

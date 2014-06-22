@@ -1,6 +1,6 @@
 //Steering group
 
-void initializeSteeringTimer();
+void initializeSteeringTimer(void);
 void setSteeringPWMSpeed(int spd);
 void setSteeringDirection(int dir);
 

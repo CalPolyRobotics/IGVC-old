@@ -1,6 +1,9 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "FreeRTOS.h"
+#include "task.h"
 #include "../../ADC.h"
+#include "Steering.h"
 //Steering group
 
 #define STEERING_PORT	PORTB
@@ -27,6 +30,9 @@ static int steeringSpd;
 void printHex(int a);
 void printNum(int a);
 void USART_Write(char a);
+void printWheelAngle(void);
+void getLinearPotCallback(int data, void *parameters);
+
 
 void getLinearPotCallback(int data,void *parameters){
 	wheelAngle = data / -4 + 74;
@@ -122,24 +128,20 @@ void setSteeringDirection(int dir){
 
 //JUST SETS ANGLE TARGET. Actual angle changing is lower level
 char setAngle(char angleTarget) {
-   //dummy function, nothing will happen for now...
-   //return success
 	steeringTarget = angleTarget;
    return 1;
 }
 
 //get the current angle of the steering system
 char getAngle(char* sensorResponse) {
-   //store fake angle reading
-   *sensorResponse = 0;
+   *sensorResponse = wheelAngle;
    //return success
    return 1;
 }
 
 //get the angle target. argument name is sensorResponse for the sake of consistancy
 char getDesiredAngle(char* sensorResponse) {
-   //fake response
-   *sensorResponse = 0;
+   *sensorResponse = steeringTarget;
    //return success
    return 1;
 }

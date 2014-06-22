@@ -14,6 +14,7 @@
 #include "semphr.h" 
 #include "queue.h"
 #include "protocol.h"
+#include "task.h"
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -29,7 +30,12 @@ xQueueHandle USART_WriteQueue;
 xQueueHandle USART_ReadQueue;
 xQueueHandle USART_WriteQueueLog;
 
-
+int sendResponse(Response* response);
+uint8_t calcChecksum(uint8_t* buffer, uint8_t size);
+int recievePayload(int size, unsigned char *buffer);
+uint8_t USART_GetChar(void);
+void sendACK(void);
+void sendNACK(void);
 
 /************************************
 * Procedure: usart_init
@@ -40,7 +46,7 @@ xQueueHandle USART_WriteQueueLog;
 * Param buadin: The desired Baud rate.
 * Param clk_seedin: The clk speed of the ATmega328p
 ************************************/
-void USART_Init(uint16_t baudin, uint32_t clk_speedin) {
+void USART_Init() {
     USART_WriteQueue = xQueueCreate(64,sizeof(uint8_t));
     USART_ReadQueue = xQueueCreate(8,sizeof(uint8_t));
 
@@ -91,21 +97,7 @@ void USART_Write(uint8_t data) {
 		UDR0 = data;
 }
 
-/*the send function will put 8bits on the trans line. */
-void USART_Write_Unprotected(uint8_t data) {
-	/* Wait for empty transmit buffer */
-	while ( !( UCSR0A & (1<<UDRE0)) )
-	;
-	/* Put data into buffer, sends the data */
-	UDR0 = data;
-}
 
-/* the receive data function. Note that this a blocking call
-Therefore you may not get control back after this is called 
-until a much later time. It may be helpful to use the 
-istheredata() function to check before calling this function
-        @return 8bit data packet from sender
-*/
 uint8_t USART_Read(void) {
     /* Wait for data to be received */
     while ( !(UCSR2A & (1<<RXC2)) )
@@ -115,9 +107,9 @@ uint8_t USART_Read(void) {
 }
 
 
-ISR(USART1_RX_vect){
-    uint8_t data;
-    data = UDR1;
+/*ISR(USART1_RX_vect){
+    //uint8_t data;
+    //data = UDR1;
 
     //while(!(UCSR1A & (1<<UDRE1)));
     //UDR1 = data;
@@ -125,7 +117,7 @@ ISR(USART1_RX_vect){
 
   //  USART_AddToQueue(data);
     //xQueueSendToBackFromISR(USART_ReadQueue,&data,NULL);
-}
+}*/
 
 void USART_AddToQueue(uint8_t data){
     
@@ -140,7 +132,7 @@ void USART_TransmitString(char* str){
     }
 }
 
-void vTaskUSARTWrite(void *pvParameters){
+void vTaskUSARTWrite(){
     uint8_t data;
     while(1){
     xQueueReceive(USART_WriteQueue,&data,portMAX_DELAY);
@@ -162,7 +154,7 @@ void USART_LogString(char* str){
     }
 }
 
-void vTaskUSARTLog(void *pvParameters){
+void vTaskUSARTLog(){
     uint8_t data;
     while(1){
         xQueueReceive(USART_WriteQueueLog,&data,portMAX_DELAY);
@@ -182,11 +174,6 @@ uint8_t USART_GetChar(){
     } else {
         return 255;
     }
-}
-
-void delay(int a){
-	int i;
-	for(i = 0;i < a;i++);
 }
 
 void sendACK(){
@@ -240,15 +227,12 @@ int recievePayload(int size,unsigned char *buffer){
 	return -1;
 }
 
-void vTaskUSARTRead(void *pvParameters){
+void vTaskUSARTRead(){
 
-    char bytesRecieved;
-    uint8_t rxData;
+    unsigned char bytesRecieved;
     uint8_t data;
     uint8_t buffer[16];
     unsigned char size;
-    char groupID;
-    char cmd;
     unsigned int timeout;
 
 	DDRB = 0xFF;
@@ -257,7 +241,7 @@ void vTaskUSARTRead(void *pvParameters){
     Response response;
     while(1){
         bytesRecieved = 0;
-        int timeout = 30;
+        timeout = 30;
         while(bytesRecieved < 4){
             
             while ( !(UCSR0A & (1<<RXC0)) ){
@@ -300,7 +284,7 @@ void vTaskUSARTRead(void *pvParameters){
 }
 
 int sendResponse(Response* response){
-    char checksumBuffer[2];
+    uint8_t checksumBuffer[2];
     int i;
     int timeout = 50;
     while(1){
@@ -310,7 +294,7 @@ int sendResponse(Response* response){
 			vTaskDelay(1);
         	checksumBuffer[0] = response->commandBack;
         	checksumBuffer[1] = response->size;
-        	USART_Write(calcChecksum(checksumBuffer,2));
+        	USART_Write((uint8_t)calcChecksum(checksumBuffer,2));
         	switch(waitForAck()){
         	case 1:
            	goto outOfWhile;
@@ -357,10 +341,12 @@ char waitForAck(){
     }
 }
 
-uint8_t calcChecksum(uint8_t* buffer,uint8_t size){
-    uint8_t checksum = 0;
-    for(int i = 0; i < size; i++) {
-        checksum += *(buffer++);
-    }
-    return checksum;
+uint8_t calcChecksum(uint8_t* buffer, uint8_t size){
+   uint8_t checksum = 0;
+   int i;   
+   for(i = 0; i < size; i++) {
+       checksum += *(buffer++);
+   }
+   return checksum;
 }
+

@@ -1,9 +1,9 @@
 #ifndef __SPI_H__
 #define __SPI_H__
 
+void initializeSPI(void);
 
-void initializeSPI();
-
-
+void SPIsendByte(unsigned char byte);
+void SPIsendShort(unsigned short data);
 
 #endif

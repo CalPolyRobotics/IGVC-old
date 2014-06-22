@@ -1,10 +1,12 @@
 #include <avr/io.h>
 #include "FreeRTOS.h"
+#include "task.h"
+#include "spi.h"
 
-const static int mosi_pin = 2;
-const static int miso_pin = 3;
-const static int sck_pin = 1;
-const static int ss_pin = 0; 
+static const int mosi_pin = 2;
+static const int miso_pin = 3;
+static const int sck_pin = 1;
+static const int ss_pin = 0; 
 
 void initializeSPI(){
 	SPCR = (1 << SPE)|(1 << MSTR)|(1 << SPR1)|(1 << SPR0);

@@ -53,13 +53,13 @@ struct command {
    char groupID;
    char cmd;
    char crc;
-   char payload[MAX_PAYLOAD_SIZE];
+   unsigned char payload[MAX_PAYLOAD_SIZE];
 };
 
 typedef struct response {
    char commandBack;
    char size;
-   char payload[MAX_PAYLOAD_SIZE];
+   unsigned char payload[MAX_PAYLOAD_SIZE];
 } Response;
 
 typedef struct command Command;

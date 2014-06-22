@@ -5,7 +5,23 @@
  */
 
 #include "protocol.h"
+#include "Components/Battery/Battery.h"
+#include "Components/Brake/Brake.h"
+#include "Components/Error/Error.h"
+#include "Components/FNR/FNR.h"
+#include "Components/Speed/Speed.h"
+#include "Components/Steering/Steering.h"
 #include "Components/Sonar/Sonar.h"
+#include "Components/Lights/Lights.h"
+
+
+char processUltrasonicCommand(char commandCode, void* commandData, Response* responseData); 
+char processSpeedCommand(char commandCode, void* commandData, Response* responseData); 
+char processSteeringCommand(char commandCode, void* commandData, Response* responseData); 
+char processFNRCommand(char commandCode, void* commandData, Response* responseData); 
+char processBrakeCommand(char commandCode, void* commandData, Response* responseData); 
+char processBatteryCommand(char commandCode, void* commandData, Response* responseData); 
+char processLightCommand(char commandCode, void* commandData, Response* responseData); 
 
 
 //function to CRC the command structure
@@ -15,17 +31,16 @@ char commandIntegCheck(Command *command) {
    return 1;
 }
 
-char processUltrasonicCommand(char commandCode, void* commandData,char* size, void* responseData) {
+char processUltrasonicCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case GET_ALL_SENSORS:
-         getAllSensors((int*) responseData);
-         *size = 12;
+         getAllSensors((int*) responseData->payload);
          break;
       case GET_CERTAIN_SENSORS:
-         getCertainSensor(((char*)commandData)[0], (int*) responseData);
+         getCertainSensor(((char*)commandData)[0], (int*) responseData->payload);
          break;
       case GET_SENSOR_GROUP:
-         getSensorGroup(((char*)commandData)[0], (int*) responseData);
+         getSensorGroup(((char*)commandData)[0], (int*) responseData->payload);
          break;
    }
    //return success for now...
@@ -35,7 +50,7 @@ char processUltrasonicCommand(char commandCode, void* commandData,char* size, vo
 char processSpeedCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case GET_SPEED:
-         getSpeed((char*) responseData);
+         getSpeed((unsigned char*) responseData);
          break;
       case SET_SPEED:
 			responseData->size = 0;
@@ -46,7 +61,7 @@ char processSpeedCommand(char commandCode, void* commandData, Response* response
    return 1;
 }
 
-char processSteeringCommand(char commandCode, void* commandData, void* responseData) {
+char processSteeringCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case SET_ANGLE:
          setAngle(*((char*)commandData));
@@ -78,9 +93,10 @@ char processFNRCommand(char commandCode, void* commandData, Response* responseDa
          getFNR((char*) responseData);
          break;
    }
+   return 1;
 }
 
-char processBrakeCommand(char commandCode, void* commandData, void* responseData) {
+char processBrakeCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case SET_BRAKE:
 	 setBrake(*((char*)commandData));
@@ -89,9 +105,10 @@ char processBrakeCommand(char commandCode, void* commandData, void* responseData
 	 getBrake((char*) responseData);
 	 break; 
    }
+   return 1;
 }
 
-char processBatteryCommand(char commandCode, void* commandData, void* responseData) {
+char processBatteryCommand(char commandCode, void* commandData, Response* responseData) {
    switch(commandCode) {
       case GET_BATTERY_VOLTAGE:
          getBatteryVoltage((char*) responseData);
@@ -100,6 +117,7 @@ char processBatteryCommand(char commandCode, void* commandData, void* responseDa
          getSteeringVoltage((char*) responseData);
          break;
    }
+   return 1;
 }
 
 char processLightCommand(char commandCode, void* commandData, Response* responseData) {
@@ -109,6 +127,7 @@ char processLightCommand(char commandCode, void* commandData, Response* response
 	 	setLight(*((char*)commandData));
       break;
    }
+   return 1;
 }
 
 
@@ -119,13 +138,13 @@ char processCommand(Command *command, Response *response) {
 	response->commandBack = command->cmd;
    switch(command->groupID) {
       case ULTRASONIC_GROUP:
-         processUltrasonicCommand(command->cmd, command->payload,&response->size, response->payload);
+         processUltrasonicCommand(command->cmd, command->payload, response);
          break;
       case SPEED_GROUP:
 			processSpeedCommand(command->cmd,command->payload,response);
          break;
       case STEERING_GROUP:
-         /*do steering things*/
+         processSteeringCommand(command->cmd,command->payload,response);
          break;
       case FNR_GROUP:
 			processFNRCommand(command->cmd,command->payload,response);
@@ -134,7 +153,7 @@ char processCommand(Command *command, Response *response) {
          /*do brakes things*/
          break;
       case BATTERY_GROUP:
-         /*do battery things*/
+         processBatteryCommand(command->cmd,command->payload,response);
          break;
       case LIGHTS_GROUP:
 	      processLightCommand(command->cmd,command->payload,response);

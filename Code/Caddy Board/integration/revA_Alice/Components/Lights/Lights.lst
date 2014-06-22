@@ -12,9 +12,10 @@
  108               		.stabd	46,0,0
    1:Components/Lights/Lights.c **** //light controller functions
    2:Components/Lights/Lights.c **** #include <avr/io.h>
-   3:Components/Lights/Lights.c **** 
-   4:Components/Lights/Lights.c **** //turn lights on and off
-   5:Components/Lights/Lights.c **** char setLight(unsigned char lightTarget) {
+   3:Components/Lights/Lights.c **** #include "Lights.h"
+   4:Components/Lights/Lights.c **** 
+   5:Components/Lights/Lights.c **** //turn lights on and off
+   6:Components/Lights/Lights.c **** char setLight(char lightTarget) {
  110               	.LM0:
  111               	.LFBB1:
  112 0000 CF93      		push r28
@@ -27,14 +28,14 @@
  119               	/* stack size = 3 */
  120               	.L__stack_usage = 3
  121 000a 8983      		std Y+1,r24
-   6:Components/Lights/Lights.c ****    //dummy function, nothing happens
-   7:Components/Lights/Lights.c **** 	//PORTB ^= 0x80;
-   8:Components/Lights/Lights.c **** 	if(lightTarget == 1){
+   7:Components/Lights/Lights.c ****    //dummy function, nothing happens
+   8:Components/Lights/Lights.c **** 	//PORTB ^= 0x80;
+   9:Components/Lights/Lights.c **** 	if(lightTarget == 1){
  123               	.LM1:
  124 000c 8981      		ldd r24,Y+1
  125 000e 8130      		cpi r24,lo8(1)
  126 0010 01F4      		brne .L2
-   9:Components/Lights/Lights.c **** 		PORTB |= 0x80;
+  10:Components/Lights/Lights.c **** 		PORTB |= 0x80;
  128               	.LM2:
  129 0012 85E2      		ldi r24,lo8(37)
  130 0014 90E0      		ldi r25,0
@@ -47,8 +48,8 @@
  137 0022 2083      		st Z,r18
  138 0024 00C0      		rjmp .L3
  139               	.L2:
-  10:Components/Lights/Lights.c **** 	} else {
-  11:Components/Lights/Lights.c **** 		PORTB &= ~0x80;
+  11:Components/Lights/Lights.c **** 	} else {
+  12:Components/Lights/Lights.c **** 		PORTB &= ~0x80;
  141               	.LM3:
  142 0026 85E2      		ldi r24,lo8(37)
  143 0028 90E0      		ldi r25,0
@@ -60,12 +61,12 @@
  149 0034 FC01      		movw r30,r24
  150 0036 2083      		st Z,r18
  151               	.L3:
-  12:Components/Lights/Lights.c **** 	}
-  13:Components/Lights/Lights.c ****    return 1;
+  13:Components/Lights/Lights.c **** 	}
+  14:Components/Lights/Lights.c ****    return 1;
  153               	.LM4:
  154 0038 81E0      		ldi r24,lo8(1)
  155               	/* epilogue start */
-  14:Components/Lights/Lights.c **** }
+  15:Components/Lights/Lights.c **** }
  157               	.LM5:
  158 003a 0F90      		pop __tmp_reg__
  159 003c DF91      		pop r29
@@ -74,15 +75,15 @@
  163               	.Lscope1:
  165               		.stabd	78,0,0
  167               	.Letext0:
- 168               		.ident	"GCC: (GNU) 4.8.2"
+ 168               		.ident	"GCC: (GNU) 4.9.0"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Lights.c
-     /tmp/ccbEU2fT.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccbEU2fT.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccbEU2fT.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccbEU2fT.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccbEU2fT.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccbEU2fT.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccbEU2fT.s:107    .text:0000000000000000 setLight
+     /tmp/ccRYWm99.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccRYWm99.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccRYWm99.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccRYWm99.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccRYWm99.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccRYWm99.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccRYWm99.s:107    .text:0000000000000000 setLight
 
 NO UNDEFINED SYMBOLS

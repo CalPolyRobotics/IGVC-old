@@ -4,6 +4,7 @@
 #include "ADC.h"
 #include "FreeRTOS.h"
 #include "semphr.h"
+#include "task.h"
 
 typedef struct ADCDevice {
 	int port;
@@ -11,6 +12,9 @@ typedef struct ADCDevice {
 	void* parameters;
 	ADCHandler handler;
 } ADCDevice;
+
+void initADC(void);
+void ADCStart(ADCDevice* nextDevice);
 
 static xSemaphoreHandle* adcSemaphore;
 static ADCDevice devices[16];

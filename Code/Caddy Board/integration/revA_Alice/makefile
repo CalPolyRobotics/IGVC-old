@@ -56,13 +56,13 @@ SOURCE_DIR = ../../FreeRTOS/Source
 PORT_DIR = ../../Source/portable/GCC/ATMega323
 
 SRC = \
-main.c \
 $(RTOS_SOURCE)/tasks.c \
 $(RTOS_SOURCE)/queue.c \
 $(RTOS_SOURCE)/list.c \
 $(RTOS_SOURCE)/croutine.c \
 $(RTOS_SOURCE)/heap_1.c \
 $(RTOS_SOURCE)/port.c \
+main.c \
 usart.c \
 protocol.c \
 Components/Battery/Battery.c \
@@ -111,8 +111,8 @@ EXTRAINCDIRS =
 #    -ahlms:  create assembler listing
 
 DEBUG_LEVEL=-g
-WARNINGS=-Wall -Wextra -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-align -Wsign-compare \
-		-Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wunused
+WARNINGS= -Werror -Wall -Wextra -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-align -Wsign-compare \
+		-Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wunused -Wno-unused-parameter -Wno-comment
 
 CFLAGS = -D GCC_MEGA_AVR -I. -I../../FreeRTOS/Source/include -I../FreeRTOS/First\ Project/Common/include  \
 $(DEBUG_LEVEL) -O$(OPT) \
@@ -128,7 +128,7 @@ $(patsubst %,-I%,$(EXTRAINCDIRS))
 #CFLAGS += -std=c89
 #CFLAGS += -std=gnu89
 #CFLAGS += -std=c99
-CFLAGS += -std=gnu99
+CFLAGS += -std=gnu99 -fdiagnostics-color=auto
 
 
 

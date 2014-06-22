@@ -7,958 +7,964 @@
    7               	__zero_reg__ = 1
   10               		.text
   11               	.Ltext0:
- 106               		.local	steeringTarget
- 107               		.comm	steeringTarget,2,1
- 108               		.local	wheelAngle
- 109               		.comm	wheelAngle,2,1
- 110               		.local	steeringDir
- 111               		.comm	steeringDir,2,1
- 112               		.local	steeringSpd
- 113               		.comm	steeringSpd,2,1
- 117               	.global	getLinearPotCallback
- 119               	getLinearPotCallback:
- 120               		.stabd	46,0,0
+ 141               		.local	steeringTarget
+ 142               		.comm	steeringTarget,2,1
+ 143               		.local	wheelAngle
+ 144               		.comm	wheelAngle,2,1
+ 145               		.local	steeringDir
+ 146               		.comm	steeringDir,2,1
+ 147               		.local	steeringSpd
+ 148               		.comm	steeringSpd,2,1
+ 152               	.global	getLinearPotCallback
+ 154               	getLinearPotCallback:
+ 155               		.stabd	46,0,0
    1:Components/Steering/Steering.c **** #include <avr/io.h>
    2:Components/Steering/Steering.c **** #include <avr/interrupt.h>
-   3:Components/Steering/Steering.c **** #include "../../ADC.h"
-   4:Components/Steering/Steering.c **** //Steering group
-   5:Components/Steering/Steering.c **** 
-   6:Components/Steering/Steering.c **** #define STEERING_PORT	PORTB
-   7:Components/Steering/Steering.c **** #define STEERING_LEFT	(1 << 5)
-   8:Components/Steering/Steering.c **** #define STEERING_RIGHT	(1 << 4)
-   9:Components/Steering/Steering.c **** 
-  10:Components/Steering/Steering.c **** #define STEERING_LEFT_COM0 COM1A0
-  11:Components/Steering/Steering.c **** #define STEERING_LEFT_COM1 COM1A1
+   3:Components/Steering/Steering.c **** #include "FreeRTOS.h"
+   4:Components/Steering/Steering.c **** #include "task.h"
+   5:Components/Steering/Steering.c **** #include "../../ADC.h"
+   6:Components/Steering/Steering.c **** #include "Steering.h"
+   7:Components/Steering/Steering.c **** //Steering group
+   8:Components/Steering/Steering.c **** 
+   9:Components/Steering/Steering.c **** #define STEERING_PORT	PORTB
+  10:Components/Steering/Steering.c **** #define STEERING_LEFT	(1 << 5)
+  11:Components/Steering/Steering.c **** #define STEERING_RIGHT	(1 << 4)
   12:Components/Steering/Steering.c **** 
-  13:Components/Steering/Steering.c **** #define STEERING_RIGHT_COM0 COM1B0
-  14:Components/Steering/Steering.c **** #define STEERING_RIGHT_COM1 COM1B1
+  13:Components/Steering/Steering.c **** #define STEERING_LEFT_COM0 COM1A0
+  14:Components/Steering/Steering.c **** #define STEERING_LEFT_COM1 COM1A1
   15:Components/Steering/Steering.c **** 
-  16:Components/Steering/Steering.c **** #define STEERING_LEFT_CMPH OCR1AH
-  17:Components/Steering/Steering.c **** #define STEERING_LEFT_CMPL OCR1AL
-  18:Components/Steering/Steering.c **** #define STEERING_RIGHT_CMPH OCR1BH
-  19:Components/Steering/Steering.c **** #define STEERING_RIGHT_CMPL OCR1BL
-  20:Components/Steering/Steering.c **** 
-  21:Components/Steering/Steering.c **** static int steeringTarget;
-  22:Components/Steering/Steering.c **** static int wheelAngle;
+  16:Components/Steering/Steering.c **** #define STEERING_RIGHT_COM0 COM1B0
+  17:Components/Steering/Steering.c **** #define STEERING_RIGHT_COM1 COM1B1
+  18:Components/Steering/Steering.c **** 
+  19:Components/Steering/Steering.c **** #define STEERING_LEFT_CMPH OCR1AH
+  20:Components/Steering/Steering.c **** #define STEERING_LEFT_CMPL OCR1AL
+  21:Components/Steering/Steering.c **** #define STEERING_RIGHT_CMPH OCR1BH
+  22:Components/Steering/Steering.c **** #define STEERING_RIGHT_CMPL OCR1BL
   23:Components/Steering/Steering.c **** 
-  24:Components/Steering/Steering.c **** static int steeringDir;
-  25:Components/Steering/Steering.c **** static int steeringSpd;
+  24:Components/Steering/Steering.c **** static int steeringTarget;
+  25:Components/Steering/Steering.c **** static int wheelAngle;
   26:Components/Steering/Steering.c **** 
-  27:Components/Steering/Steering.c **** void printHex(int a);
-  28:Components/Steering/Steering.c **** void printNum(int a);
-  29:Components/Steering/Steering.c **** void USART_Write(char a);
-  30:Components/Steering/Steering.c **** 
-  31:Components/Steering/Steering.c **** void getLinearPotCallback(int data,void *parameters){
- 122               	.LM0:
- 123               	.LFBB1:
- 124 0000 CF93      		push r28
- 125 0002 DF93      		push r29
- 126 0004 00D0      		rcall .
- 127 0006 1F92      		push __zero_reg__
- 128 0008 CDB7      		in r28,__SP_L__
- 129 000a DEB7      		in r29,__SP_H__
- 130               	/* prologue: function */
- 131               	/* frame size = 4 */
- 132               	/* stack size = 6 */
- 133               	.L__stack_usage = 6
- 134 000c 9A83      		std Y+2,r25
- 135 000e 8983      		std Y+1,r24
- 136 0010 7C83      		std Y+4,r23
- 137 0012 6B83      		std Y+3,r22
-  32:Components/Steering/Steering.c **** 	wheelAngle = data / -4 + 74;
- 139               	.LM1:
- 140 0014 8981      		ldd r24,Y+1
- 141 0016 9A81      		ldd r25,Y+2
- 142 0018 9923      		tst r25
- 143 001a 04F4      		brge .L2
- 144 001c 0396      		adiw r24,3
- 145               	.L2:
- 146 001e 9595      		asr r25
- 147 0020 8795      		ror r24
- 148 0022 9595      		asr r25
- 149 0024 8795      		ror r24
- 150 0026 9195      		neg r25
- 151 0028 8195      		neg r24
- 152 002a 9109      		sbc r25,__zero_reg__
- 153 002c 865B      		subi r24,-74
- 154 002e 9F4F      		sbci r25,-1
- 155 0030 9093 0000 		sts wheelAngle+1,r25
- 156 0034 8093 0000 		sts wheelAngle,r24
- 157               	/* epilogue start */
-  33:Components/Steering/Steering.c ****    //wheelAngle = data;
-  34:Components/Steering/Steering.c **** }
- 159               	.LM2:
- 160 0038 0F90      		pop __tmp_reg__
- 161 003a 0F90      		pop __tmp_reg__
- 162 003c 0F90      		pop __tmp_reg__
- 163 003e 0F90      		pop __tmp_reg__
- 164 0040 DF91      		pop r29
- 165 0042 CF91      		pop r28
- 166 0044 0895      		ret
- 168               	.Lscope1:
- 170               		.stabd	78,0,0
- 172               	.global	initializeSteeringTimer
- 174               	initializeSteeringTimer:
- 175               		.stabd	46,0,0
+  27:Components/Steering/Steering.c **** static int steeringDir;
+  28:Components/Steering/Steering.c **** static int steeringSpd;
+  29:Components/Steering/Steering.c **** 
+  30:Components/Steering/Steering.c **** void printHex(int a);
+  31:Components/Steering/Steering.c **** void printNum(int a);
+  32:Components/Steering/Steering.c **** void USART_Write(char a);
+  33:Components/Steering/Steering.c **** void printWheelAngle(void);
+  34:Components/Steering/Steering.c **** void getLinearPotCallback(int data, void *parameters);
   35:Components/Steering/Steering.c **** 
-  36:Components/Steering/Steering.c **** void initializeSteeringTimer(){
- 177               	.LM3:
- 178               	.LFBB2:
- 179 0046 CF93      		push r28
- 180 0048 DF93      		push r29
- 181 004a CDB7      		in r28,__SP_L__
- 182 004c DEB7      		in r29,__SP_H__
- 183               	/* prologue: function */
- 184               	/* frame size = 0 */
- 185               	/* stack size = 2 */
- 186               	.L__stack_usage = 2
-  37:Components/Steering/Steering.c **** 	
-  38:Components/Steering/Steering.c **** 	//TCCR1A = (1 << COM1A1)|(1 << WGM11);
-  39:Components/Steering/Steering.c ****    TCCR5A = (1 << WGM51);
- 188               	.LM4:
- 189 004e 80E2      		ldi r24,lo8(32)
- 190 0050 91E0      		ldi r25,lo8(1)
- 191 0052 22E0      		ldi r18,lo8(2)
- 192 0054 FC01      		movw r30,r24
- 193 0056 2083      		st Z,r18
-  40:Components/Steering/Steering.c **** 	TCCR5B = (1 << WGM52)|(1 << CS50);
- 195               	.LM5:
- 196 0058 81E2      		ldi r24,lo8(33)
- 197 005a 91E0      		ldi r25,lo8(1)
- 198 005c 29E0      		ldi r18,lo8(9)
- 199 005e FC01      		movw r30,r24
- 200 0060 2083      		st Z,r18
-  41:Components/Steering/Steering.c **** 	TCCR5C = 0;
- 202               	.LM6:
- 203 0062 82E2      		ldi r24,lo8(34)
- 204 0064 91E0      		ldi r25,lo8(1)
- 205 0066 FC01      		movw r30,r24
- 206 0068 1082      		st Z,__zero_reg__
-  42:Components/Steering/Steering.c **** 
-  43:Components/Steering/Steering.c ****    OCR5AH = 0xFF;
- 208               	.LM7:
- 209 006a 89E2      		ldi r24,lo8(41)
- 210 006c 91E0      		ldi r25,lo8(1)
- 211 006e 2FEF      		ldi r18,lo8(-1)
- 212 0070 FC01      		movw r30,r24
- 213 0072 2083      		st Z,r18
-  44:Components/Steering/Steering.c ****    OCR5AL = 0xFF;
- 215               	.LM8:
- 216 0074 88E2      		ldi r24,lo8(40)
- 217 0076 91E0      		ldi r25,lo8(1)
- 218 0078 2FEF      		ldi r18,lo8(-1)
- 219 007a FC01      		movw r30,r24
- 220 007c 2083      		st Z,r18
-  45:Components/Steering/Steering.c **** 
-  46:Components/Steering/Steering.c ****    TIMSK5 = (1 << OCIE5A)|(1 << TOIE5);
- 222               	.LM9:
- 223 007e 83E7      		ldi r24,lo8(115)
- 224 0080 90E0      		ldi r25,0
- 225 0082 23E0      		ldi r18,lo8(3)
- 226 0084 FC01      		movw r30,r24
- 227 0086 2083      		st Z,r18
- 228               	/* epilogue start */
-  47:Components/Steering/Steering.c **** 
-  48:Components/Steering/Steering.c **** }
- 230               	.LM10:
- 231 0088 DF91      		pop r29
- 232 008a CF91      		pop r28
- 233 008c 0895      		ret
- 235               	.Lscope2:
- 237               		.stabd	78,0,0
- 239               	.global	__vector_50
- 241               	__vector_50:
- 242               		.stabd	46,0,0
-  49:Components/Steering/Steering.c **** 
-  50:Components/Steering/Steering.c **** ISR(TIMER5_OVF_vect) {
- 244               	.LM11:
- 245               	.LFBB3:
- 246 008e 1F92      		push r1
- 247 0090 0F92      		push r0
- 248 0092 0090 5F00 		lds r0,95
- 249 0096 0F92      		push r0
- 250 0098 1124      		clr __zero_reg__
- 251 009a 0090 5B00 		lds r0,91
- 252 009e 0F92      		push r0
- 253 00a0 2F93      		push r18
- 254 00a2 3F93      		push r19
- 255 00a4 8F93      		push r24
- 256 00a6 9F93      		push r25
- 257 00a8 EF93      		push r30
- 258 00aa FF93      		push r31
- 259 00ac CF93      		push r28
- 260 00ae DF93      		push r29
- 261 00b0 CDB7      		in r28,__SP_L__
- 262 00b2 DEB7      		in r29,__SP_H__
- 263               	/* prologue: Signal */
- 264               	/* frame size = 0 */
- 265               	/* stack size = 12 */
- 266               	.L__stack_usage = 12
+  36:Components/Steering/Steering.c **** 
+  37:Components/Steering/Steering.c **** void getLinearPotCallback(int data,void *parameters){
+ 157               	.LM0:
+ 158               	.LFBB1:
+ 159 0000 CF93      		push r28
+ 160 0002 DF93      		push r29
+ 161 0004 00D0      		rcall .
+ 162 0006 1F92      		push __zero_reg__
+ 163 0008 CDB7      		in r28,__SP_L__
+ 164 000a DEB7      		in r29,__SP_H__
+ 165               	/* prologue: function */
+ 166               	/* frame size = 4 */
+ 167               	/* stack size = 6 */
+ 168               	.L__stack_usage = 6
+ 169 000c 9A83      		std Y+2,r25
+ 170 000e 8983      		std Y+1,r24
+ 171 0010 7C83      		std Y+4,r23
+ 172 0012 6B83      		std Y+3,r22
+  38:Components/Steering/Steering.c **** 	wheelAngle = data / -4 + 74;
+ 174               	.LM1:
+ 175 0014 8981      		ldd r24,Y+1
+ 176 0016 9A81      		ldd r25,Y+2
+ 177 0018 9923      		tst r25
+ 178 001a 04F4      		brge .L2
+ 179 001c 0396      		adiw r24,3
+ 180               	.L2:
+ 181 001e 9595      		asr r25
+ 182 0020 8795      		ror r24
+ 183 0022 9595      		asr r25
+ 184 0024 8795      		ror r24
+ 185 0026 9195      		neg r25
+ 186 0028 8195      		neg r24
+ 187 002a 9109      		sbc r25,__zero_reg__
+ 188 002c 865B      		subi r24,-74
+ 189 002e 9F4F      		sbci r25,-1
+ 190 0030 9093 0000 		sts wheelAngle+1,r25
+ 191 0034 8093 0000 		sts wheelAngle,r24
+ 192               	/* epilogue start */
+  39:Components/Steering/Steering.c ****    //wheelAngle = data;
+  40:Components/Steering/Steering.c **** }
+ 194               	.LM2:
+ 195 0038 0F90      		pop __tmp_reg__
+ 196 003a 0F90      		pop __tmp_reg__
+ 197 003c 0F90      		pop __tmp_reg__
+ 198 003e 0F90      		pop __tmp_reg__
+ 199 0040 DF91      		pop r29
+ 200 0042 CF91      		pop r28
+ 201 0044 0895      		ret
+ 203               	.Lscope1:
+ 205               		.stabd	78,0,0
+ 207               	.global	initializeSteeringTimer
+ 209               	initializeSteeringTimer:
+ 210               		.stabd	46,0,0
+  41:Components/Steering/Steering.c **** 
+  42:Components/Steering/Steering.c **** void initializeSteeringTimer(){
+ 212               	.LM3:
+ 213               	.LFBB2:
+ 214 0046 CF93      		push r28
+ 215 0048 DF93      		push r29
+ 216 004a CDB7      		in r28,__SP_L__
+ 217 004c DEB7      		in r29,__SP_H__
+ 218               	/* prologue: function */
+ 219               	/* frame size = 0 */
+ 220               	/* stack size = 2 */
+ 221               	.L__stack_usage = 2
+  43:Components/Steering/Steering.c **** 	
+  44:Components/Steering/Steering.c **** 	//TCCR1A = (1 << COM1A1)|(1 << WGM11);
+  45:Components/Steering/Steering.c ****    TCCR5A = (1 << WGM51);
+ 223               	.LM4:
+ 224 004e 80E2      		ldi r24,lo8(32)
+ 225 0050 91E0      		ldi r25,lo8(1)
+ 226 0052 22E0      		ldi r18,lo8(2)
+ 227 0054 FC01      		movw r30,r24
+ 228 0056 2083      		st Z,r18
+  46:Components/Steering/Steering.c **** 	TCCR5B = (1 << WGM52)|(1 << CS50);
+ 230               	.LM5:
+ 231 0058 81E2      		ldi r24,lo8(33)
+ 232 005a 91E0      		ldi r25,lo8(1)
+ 233 005c 29E0      		ldi r18,lo8(9)
+ 234 005e FC01      		movw r30,r24
+ 235 0060 2083      		st Z,r18
+  47:Components/Steering/Steering.c **** 	TCCR5C = 0;
+ 237               	.LM6:
+ 238 0062 82E2      		ldi r24,lo8(34)
+ 239 0064 91E0      		ldi r25,lo8(1)
+ 240 0066 FC01      		movw r30,r24
+ 241 0068 1082      		st Z,__zero_reg__
+  48:Components/Steering/Steering.c **** 
+  49:Components/Steering/Steering.c ****    OCR5AH = 0xFF;
+ 243               	.LM7:
+ 244 006a 89E2      		ldi r24,lo8(41)
+ 245 006c 91E0      		ldi r25,lo8(1)
+ 246 006e 2FEF      		ldi r18,lo8(-1)
+ 247 0070 FC01      		movw r30,r24
+ 248 0072 2083      		st Z,r18
+  50:Components/Steering/Steering.c ****    OCR5AL = 0xFF;
+ 250               	.LM8:
+ 251 0074 88E2      		ldi r24,lo8(40)
+ 252 0076 91E0      		ldi r25,lo8(1)
+ 253 0078 2FEF      		ldi r18,lo8(-1)
+ 254 007a FC01      		movw r30,r24
+ 255 007c 2083      		st Z,r18
   51:Components/Steering/Steering.c **** 
-  52:Components/Steering/Steering.c ****    if(steeringDir == -1) {
- 268               	.LM12:
- 269 00b4 8091 0000 		lds r24,steeringDir
- 270 00b8 9091 0000 		lds r25,steeringDir+1
- 271 00bc 8F3F      		cpi r24,-1
- 272 00be 2FEF      		ldi r18,-1
- 273 00c0 9207      		cpc r25,r18
- 274 00c2 01F4      		brne .L5
-  53:Components/Steering/Steering.c ****       PORTB &= ~(1 << PB5);
- 276               	.LM13:
- 277 00c4 85E2      		ldi r24,lo8(37)
- 278 00c6 90E0      		ldi r25,0
- 279 00c8 25E2      		ldi r18,lo8(37)
- 280 00ca 30E0      		ldi r19,0
- 281 00cc F901      		movw r30,r18
- 282 00ce 2081      		ld r18,Z
- 283 00d0 2F7D      		andi r18,lo8(-33)
- 284 00d2 FC01      		movw r30,r24
- 285 00d4 2083      		st Z,r18
-  54:Components/Steering/Steering.c ****       PORTB |= (1 << PB4);
- 287               	.LM14:
- 288 00d6 85E2      		ldi r24,lo8(37)
- 289 00d8 90E0      		ldi r25,0
- 290 00da 25E2      		ldi r18,lo8(37)
- 291 00dc 30E0      		ldi r19,0
- 292 00de F901      		movw r30,r18
- 293 00e0 2081      		ld r18,Z
- 294 00e2 2061      		ori r18,lo8(16)
- 295 00e4 FC01      		movw r30,r24
- 296 00e6 2083      		st Z,r18
- 297 00e8 00C0      		rjmp .L4
- 298               	.L5:
-  55:Components/Steering/Steering.c ****    } else if(steeringDir == 1) {
- 300               	.LM15:
- 301 00ea 8091 0000 		lds r24,steeringDir
- 302 00ee 9091 0000 		lds r25,steeringDir+1
- 303 00f2 8130      		cpi r24,1
- 304 00f4 9105      		cpc r25,__zero_reg__
- 305 00f6 01F4      		brne .L7
-  56:Components/Steering/Steering.c ****       PORTB &= ~(1 << PB4);
- 307               	.LM16:
- 308 00f8 85E2      		ldi r24,lo8(37)
- 309 00fa 90E0      		ldi r25,0
- 310 00fc 25E2      		ldi r18,lo8(37)
- 311 00fe 30E0      		ldi r19,0
- 312 0100 F901      		movw r30,r18
- 313 0102 2081      		ld r18,Z
- 314 0104 2F7E      		andi r18,lo8(-17)
- 315 0106 FC01      		movw r30,r24
- 316 0108 2083      		st Z,r18
-  57:Components/Steering/Steering.c ****       PORTB |= (1 << PB5);
- 318               	.LM17:
- 319 010a 85E2      		ldi r24,lo8(37)
- 320 010c 90E0      		ldi r25,0
- 321 010e 25E2      		ldi r18,lo8(37)
- 322 0110 30E0      		ldi r19,0
- 323 0112 F901      		movw r30,r18
- 324 0114 2081      		ld r18,Z
- 325 0116 2062      		ori r18,lo8(32)
- 326 0118 FC01      		movw r30,r24
- 327 011a 2083      		st Z,r18
- 328 011c 00C0      		rjmp .L4
- 329               	.L7:
-  58:Components/Steering/Steering.c ****    } else {
-  59:Components/Steering/Steering.c ****       PORTB &= ~((1 << PB4) | (1 << PB5));
- 331               	.LM18:
- 332 011e 85E2      		ldi r24,lo8(37)
- 333 0120 90E0      		ldi r25,0
- 334 0122 25E2      		ldi r18,lo8(37)
- 335 0124 30E0      		ldi r19,0
- 336 0126 F901      		movw r30,r18
- 337 0128 2081      		ld r18,Z
- 338 012a 2F7C      		andi r18,lo8(-49)
- 339 012c FC01      		movw r30,r24
- 340 012e 2083      		st Z,r18
- 341               	.L4:
- 342               	/* epilogue start */
-  60:Components/Steering/Steering.c ****    }
-  61:Components/Steering/Steering.c **** }
- 344               	.LM19:
- 345 0130 DF91      		pop r29
- 346 0132 CF91      		pop r28
- 347 0134 FF91      		pop r31
- 348 0136 EF91      		pop r30
- 349 0138 9F91      		pop r25
- 350 013a 8F91      		pop r24
- 351 013c 3F91      		pop r19
- 352 013e 2F91      		pop r18
- 353 0140 0F90      		pop r0
- 354 0142 0092 5B00 		sts 91,r0
- 355 0146 0F90      		pop r0
- 356 0148 0092 5F00 		sts 95,r0
- 357 014c 0F90      		pop r0
- 358 014e 1F90      		pop r1
- 359 0150 1895      		reti
- 361               	.Lscope3:
- 363               		.stabd	78,0,0
- 365               	.global	__vector_47
- 367               	__vector_47:
- 368               		.stabd	46,0,0
-  62:Components/Steering/Steering.c **** 
-  63:Components/Steering/Steering.c **** ISR(TIMER5_COMPA_vect) {
- 370               	.LM20:
- 371               	.LFBB4:
- 372 0152 1F92      		push r1
- 373 0154 0F92      		push r0
- 374 0156 0090 5F00 		lds r0,95
- 375 015a 0F92      		push r0
- 376 015c 1124      		clr __zero_reg__
- 377 015e 0090 5B00 		lds r0,91
- 378 0162 0F92      		push r0
- 379 0164 2F93      		push r18
- 380 0166 3F93      		push r19
- 381 0168 8F93      		push r24
- 382 016a 9F93      		push r25
- 383 016c EF93      		push r30
- 384 016e FF93      		push r31
- 385 0170 CF93      		push r28
- 386 0172 DF93      		push r29
- 387 0174 CDB7      		in r28,__SP_L__
- 388 0176 DEB7      		in r29,__SP_H__
- 389               	/* prologue: Signal */
- 390               	/* frame size = 0 */
- 391               	/* stack size = 12 */
- 392               	.L__stack_usage = 12
-  64:Components/Steering/Steering.c ****    PORTB &= ~((1 << PB4)|(1 << PB5));
- 394               	.LM21:
- 395 0178 85E2      		ldi r24,lo8(37)
- 396 017a 90E0      		ldi r25,0
- 397 017c 25E2      		ldi r18,lo8(37)
- 398 017e 30E0      		ldi r19,0
- 399 0180 F901      		movw r30,r18
- 400 0182 2081      		ld r18,Z
- 401 0184 2F7C      		andi r18,lo8(-49)
- 402 0186 FC01      		movw r30,r24
- 403 0188 2083      		st Z,r18
- 404               	/* epilogue start */
-  65:Components/Steering/Steering.c **** }
- 406               	.LM22:
- 407 018a DF91      		pop r29
- 408 018c CF91      		pop r28
- 409 018e FF91      		pop r31
- 410 0190 EF91      		pop r30
- 411 0192 9F91      		pop r25
- 412 0194 8F91      		pop r24
- 413 0196 3F91      		pop r19
- 414 0198 2F91      		pop r18
- 415 019a 0F90      		pop r0
- 416 019c 0092 5B00 		sts 91,r0
- 417 01a0 0F90      		pop r0
- 418 01a2 0092 5F00 		sts 95,r0
- 419 01a6 0F90      		pop r0
- 420 01a8 1F90      		pop r1
- 421 01aa 1895      		reti
- 423               	.Lscope4:
- 425               		.stabd	78,0,0
- 428               	.global	setSteeringPWMSpeed
- 430               	setSteeringPWMSpeed:
- 431               		.stabd	46,0,0
-  66:Components/Steering/Steering.c **** 
-  67:Components/Steering/Steering.c **** void setSteeringPWMSpeed(int spd){
- 433               	.LM23:
- 434               	.LFBB5:
- 435 01ac CF93      		push r28
- 436 01ae DF93      		push r29
- 437 01b0 1F92      		push __zero_reg__
- 438 01b2 1F92      		push __zero_reg__
- 439 01b4 CDB7      		in r28,__SP_L__
- 440 01b6 DEB7      		in r29,__SP_H__
- 441               	/* prologue: function */
- 442               	/* frame size = 2 */
- 443               	/* stack size = 4 */
- 444               	.L__stack_usage = 4
- 445 01b8 9A83      		std Y+2,r25
- 446 01ba 8983      		std Y+1,r24
-  68:Components/Steering/Steering.c ****    steeringSpd = spd * steeringDir;
- 448               	.LM24:
- 449 01bc 4091 0000 		lds r20,steeringDir
- 450 01c0 5091 0000 		lds r21,steeringDir+1
- 451 01c4 2981      		ldd r18,Y+1
- 452 01c6 3A81      		ldd r19,Y+2
- 453 01c8 429F      		mul r20,r18
- 454 01ca C001      		movw r24,r0
- 455 01cc 439F      		mul r20,r19
- 456 01ce 900D      		add r25,r0
- 457 01d0 529F      		mul r21,r18
- 458 01d2 900D      		add r25,r0
- 459 01d4 1124      		clr r1
- 460 01d6 9093 0000 		sts steeringSpd+1,r25
- 461 01da 8093 0000 		sts steeringSpd,r24
-  69:Components/Steering/Steering.c **** 
-  70:Components/Steering/Steering.c ****    if(spd > 0x1B0) spd = 0x1B0;
- 463               	.LM25:
- 464 01de 8981      		ldd r24,Y+1
- 465 01e0 9A81      		ldd r25,Y+2
- 466 01e2 813B      		cpi r24,-79
- 467 01e4 21E0      		ldi r18,1
- 468 01e6 9207      		cpc r25,r18
- 469 01e8 04F0      		brlt .L10
- 471               	.LM26:
- 472 01ea 80EB      		ldi r24,lo8(-80)
- 473 01ec 91E0      		ldi r25,lo8(1)
- 474 01ee 9A83      		std Y+2,r25
- 475 01f0 8983      		std Y+1,r24
- 476               	.L10:
-  71:Components/Steering/Steering.c ****       
+  52:Components/Steering/Steering.c ****    TIMSK5 = (1 << OCIE5A)|(1 << TOIE5);
+ 257               	.LM9:
+ 258 007e 83E7      		ldi r24,lo8(115)
+ 259 0080 90E0      		ldi r25,0
+ 260 0082 23E0      		ldi r18,lo8(3)
+ 261 0084 FC01      		movw r30,r24
+ 262 0086 2083      		st Z,r18
+ 263               	/* epilogue start */
+  53:Components/Steering/Steering.c **** 
+  54:Components/Steering/Steering.c **** }
+ 265               	.LM10:
+ 266 0088 DF91      		pop r29
+ 267 008a CF91      		pop r28
+ 268 008c 0895      		ret
+ 270               	.Lscope2:
+ 272               		.stabd	78,0,0
+ 274               	.global	__vector_50
+ 276               	__vector_50:
+ 277               		.stabd	46,0,0
+  55:Components/Steering/Steering.c **** 
+  56:Components/Steering/Steering.c **** ISR(TIMER5_OVF_vect) {
+ 279               	.LM11:
+ 280               	.LFBB3:
+ 281 008e 1F92      		push r1
+ 282 0090 0F92      		push r0
+ 283 0092 0090 5F00 		lds r0,95
+ 284 0096 0F92      		push r0
+ 285 0098 1124      		clr __zero_reg__
+ 286 009a 0090 5B00 		lds r0,91
+ 287 009e 0F92      		push r0
+ 288 00a0 2F93      		push r18
+ 289 00a2 3F93      		push r19
+ 290 00a4 8F93      		push r24
+ 291 00a6 9F93      		push r25
+ 292 00a8 EF93      		push r30
+ 293 00aa FF93      		push r31
+ 294 00ac CF93      		push r28
+ 295 00ae DF93      		push r29
+ 296 00b0 CDB7      		in r28,__SP_L__
+ 297 00b2 DEB7      		in r29,__SP_H__
+ 298               	/* prologue: Signal */
+ 299               	/* frame size = 0 */
+ 300               	/* stack size = 12 */
+ 301               	.L__stack_usage = 12
+  57:Components/Steering/Steering.c **** 
+  58:Components/Steering/Steering.c ****    if(steeringDir == -1) {
+ 303               	.LM12:
+ 304 00b4 8091 0000 		lds r24,steeringDir
+ 305 00b8 9091 0000 		lds r25,steeringDir+1
+ 306 00bc 8F3F      		cpi r24,-1
+ 307 00be 2FEF      		ldi r18,-1
+ 308 00c0 9207      		cpc r25,r18
+ 309 00c2 01F4      		brne .L5
+  59:Components/Steering/Steering.c ****       PORTB &= ~(1 << PB5);
+ 311               	.LM13:
+ 312 00c4 85E2      		ldi r24,lo8(37)
+ 313 00c6 90E0      		ldi r25,0
+ 314 00c8 25E2      		ldi r18,lo8(37)
+ 315 00ca 30E0      		ldi r19,0
+ 316 00cc F901      		movw r30,r18
+ 317 00ce 2081      		ld r18,Z
+ 318 00d0 2F7D      		andi r18,lo8(-33)
+ 319 00d2 FC01      		movw r30,r24
+ 320 00d4 2083      		st Z,r18
+  60:Components/Steering/Steering.c ****       PORTB |= (1 << PB4);
+ 322               	.LM14:
+ 323 00d6 85E2      		ldi r24,lo8(37)
+ 324 00d8 90E0      		ldi r25,0
+ 325 00da 25E2      		ldi r18,lo8(37)
+ 326 00dc 30E0      		ldi r19,0
+ 327 00de F901      		movw r30,r18
+ 328 00e0 2081      		ld r18,Z
+ 329 00e2 2061      		ori r18,lo8(16)
+ 330 00e4 FC01      		movw r30,r24
+ 331 00e6 2083      		st Z,r18
+ 332 00e8 00C0      		rjmp .L4
+ 333               	.L5:
+  61:Components/Steering/Steering.c ****    } else if(steeringDir == 1) {
+ 335               	.LM15:
+ 336 00ea 8091 0000 		lds r24,steeringDir
+ 337 00ee 9091 0000 		lds r25,steeringDir+1
+ 338 00f2 8130      		cpi r24,1
+ 339 00f4 9105      		cpc r25,__zero_reg__
+ 340 00f6 01F4      		brne .L7
+  62:Components/Steering/Steering.c ****       PORTB &= ~(1 << PB4);
+ 342               	.LM16:
+ 343 00f8 85E2      		ldi r24,lo8(37)
+ 344 00fa 90E0      		ldi r25,0
+ 345 00fc 25E2      		ldi r18,lo8(37)
+ 346 00fe 30E0      		ldi r19,0
+ 347 0100 F901      		movw r30,r18
+ 348 0102 2081      		ld r18,Z
+ 349 0104 2F7E      		andi r18,lo8(-17)
+ 350 0106 FC01      		movw r30,r24
+ 351 0108 2083      		st Z,r18
+  63:Components/Steering/Steering.c ****       PORTB |= (1 << PB5);
+ 353               	.LM17:
+ 354 010a 85E2      		ldi r24,lo8(37)
+ 355 010c 90E0      		ldi r25,0
+ 356 010e 25E2      		ldi r18,lo8(37)
+ 357 0110 30E0      		ldi r19,0
+ 358 0112 F901      		movw r30,r18
+ 359 0114 2081      		ld r18,Z
+ 360 0116 2062      		ori r18,lo8(32)
+ 361 0118 FC01      		movw r30,r24
+ 362 011a 2083      		st Z,r18
+ 363 011c 00C0      		rjmp .L4
+ 364               	.L7:
+  64:Components/Steering/Steering.c ****    } else {
+  65:Components/Steering/Steering.c ****       PORTB &= ~((1 << PB4) | (1 << PB5));
+ 366               	.LM18:
+ 367 011e 85E2      		ldi r24,lo8(37)
+ 368 0120 90E0      		ldi r25,0
+ 369 0122 25E2      		ldi r18,lo8(37)
+ 370 0124 30E0      		ldi r19,0
+ 371 0126 F901      		movw r30,r18
+ 372 0128 2081      		ld r18,Z
+ 373 012a 2F7C      		andi r18,lo8(-49)
+ 374 012c FC01      		movw r30,r24
+ 375 012e 2083      		st Z,r18
+ 376               	.L4:
+ 377               	/* epilogue start */
+  66:Components/Steering/Steering.c ****    }
+  67:Components/Steering/Steering.c **** }
+ 379               	.LM19:
+ 380 0130 DF91      		pop r29
+ 381 0132 CF91      		pop r28
+ 382 0134 FF91      		pop r31
+ 383 0136 EF91      		pop r30
+ 384 0138 9F91      		pop r25
+ 385 013a 8F91      		pop r24
+ 386 013c 3F91      		pop r19
+ 387 013e 2F91      		pop r18
+ 388 0140 0F90      		pop r0
+ 389 0142 0092 5B00 		sts 91,r0
+ 390 0146 0F90      		pop r0
+ 391 0148 0092 5F00 		sts 95,r0
+ 392 014c 0F90      		pop r0
+ 393 014e 1F90      		pop r1
+ 394 0150 1895      		reti
+ 396               	.Lscope3:
+ 398               		.stabd	78,0,0
+ 400               	.global	__vector_47
+ 402               	__vector_47:
+ 403               		.stabd	46,0,0
+  68:Components/Steering/Steering.c **** 
+  69:Components/Steering/Steering.c **** ISR(TIMER5_COMPA_vect) {
+ 405               	.LM20:
+ 406               	.LFBB4:
+ 407 0152 1F92      		push r1
+ 408 0154 0F92      		push r0
+ 409 0156 0090 5F00 		lds r0,95
+ 410 015a 0F92      		push r0
+ 411 015c 1124      		clr __zero_reg__
+ 412 015e 0090 5B00 		lds r0,91
+ 413 0162 0F92      		push r0
+ 414 0164 2F93      		push r18
+ 415 0166 3F93      		push r19
+ 416 0168 8F93      		push r24
+ 417 016a 9F93      		push r25
+ 418 016c EF93      		push r30
+ 419 016e FF93      		push r31
+ 420 0170 CF93      		push r28
+ 421 0172 DF93      		push r29
+ 422 0174 CDB7      		in r28,__SP_L__
+ 423 0176 DEB7      		in r29,__SP_H__
+ 424               	/* prologue: Signal */
+ 425               	/* frame size = 0 */
+ 426               	/* stack size = 12 */
+ 427               	.L__stack_usage = 12
+  70:Components/Steering/Steering.c ****    PORTB &= ~((1 << PB4)|(1 << PB5));
+ 429               	.LM21:
+ 430 0178 85E2      		ldi r24,lo8(37)
+ 431 017a 90E0      		ldi r25,0
+ 432 017c 25E2      		ldi r18,lo8(37)
+ 433 017e 30E0      		ldi r19,0
+ 434 0180 F901      		movw r30,r18
+ 435 0182 2081      		ld r18,Z
+ 436 0184 2F7C      		andi r18,lo8(-49)
+ 437 0186 FC01      		movw r30,r24
+ 438 0188 2083      		st Z,r18
+ 439               	/* epilogue start */
+  71:Components/Steering/Steering.c **** }
+ 441               	.LM22:
+ 442 018a DF91      		pop r29
+ 443 018c CF91      		pop r28
+ 444 018e FF91      		pop r31
+ 445 0190 EF91      		pop r30
+ 446 0192 9F91      		pop r25
+ 447 0194 8F91      		pop r24
+ 448 0196 3F91      		pop r19
+ 449 0198 2F91      		pop r18
+ 450 019a 0F90      		pop r0
+ 451 019c 0092 5B00 		sts 91,r0
+ 452 01a0 0F90      		pop r0
+ 453 01a2 0092 5F00 		sts 95,r0
+ 454 01a6 0F90      		pop r0
+ 455 01a8 1F90      		pop r1
+ 456 01aa 1895      		reti
+ 458               	.Lscope4:
+ 460               		.stabd	78,0,0
+ 463               	.global	setSteeringPWMSpeed
+ 465               	setSteeringPWMSpeed:
+ 466               		.stabd	46,0,0
   72:Components/Steering/Steering.c **** 
-  73:Components/Steering/Steering.c ****    OCR5AH = spd >> 8;
- 478               	.LM27:
- 479 01f2 89E2      		ldi r24,lo8(41)
- 480 01f4 91E0      		ldi r25,lo8(1)
- 481 01f6 2981      		ldd r18,Y+1
- 482 01f8 3A81      		ldd r19,Y+2
- 483 01fa 232F      		mov r18,r19
- 484 01fc 330F      		lsl r19
- 485 01fe 330B      		sbc r19,r19
- 486 0200 FC01      		movw r30,r24
- 487 0202 2083      		st Z,r18
-  74:Components/Steering/Steering.c ****    OCR5AL = spd & 0xFF;
- 489               	.LM28:
- 490 0204 88E2      		ldi r24,lo8(40)
- 491 0206 91E0      		ldi r25,lo8(1)
- 492 0208 2981      		ldd r18,Y+1
- 493 020a FC01      		movw r30,r24
- 494 020c 2083      		st Z,r18
- 495               	/* epilogue start */
+  73:Components/Steering/Steering.c **** void setSteeringPWMSpeed(int spd){
+ 468               	.LM23:
+ 469               	.LFBB5:
+ 470 01ac CF93      		push r28
+ 471 01ae DF93      		push r29
+ 472 01b0 1F92      		push __zero_reg__
+ 473 01b2 1F92      		push __zero_reg__
+ 474 01b4 CDB7      		in r28,__SP_L__
+ 475 01b6 DEB7      		in r29,__SP_H__
+ 476               	/* prologue: function */
+ 477               	/* frame size = 2 */
+ 478               	/* stack size = 4 */
+ 479               	.L__stack_usage = 4
+ 480 01b8 9A83      		std Y+2,r25
+ 481 01ba 8983      		std Y+1,r24
+  74:Components/Steering/Steering.c ****    steeringSpd = spd * steeringDir;
+ 483               	.LM24:
+ 484 01bc 4091 0000 		lds r20,steeringDir
+ 485 01c0 5091 0000 		lds r21,steeringDir+1
+ 486 01c4 2981      		ldd r18,Y+1
+ 487 01c6 3A81      		ldd r19,Y+2
+ 488 01c8 429F      		mul r20,r18
+ 489 01ca C001      		movw r24,r0
+ 490 01cc 439F      		mul r20,r19
+ 491 01ce 900D      		add r25,r0
+ 492 01d0 529F      		mul r21,r18
+ 493 01d2 900D      		add r25,r0
+ 494 01d4 1124      		clr r1
+ 495 01d6 9093 0000 		sts steeringSpd+1,r25
+ 496 01da 8093 0000 		sts steeringSpd,r24
   75:Components/Steering/Steering.c **** 
-  76:Components/Steering/Steering.c ****     
-  77:Components/Steering/Steering.c ****    /*if(steeringDir == 1) {
-  78:Components/Steering/Steering.c ****       STEERING_LEFT_CMPH = steeringSpd >> 8;
-  79:Components/Steering/Steering.c ****       STEERING_LEFT_CMPL = steeringSpd & 0xFF;
-  80:Components/Steering/Steering.c **** 
-  81:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = 0;
-  82:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = 0;
-  83:Components/Steering/Steering.c **** 
-  84:Components/Steering/Steering.c ****       TCCR1A &= ~((1 << STEERING_RIGHT_COM0)|(1 << STEERING_RIGHT_COM1));
-  85:Components/Steering/Steering.c ****       TCCR1A |= (1 << STEERING_LEFT_COM1);
-  86:Components/Steering/Steering.c ****    } else if(steeringDir == -1) {
-  87:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = steeringSpd >> 8;
-  88:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = steeringSpd & 0xFF;
+  76:Components/Steering/Steering.c ****    if(spd > 0x1B0) spd = 0x1B0;
+ 498               	.LM25:
+ 499 01de 8981      		ldd r24,Y+1
+ 500 01e0 9A81      		ldd r25,Y+2
+ 501 01e2 813B      		cpi r24,-79
+ 502 01e4 21E0      		ldi r18,1
+ 503 01e6 9207      		cpc r25,r18
+ 504 01e8 04F0      		brlt .L10
+ 506               	.LM26:
+ 507 01ea 80EB      		ldi r24,lo8(-80)
+ 508 01ec 91E0      		ldi r25,lo8(1)
+ 509 01ee 9A83      		std Y+2,r25
+ 510 01f0 8983      		std Y+1,r24
+ 511               	.L10:
+  77:Components/Steering/Steering.c ****       
+  78:Components/Steering/Steering.c **** 
+  79:Components/Steering/Steering.c ****    OCR5AH = spd >> 8;
+ 513               	.LM27:
+ 514 01f2 89E2      		ldi r24,lo8(41)
+ 515 01f4 91E0      		ldi r25,lo8(1)
+ 516 01f6 2981      		ldd r18,Y+1
+ 517 01f8 3A81      		ldd r19,Y+2
+ 518 01fa 232F      		mov r18,r19
+ 519 01fc 330F      		lsl r19
+ 520 01fe 330B      		sbc r19,r19
+ 521 0200 FC01      		movw r30,r24
+ 522 0202 2083      		st Z,r18
+  80:Components/Steering/Steering.c ****    OCR5AL = spd & 0xFF;
+ 524               	.LM28:
+ 525 0204 88E2      		ldi r24,lo8(40)
+ 526 0206 91E0      		ldi r25,lo8(1)
+ 527 0208 2981      		ldd r18,Y+1
+ 528 020a FC01      		movw r30,r24
+ 529 020c 2083      		st Z,r18
+ 530               	/* epilogue start */
+  81:Components/Steering/Steering.c **** 
+  82:Components/Steering/Steering.c ****     
+  83:Components/Steering/Steering.c ****    /*if(steeringDir == 1) {
+  84:Components/Steering/Steering.c ****       STEERING_LEFT_CMPH = steeringSpd >> 8;
+  85:Components/Steering/Steering.c ****       STEERING_LEFT_CMPL = steeringSpd & 0xFF;
+  86:Components/Steering/Steering.c **** 
+  87:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = 0;
+  88:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = 0;
   89:Components/Steering/Steering.c **** 
-  90:Components/Steering/Steering.c ****       STEERING_LEFT_CMPH = 0;
-  91:Components/Steering/Steering.c ****       STEERING_LEFT_CMPL = 0;
-  92:Components/Steering/Steering.c **** 
-  93:Components/Steering/Steering.c ****       TCCR1A &= ~((1 << STEERING_LEFT_COM0)|(1 << STEERING_LEFT_COM1));
-  94:Components/Steering/Steering.c ****       TCCR1A |= (1 << STEERING_RIGHT_COM1);
-  95:Components/Steering/Steering.c ****    } else {
+  90:Components/Steering/Steering.c ****       TCCR1A &= ~((1 << STEERING_RIGHT_COM0)|(1 << STEERING_RIGHT_COM1));
+  91:Components/Steering/Steering.c ****       TCCR1A |= (1 << STEERING_LEFT_COM1);
+  92:Components/Steering/Steering.c ****    } else if(steeringDir == -1) {
+  93:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = steeringSpd >> 8;
+  94:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = steeringSpd & 0xFF;
+  95:Components/Steering/Steering.c **** 
   96:Components/Steering/Steering.c ****       STEERING_LEFT_CMPH = 0;
   97:Components/Steering/Steering.c ****       STEERING_LEFT_CMPL = 0;
-  98:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = 0;
-  99:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = 0;
- 100:Components/Steering/Steering.c ****    }*/
- 101:Components/Steering/Steering.c **** }
- 497               	.LM29:
- 498 020e 0F90      		pop __tmp_reg__
- 499 0210 0F90      		pop __tmp_reg__
- 500 0212 DF91      		pop r29
- 501 0214 CF91      		pop r28
- 502 0216 0895      		ret
- 504               	.Lscope5:
- 506               		.stabd	78,0,0
- 509               	.global	setSteeringDirection
- 511               	setSteeringDirection:
- 512               		.stabd	46,0,0
- 102:Components/Steering/Steering.c **** 
- 103:Components/Steering/Steering.c **** 
- 104:Components/Steering/Steering.c **** 
- 105:Components/Steering/Steering.c **** void setSteeringDirection(int dir){
- 514               	.LM30:
- 515               	.LFBB6:
- 516 0218 CF93      		push r28
- 517 021a DF93      		push r29
- 518 021c 1F92      		push __zero_reg__
- 519 021e 1F92      		push __zero_reg__
- 520 0220 CDB7      		in r28,__SP_L__
- 521 0222 DEB7      		in r29,__SP_H__
- 522               	/* prologue: function */
- 523               	/* frame size = 2 */
- 524               	/* stack size = 4 */
- 525               	.L__stack_usage = 4
- 526 0224 9A83      		std Y+2,r25
- 527 0226 8983      		std Y+1,r24
- 106:Components/Steering/Steering.c **** 	/*switch(dir){
- 107:Components/Steering/Steering.c **** 	case 0:
- 108:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_LEFT;
- 109:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_RIGHT;
- 110:Components/Steering/Steering.c **** 		break;
- 111:Components/Steering/Steering.c **** 	case 1:
- 112:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_LEFT;
- 113:Components/Steering/Steering.c **** 		STEERING_PORT |= STEERING_RIGHT;
- 114:Components/Steering/Steering.c **** 		break;
- 115:Components/Steering/Steering.c **** 	case -1:
- 116:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_RIGHT;
- 117:Components/Steering/Steering.c **** 		STEERING_PORT |= STEERING_LEFT;
- 118:Components/Steering/Steering.c **** 		break;
- 119:Components/Steering/Steering.c **** 	}*/
- 120:Components/Steering/Steering.c ****    steeringDir = dir;
- 529               	.LM31:
- 530 0228 8981      		ldd r24,Y+1
- 531 022a 9A81      		ldd r25,Y+2
- 532 022c 9093 0000 		sts steeringDir+1,r25
- 533 0230 8093 0000 		sts steeringDir,r24
- 534               	/* epilogue start */
- 121:Components/Steering/Steering.c **** }
- 536               	.LM32:
- 537 0234 0F90      		pop __tmp_reg__
- 538 0236 0F90      		pop __tmp_reg__
- 539 0238 DF91      		pop r29
- 540 023a CF91      		pop r28
- 541 023c 0895      		ret
- 543               	.Lscope6:
- 545               		.stabd	78,0,0
- 548               	.global	setAngle
- 550               	setAngle:
- 551               		.stabd	46,0,0
- 122:Components/Steering/Steering.c **** 
- 123:Components/Steering/Steering.c **** //JUST SETS ANGLE TARGET. Actual angle changing is lower level
- 124:Components/Steering/Steering.c **** char setAngle(char angleTarget) {
- 553               	.LM33:
- 554               	.LFBB7:
- 555 023e CF93      		push r28
- 556 0240 DF93      		push r29
- 557 0242 1F92      		push __zero_reg__
- 558 0244 CDB7      		in r28,__SP_L__
- 559 0246 DEB7      		in r29,__SP_H__
- 560               	/* prologue: function */
- 561               	/* frame size = 1 */
- 562               	/* stack size = 3 */
- 563               	.L__stack_usage = 3
- 564 0248 8983      		std Y+1,r24
- 125:Components/Steering/Steering.c ****    //dummy function, nothing will happen for now...
- 126:Components/Steering/Steering.c ****    //return success
- 127:Components/Steering/Steering.c **** 	steeringTarget = angleTarget;
- 566               	.LM34:
- 567 024a 8981      		ldd r24,Y+1
- 568 024c 9927      		clr r25
- 569 024e 87FD      		sbrc r24,7
- 570 0250 9095      		com r25
- 571 0252 9093 0000 		sts steeringTarget+1,r25
- 572 0256 8093 0000 		sts steeringTarget,r24
- 128:Components/Steering/Steering.c ****    return 1;
- 574               	.LM35:
- 575 025a 81E0      		ldi r24,lo8(1)
- 576               	/* epilogue start */
- 129:Components/Steering/Steering.c **** }
- 578               	.LM36:
- 579 025c 0F90      		pop __tmp_reg__
- 580 025e DF91      		pop r29
- 581 0260 CF91      		pop r28
- 582 0262 0895      		ret
- 584               	.Lscope7:
- 586               		.stabd	78,0,0
- 589               	.global	getAngle
- 591               	getAngle:
- 592               		.stabd	46,0,0
- 130:Components/Steering/Steering.c **** 
- 131:Components/Steering/Steering.c **** //get the current angle of the steering system
- 132:Components/Steering/Steering.c **** char getAngle(char* sensorResponse) {
- 594               	.LM37:
- 595               	.LFBB8:
- 596 0264 CF93      		push r28
- 597 0266 DF93      		push r29
- 598 0268 1F92      		push __zero_reg__
- 599 026a 1F92      		push __zero_reg__
- 600 026c CDB7      		in r28,__SP_L__
- 601 026e DEB7      		in r29,__SP_H__
- 602               	/* prologue: function */
- 603               	/* frame size = 2 */
- 604               	/* stack size = 4 */
- 605               	.L__stack_usage = 4
- 606 0270 9A83      		std Y+2,r25
- 607 0272 8983      		std Y+1,r24
- 133:Components/Steering/Steering.c ****    //store fake angle reading
- 134:Components/Steering/Steering.c ****    *sensorResponse = 0;
- 609               	.LM38:
- 610 0274 8981      		ldd r24,Y+1
- 611 0276 9A81      		ldd r25,Y+2
- 612 0278 FC01      		movw r30,r24
- 613 027a 1082      		st Z,__zero_reg__
- 135:Components/Steering/Steering.c ****    //return success
- 136:Components/Steering/Steering.c ****    return 1;
- 615               	.LM39:
- 616 027c 81E0      		ldi r24,lo8(1)
- 617               	/* epilogue start */
- 137:Components/Steering/Steering.c **** }
- 619               	.LM40:
- 620 027e 0F90      		pop __tmp_reg__
- 621 0280 0F90      		pop __tmp_reg__
- 622 0282 DF91      		pop r29
- 623 0284 CF91      		pop r28
- 624 0286 0895      		ret
- 626               	.Lscope8:
- 628               		.stabd	78,0,0
- 631               	.global	getDesiredAngle
- 633               	getDesiredAngle:
- 634               		.stabd	46,0,0
- 138:Components/Steering/Steering.c **** 
- 139:Components/Steering/Steering.c **** //get the angle target. argument name is sensorResponse for the sake of consistancy
- 140:Components/Steering/Steering.c **** char getDesiredAngle(char* sensorResponse) {
- 636               	.LM41:
- 637               	.LFBB9:
- 638 0288 CF93      		push r28
- 639 028a DF93      		push r29
- 640 028c 1F92      		push __zero_reg__
- 641 028e 1F92      		push __zero_reg__
- 642 0290 CDB7      		in r28,__SP_L__
- 643 0292 DEB7      		in r29,__SP_H__
- 644               	/* prologue: function */
- 645               	/* frame size = 2 */
- 646               	/* stack size = 4 */
- 647               	.L__stack_usage = 4
- 648 0294 9A83      		std Y+2,r25
- 649 0296 8983      		std Y+1,r24
- 141:Components/Steering/Steering.c ****    //fake response
- 142:Components/Steering/Steering.c ****    *sensorResponse = 0;
- 651               	.LM42:
- 652 0298 8981      		ldd r24,Y+1
- 653 029a 9A81      		ldd r25,Y+2
- 654 029c FC01      		movw r30,r24
- 655 029e 1082      		st Z,__zero_reg__
- 143:Components/Steering/Steering.c ****    //return success
- 144:Components/Steering/Steering.c ****    return 1;
- 657               	.LM43:
- 658 02a0 81E0      		ldi r24,lo8(1)
- 659               	/* epilogue start */
- 145:Components/Steering/Steering.c **** }
- 661               	.LM44:
- 662 02a2 0F90      		pop __tmp_reg__
- 663 02a4 0F90      		pop __tmp_reg__
- 664 02a6 DF91      		pop r29
- 665 02a8 CF91      		pop r28
- 666 02aa 0895      		ret
- 668               	.Lscope9:
- 670               		.stabd	78,0,0
- 675               	.global	changePID
- 677               	changePID:
- 678               		.stabd	46,0,0
- 146:Components/Steering/Steering.c **** 
- 147:Components/Steering/Steering.c **** //change the PID controller
- 148:Components/Steering/Steering.c **** char changePID(char P, char I, char D) {
- 680               	.LM45:
- 681               	.LFBB10:
- 682 02ac CF93      		push r28
- 683 02ae DF93      		push r29
- 684 02b0 00D0      		rcall .
- 685 02b2 CDB7      		in r28,__SP_L__
- 686 02b4 DEB7      		in r29,__SP_H__
- 687               	/* prologue: function */
- 688               	/* frame size = 3 */
- 689               	/* stack size = 5 */
- 690               	.L__stack_usage = 5
- 691 02b6 8983      		std Y+1,r24
- 692 02b8 6A83      		std Y+2,r22
- 693 02ba 4B83      		std Y+3,r20
- 149:Components/Steering/Steering.c ****    //dummy function, nothing happens
- 150:Components/Steering/Steering.c ****    //return success
- 151:Components/Steering/Steering.c ****    return 1;
- 695               	.LM46:
- 696 02bc 81E0      		ldi r24,lo8(1)
- 697               	/* epilogue start */
- 152:Components/Steering/Steering.c **** }
- 699               	.LM47:
- 700 02be 0F90      		pop __tmp_reg__
- 701 02c0 0F90      		pop __tmp_reg__
- 702 02c2 0F90      		pop __tmp_reg__
- 703 02c4 DF91      		pop r29
- 704 02c6 CF91      		pop r28
- 705 02c8 0895      		ret
- 707               	.Lscope10:
- 709               		.stabd	78,0,0
- 713               	.global	setLimits
- 715               	setLimits:
- 716               		.stabd	46,0,0
- 153:Components/Steering/Steering.c **** 
- 154:Components/Steering/Steering.c **** //not sure what this does. Also not sure why upper and lower are separated
- 155:Components/Steering/Steering.c **** //but its in the specs so...
- 156:Components/Steering/Steering.c **** char setLimits(char upper, char lower) {
- 718               	.LM48:
- 719               	.LFBB11:
- 720 02ca CF93      		push r28
- 721 02cc DF93      		push r29
- 722 02ce 1F92      		push __zero_reg__
- 723 02d0 1F92      		push __zero_reg__
- 724 02d2 CDB7      		in r28,__SP_L__
- 725 02d4 DEB7      		in r29,__SP_H__
- 726               	/* prologue: function */
- 727               	/* frame size = 2 */
- 728               	/* stack size = 4 */
- 729               	.L__stack_usage = 4
- 730 02d6 8983      		std Y+1,r24
- 731 02d8 6A83      		std Y+2,r22
- 157:Components/Steering/Steering.c ****    //dummy function, nothing happens
- 158:Components/Steering/Steering.c ****    //return success
- 159:Components/Steering/Steering.c ****    return 1;
- 733               	.LM49:
- 734 02da 81E0      		ldi r24,lo8(1)
- 735               	/* epilogue start */
- 160:Components/Steering/Steering.c **** }
- 737               	.LM50:
- 738 02dc 0F90      		pop __tmp_reg__
- 739 02de 0F90      		pop __tmp_reg__
- 740 02e0 DF91      		pop r29
- 741 02e2 CF91      		pop r28
- 742 02e4 0895      		ret
- 744               	.Lscope11:
- 746               		.stabd	78,0,0
- 748               	.global	printWheelAngle
- 750               	printWheelAngle:
- 751               		.stabd	46,0,0
- 161:Components/Steering/Steering.c **** 
- 162:Components/Steering/Steering.c **** void printWheelAngle() {
- 753               	.LM51:
- 754               	.LFBB12:
- 755 02e6 CF93      		push r28
- 756 02e8 DF93      		push r29
- 757 02ea CDB7      		in r28,__SP_L__
- 758 02ec DEB7      		in r29,__SP_H__
- 759               	/* prologue: function */
- 760               	/* frame size = 0 */
- 761               	/* stack size = 2 */
- 762               	.L__stack_usage = 2
- 163:Components/Steering/Steering.c ****    if(wheelAngle & 0x1000) {
- 764               	.LM52:
- 765 02ee 8091 0000 		lds r24,wheelAngle
- 766 02f2 9091 0000 		lds r25,wheelAngle+1
- 767 02f6 8827      		clr r24
- 768 02f8 9071      		andi r25,16
- 769 02fa 0097      		sbiw r24,0
- 770 02fc 01F0      		breq .L23
- 164:Components/Steering/Steering.c ****       USART_Write('-');
- 772               	.LM53:
- 773 02fe 8DE2      		ldi r24,lo8(45)
- 774 0300 0E94 0000 		call USART_Write
- 165:Components/Steering/Steering.c ****       wheelAngle *= -1;
- 776               	.LM54:
- 777 0304 8091 0000 		lds r24,wheelAngle
- 778 0308 9091 0000 		lds r25,wheelAngle+1
- 779 030c 9195      		neg r25
- 780 030e 8195      		neg r24
- 781 0310 9109      		sbc r25,__zero_reg__
- 782 0312 9093 0000 		sts wheelAngle+1,r25
- 783 0316 8093 0000 		sts wheelAngle,r24
- 784               	.L23:
- 166:Components/Steering/Steering.c ****    }      
- 167:Components/Steering/Steering.c ****    printNum(wheelAngle);
- 786               	.LM55:
- 787 031a 8091 0000 		lds r24,wheelAngle
- 788 031e 9091 0000 		lds r25,wheelAngle+1
- 789 0322 0E94 0000 		call printNum
- 168:Components/Steering/Steering.c ****    USART_Write('\r');
- 791               	.LM56:
- 792 0326 8DE0      		ldi r24,lo8(13)
- 793 0328 0E94 0000 		call USART_Write
- 169:Components/Steering/Steering.c ****    USART_Write('\n');
- 795               	.LM57:
- 796 032c 8AE0      		ldi r24,lo8(10)
- 797 032e 0E94 0000 		call USART_Write
- 798               	/* epilogue start */
- 170:Components/Steering/Steering.c **** }
- 800               	.LM58:
- 801 0332 DF91      		pop r29
- 802 0334 CF91      		pop r28
- 803 0336 0895      		ret
- 805               	.Lscope12:
- 807               		.stabd	78,0,0
- 810               	.global	vTaskSteer
- 812               	vTaskSteer:
- 813               		.stabd	46,0,0
- 171:Components/Steering/Steering.c **** 
- 172:Components/Steering/Steering.c **** void vTaskSteer(void* parameters){
- 815               	.LM59:
- 816               	.LFBB13:
- 817 0338 CF93      		push r28
- 818 033a DF93      		push r29
- 819 033c 00D0      		rcall .
- 820 033e 00D0      		rcall .
- 821 0340 CDB7      		in r28,__SP_L__
- 822 0342 DEB7      		in r29,__SP_H__
- 823               	/* prologue: function */
- 824               	/* frame size = 6 */
- 825               	/* stack size = 8 */
- 826               	.L__stack_usage = 8
- 827 0344 9E83      		std Y+6,r25
- 828 0346 8D83      		std Y+5,r24
+  98:Components/Steering/Steering.c **** 
+  99:Components/Steering/Steering.c ****       TCCR1A &= ~((1 << STEERING_LEFT_COM0)|(1 << STEERING_LEFT_COM1));
+ 100:Components/Steering/Steering.c ****       TCCR1A |= (1 << STEERING_RIGHT_COM1);
+ 101:Components/Steering/Steering.c ****    } else {
+ 102:Components/Steering/Steering.c ****       STEERING_LEFT_CMPH = 0;
+ 103:Components/Steering/Steering.c ****       STEERING_LEFT_CMPL = 0;
+ 104:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPH = 0;
+ 105:Components/Steering/Steering.c ****       STEERING_RIGHT_CMPL = 0;
+ 106:Components/Steering/Steering.c ****    }*/
+ 107:Components/Steering/Steering.c **** }
+ 532               	.LM29:
+ 533 020e 0F90      		pop __tmp_reg__
+ 534 0210 0F90      		pop __tmp_reg__
+ 535 0212 DF91      		pop r29
+ 536 0214 CF91      		pop r28
+ 537 0216 0895      		ret
+ 539               	.Lscope5:
+ 541               		.stabd	78,0,0
+ 544               	.global	setSteeringDirection
+ 546               	setSteeringDirection:
+ 547               		.stabd	46,0,0
+ 108:Components/Steering/Steering.c **** 
+ 109:Components/Steering/Steering.c **** 
+ 110:Components/Steering/Steering.c **** 
+ 111:Components/Steering/Steering.c **** void setSteeringDirection(int dir){
+ 549               	.LM30:
+ 550               	.LFBB6:
+ 551 0218 CF93      		push r28
+ 552 021a DF93      		push r29
+ 553 021c 1F92      		push __zero_reg__
+ 554 021e 1F92      		push __zero_reg__
+ 555 0220 CDB7      		in r28,__SP_L__
+ 556 0222 DEB7      		in r29,__SP_H__
+ 557               	/* prologue: function */
+ 558               	/* frame size = 2 */
+ 559               	/* stack size = 4 */
+ 560               	.L__stack_usage = 4
+ 561 0224 9A83      		std Y+2,r25
+ 562 0226 8983      		std Y+1,r24
+ 112:Components/Steering/Steering.c **** 	/*switch(dir){
+ 113:Components/Steering/Steering.c **** 	case 0:
+ 114:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_LEFT;
+ 115:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_RIGHT;
+ 116:Components/Steering/Steering.c **** 		break;
+ 117:Components/Steering/Steering.c **** 	case 1:
+ 118:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_LEFT;
+ 119:Components/Steering/Steering.c **** 		STEERING_PORT |= STEERING_RIGHT;
+ 120:Components/Steering/Steering.c **** 		break;
+ 121:Components/Steering/Steering.c **** 	case -1:
+ 122:Components/Steering/Steering.c **** 		STEERING_PORT &= ~STEERING_RIGHT;
+ 123:Components/Steering/Steering.c **** 		STEERING_PORT |= STEERING_LEFT;
+ 124:Components/Steering/Steering.c **** 		break;
+ 125:Components/Steering/Steering.c **** 	}*/
+ 126:Components/Steering/Steering.c ****    steeringDir = dir;
+ 564               	.LM31:
+ 565 0228 8981      		ldd r24,Y+1
+ 566 022a 9A81      		ldd r25,Y+2
+ 567 022c 9093 0000 		sts steeringDir+1,r25
+ 568 0230 8093 0000 		sts steeringDir,r24
+ 569               	/* epilogue start */
+ 127:Components/Steering/Steering.c **** }
+ 571               	.LM32:
+ 572 0234 0F90      		pop __tmp_reg__
+ 573 0236 0F90      		pop __tmp_reg__
+ 574 0238 DF91      		pop r29
+ 575 023a CF91      		pop r28
+ 576 023c 0895      		ret
+ 578               	.Lscope6:
+ 580               		.stabd	78,0,0
+ 583               	.global	setAngle
+ 585               	setAngle:
+ 586               		.stabd	46,0,0
+ 128:Components/Steering/Steering.c **** 
+ 129:Components/Steering/Steering.c **** //JUST SETS ANGLE TARGET. Actual angle changing is lower level
+ 130:Components/Steering/Steering.c **** char setAngle(char angleTarget) {
+ 588               	.LM33:
+ 589               	.LFBB7:
+ 590 023e CF93      		push r28
+ 591 0240 DF93      		push r29
+ 592 0242 1F92      		push __zero_reg__
+ 593 0244 CDB7      		in r28,__SP_L__
+ 594 0246 DEB7      		in r29,__SP_H__
+ 595               	/* prologue: function */
+ 596               	/* frame size = 1 */
+ 597               	/* stack size = 3 */
+ 598               	.L__stack_usage = 3
+ 599 0248 8983      		std Y+1,r24
+ 131:Components/Steering/Steering.c **** 	steeringTarget = angleTarget;
+ 601               	.LM34:
+ 602 024a 8981      		ldd r24,Y+1
+ 603 024c 9927      		clr r25
+ 604 024e 87FD      		sbrc r24,7
+ 605 0250 9095      		com r25
+ 606 0252 9093 0000 		sts steeringTarget+1,r25
+ 607 0256 8093 0000 		sts steeringTarget,r24
+ 132:Components/Steering/Steering.c ****    return 1;
+ 609               	.LM35:
+ 610 025a 81E0      		ldi r24,lo8(1)
+ 611               	/* epilogue start */
+ 133:Components/Steering/Steering.c **** }
+ 613               	.LM36:
+ 614 025c 0F90      		pop __tmp_reg__
+ 615 025e DF91      		pop r29
+ 616 0260 CF91      		pop r28
+ 617 0262 0895      		ret
+ 619               	.Lscope7:
+ 621               		.stabd	78,0,0
+ 624               	.global	getAngle
+ 626               	getAngle:
+ 627               		.stabd	46,0,0
+ 134:Components/Steering/Steering.c **** 
+ 135:Components/Steering/Steering.c **** //get the current angle of the steering system
+ 136:Components/Steering/Steering.c **** char getAngle(char* sensorResponse) {
+ 629               	.LM37:
+ 630               	.LFBB8:
+ 631 0264 CF93      		push r28
+ 632 0266 DF93      		push r29
+ 633 0268 1F92      		push __zero_reg__
+ 634 026a 1F92      		push __zero_reg__
+ 635 026c CDB7      		in r28,__SP_L__
+ 636 026e DEB7      		in r29,__SP_H__
+ 637               	/* prologue: function */
+ 638               	/* frame size = 2 */
+ 639               	/* stack size = 4 */
+ 640               	.L__stack_usage = 4
+ 641 0270 9A83      		std Y+2,r25
+ 642 0272 8983      		std Y+1,r24
+ 137:Components/Steering/Steering.c ****    *sensorResponse = wheelAngle;
+ 644               	.LM38:
+ 645 0274 8091 0000 		lds r24,wheelAngle
+ 646 0278 9091 0000 		lds r25,wheelAngle+1
+ 647 027c 282F      		mov r18,r24
+ 648 027e 8981      		ldd r24,Y+1
+ 649 0280 9A81      		ldd r25,Y+2
+ 650 0282 FC01      		movw r30,r24
+ 651 0284 2083      		st Z,r18
+ 138:Components/Steering/Steering.c ****    //return success
+ 139:Components/Steering/Steering.c ****    return 1;
+ 653               	.LM39:
+ 654 0286 81E0      		ldi r24,lo8(1)
+ 655               	/* epilogue start */
+ 140:Components/Steering/Steering.c **** }
+ 657               	.LM40:
+ 658 0288 0F90      		pop __tmp_reg__
+ 659 028a 0F90      		pop __tmp_reg__
+ 660 028c DF91      		pop r29
+ 661 028e CF91      		pop r28
+ 662 0290 0895      		ret
+ 664               	.Lscope8:
+ 666               		.stabd	78,0,0
+ 669               	.global	getDesiredAngle
+ 671               	getDesiredAngle:
+ 672               		.stabd	46,0,0
+ 141:Components/Steering/Steering.c **** 
+ 142:Components/Steering/Steering.c **** //get the angle target. argument name is sensorResponse for the sake of consistancy
+ 143:Components/Steering/Steering.c **** char getDesiredAngle(char* sensorResponse) {
+ 674               	.LM41:
+ 675               	.LFBB9:
+ 676 0292 CF93      		push r28
+ 677 0294 DF93      		push r29
+ 678 0296 1F92      		push __zero_reg__
+ 679 0298 1F92      		push __zero_reg__
+ 680 029a CDB7      		in r28,__SP_L__
+ 681 029c DEB7      		in r29,__SP_H__
+ 682               	/* prologue: function */
+ 683               	/* frame size = 2 */
+ 684               	/* stack size = 4 */
+ 685               	.L__stack_usage = 4
+ 686 029e 9A83      		std Y+2,r25
+ 687 02a0 8983      		std Y+1,r24
+ 144:Components/Steering/Steering.c ****    *sensorResponse = steeringTarget;
+ 689               	.LM42:
+ 690 02a2 8091 0000 		lds r24,steeringTarget
+ 691 02a6 9091 0000 		lds r25,steeringTarget+1
+ 692 02aa 282F      		mov r18,r24
+ 693 02ac 8981      		ldd r24,Y+1
+ 694 02ae 9A81      		ldd r25,Y+2
+ 695 02b0 FC01      		movw r30,r24
+ 696 02b2 2083      		st Z,r18
+ 145:Components/Steering/Steering.c ****    //return success
+ 146:Components/Steering/Steering.c ****    return 1;
+ 698               	.LM43:
+ 699 02b4 81E0      		ldi r24,lo8(1)
+ 700               	/* epilogue start */
+ 147:Components/Steering/Steering.c **** }
+ 702               	.LM44:
+ 703 02b6 0F90      		pop __tmp_reg__
+ 704 02b8 0F90      		pop __tmp_reg__
+ 705 02ba DF91      		pop r29
+ 706 02bc CF91      		pop r28
+ 707 02be 0895      		ret
+ 709               	.Lscope9:
+ 711               		.stabd	78,0,0
+ 716               	.global	changePID
+ 718               	changePID:
+ 719               		.stabd	46,0,0
+ 148:Components/Steering/Steering.c **** 
+ 149:Components/Steering/Steering.c **** //change the PID controller
+ 150:Components/Steering/Steering.c **** char changePID(char P, char I, char D) {
+ 721               	.LM45:
+ 722               	.LFBB10:
+ 723 02c0 CF93      		push r28
+ 724 02c2 DF93      		push r29
+ 725 02c4 00D0      		rcall .
+ 726 02c6 CDB7      		in r28,__SP_L__
+ 727 02c8 DEB7      		in r29,__SP_H__
+ 728               	/* prologue: function */
+ 729               	/* frame size = 3 */
+ 730               	/* stack size = 5 */
+ 731               	.L__stack_usage = 5
+ 732 02ca 8983      		std Y+1,r24
+ 733 02cc 6A83      		std Y+2,r22
+ 734 02ce 4B83      		std Y+3,r20
+ 151:Components/Steering/Steering.c ****    //dummy function, nothing happens
+ 152:Components/Steering/Steering.c ****    //return success
+ 153:Components/Steering/Steering.c ****    return 1;
+ 736               	.LM46:
+ 737 02d0 81E0      		ldi r24,lo8(1)
+ 738               	/* epilogue start */
+ 154:Components/Steering/Steering.c **** }
+ 740               	.LM47:
+ 741 02d2 0F90      		pop __tmp_reg__
+ 742 02d4 0F90      		pop __tmp_reg__
+ 743 02d6 0F90      		pop __tmp_reg__
+ 744 02d8 DF91      		pop r29
+ 745 02da CF91      		pop r28
+ 746 02dc 0895      		ret
+ 748               	.Lscope10:
+ 750               		.stabd	78,0,0
+ 754               	.global	setLimits
+ 756               	setLimits:
+ 757               		.stabd	46,0,0
+ 155:Components/Steering/Steering.c **** 
+ 156:Components/Steering/Steering.c **** //not sure what this does. Also not sure why upper and lower are separated
+ 157:Components/Steering/Steering.c **** //but its in the specs so...
+ 158:Components/Steering/Steering.c **** char setLimits(char upper, char lower) {
+ 759               	.LM48:
+ 760               	.LFBB11:
+ 761 02de CF93      		push r28
+ 762 02e0 DF93      		push r29
+ 763 02e2 1F92      		push __zero_reg__
+ 764 02e4 1F92      		push __zero_reg__
+ 765 02e6 CDB7      		in r28,__SP_L__
+ 766 02e8 DEB7      		in r29,__SP_H__
+ 767               	/* prologue: function */
+ 768               	/* frame size = 2 */
+ 769               	/* stack size = 4 */
+ 770               	.L__stack_usage = 4
+ 771 02ea 8983      		std Y+1,r24
+ 772 02ec 6A83      		std Y+2,r22
+ 159:Components/Steering/Steering.c ****    //dummy function, nothing happens
+ 160:Components/Steering/Steering.c ****    //return success
+ 161:Components/Steering/Steering.c ****    return 1;
+ 774               	.LM49:
+ 775 02ee 81E0      		ldi r24,lo8(1)
+ 776               	/* epilogue start */
+ 162:Components/Steering/Steering.c **** }
+ 778               	.LM50:
+ 779 02f0 0F90      		pop __tmp_reg__
+ 780 02f2 0F90      		pop __tmp_reg__
+ 781 02f4 DF91      		pop r29
+ 782 02f6 CF91      		pop r28
+ 783 02f8 0895      		ret
+ 785               	.Lscope11:
+ 787               		.stabd	78,0,0
+ 789               	.global	printWheelAngle
+ 791               	printWheelAngle:
+ 792               		.stabd	46,0,0
+ 163:Components/Steering/Steering.c **** 
+ 164:Components/Steering/Steering.c **** void printWheelAngle() {
+ 794               	.LM51:
+ 795               	.LFBB12:
+ 796 02fa CF93      		push r28
+ 797 02fc DF93      		push r29
+ 798 02fe CDB7      		in r28,__SP_L__
+ 799 0300 DEB7      		in r29,__SP_H__
+ 800               	/* prologue: function */
+ 801               	/* frame size = 0 */
+ 802               	/* stack size = 2 */
+ 803               	.L__stack_usage = 2
+ 165:Components/Steering/Steering.c ****    if(wheelAngle & 0x1000) {
+ 805               	.LM52:
+ 806 0302 8091 0000 		lds r24,wheelAngle
+ 807 0306 9091 0000 		lds r25,wheelAngle+1
+ 808 030a 8827      		clr r24
+ 809 030c 9071      		andi r25,16
+ 810 030e 0097      		sbiw r24,0
+ 811 0310 01F0      		breq .L23
+ 166:Components/Steering/Steering.c ****       USART_Write('-');
+ 813               	.LM53:
+ 814 0312 8DE2      		ldi r24,lo8(45)
+ 815 0314 0E94 0000 		call USART_Write
+ 167:Components/Steering/Steering.c ****       wheelAngle *= -1;
+ 817               	.LM54:
+ 818 0318 8091 0000 		lds r24,wheelAngle
+ 819 031c 9091 0000 		lds r25,wheelAngle+1
+ 820 0320 9195      		neg r25
+ 821 0322 8195      		neg r24
+ 822 0324 9109      		sbc r25,__zero_reg__
+ 823 0326 9093 0000 		sts wheelAngle+1,r25
+ 824 032a 8093 0000 		sts wheelAngle,r24
+ 825               	.L23:
+ 168:Components/Steering/Steering.c ****    }      
+ 169:Components/Steering/Steering.c ****    printNum(wheelAngle);
+ 827               	.LM55:
+ 828 032e 8091 0000 		lds r24,wheelAngle
+ 829 0332 9091 0000 		lds r25,wheelAngle+1
+ 830 0336 0E94 0000 		call printNum
+ 170:Components/Steering/Steering.c ****    USART_Write('\r');
+ 832               	.LM56:
+ 833 033a 8DE0      		ldi r24,lo8(13)
+ 834 033c 0E94 0000 		call USART_Write
+ 171:Components/Steering/Steering.c ****    USART_Write('\n');
+ 836               	.LM57:
+ 837 0340 8AE0      		ldi r24,lo8(10)
+ 838 0342 0E94 0000 		call USART_Write
+ 839               	/* epilogue start */
+ 172:Components/Steering/Steering.c **** }
+ 841               	.LM58:
+ 842 0346 DF91      		pop r29
+ 843 0348 CF91      		pop r28
+ 844 034a 0895      		ret
+ 846               	.Lscope12:
+ 848               		.stabd	78,0,0
+ 851               	.global	vTaskSteer
+ 853               	vTaskSteer:
+ 854               		.stabd	46,0,0
  173:Components/Steering/Steering.c **** 
- 174:Components/Steering/Steering.c **** 
- 175:Components/Steering/Steering.c **** 	addADCDevice(0,ADC_OPT_PRECISION_HIGH,getLinearPotCallback,0);
- 830               	.LM60:
- 831 0348 20E0      		ldi r18,0
- 832 034a 30E0      		ldi r19,0
- 833 034c 40E0      		ldi r20,lo8(gs(getLinearPotCallback))
- 834 034e 50E0      		ldi r21,hi8(gs(getLinearPotCallback))
- 835 0350 60E0      		ldi r22,0
- 836 0352 70E0      		ldi r23,0
- 837 0354 80E0      		ldi r24,0
- 838 0356 90E0      		ldi r25,0
- 839 0358 0E94 0000 		call addADCDevice
+ 174:Components/Steering/Steering.c **** void vTaskSteer(void* parameters){
+ 856               	.LM59:
+ 857               	.LFBB13:
+ 858 034c CF93      		push r28
+ 859 034e DF93      		push r29
+ 860 0350 00D0      		rcall .
+ 861 0352 00D0      		rcall .
+ 862 0354 CDB7      		in r28,__SP_L__
+ 863 0356 DEB7      		in r29,__SP_H__
+ 864               	/* prologue: function */
+ 865               	/* frame size = 6 */
+ 866               	/* stack size = 8 */
+ 867               	.L__stack_usage = 8
+ 868 0358 9E83      		std Y+6,r25
+ 869 035a 8D83      		std Y+5,r24
+ 175:Components/Steering/Steering.c **** 
  176:Components/Steering/Steering.c **** 
- 177:Components/Steering/Steering.c **** 	int pConst = 35; 
- 841               	.LM61:
- 842 035c 83E2      		ldi r24,lo8(35)
- 843 035e 90E0      		ldi r25,0
- 844 0360 9C83      		std Y+4,r25
- 845 0362 8B83      		std Y+3,r24
- 178:Components/Steering/Steering.c **** 	int adjust;
- 179:Components/Steering/Steering.c **** 
- 180:Components/Steering/Steering.c **** 	steeringTarget = 0;
- 847               	.LM62:
- 848 0364 1092 0000 		sts steeringTarget+1,__zero_reg__
- 849 0368 1092 0000 		sts steeringTarget,__zero_reg__
- 850               	.L28:
- 851               	.LBB2:
- 181:Components/Steering/Steering.c **** 	while(1){
- 182:Components/Steering/Steering.c ****       
- 183:Components/Steering/Steering.c **** 	   adjust = pConst * (steeringTarget - wheelAngle);
- 853               	.LM63:
- 854 036c 2091 0000 		lds r18,steeringTarget
- 855 0370 3091 0000 		lds r19,steeringTarget+1
- 856 0374 8091 0000 		lds r24,wheelAngle
- 857 0378 9091 0000 		lds r25,wheelAngle+1
- 858 037c A901      		movw r20,r18
- 859 037e 481B      		sub r20,r24
- 860 0380 590B      		sbc r21,r25
- 861 0382 2B81      		ldd r18,Y+3
- 862 0384 3C81      		ldd r19,Y+4
- 863 0386 429F      		mul r20,r18
- 864 0388 C001      		movw r24,r0
- 865 038a 439F      		mul r20,r19
- 866 038c 900D      		add r25,r0
- 867 038e 529F      		mul r21,r18
- 868 0390 900D      		add r25,r0
- 869 0392 1124      		clr r1
- 870 0394 9A83      		std Y+2,r25
- 871 0396 8983      		std Y+1,r24
- 184:Components/Steering/Steering.c **** 	   if(adjust < steeringTarget - 3*pConst){
- 873               	.LM64:
- 874 0398 2B81      		ldd r18,Y+3
- 875 039a 3C81      		ldd r19,Y+4
- 876 039c C901      		movw r24,r18
- 877 039e 880F      		lsl r24
- 878 03a0 991F      		rol r25
- 879 03a2 820F      		add r24,r18
- 880 03a4 931F      		adc r25,r19
- 881 03a6 9195      		neg r25
- 882 03a8 8195      		neg r24
- 883 03aa 9109      		sbc r25,__zero_reg__
- 884 03ac 2091 0000 		lds r18,steeringTarget
- 885 03b0 3091 0000 		lds r19,steeringTarget+1
- 886 03b4 280F      		add r18,r24
- 887 03b6 391F      		adc r19,r25
- 888 03b8 8981      		ldd r24,Y+1
- 889 03ba 9A81      		ldd r25,Y+2
- 890 03bc 8217      		cp r24,r18
- 891 03be 9307      		cpc r25,r19
- 892 03c0 04F4      		brge .L25
- 185:Components/Steering/Steering.c **** 	      setSteeringDirection(-1);
- 894               	.LM65:
- 895 03c2 8FEF      		ldi r24,lo8(-1)
- 896 03c4 9FEF      		ldi r25,lo8(-1)
- 897 03c6 0E94 0000 		call setSteeringDirection
- 186:Components/Steering/Steering.c ****          adjust *= -1;
- 899               	.LM66:
- 900 03ca 8981      		ldd r24,Y+1
- 901 03cc 9A81      		ldd r25,Y+2
- 902 03ce 9195      		neg r25
- 903 03d0 8195      		neg r24
- 904 03d2 9109      		sbc r25,__zero_reg__
- 905 03d4 9A83      		std Y+2,r25
- 906 03d6 8983      		std Y+1,r24
- 907 03d8 00C0      		rjmp .L26
- 908               	.L25:
- 187:Components/Steering/Steering.c **** 	   } else if (adjust > steeringTarget + 3*pConst){
- 910               	.LM67:
- 911 03da 2B81      		ldd r18,Y+3
- 912 03dc 3C81      		ldd r19,Y+4
- 913 03de C901      		movw r24,r18
- 914 03e0 880F      		lsl r24
- 915 03e2 991F      		rol r25
- 916 03e4 280F      		add r18,r24
- 917 03e6 391F      		adc r19,r25
- 918 03e8 8091 0000 		lds r24,steeringTarget
- 919 03ec 9091 0000 		lds r25,steeringTarget+1
- 920 03f0 280F      		add r18,r24
- 921 03f2 391F      		adc r19,r25
- 922 03f4 8981      		ldd r24,Y+1
- 923 03f6 9A81      		ldd r25,Y+2
- 924 03f8 2817      		cp r18,r24
- 925 03fa 3907      		cpc r19,r25
- 926 03fc 04F4      		brge .L27
- 188:Components/Steering/Steering.c **** 	      setSteeringDirection(1);
- 928               	.LM68:
- 929 03fe 81E0      		ldi r24,lo8(1)
- 930 0400 90E0      		ldi r25,0
- 931 0402 0E94 0000 		call setSteeringDirection
- 932 0406 00C0      		rjmp .L26
- 933               	.L27:
- 189:Components/Steering/Steering.c **** 	   } else {
- 190:Components/Steering/Steering.c **** 	      setSteeringDirection(0);
- 935               	.LM69:
- 936 0408 80E0      		ldi r24,0
- 937 040a 90E0      		ldi r25,0
- 938 040c 0E94 0000 		call setSteeringDirection
- 939               	.L26:
- 191:Components/Steering/Steering.c **** 	      //steeringTarget = wheelAngle;
- 192:Components/Steering/Steering.c **** 	   }
- 193:Components/Steering/Steering.c ****       setSteeringPWMSpeed(adjust + 50);
- 941               	.LM70:
- 942 0410 8981      		ldd r24,Y+1
- 943 0412 9A81      		ldd r25,Y+2
- 944 0414 C296      		adiw r24,50
- 945 0416 0E94 0000 		call setSteeringPWMSpeed
- 194:Components/Steering/Steering.c ****       printNum(adjust + 50);
- 947               	.LM71:
- 948 041a 8981      		ldd r24,Y+1
- 949 041c 9A81      		ldd r25,Y+2
- 950 041e C296      		adiw r24,50
- 951 0420 0E94 0000 		call printNum
- 195:Components/Steering/Steering.c ****       USART_Write(' ');
- 953               	.LM72:
- 954 0424 80E2      		ldi r24,lo8(32)
- 955 0426 0E94 0000 		call USART_Write
- 196:Components/Steering/Steering.c ****       printWheelAngle();
- 957               	.LM73:
- 958 042a 0E94 0000 		call printWheelAngle
- 197:Components/Steering/Steering.c ****  
- 198:Components/Steering/Steering.c **** 	   vTaskDelay(10);
- 960               	.LM74:
- 961 042e 8AE0      		ldi r24,lo8(10)
- 962 0430 90E0      		ldi r25,0
- 963 0432 0E94 0000 		call vTaskDelay
- 964               	.LBE2:
- 199:Components/Steering/Steering.c **** 	}
- 966               	.LM75:
- 967 0436 00C0      		rjmp .L28
- 973               	.Lscope13:
- 975               		.stabd	78,0,0
- 981               	.Letext0:
- 982               		.ident	"GCC: (GNU) 4.9.0"
- 983               	.global __do_clear_bss
+ 177:Components/Steering/Steering.c **** 	addADCDevice(0,ADC_OPT_PRECISION_HIGH,getLinearPotCallback,0);
+ 871               	.LM60:
+ 872 035c 20E0      		ldi r18,0
+ 873 035e 30E0      		ldi r19,0
+ 874 0360 40E0      		ldi r20,lo8(gs(getLinearPotCallback))
+ 875 0362 50E0      		ldi r21,hi8(gs(getLinearPotCallback))
+ 876 0364 60E0      		ldi r22,0
+ 877 0366 70E0      		ldi r23,0
+ 878 0368 80E0      		ldi r24,0
+ 879 036a 90E0      		ldi r25,0
+ 880 036c 0E94 0000 		call addADCDevice
+ 178:Components/Steering/Steering.c **** 
+ 179:Components/Steering/Steering.c **** 	int pConst = 35; 
+ 882               	.LM61:
+ 883 0370 83E2      		ldi r24,lo8(35)
+ 884 0372 90E0      		ldi r25,0
+ 885 0374 9C83      		std Y+4,r25
+ 886 0376 8B83      		std Y+3,r24
+ 180:Components/Steering/Steering.c **** 	int adjust;
+ 181:Components/Steering/Steering.c **** 
+ 182:Components/Steering/Steering.c **** 	steeringTarget = 0;
+ 888               	.LM62:
+ 889 0378 1092 0000 		sts steeringTarget+1,__zero_reg__
+ 890 037c 1092 0000 		sts steeringTarget,__zero_reg__
+ 891               	.L28:
+ 183:Components/Steering/Steering.c **** 	while(1){
+ 184:Components/Steering/Steering.c ****       
+ 185:Components/Steering/Steering.c **** 	   adjust = pConst * (steeringTarget - wheelAngle);
+ 893               	.LM63:
+ 894 0380 2091 0000 		lds r18,steeringTarget
+ 895 0384 3091 0000 		lds r19,steeringTarget+1
+ 896 0388 8091 0000 		lds r24,wheelAngle
+ 897 038c 9091 0000 		lds r25,wheelAngle+1
+ 898 0390 A901      		movw r20,r18
+ 899 0392 481B      		sub r20,r24
+ 900 0394 590B      		sbc r21,r25
+ 901 0396 2B81      		ldd r18,Y+3
+ 902 0398 3C81      		ldd r19,Y+4
+ 903 039a 429F      		mul r20,r18
+ 904 039c C001      		movw r24,r0
+ 905 039e 439F      		mul r20,r19
+ 906 03a0 900D      		add r25,r0
+ 907 03a2 529F      		mul r21,r18
+ 908 03a4 900D      		add r25,r0
+ 909 03a6 1124      		clr r1
+ 910 03a8 9A83      		std Y+2,r25
+ 911 03aa 8983      		std Y+1,r24
+ 186:Components/Steering/Steering.c **** 	   if(adjust < steeringTarget - 3*pConst){
+ 913               	.LM64:
+ 914 03ac 2B81      		ldd r18,Y+3
+ 915 03ae 3C81      		ldd r19,Y+4
+ 916 03b0 C901      		movw r24,r18
+ 917 03b2 880F      		lsl r24
+ 918 03b4 991F      		rol r25
+ 919 03b6 820F      		add r24,r18
+ 920 03b8 931F      		adc r25,r19
+ 921 03ba 9195      		neg r25
+ 922 03bc 8195      		neg r24
+ 923 03be 9109      		sbc r25,__zero_reg__
+ 924 03c0 2091 0000 		lds r18,steeringTarget
+ 925 03c4 3091 0000 		lds r19,steeringTarget+1
+ 926 03c8 280F      		add r18,r24
+ 927 03ca 391F      		adc r19,r25
+ 928 03cc 8981      		ldd r24,Y+1
+ 929 03ce 9A81      		ldd r25,Y+2
+ 930 03d0 8217      		cp r24,r18
+ 931 03d2 9307      		cpc r25,r19
+ 932 03d4 04F4      		brge .L25
+ 187:Components/Steering/Steering.c **** 	      setSteeringDirection(-1);
+ 934               	.LM65:
+ 935 03d6 8FEF      		ldi r24,lo8(-1)
+ 936 03d8 9FEF      		ldi r25,lo8(-1)
+ 937 03da 0E94 0000 		call setSteeringDirection
+ 188:Components/Steering/Steering.c ****          adjust *= -1;
+ 939               	.LM66:
+ 940 03de 8981      		ldd r24,Y+1
+ 941 03e0 9A81      		ldd r25,Y+2
+ 942 03e2 9195      		neg r25
+ 943 03e4 8195      		neg r24
+ 944 03e6 9109      		sbc r25,__zero_reg__
+ 945 03e8 9A83      		std Y+2,r25
+ 946 03ea 8983      		std Y+1,r24
+ 947 03ec 00C0      		rjmp .L26
+ 948               	.L25:
+ 189:Components/Steering/Steering.c **** 	   } else if (adjust > steeringTarget + 3*pConst){
+ 950               	.LM67:
+ 951 03ee 2B81      		ldd r18,Y+3
+ 952 03f0 3C81      		ldd r19,Y+4
+ 953 03f2 C901      		movw r24,r18
+ 954 03f4 880F      		lsl r24
+ 955 03f6 991F      		rol r25
+ 956 03f8 280F      		add r18,r24
+ 957 03fa 391F      		adc r19,r25
+ 958 03fc 8091 0000 		lds r24,steeringTarget
+ 959 0400 9091 0000 		lds r25,steeringTarget+1
+ 960 0404 280F      		add r18,r24
+ 961 0406 391F      		adc r19,r25
+ 962 0408 8981      		ldd r24,Y+1
+ 963 040a 9A81      		ldd r25,Y+2
+ 964 040c 2817      		cp r18,r24
+ 965 040e 3907      		cpc r19,r25
+ 966 0410 04F4      		brge .L27
+ 190:Components/Steering/Steering.c **** 	      setSteeringDirection(1);
+ 968               	.LM68:
+ 969 0412 81E0      		ldi r24,lo8(1)
+ 970 0414 90E0      		ldi r25,0
+ 971 0416 0E94 0000 		call setSteeringDirection
+ 972 041a 00C0      		rjmp .L26
+ 973               	.L27:
+ 191:Components/Steering/Steering.c **** 	   } else {
+ 192:Components/Steering/Steering.c **** 	      setSteeringDirection(0);
+ 975               	.LM69:
+ 976 041c 80E0      		ldi r24,0
+ 977 041e 90E0      		ldi r25,0
+ 978 0420 0E94 0000 		call setSteeringDirection
+ 979               	.L26:
+ 193:Components/Steering/Steering.c **** 	      //steeringTarget = wheelAngle;
+ 194:Components/Steering/Steering.c **** 	   }
+ 195:Components/Steering/Steering.c ****       setSteeringPWMSpeed(adjust + 50);
+ 981               	.LM70:
+ 982 0424 8981      		ldd r24,Y+1
+ 983 0426 9A81      		ldd r25,Y+2
+ 984 0428 C296      		adiw r24,50
+ 985 042a 0E94 0000 		call setSteeringPWMSpeed
+ 196:Components/Steering/Steering.c ****       printNum(adjust + 50);
+ 987               	.LM71:
+ 988 042e 8981      		ldd r24,Y+1
+ 989 0430 9A81      		ldd r25,Y+2
+ 990 0432 C296      		adiw r24,50
+ 991 0434 0E94 0000 		call printNum
+ 197:Components/Steering/Steering.c ****       USART_Write(' ');
+ 993               	.LM72:
+ 994 0438 80E2      		ldi r24,lo8(32)
+ 995 043a 0E94 0000 		call USART_Write
+ 198:Components/Steering/Steering.c ****       printWheelAngle();
+ 997               	.LM73:
+ 998 043e 0E94 0000 		call printWheelAngle
+ 199:Components/Steering/Steering.c ****  
+ 200:Components/Steering/Steering.c **** 	   vTaskDelay(10);
+ 1000               	.LM74:
+ 1001 0442 8AE0      		ldi r24,lo8(10)
+ 1002 0444 90E0      		ldi r25,0
+ 1003 0446 0E94 0000 		call vTaskDelay
+ 201:Components/Steering/Steering.c **** 	}
+ 1005               	.LM75:
+ 1006 044a 00C0      		rjmp .L28
+ 1012               	.Lscope13:
+ 1014               		.stabd	78,0,0
+ 1020               	.Letext0:
+ 1021               		.ident	"GCC: (GNU) 4.9.0"
+ 1022               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Steering.c
-     /tmp/ccJycicY.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccJycicY.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccJycicY.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccJycicY.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccJycicY.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccJycicY.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccKz8eKi.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccKz8eKi.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccKz8eKi.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccKz8eKi.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccKz8eKi.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccKz8eKi.s:7      *ABS*:0000000000000001 __zero_reg__
                              .bss:0000000000000000 steeringTarget
-     /tmp/ccJycicY.s:107    .bss:0000000000000002 wheelAngle
-     /tmp/ccJycicY.s:109    .bss:0000000000000004 steeringDir
-     /tmp/ccJycicY.s:111    .bss:0000000000000006 steeringSpd
-     /tmp/ccJycicY.s:119    .text:0000000000000000 getLinearPotCallback
-     /tmp/ccJycicY.s:174    .text:0000000000000046 initializeSteeringTimer
-     /tmp/ccJycicY.s:241    .text:000000000000008e __vector_50
-     /tmp/ccJycicY.s:367    .text:0000000000000152 __vector_47
-     /tmp/ccJycicY.s:430    .text:00000000000001ac setSteeringPWMSpeed
-     /tmp/ccJycicY.s:511    .text:0000000000000218 setSteeringDirection
-     /tmp/ccJycicY.s:550    .text:000000000000023e setAngle
-     /tmp/ccJycicY.s:591    .text:0000000000000264 getAngle
-     /tmp/ccJycicY.s:633    .text:0000000000000288 getDesiredAngle
-     /tmp/ccJycicY.s:677    .text:00000000000002ac changePID
-     /tmp/ccJycicY.s:715    .text:00000000000002ca setLimits
-     /tmp/ccJycicY.s:750    .text:00000000000002e6 printWheelAngle
-     /tmp/ccJycicY.s:812    .text:0000000000000338 vTaskSteer
+     /tmp/ccKz8eKi.s:142    .bss:0000000000000002 wheelAngle
+     /tmp/ccKz8eKi.s:144    .bss:0000000000000004 steeringDir
+     /tmp/ccKz8eKi.s:146    .bss:0000000000000006 steeringSpd
+     /tmp/ccKz8eKi.s:154    .text:0000000000000000 getLinearPotCallback
+     /tmp/ccKz8eKi.s:209    .text:0000000000000046 initializeSteeringTimer
+     /tmp/ccKz8eKi.s:276    .text:000000000000008e __vector_50
+     /tmp/ccKz8eKi.s:402    .text:0000000000000152 __vector_47
+     /tmp/ccKz8eKi.s:465    .text:00000000000001ac setSteeringPWMSpeed
+     /tmp/ccKz8eKi.s:546    .text:0000000000000218 setSteeringDirection
+     /tmp/ccKz8eKi.s:585    .text:000000000000023e setAngle
+     /tmp/ccKz8eKi.s:626    .text:0000000000000264 getAngle
+     /tmp/ccKz8eKi.s:671    .text:0000000000000292 getDesiredAngle
+     /tmp/ccKz8eKi.s:718    .text:00000000000002c0 changePID
+     /tmp/ccKz8eKi.s:756    .text:00000000000002de setLimits
+     /tmp/ccKz8eKi.s:791    .text:00000000000002fa printWheelAngle
+     /tmp/ccKz8eKi.s:853    .text:000000000000034c vTaskSteer
 
 UNDEFINED SYMBOLS
 USART_Write

@@ -1,19 +1,31 @@
 
+#include <stdio.h>
+#include "Battery.h"
+
+#include "../../ADC.h"
 //battery controller functions
 
-//read battery strength in a char. Might need to be unsigned, specs don't say
-//anything regarding that.
+void getBatteryVoltage12Handler(int a, void *dummy);
+
+
+static int batteryVoltage12;
+
+void getBatteryVoltage12Handler(int a, void *dummy){
+   batteryVoltage12 = (a - 218) / 4 - 3;
+}
+
+void initializeBattery(){
+   addADCDevice(3, ADC_OPT_PRECISION_HIGH, getBatteryVoltage12Handler, NULL);
+}
+
+//Gets voltage from 36V source
 char getBatteryVoltage(char *sensorResponse) {
-   //fake battery reading
    *sensorResponse = 0;
-   //return success
    return 1;
 }
 
-//gets voltage from steering?
+//Gets voltage from 12V source 
 char getSteeringVoltage(char *sensorResponse) {
-   //fake steering voltage reading
-   *sensorResponse = 0;
-   //return success
+   *sensorResponse = batteryVoltage12;
    return 1;
 }

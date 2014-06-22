@@ -1,13 +1,4 @@
-/*
- FreeRTOS V6.1.0
- 
- This is a basic RTOS program. It turns on the LEDs.
- Nothing too exciting.
- 
- */
-
 #include <stdint.h>
-#include <avr/io.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,30 +8,33 @@
 #include <avr/interrupt.h>
 #include "task.h"
 #include "usart.h"
-#include "Components/Sonar/Sonar.h"
 #include "queue.h"
 #include "spi.h"
 #include "ADC.h"
 #include "Components/FNR/FNR.h"
 #include "Components/Speed/Speed.h"
+#include "Components/Sonar/Sonar.h"
+#include "Components/Battery/Battery.h"
 #include "Components/Steering/Steering.h"
 
-void vTaskFunction_1(void *pvParameters);
-void vTaskFunction_2(void *pvParameters);
-void vTaskFunction_3(void *pvParameters);
-void vTaskPot(void *pvParameters);
+void vTaskFunction_1(void);
+void vTaskFunction_2(void);
+void vTaskFunction_3(void);
+void vTaskPot(void);
 void vIO_init(void);
-void vApplicationTickHook();
+int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x);
+void vApplicationTickHook(void);
+void vApplicationStackOverflowHook(void);
 void printNum(unsigned int i);
 void printHex(int i);
 
-int count = 0;
+int RTOScount = 0;
 
 int sonarTime;
 
 void vApplicationTickHook()
 {
-    count++;
+    RTOScount++;
 }
 
 void vApplicationStackOverflowHook(){
@@ -50,14 +44,6 @@ void vApplicationStackOverflowHook(){
 
 int main( void )
 {
-    
-    //- wimpy variable defs
-	uint8_t val[2] = {0x3F, 0xFE};
-    uint8_t *val0, *val1;
-    
-	//- avoid pesky warnings...
-	val0 = val + 0;
-	val1 = val + 1;
     
 	DDRA = 0xF7;
 	//PORTA = 0;
@@ -77,32 +63,30 @@ int main( void )
 
 	//- Create a 
 	xTaskCreate( (pdTASK_CODE) vTaskFunction_1, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );
+                NULL, 1, NULL );
    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_2, (signed char *) "T1", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );*/
+                NULL, 1, NULL );*/
    /*xTaskCreate( (pdTASK_CODE) vTaskFunction_3, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );
+                NULL, 1, NULL );
 	xTaskCreate( (pdTASK_CODE) vTaskPot, (signed char *) "T0", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );*/
+                NULL, 1, NULL );*/
 
  
   	xTaskCreate( (pdTASK_CODE) vTaskSteer, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );
-	/*xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );*/
+                NULL, 1, NULL );
  
    /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+1000,
-   				(void *) val1, 1, NULL);*/
+   				 NULL, 1, NULL);*/
 
-   //xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
-   				//(void *) val1, 1, NULL);
+   /*xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
+   			/NULL, 1, NULL);*/
 
 	
 	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T5", configMINIMAL_STACK_SIZE+1000,
-   				(void *) val1, 1, NULL);
+   				NULL, 1, NULL);
 
 //   xTaskCreate( (pdTASK_CODE) vTaskUSARTLog, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
-//   				(void *) val1, 1, NULL);
+//   				NULL, 1, NULL);
     
     //- kick off the scheduler
 	vTaskStartScheduler();
@@ -123,32 +107,12 @@ void printHex(int i){
 
 void printNum(unsigned int i){
     
-	int draw = 0;
 	USART_Write(i / 10000 + '0');
 	USART_Write((i % 10000) / 1000 + '0');
 	USART_Write((i % 1000) / 100 + '0');
 	USART_Write((i % 100) / 10 + '0');
    USART_Write((i % 10) + '0');
 }
-
-static int batteryVoltage;
-
-void getBatteryVoltageHandler(int a,void *dummy){
-	//batteryVoltage = (a - 218) / 4 - 3;
-   //batteryVoltage = a;
-   printHex(a);
-   USART_Write('\r');
-   USART_Write('\n');
-}
-
-unsigned int getTimerCount2(){
-
-	//volatile char timerLow = TCNT3L;
-
-	return TCNT0;
-
-}
-
 
 int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x){
 	int value;	
@@ -162,7 +126,7 @@ int potValue(int sonarMax,int sonarMin,int potMax,int potMin,int x){
 	}
 } 
 
-void vTaskFunction_1(void *pvParameters)
+void vTaskFunction_1()
 {	
 	int sonarResult;
 	int movingForward = 1;
@@ -178,36 +142,22 @@ void vTaskFunction_1(void *pvParameters)
 
 	int tickCount;
 
-	char a = 'a';
-
 	PORTA = 0;
 
-   USART_Init(9600, 16000000);
+   USART_Init();
 
 	initializeSteeringTimer();
 
 	initializeSPI();
 	initSpeedController();
-   initializeSteeringTimer();
-	//setSteeringPWMSpeed(0xB0);
-
+   initializeBattery();
+   initializeSonarSensors();
 	
-	//addADCDevice(3,ADC_OPT_PRECISION_HIGH,getBatteryVoltageHandler,NULL);
    for(;;) {
       PORTA ^= 0x80;
       vTaskDelay(300);
    }
-
-
-	//setPot(0x20); 
-	for(;;){
-		printHex(batteryVoltage);
-		USART_Write(' ');
-		printNum(batteryVoltage);
-		USART_Write('\n');
-		USART_Write('\r');
-		vTaskDelay(200);
-	}
+	
 	for(;;){
 		int sonarData = getSonarData(0);
 		if(sonarData > 0x300){
@@ -228,7 +178,7 @@ void vTaskFunction_1(void *pvParameters)
 	
 	for(;;){
 
-		sonarResult = getSonarResult();
+		//sonarResult = getSonarResult();
 		if(movingForward == 1){
 			if(sonarResult < backwardSwitch) {
 				movingForward = -1;
@@ -277,7 +227,7 @@ void vTaskFunction_1(void *pvParameters)
 	}
 }
 
-void vTaskFunction_2(void *pvParameters){
+void vTaskFunction_2(){
 	DDRL = 0xF0;
 	PORTL = 0xC0;
 	for(;;){
@@ -285,15 +235,9 @@ void vTaskFunction_2(void *pvParameters){
 	}	
 }
 
-void vTaskPot(void *pvParameters){
-	initializeSPI();
-	int a = 0;
-	initSpeedController();
-	/*for(;;){
-		setPot(a);
-		vTaskDelay(80);
-		a++;
-	}*/
+void vTaskPot(){
+   initSpeedController();
+
 	for(;;){
 		setPot(1);
 		vTaskDelay(500);
@@ -310,8 +254,8 @@ void vTaskPot(void *pvParameters){
 void vIO_init(void)
 {
     //- set PortB as output
-	DDRB = 0xFF; 
-    PORTB = 0; 
+   DDRB = 0xFF; 
+   PORTB = 0; 
 }
 
 

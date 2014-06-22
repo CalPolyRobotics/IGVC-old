@@ -5,6 +5,7 @@ main.o main.d : main.c ../../FreeRTOS/Source/include/FreeRTOS.h \
  ../../FreeRTOS/Source/include/../portable/portmacro.h \
  ../../FreeRTOS/Source/include/mpu_wrappers.h \
  ../../FreeRTOS/Source/include/task.h \
- ../../FreeRTOS/Source/include/list.h usart.h Components/Sonar/Sonar.h \
+ ../../FreeRTOS/Source/include/list.h usart.h \
  ../../FreeRTOS/Source/include/queue.h spi.h ADC.h Components/FNR/FNR.h \
- Components/Speed/Speed.h Components/Steering/Steering.h
+ Components/Speed/Speed.h Components/Sonar/Sonar.h \
+ Components/Battery/Battery.h Components/Steering/Steering.h

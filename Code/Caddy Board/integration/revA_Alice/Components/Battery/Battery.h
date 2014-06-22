@@ -1,9 +1,10 @@
 
 //battery controller functions
 
-//read battery strength in a char. Might need to be unsigned, specs don't say
-//anything regarding that.
+void initializeBattery(void);
+
+//Gets voltage from 36V source
 char getBatteryVoltage(char *sensorResponse);
 
-//gets voltage from steering?
+//Gets voltage from 12V source
 char getSteeringVoltage(char *sensorResponse);

@@ -1,11 +1,18 @@
 //FNR controller functions
 #include <avr/io.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include "FNR.h"
 
 #define setABit(x) \
 PORTA |= (1 << (x));
 
 #define clearABit(x) \
 PORTA &= ~(1 << (x));
+
+void FNRForward(void);
+void FNRReverse(void);
+void FNRNeutral(void);
 
 
 void FNRForward(){

@@ -19,11 +19,13 @@
 	// 1  4
 	// 0  5
 
+   void initializeSonarSensors(void);
+
 	//distance in cm stored as int in sensorResponse, returns success
-	char getCertainSensor(char sensor, int* sensorResponse); 
+	char getCertainSensor(unsigned char sensor, int* sensorResponse); 
 
 	//takes in 6 int array to store response, returns success
-	char getAllSensors(unsigned short* sensorResponse);
+	char getAllSensors(int* sensorResponse);
 
 	//stores cm values of a sensor group in sensorResponse
 	char getSensorGroup(char groupID, int *sensorResponse);

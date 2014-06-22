@@ -1,6 +1,8 @@
 //Brake controller functions. THERE IS CURRENTLY NO WAY TO GET THE DESIRED
 //BRAKE TARGET IN THE SPECS
 
+#include "Brake.h"
+
 //set brake target
 char setBrake(char gainTarget) {
    //dummy function, nothing happens

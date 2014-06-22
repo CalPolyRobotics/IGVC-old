@@ -2,6 +2,8 @@
 #include <avr/io.h>
 #include "spi.h"
 
+#include "Speed.h"
+
 void initSpeedController(){
 	SPIsendShort(0x400F);
 }
@@ -22,7 +24,7 @@ void incrementPot(){
 }
 
 //get the speed of the vehicle
-char getSpeed(char* sensorResponse) {
+char getSpeed(unsigned char* sensorResponse) {
    //store dummy speed value
    *sensorResponse = 0;
    //return success

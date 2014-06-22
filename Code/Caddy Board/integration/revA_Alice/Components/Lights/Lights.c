@@ -1,8 +1,9 @@
 //light controller functions
 #include <avr/io.h>
+#include "Lights.h"
 
 //turn lights on and off
-char setLight(unsigned char lightTarget) {
+char setLight(char lightTarget) {
    //dummy function, nothing happens
 	//PORTB ^= 0x80;
 	if(lightTarget == 1){

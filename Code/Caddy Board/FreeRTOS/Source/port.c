@@ -660,7 +660,7 @@ unsigned portCHAR ucLowByte;
 	 * count is incremented after the context is saved.
 	 */
 	#if defined( portUSE_TIMER0 )
-		#warning "Timer0 used for PRE-EMPTIVE scheduler."
+		//#warning "Timer0 used for PRE-EMPTIVE scheduler."
 		ISR(TIMER0_COMPA_vect, ISR_NAKED)
 		{
 			vPortYieldFromTick();
@@ -668,7 +668,7 @@ unsigned portCHAR ucLowByte;
 		}
 
 	#elif defined( portUSE_TIMER1 )
-		#warning "Timer1 used for PRE-EMPTIVE scheduler."
+		//#warning "Timer1 used for PRE-EMPTIVE scheduler."
 		ISR(TIMER1_COMPA_vect, ISR_NAKED)
 		{
 			vPortYieldFromTick();
@@ -676,7 +676,7 @@ unsigned portCHAR ucLowByte;
 		}
 
 	#elif defined( portUSE_TIMER3 )
-		#warning "Timer3 used for PRE-EMPTIVE scheduler."
+		//#warning "Timer3 used for PRE-EMPTIVE scheduler."
 		ISR(TIMER3_COMPA_vect, ISR_NAKED)
 		{
 			vPortYieldFromTick();

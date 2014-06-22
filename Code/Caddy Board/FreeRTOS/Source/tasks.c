@@ -66,6 +66,9 @@
     the SafeRTOS brand: http://www.SafeRTOS.com.
 */
 
+#pragma GCC diagnostic ignored "-Wint-to-pointer-cast" 
+#pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
+
 /* Standard includes. */
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,15 +1,15 @@
    1               		.file	"list.c"
-   2               	__SREG__ = 0x3f
-   3               	__SP_H__ = 0x3e
-   4               	__SP_L__ = 0x3d
-   5               	__CCP__  = 0x34
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__RAMPZ__ = 0x3b
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   10               		.text
   11               	.Ltext0:
- 104               	.global	vListInitialise
- 106               	vListInitialise:
- 107               		.stabd	46,0,0
+ 138               	.global	vListInitialise
+ 140               	vListInitialise:
+ 141               		.stabd	46,0,0
    1:../../FreeRTOS/Source/list.c **** /*
    2:../../FreeRTOS/Source/list.c ****     FreeRTOS V7.3.0 - Copyright (C) 2012 Real Time Engineers Ltd.
    3:../../FreeRTOS/Source/list.c **** 
@@ -89,135 +89,153 @@
   77:../../FreeRTOS/Source/list.c **** 
   78:../../FreeRTOS/Source/list.c **** void vListInitialise( xList *pxList )
   79:../../FreeRTOS/Source/list.c **** {
- 109               	.LM0:
- 110               	.LFBB1:
- 111 0000 DF93      		push r29
- 112 0002 CF93      		push r28
- 113 0004 0F92      		push __tmp_reg__
- 114 0006 0F92      		push __tmp_reg__
- 115 0008 CDB7      		in r28,__SP_L__
- 116 000a DEB7      		in r29,__SP_H__
- 117               	/* prologue: function */
- 118               	/* frame size = 2 */
- 119 000c 9A83      		std Y+2,r25
- 120 000e 8983      		std Y+1,r24
+ 143               	.LM0:
+ 144               	.LFBB1:
+ 145 0000 CF93      		push r28
+ 146 0002 DF93      		push r29
+ 147 0004 1F92      		push __zero_reg__
+ 148 0006 1F92      		push __zero_reg__
+ 149 0008 CDB7      		in r28,__SP_L__
+ 150 000a DEB7      		in r29,__SP_H__
+ 151               	/* prologue: function */
+ 152               	/* frame size = 2 */
+ 153               	/* stack size = 4 */
+ 154               	.L__stack_usage = 4
+ 155 000c 9A83      		std Y+2,r25
+ 156 000e 8983      		std Y+1,r24
   80:../../FreeRTOS/Source/list.c **** 	/* The list structure contains a list item which is used to mark the
   81:../../FreeRTOS/Source/list.c **** 	end of the list.  To initialise the list the list end is inserted
   82:../../FreeRTOS/Source/list.c **** 	as the only list entry. */
   83:../../FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( xListItem * ) &( pxList->xListEnd );
- 122               	.LM1:
- 123 0010 8981      		ldd r24,Y+1
- 124 0012 9A81      		ldd r25,Y+2
- 125 0014 0396      		adiw r24,3
- 126 0016 E981      		ldd r30,Y+1
- 127 0018 FA81      		ldd r31,Y+2
- 128 001a 9283      		std Z+2,r25
- 129 001c 8183      		std Z+1,r24
+ 158               	.LM1:
+ 159 0010 8981      		ldd r24,Y+1
+ 160 0012 9A81      		ldd r25,Y+2
+ 161 0014 9C01      		movw r18,r24
+ 162 0016 2D5F      		subi r18,-3
+ 163 0018 3F4F      		sbci r19,-1
+ 164 001a 8981      		ldd r24,Y+1
+ 165 001c 9A81      		ldd r25,Y+2
+ 166 001e FC01      		movw r30,r24
+ 167 0020 3283      		std Z+2,r19
+ 168 0022 2183      		std Z+1,r18
   84:../../FreeRTOS/Source/list.c **** 
   85:../../FreeRTOS/Source/list.c **** 	/* The list end value is the highest possible value in the list to
   86:../../FreeRTOS/Source/list.c **** 	ensure it remains at the end of the list. */
   87:../../FreeRTOS/Source/list.c **** 	pxList->xListEnd.xItemValue = portMAX_DELAY;
- 131               	.LM2:
- 132 001e E981      		ldd r30,Y+1
- 133 0020 FA81      		ldd r31,Y+2
- 134 0022 8FEF      		ldi r24,lo8(-1)
- 135 0024 9FEF      		ldi r25,hi8(-1)
- 136 0026 9483      		std Z+4,r25
- 137 0028 8383      		std Z+3,r24
+ 170               	.LM2:
+ 171 0024 8981      		ldd r24,Y+1
+ 172 0026 9A81      		ldd r25,Y+2
+ 173 0028 2FEF      		ldi r18,lo8(-1)
+ 174 002a 3FEF      		ldi r19,lo8(-1)
+ 175 002c FC01      		movw r30,r24
+ 176 002e 3483      		std Z+4,r19
+ 177 0030 2383      		std Z+3,r18
   88:../../FreeRTOS/Source/list.c **** 
   89:../../FreeRTOS/Source/list.c **** 	/* The list end next and previous pointers point to itself so we know
   90:../../FreeRTOS/Source/list.c **** 	when the list is empty. */
   91:../../FreeRTOS/Source/list.c **** 	pxList->xListEnd.pxNext = ( xListItem * ) &( pxList->xListEnd );
- 139               	.LM3:
- 140 002a 8981      		ldd r24,Y+1
- 141 002c 9A81      		ldd r25,Y+2
- 142 002e 0396      		adiw r24,3
- 143 0030 E981      		ldd r30,Y+1
- 144 0032 FA81      		ldd r31,Y+2
- 145 0034 9683      		std Z+6,r25
- 146 0036 8583      		std Z+5,r24
+ 179               	.LM3:
+ 180 0032 8981      		ldd r24,Y+1
+ 181 0034 9A81      		ldd r25,Y+2
+ 182 0036 9C01      		movw r18,r24
+ 183 0038 2D5F      		subi r18,-3
+ 184 003a 3F4F      		sbci r19,-1
+ 185 003c 8981      		ldd r24,Y+1
+ 186 003e 9A81      		ldd r25,Y+2
+ 187 0040 FC01      		movw r30,r24
+ 188 0042 3683      		std Z+6,r19
+ 189 0044 2583      		std Z+5,r18
   92:../../FreeRTOS/Source/list.c **** 	pxList->xListEnd.pxPrevious = ( xListItem * ) &( pxList->xListEnd );
- 148               	.LM4:
- 149 0038 8981      		ldd r24,Y+1
- 150 003a 9A81      		ldd r25,Y+2
- 151 003c 0396      		adiw r24,3
- 152 003e E981      		ldd r30,Y+1
- 153 0040 FA81      		ldd r31,Y+2
- 154 0042 9087      		std Z+8,r25
- 155 0044 8783      		std Z+7,r24
+ 191               	.LM4:
+ 192 0046 8981      		ldd r24,Y+1
+ 193 0048 9A81      		ldd r25,Y+2
+ 194 004a 9C01      		movw r18,r24
+ 195 004c 2D5F      		subi r18,-3
+ 196 004e 3F4F      		sbci r19,-1
+ 197 0050 8981      		ldd r24,Y+1
+ 198 0052 9A81      		ldd r25,Y+2
+ 199 0054 FC01      		movw r30,r24
+ 200 0056 3087      		std Z+8,r19
+ 201 0058 2783      		std Z+7,r18
   93:../../FreeRTOS/Source/list.c **** 
   94:../../FreeRTOS/Source/list.c **** 	pxList->uxNumberOfItems = ( unsigned portBASE_TYPE ) 0U;
- 157               	.LM5:
- 158 0046 E981      		ldd r30,Y+1
- 159 0048 FA81      		ldd r31,Y+2
- 160 004a 1082      		st Z,__zero_reg__
- 161               	/* epilogue start */
+ 203               	.LM5:
+ 204 005a 8981      		ldd r24,Y+1
+ 205 005c 9A81      		ldd r25,Y+2
+ 206 005e FC01      		movw r30,r24
+ 207 0060 1082      		st Z,__zero_reg__
+ 208               	/* epilogue start */
   95:../../FreeRTOS/Source/list.c **** }
- 163               	.LM6:
- 164 004c 0F90      		pop __tmp_reg__
- 165 004e 0F90      		pop __tmp_reg__
- 166 0050 CF91      		pop r28
- 167 0052 DF91      		pop r29
- 168 0054 0895      		ret
- 170               	.Lscope1:
- 172               		.stabd	78,0,0
- 175               	.global	vListInitialiseItem
- 177               	vListInitialiseItem:
- 178               		.stabd	46,0,0
+ 210               	.LM6:
+ 211 0062 0F90      		pop __tmp_reg__
+ 212 0064 0F90      		pop __tmp_reg__
+ 213 0066 DF91      		pop r29
+ 214 0068 CF91      		pop r28
+ 215 006a 0895      		ret
+ 217               	.Lscope1:
+ 219               		.stabd	78,0,0
+ 222               	.global	vListInitialiseItem
+ 224               	vListInitialiseItem:
+ 225               		.stabd	46,0,0
   96:../../FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
   97:../../FreeRTOS/Source/list.c **** 
   98:../../FreeRTOS/Source/list.c **** void vListInitialiseItem( xListItem *pxItem )
   99:../../FreeRTOS/Source/list.c **** {
- 180               	.LM7:
- 181               	.LFBB2:
- 182 0056 DF93      		push r29
- 183 0058 CF93      		push r28
- 184 005a 0F92      		push __tmp_reg__
- 185 005c 0F92      		push __tmp_reg__
- 186 005e CDB7      		in r28,__SP_L__
- 187 0060 DEB7      		in r29,__SP_H__
- 188               	/* prologue: function */
- 189               	/* frame size = 2 */
- 190 0062 9A83      		std Y+2,r25
- 191 0064 8983      		std Y+1,r24
+ 227               	.LM7:
+ 228               	.LFBB2:
+ 229 006c CF93      		push r28
+ 230 006e DF93      		push r29
+ 231 0070 1F92      		push __zero_reg__
+ 232 0072 1F92      		push __zero_reg__
+ 233 0074 CDB7      		in r28,__SP_L__
+ 234 0076 DEB7      		in r29,__SP_H__
+ 235               	/* prologue: function */
+ 236               	/* frame size = 2 */
+ 237               	/* stack size = 4 */
+ 238               	.L__stack_usage = 4
+ 239 0078 9A83      		std Y+2,r25
+ 240 007a 8983      		std Y+1,r24
  100:../../FreeRTOS/Source/list.c **** 	/* Make sure the list item is not recorded as being on a list. */
  101:../../FreeRTOS/Source/list.c **** 	pxItem->pvContainer = NULL;
- 193               	.LM8:
- 194 0066 E981      		ldd r30,Y+1
- 195 0068 FA81      		ldd r31,Y+2
- 196 006a 1186      		std Z+9,__zero_reg__
- 197 006c 1086      		std Z+8,__zero_reg__
- 198               	/* epilogue start */
+ 242               	.LM8:
+ 243 007c 8981      		ldd r24,Y+1
+ 244 007e 9A81      		ldd r25,Y+2
+ 245 0080 FC01      		movw r30,r24
+ 246 0082 1186      		std Z+9,__zero_reg__
+ 247 0084 1086      		std Z+8,__zero_reg__
+ 248               	/* epilogue start */
  102:../../FreeRTOS/Source/list.c **** }
- 200               	.LM9:
- 201 006e 0F90      		pop __tmp_reg__
- 202 0070 0F90      		pop __tmp_reg__
- 203 0072 CF91      		pop r28
- 204 0074 DF91      		pop r29
- 205 0076 0895      		ret
- 207               	.Lscope2:
- 209               		.stabd	78,0,0
- 213               	.global	vListInsertEnd
- 215               	vListInsertEnd:
- 216               		.stabd	46,0,0
+ 250               	.LM9:
+ 251 0086 0F90      		pop __tmp_reg__
+ 252 0088 0F90      		pop __tmp_reg__
+ 253 008a DF91      		pop r29
+ 254 008c CF91      		pop r28
+ 255 008e 0895      		ret
+ 257               	.Lscope2:
+ 259               		.stabd	78,0,0
+ 263               	.global	vListInsertEnd
+ 265               	vListInsertEnd:
+ 266               		.stabd	46,0,0
  103:../../FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  104:../../FreeRTOS/Source/list.c **** 
  105:../../FreeRTOS/Source/list.c **** void vListInsertEnd( xList *pxList, xListItem *pxNewListItem )
  106:../../FreeRTOS/Source/list.c **** {
- 218               	.LM10:
- 219               	.LFBB3:
- 220 0078 DF93      		push r29
- 221 007a CF93      		push r28
- 222 007c 00D0      		rcall .
- 223 007e 00D0      		rcall .
- 224 0080 CDB7      		in r28,__SP_L__
- 225 0082 DEB7      		in r29,__SP_H__
- 226               	/* prologue: function */
- 227               	/* frame size = 6 */
- 228 0084 9C83      		std Y+4,r25
- 229 0086 8B83      		std Y+3,r24
- 230 0088 7E83      		std Y+6,r23
- 231 008a 6D83      		std Y+5,r22
+ 268               	.LM10:
+ 269               	.LFBB3:
+ 270 0090 CF93      		push r28
+ 271 0092 DF93      		push r29
+ 272 0094 00D0      		rcall .
+ 273 0096 00D0      		rcall .
+ 274 0098 CDB7      		in r28,__SP_L__
+ 275 009a DEB7      		in r29,__SP_H__
+ 276               	/* prologue: function */
+ 277               	/* frame size = 6 */
+ 278               	/* stack size = 8 */
+ 279               	.L__stack_usage = 8
+ 280 009c 9C83      		std Y+4,r25
+ 281 009e 8B83      		std Y+3,r24
+ 282 00a0 7E83      		std Y+6,r23
+ 283 00a2 6D83      		std Y+5,r22
  107:../../FreeRTOS/Source/list.c **** volatile xListItem * pxIndex;
  108:../../FreeRTOS/Source/list.c **** 
  109:../../FreeRTOS/Source/list.c **** 	/* Insert a new list item into pxList, but rather than sort the list,
@@ -225,132 +243,147 @@
  111:../../FreeRTOS/Source/list.c **** 	pvListGetOwnerOfNextEntry.  This means it has to be the item pointed to by
  112:../../FreeRTOS/Source/list.c **** 	the pxIndex member. */
  113:../../FreeRTOS/Source/list.c **** 	pxIndex = pxList->pxIndex;
- 233               	.LM11:
- 234 008c EB81      		ldd r30,Y+3
- 235 008e FC81      		ldd r31,Y+4
- 236 0090 8181      		ldd r24,Z+1
- 237 0092 9281      		ldd r25,Z+2
- 238 0094 9A83      		std Y+2,r25
- 239 0096 8983      		std Y+1,r24
+ 285               	.LM11:
+ 286 00a4 8B81      		ldd r24,Y+3
+ 287 00a6 9C81      		ldd r25,Y+4
+ 288 00a8 FC01      		movw r30,r24
+ 289 00aa 8181      		ldd r24,Z+1
+ 290 00ac 9281      		ldd r25,Z+2
+ 291 00ae 9A83      		std Y+2,r25
+ 292 00b0 8983      		std Y+1,r24
  114:../../FreeRTOS/Source/list.c **** 
  115:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIndex->pxNext;
- 241               	.LM12:
- 242 0098 E981      		ldd r30,Y+1
- 243 009a FA81      		ldd r31,Y+2
- 244 009c 8281      		ldd r24,Z+2
- 245 009e 9381      		ldd r25,Z+3
- 246 00a0 ED81      		ldd r30,Y+5
- 247 00a2 FE81      		ldd r31,Y+6
- 248 00a4 9383      		std Z+3,r25
- 249 00a6 8283      		std Z+2,r24
+ 294               	.LM12:
+ 295 00b2 8981      		ldd r24,Y+1
+ 296 00b4 9A81      		ldd r25,Y+2
+ 297 00b6 FC01      		movw r30,r24
+ 298 00b8 2281      		ldd r18,Z+2
+ 299 00ba 3381      		ldd r19,Z+3
+ 300 00bc 8D81      		ldd r24,Y+5
+ 301 00be 9E81      		ldd r25,Y+6
+ 302 00c0 FC01      		movw r30,r24
+ 303 00c2 3383      		std Z+3,r19
+ 304 00c4 2283      		std Z+2,r18
  116:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pxPrevious = pxList->pxIndex;
- 251               	.LM13:
- 252 00a8 EB81      		ldd r30,Y+3
- 253 00aa FC81      		ldd r31,Y+4
- 254 00ac 8181      		ldd r24,Z+1
- 255 00ae 9281      		ldd r25,Z+2
- 256 00b0 ED81      		ldd r30,Y+5
- 257 00b2 FE81      		ldd r31,Y+6
- 258 00b4 9583      		std Z+5,r25
- 259 00b6 8483      		std Z+4,r24
+ 306               	.LM13:
+ 307 00c6 8B81      		ldd r24,Y+3
+ 308 00c8 9C81      		ldd r25,Y+4
+ 309 00ca FC01      		movw r30,r24
+ 310 00cc 2181      		ldd r18,Z+1
+ 311 00ce 3281      		ldd r19,Z+2
+ 312 00d0 8D81      		ldd r24,Y+5
+ 313 00d2 9E81      		ldd r25,Y+6
+ 314 00d4 FC01      		movw r30,r24
+ 315 00d6 3583      		std Z+5,r19
+ 316 00d8 2483      		std Z+4,r18
  117:../../FreeRTOS/Source/list.c **** 	pxIndex->pxNext->pxPrevious = ( volatile xListItem * ) pxNewListItem;
- 261               	.LM14:
- 262 00b8 E981      		ldd r30,Y+1
- 263 00ba FA81      		ldd r31,Y+2
- 264 00bc 0280      		ldd __tmp_reg__,Z+2
- 265 00be F381      		ldd r31,Z+3
- 266 00c0 E02D      		mov r30,__tmp_reg__
- 267 00c2 8D81      		ldd r24,Y+5
- 268 00c4 9E81      		ldd r25,Y+6
- 269 00c6 9583      		std Z+5,r25
- 270 00c8 8483      		std Z+4,r24
+ 318               	.LM14:
+ 319 00da 8981      		ldd r24,Y+1
+ 320 00dc 9A81      		ldd r25,Y+2
+ 321 00de FC01      		movw r30,r24
+ 322 00e0 8281      		ldd r24,Z+2
+ 323 00e2 9381      		ldd r25,Z+3
+ 324 00e4 2D81      		ldd r18,Y+5
+ 325 00e6 3E81      		ldd r19,Y+6
+ 326 00e8 FC01      		movw r30,r24
+ 327 00ea 3583      		std Z+5,r19
+ 328 00ec 2483      		std Z+4,r18
  118:../../FreeRTOS/Source/list.c **** 	pxIndex->pxNext = ( volatile xListItem * ) pxNewListItem;
- 272               	.LM15:
- 273 00ca 8D81      		ldd r24,Y+5
- 274 00cc 9E81      		ldd r25,Y+6
- 275 00ce E981      		ldd r30,Y+1
- 276 00d0 FA81      		ldd r31,Y+2
- 277 00d2 9383      		std Z+3,r25
- 278 00d4 8283      		std Z+2,r24
+ 330               	.LM15:
+ 331 00ee 8981      		ldd r24,Y+1
+ 332 00f0 9A81      		ldd r25,Y+2
+ 333 00f2 2D81      		ldd r18,Y+5
+ 334 00f4 3E81      		ldd r19,Y+6
+ 335 00f6 FC01      		movw r30,r24
+ 336 00f8 3383      		std Z+3,r19
+ 337 00fa 2283      		std Z+2,r18
  119:../../FreeRTOS/Source/list.c **** 	pxList->pxIndex = ( volatile xListItem * ) pxNewListItem;
- 280               	.LM16:
- 281 00d6 8D81      		ldd r24,Y+5
- 282 00d8 9E81      		ldd r25,Y+6
- 283 00da EB81      		ldd r30,Y+3
- 284 00dc FC81      		ldd r31,Y+4
- 285 00de 9283      		std Z+2,r25
- 286 00e0 8183      		std Z+1,r24
+ 339               	.LM16:
+ 340 00fc 8B81      		ldd r24,Y+3
+ 341 00fe 9C81      		ldd r25,Y+4
+ 342 0100 2D81      		ldd r18,Y+5
+ 343 0102 3E81      		ldd r19,Y+6
+ 344 0104 FC01      		movw r30,r24
+ 345 0106 3283      		std Z+2,r19
+ 346 0108 2183      		std Z+1,r18
  120:../../FreeRTOS/Source/list.c **** 
  121:../../FreeRTOS/Source/list.c **** 	/* Remember which list the item is in. */
  122:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pvContainer = ( void * ) pxList;
- 288               	.LM17:
- 289 00e2 ED81      		ldd r30,Y+5
- 290 00e4 FE81      		ldd r31,Y+6
- 291 00e6 8B81      		ldd r24,Y+3
- 292 00e8 9C81      		ldd r25,Y+4
- 293 00ea 9187      		std Z+9,r25
- 294 00ec 8087      		std Z+8,r24
+ 348               	.LM17:
+ 349 010a 8D81      		ldd r24,Y+5
+ 350 010c 9E81      		ldd r25,Y+6
+ 351 010e 2B81      		ldd r18,Y+3
+ 352 0110 3C81      		ldd r19,Y+4
+ 353 0112 FC01      		movw r30,r24
+ 354 0114 3187      		std Z+9,r19
+ 355 0116 2087      		std Z+8,r18
  123:../../FreeRTOS/Source/list.c **** 
  124:../../FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )++;
- 296               	.LM18:
- 297 00ee EB81      		ldd r30,Y+3
- 298 00f0 FC81      		ldd r31,Y+4
- 299 00f2 8081      		ld r24,Z
- 300 00f4 8F5F      		subi r24,lo8(-(1))
- 301 00f6 EB81      		ldd r30,Y+3
- 302 00f8 FC81      		ldd r31,Y+4
- 303 00fa 8083      		st Z,r24
- 304               	/* epilogue start */
+ 357               	.LM18:
+ 358 0118 8B81      		ldd r24,Y+3
+ 359 011a 9C81      		ldd r25,Y+4
+ 360 011c FC01      		movw r30,r24
+ 361 011e 8081      		ld r24,Z
+ 362 0120 21E0      		ldi r18,lo8(1)
+ 363 0122 280F      		add r18,r24
+ 364 0124 8B81      		ldd r24,Y+3
+ 365 0126 9C81      		ldd r25,Y+4
+ 366 0128 FC01      		movw r30,r24
+ 367 012a 2083      		st Z,r18
+ 368               	/* epilogue start */
  125:../../FreeRTOS/Source/list.c **** }
- 306               	.LM19:
- 307 00fc 2696      		adiw r28,6
- 308 00fe 0FB6      		in __tmp_reg__,__SREG__
- 309 0100 F894      		cli
- 310 0102 DEBF      		out __SP_H__,r29
- 311 0104 0FBE      		out __SREG__,__tmp_reg__
- 312 0106 CDBF      		out __SP_L__,r28
- 313 0108 CF91      		pop r28
- 314 010a DF91      		pop r29
- 315 010c 0895      		ret
- 320               	.Lscope3:
- 322               		.stabd	78,0,0
- 326               	.global	vListInsert
- 328               	vListInsert:
- 329               		.stabd	46,0,0
+ 370               	.LM19:
+ 371 012c 2696      		adiw r28,6
+ 372 012e 0FB6      		in __tmp_reg__,__SREG__
+ 373 0130 F894      		cli
+ 374 0132 DEBF      		out __SP_H__,r29
+ 375 0134 0FBE      		out __SREG__,__tmp_reg__
+ 376 0136 CDBF      		out __SP_L__,r28
+ 377 0138 DF91      		pop r29
+ 378 013a CF91      		pop r28
+ 379 013c 0895      		ret
+ 384               	.Lscope3:
+ 386               		.stabd	78,0,0
+ 390               	.global	vListInsert
+ 392               	vListInsert:
+ 393               		.stabd	46,0,0
  126:../../FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  127:../../FreeRTOS/Source/list.c **** 
  128:../../FreeRTOS/Source/list.c **** void vListInsert( xList *pxList, xListItem *pxNewListItem )
  129:../../FreeRTOS/Source/list.c **** {
- 331               	.LM20:
- 332               	.LFBB4:
- 333 010e DF93      		push r29
- 334 0110 CF93      		push r28
- 335 0112 CDB7      		in r28,__SP_L__
- 336 0114 DEB7      		in r29,__SP_H__
- 337 0116 2897      		sbiw r28,8
- 338 0118 0FB6      		in __tmp_reg__,__SREG__
- 339 011a F894      		cli
- 340 011c DEBF      		out __SP_H__,r29
- 341 011e 0FBE      		out __SREG__,__tmp_reg__
- 342 0120 CDBF      		out __SP_L__,r28
- 343               	/* prologue: function */
- 344               	/* frame size = 8 */
- 345 0122 9E83      		std Y+6,r25
- 346 0124 8D83      		std Y+5,r24
- 347 0126 7887      		std Y+8,r23
- 348 0128 6F83      		std Y+7,r22
+ 395               	.LM20:
+ 396               	.LFBB4:
+ 397 013e CF93      		push r28
+ 398 0140 DF93      		push r29
+ 399 0142 CDB7      		in r28,__SP_L__
+ 400 0144 DEB7      		in r29,__SP_H__
+ 401 0146 2897      		sbiw r28,8
+ 402 0148 0FB6      		in __tmp_reg__,__SREG__
+ 403 014a F894      		cli
+ 404 014c DEBF      		out __SP_H__,r29
+ 405 014e 0FBE      		out __SREG__,__tmp_reg__
+ 406 0150 CDBF      		out __SP_L__,r28
+ 407               	/* prologue: function */
+ 408               	/* frame size = 8 */
+ 409               	/* stack size = 10 */
+ 410               	.L__stack_usage = 10
+ 411 0152 9E83      		std Y+6,r25
+ 412 0154 8D83      		std Y+5,r24
+ 413 0156 7887      		std Y+8,r23
+ 414 0158 6F83      		std Y+7,r22
  130:../../FreeRTOS/Source/list.c **** volatile xListItem *pxIterator;
  131:../../FreeRTOS/Source/list.c **** portTickType xValueOfInsertion;
  132:../../FreeRTOS/Source/list.c **** 
  133:../../FreeRTOS/Source/list.c **** 	/* Insert the new list item into the list, sorted in ulListItem order. */
  134:../../FreeRTOS/Source/list.c **** 	xValueOfInsertion = pxNewListItem->xItemValue;
- 350               	.LM21:
- 351 012a EF81      		ldd r30,Y+7
- 352 012c F885      		ldd r31,Y+8
- 353 012e 8081      		ld r24,Z
- 354 0130 9181      		ldd r25,Z+1
- 355 0132 9A83      		std Y+2,r25
- 356 0134 8983      		std Y+1,r24
+ 416               	.LM21:
+ 417 015a 8F81      		ldd r24,Y+7
+ 418 015c 9885      		ldd r25,Y+8
+ 419 015e FC01      		movw r30,r24
+ 420 0160 8081      		ld r24,Z
+ 421 0162 9181      		ldd r25,Z+1
+ 422 0164 9C83      		std Y+4,r25
+ 423 0166 8B83      		std Y+3,r24
  135:../../FreeRTOS/Source/list.c **** 
  136:../../FreeRTOS/Source/list.c **** 	/* If the list already contains a list item with the same item value then
  137:../../FreeRTOS/Source/list.c **** 	the new list item should be placed after it.  This ensures that TCB's which
@@ -360,24 +393,25 @@
  141:../../FreeRTOS/Source/list.c **** 	to guard against this by checking the value first and modifying the
  142:../../FreeRTOS/Source/list.c **** 	algorithm slightly if necessary. */
  143:../../FreeRTOS/Source/list.c **** 	if( xValueOfInsertion == portMAX_DELAY )
- 358               	.LM22:
- 359 0136 8981      		ldd r24,Y+1
- 360 0138 9A81      		ldd r25,Y+2
- 361 013a 2FEF      		ldi r18,hi8(-1)
- 362 013c 8F3F      		cpi r24,lo8(-1)
- 363 013e 9207      		cpc r25,r18
- 364 0140 01F4      		brne .L8
+ 425               	.LM22:
+ 426 0168 8B81      		ldd r24,Y+3
+ 427 016a 9C81      		ldd r25,Y+4
+ 428 016c 8F3F      		cpi r24,-1
+ 429 016e FFEF      		ldi r31,-1
+ 430 0170 9F07      		cpc r25,r31
+ 431 0172 01F4      		brne .L5
  144:../../FreeRTOS/Source/list.c **** 	{
  145:../../FreeRTOS/Source/list.c **** 		pxIterator = pxList->xListEnd.pxPrevious;
- 366               	.LM23:
- 367 0142 ED81      		ldd r30,Y+5
- 368 0144 FE81      		ldd r31,Y+6
- 369 0146 8781      		ldd r24,Z+7
- 370 0148 9085      		ldd r25,Z+8
- 371 014a 9C83      		std Y+4,r25
- 372 014c 8B83      		std Y+3,r24
- 373 014e 00C0      		rjmp .L9
- 374               	.L8:
+ 433               	.LM23:
+ 434 0174 8D81      		ldd r24,Y+5
+ 435 0176 9E81      		ldd r25,Y+6
+ 436 0178 FC01      		movw r30,r24
+ 437 017a 8781      		ldd r24,Z+7
+ 438 017c 9085      		ldd r25,Z+8
+ 439 017e 9A83      		std Y+2,r25
+ 440 0180 8983      		std Y+1,r24
+ 441 0182 00C0      		rjmp .L6
+ 442               	.L5:
  146:../../FreeRTOS/Source/list.c **** 	}
  147:../../FreeRTOS/Source/list.c **** 	else
  148:../../FreeRTOS/Source/list.c **** 	{
@@ -398,34 +432,38 @@
  163:../../FreeRTOS/Source/list.c **** 		**********************************************************************/
  164:../../FreeRTOS/Source/list.c **** 
  165:../../FreeRTOS/Source/list.c **** 		for( pxIterator = ( xListItem * ) &( pxList->xListEnd ); pxIterator->pxNext->xItemValue <= xValue
- 376               	.LM24:
- 377 0150 8D81      		ldd r24,Y+5
- 378 0152 9E81      		ldd r25,Y+6
- 379 0154 0396      		adiw r24,3
- 380 0156 9C83      		std Y+4,r25
- 381 0158 8B83      		std Y+3,r24
- 382 015a 00C0      		rjmp .L10
- 383               	.L11:
- 384 015c EB81      		ldd r30,Y+3
- 385 015e FC81      		ldd r31,Y+4
- 386 0160 8281      		ldd r24,Z+2
- 387 0162 9381      		ldd r25,Z+3
- 388 0164 9C83      		std Y+4,r25
- 389 0166 8B83      		std Y+3,r24
- 390               	.L10:
- 391 0168 EB81      		ldd r30,Y+3
- 392 016a FC81      		ldd r31,Y+4
- 393 016c 0280      		ldd __tmp_reg__,Z+2
- 394 016e F381      		ldd r31,Z+3
- 395 0170 E02D      		mov r30,__tmp_reg__
- 396 0172 2081      		ld r18,Z
- 397 0174 3181      		ldd r19,Z+1
- 398 0176 8981      		ldd r24,Y+1
- 399 0178 9A81      		ldd r25,Y+2
- 400 017a 8217      		cp r24,r18
- 401 017c 9307      		cpc r25,r19
- 402 017e 00F4      		brsh .L11
- 403               	.L9:
+ 444               	.LM24:
+ 445 0184 8D81      		ldd r24,Y+5
+ 446 0186 9E81      		ldd r25,Y+6
+ 447 0188 0396      		adiw r24,3
+ 448 018a 9A83      		std Y+2,r25
+ 449 018c 8983      		std Y+1,r24
+ 450 018e 00C0      		rjmp .L7
+ 451               	.L8:
+ 453               	.LM25:
+ 454 0190 8981      		ldd r24,Y+1
+ 455 0192 9A81      		ldd r25,Y+2
+ 456 0194 FC01      		movw r30,r24
+ 457 0196 8281      		ldd r24,Z+2
+ 458 0198 9381      		ldd r25,Z+3
+ 459 019a 9A83      		std Y+2,r25
+ 460 019c 8983      		std Y+1,r24
+ 461               	.L7:
+ 463               	.LM26:
+ 464 019e 8981      		ldd r24,Y+1
+ 465 01a0 9A81      		ldd r25,Y+2
+ 466 01a2 FC01      		movw r30,r24
+ 467 01a4 8281      		ldd r24,Z+2
+ 468 01a6 9381      		ldd r25,Z+3
+ 469 01a8 FC01      		movw r30,r24
+ 470 01aa 2081      		ld r18,Z
+ 471 01ac 3181      		ldd r19,Z+1
+ 472 01ae 8B81      		ldd r24,Y+3
+ 473 01b0 9C81      		ldd r25,Y+4
+ 474 01b2 8217      		cp r24,r18
+ 475 01b4 9307      		cpc r25,r19
+ 476 01b6 00F4      		brsh .L8
+ 477               	.L6:
  166:../../FreeRTOS/Source/list.c **** 		{
  167:../../FreeRTOS/Source/list.c **** 			/* There is nothing to do here, we are just iterating to the
  168:../../FreeRTOS/Source/list.c **** 			wanted insertion position. */
@@ -433,210 +471,233 @@
  170:../../FreeRTOS/Source/list.c **** 	}
  171:../../FreeRTOS/Source/list.c **** 
  172:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext = pxIterator->pxNext;
- 405               	.LM25:
- 406 0180 EB81      		ldd r30,Y+3
- 407 0182 FC81      		ldd r31,Y+4
- 408 0184 8281      		ldd r24,Z+2
- 409 0186 9381      		ldd r25,Z+3
- 410 0188 EF81      		ldd r30,Y+7
- 411 018a F885      		ldd r31,Y+8
- 412 018c 9383      		std Z+3,r25
- 413 018e 8283      		std Z+2,r24
+ 479               	.LM27:
+ 480 01b8 8981      		ldd r24,Y+1
+ 481 01ba 9A81      		ldd r25,Y+2
+ 482 01bc FC01      		movw r30,r24
+ 483 01be 2281      		ldd r18,Z+2
+ 484 01c0 3381      		ldd r19,Z+3
+ 485 01c2 8F81      		ldd r24,Y+7
+ 486 01c4 9885      		ldd r25,Y+8
+ 487 01c6 FC01      		movw r30,r24
+ 488 01c8 3383      		std Z+3,r19
+ 489 01ca 2283      		std Z+2,r18
  173:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pxNext->pxPrevious = ( volatile xListItem * ) pxNewListItem;
- 415               	.LM26:
- 416 0190 EF81      		ldd r30,Y+7
- 417 0192 F885      		ldd r31,Y+8
- 418 0194 0280      		ldd __tmp_reg__,Z+2
- 419 0196 F381      		ldd r31,Z+3
- 420 0198 E02D      		mov r30,__tmp_reg__
- 421 019a 8F81      		ldd r24,Y+7
- 422 019c 9885      		ldd r25,Y+8
- 423 019e 9583      		std Z+5,r25
- 424 01a0 8483      		std Z+4,r24
+ 491               	.LM28:
+ 492 01cc 8F81      		ldd r24,Y+7
+ 493 01ce 9885      		ldd r25,Y+8
+ 494 01d0 FC01      		movw r30,r24
+ 495 01d2 8281      		ldd r24,Z+2
+ 496 01d4 9381      		ldd r25,Z+3
+ 497 01d6 2F81      		ldd r18,Y+7
+ 498 01d8 3885      		ldd r19,Y+8
+ 499 01da FC01      		movw r30,r24
+ 500 01dc 3583      		std Z+5,r19
+ 501 01de 2483      		std Z+4,r18
  174:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pxPrevious = pxIterator;
- 426               	.LM27:
- 427 01a2 EF81      		ldd r30,Y+7
- 428 01a4 F885      		ldd r31,Y+8
- 429 01a6 8B81      		ldd r24,Y+3
- 430 01a8 9C81      		ldd r25,Y+4
- 431 01aa 9583      		std Z+5,r25
- 432 01ac 8483      		std Z+4,r24
+ 503               	.LM29:
+ 504 01e0 8F81      		ldd r24,Y+7
+ 505 01e2 9885      		ldd r25,Y+8
+ 506 01e4 2981      		ldd r18,Y+1
+ 507 01e6 3A81      		ldd r19,Y+2
+ 508 01e8 FC01      		movw r30,r24
+ 509 01ea 3583      		std Z+5,r19
+ 510 01ec 2483      		std Z+4,r18
  175:../../FreeRTOS/Source/list.c **** 	pxIterator->pxNext = ( volatile xListItem * ) pxNewListItem;
- 434               	.LM28:
- 435 01ae 8F81      		ldd r24,Y+7
- 436 01b0 9885      		ldd r25,Y+8
- 437 01b2 EB81      		ldd r30,Y+3
- 438 01b4 FC81      		ldd r31,Y+4
- 439 01b6 9383      		std Z+3,r25
- 440 01b8 8283      		std Z+2,r24
+ 512               	.LM30:
+ 513 01ee 8981      		ldd r24,Y+1
+ 514 01f0 9A81      		ldd r25,Y+2
+ 515 01f2 2F81      		ldd r18,Y+7
+ 516 01f4 3885      		ldd r19,Y+8
+ 517 01f6 FC01      		movw r30,r24
+ 518 01f8 3383      		std Z+3,r19
+ 519 01fa 2283      		std Z+2,r18
  176:../../FreeRTOS/Source/list.c **** 
  177:../../FreeRTOS/Source/list.c **** 	/* Remember which list the item is in.  This allows fast removal of the
  178:../../FreeRTOS/Source/list.c **** 	item later. */
  179:../../FreeRTOS/Source/list.c **** 	pxNewListItem->pvContainer = ( void * ) pxList;
- 442               	.LM29:
- 443 01ba EF81      		ldd r30,Y+7
- 444 01bc F885      		ldd r31,Y+8
- 445 01be 8D81      		ldd r24,Y+5
- 446 01c0 9E81      		ldd r25,Y+6
- 447 01c2 9187      		std Z+9,r25
- 448 01c4 8087      		std Z+8,r24
+ 521               	.LM31:
+ 522 01fc 8F81      		ldd r24,Y+7
+ 523 01fe 9885      		ldd r25,Y+8
+ 524 0200 2D81      		ldd r18,Y+5
+ 525 0202 3E81      		ldd r19,Y+6
+ 526 0204 FC01      		movw r30,r24
+ 527 0206 3187      		std Z+9,r19
+ 528 0208 2087      		std Z+8,r18
  180:../../FreeRTOS/Source/list.c **** 
  181:../../FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )++;
- 450               	.LM30:
- 451 01c6 ED81      		ldd r30,Y+5
- 452 01c8 FE81      		ldd r31,Y+6
- 453 01ca 8081      		ld r24,Z
- 454 01cc 8F5F      		subi r24,lo8(-(1))
- 455 01ce ED81      		ldd r30,Y+5
- 456 01d0 FE81      		ldd r31,Y+6
- 457 01d2 8083      		st Z,r24
- 458               	/* epilogue start */
+ 530               	.LM32:
+ 531 020a 8D81      		ldd r24,Y+5
+ 532 020c 9E81      		ldd r25,Y+6
+ 533 020e FC01      		movw r30,r24
+ 534 0210 8081      		ld r24,Z
+ 535 0212 21E0      		ldi r18,lo8(1)
+ 536 0214 280F      		add r18,r24
+ 537 0216 8D81      		ldd r24,Y+5
+ 538 0218 9E81      		ldd r25,Y+6
+ 539 021a FC01      		movw r30,r24
+ 540 021c 2083      		st Z,r18
+ 541               	/* epilogue start */
  182:../../FreeRTOS/Source/list.c **** }
- 460               	.LM31:
- 461 01d4 2896      		adiw r28,8
- 462 01d6 0FB6      		in __tmp_reg__,__SREG__
- 463 01d8 F894      		cli
- 464 01da DEBF      		out __SP_H__,r29
- 465 01dc 0FBE      		out __SREG__,__tmp_reg__
- 466 01de CDBF      		out __SP_L__,r28
- 467 01e0 CF91      		pop r28
- 468 01e2 DF91      		pop r29
- 469 01e4 0895      		ret
- 475               	.Lscope4:
- 477               		.stabd	78,0,0
- 480               	.global	uxListRemove
- 482               	uxListRemove:
- 483               		.stabd	46,0,0
+ 543               	.LM33:
+ 544 021e 2896      		adiw r28,8
+ 545 0220 0FB6      		in __tmp_reg__,__SREG__
+ 546 0222 F894      		cli
+ 547 0224 DEBF      		out __SP_H__,r29
+ 548 0226 0FBE      		out __SREG__,__tmp_reg__
+ 549 0228 CDBF      		out __SP_L__,r28
+ 550 022a DF91      		pop r29
+ 551 022c CF91      		pop r28
+ 552 022e 0895      		ret
+ 558               	.Lscope4:
+ 560               		.stabd	78,0,0
+ 563               	.global	uxListRemove
+ 565               	uxListRemove:
+ 566               		.stabd	46,0,0
  183:../../FreeRTOS/Source/list.c **** /*-----------------------------------------------------------*/
  184:../../FreeRTOS/Source/list.c **** 
  185:../../FreeRTOS/Source/list.c **** unsigned portBASE_TYPE uxListRemove( xListItem *pxItemToRemove )
  186:../../FreeRTOS/Source/list.c **** {
- 485               	.LM32:
- 486               	.LFBB5:
- 487 01e6 DF93      		push r29
- 488 01e8 CF93      		push r28
- 489 01ea 00D0      		rcall .
- 490 01ec 0F92      		push __tmp_reg__
- 491 01ee CDB7      		in r28,__SP_L__
- 492 01f0 DEB7      		in r29,__SP_H__
- 493               	/* prologue: function */
- 494               	/* frame size = 4 */
- 495 01f2 9C83      		std Y+4,r25
- 496 01f4 8B83      		std Y+3,r24
+ 568               	.LM34:
+ 569               	.LFBB5:
+ 570 0230 CF93      		push r28
+ 571 0232 DF93      		push r29
+ 572 0234 00D0      		rcall .
+ 573 0236 1F92      		push __zero_reg__
+ 574 0238 CDB7      		in r28,__SP_L__
+ 575 023a DEB7      		in r29,__SP_H__
+ 576               	/* prologue: function */
+ 577               	/* frame size = 4 */
+ 578               	/* stack size = 6 */
+ 579               	.L__stack_usage = 6
+ 580 023c 9C83      		std Y+4,r25
+ 581 023e 8B83      		std Y+3,r24
  187:../../FreeRTOS/Source/list.c **** xList * pxList;
  188:../../FreeRTOS/Source/list.c **** 
  189:../../FreeRTOS/Source/list.c **** 	pxItemToRemove->pxNext->pxPrevious = pxItemToRemove->pxPrevious;
- 498               	.LM33:
- 499 01f6 EB81      		ldd r30,Y+3
- 500 01f8 FC81      		ldd r31,Y+4
- 501 01fa A281      		ldd r26,Z+2
- 502 01fc B381      		ldd r27,Z+3
- 503 01fe EB81      		ldd r30,Y+3
- 504 0200 FC81      		ldd r31,Y+4
- 505 0202 8481      		ldd r24,Z+4
- 506 0204 9581      		ldd r25,Z+5
- 507 0206 1596      		adiw r26,4+1
- 508 0208 9C93      		st X,r25
- 509 020a 8E93      		st -X,r24
- 510 020c 1497      		sbiw r26,4
+ 583               	.LM35:
+ 584 0240 8B81      		ldd r24,Y+3
+ 585 0242 9C81      		ldd r25,Y+4
+ 586 0244 FC01      		movw r30,r24
+ 587 0246 8281      		ldd r24,Z+2
+ 588 0248 9381      		ldd r25,Z+3
+ 589 024a 2B81      		ldd r18,Y+3
+ 590 024c 3C81      		ldd r19,Y+4
+ 591 024e F901      		movw r30,r18
+ 592 0250 2481      		ldd r18,Z+4
+ 593 0252 3581      		ldd r19,Z+5
+ 594 0254 FC01      		movw r30,r24
+ 595 0256 3583      		std Z+5,r19
+ 596 0258 2483      		std Z+4,r18
  190:../../FreeRTOS/Source/list.c **** 	pxItemToRemove->pxPrevious->pxNext = pxItemToRemove->pxNext;
- 512               	.LM34:
- 513 020e EB81      		ldd r30,Y+3
- 514 0210 FC81      		ldd r31,Y+4
- 515 0212 A481      		ldd r26,Z+4
- 516 0214 B581      		ldd r27,Z+5
- 517 0216 EB81      		ldd r30,Y+3
- 518 0218 FC81      		ldd r31,Y+4
- 519 021a 8281      		ldd r24,Z+2
- 520 021c 9381      		ldd r25,Z+3
- 521 021e 1396      		adiw r26,2+1
- 522 0220 9C93      		st X,r25
- 523 0222 8E93      		st -X,r24
- 524 0224 1297      		sbiw r26,2
+ 598               	.LM36:
+ 599 025a 8B81      		ldd r24,Y+3
+ 600 025c 9C81      		ldd r25,Y+4
+ 601 025e FC01      		movw r30,r24
+ 602 0260 8481      		ldd r24,Z+4
+ 603 0262 9581      		ldd r25,Z+5
+ 604 0264 2B81      		ldd r18,Y+3
+ 605 0266 3C81      		ldd r19,Y+4
+ 606 0268 F901      		movw r30,r18
+ 607 026a 2281      		ldd r18,Z+2
+ 608 026c 3381      		ldd r19,Z+3
+ 609 026e FC01      		movw r30,r24
+ 610 0270 3383      		std Z+3,r19
+ 611 0272 2283      		std Z+2,r18
  191:../../FreeRTOS/Source/list.c **** 
  192:../../FreeRTOS/Source/list.c **** 	/* The list item knows which list it is in.  Obtain the list from the list
  193:../../FreeRTOS/Source/list.c **** 	item. */
  194:../../FreeRTOS/Source/list.c **** 	pxList = ( xList * ) pxItemToRemove->pvContainer;
- 526               	.LM35:
- 527 0226 EB81      		ldd r30,Y+3
- 528 0228 FC81      		ldd r31,Y+4
- 529 022a 8085      		ldd r24,Z+8
- 530 022c 9185      		ldd r25,Z+9
- 531 022e 9A83      		std Y+2,r25
- 532 0230 8983      		std Y+1,r24
+ 613               	.LM37:
+ 614 0274 8B81      		ldd r24,Y+3
+ 615 0276 9C81      		ldd r25,Y+4
+ 616 0278 FC01      		movw r30,r24
+ 617 027a 8085      		ldd r24,Z+8
+ 618 027c 9185      		ldd r25,Z+9
+ 619 027e 9A83      		std Y+2,r25
+ 620 0280 8983      		std Y+1,r24
  195:../../FreeRTOS/Source/list.c **** 
  196:../../FreeRTOS/Source/list.c **** 	/* Make sure the index is left pointing to a valid item. */
  197:../../FreeRTOS/Source/list.c **** 	if( pxList->pxIndex == pxItemToRemove )
- 534               	.LM36:
- 535 0232 E981      		ldd r30,Y+1
- 536 0234 FA81      		ldd r31,Y+2
- 537 0236 2181      		ldd r18,Z+1
- 538 0238 3281      		ldd r19,Z+2
- 539 023a 8B81      		ldd r24,Y+3
- 540 023c 9C81      		ldd r25,Y+4
- 541 023e 2817      		cp r18,r24
- 542 0240 3907      		cpc r19,r25
- 543 0242 01F4      		brne .L14
+ 622               	.LM38:
+ 623 0282 8981      		ldd r24,Y+1
+ 624 0284 9A81      		ldd r25,Y+2
+ 625 0286 FC01      		movw r30,r24
+ 626 0288 2181      		ldd r18,Z+1
+ 627 028a 3281      		ldd r19,Z+2
+ 628 028c 8B81      		ldd r24,Y+3
+ 629 028e 9C81      		ldd r25,Y+4
+ 630 0290 2817      		cp r18,r24
+ 631 0292 3907      		cpc r19,r25
+ 632 0294 01F4      		brne .L10
  198:../../FreeRTOS/Source/list.c **** 	{
  199:../../FreeRTOS/Source/list.c **** 		pxList->pxIndex = pxItemToRemove->pxPrevious;
- 545               	.LM37:
- 546 0244 EB81      		ldd r30,Y+3
- 547 0246 FC81      		ldd r31,Y+4
- 548 0248 8481      		ldd r24,Z+4
- 549 024a 9581      		ldd r25,Z+5
- 550 024c E981      		ldd r30,Y+1
- 551 024e FA81      		ldd r31,Y+2
- 552 0250 9283      		std Z+2,r25
- 553 0252 8183      		std Z+1,r24
- 554               	.L14:
+ 634               	.LM39:
+ 635 0296 8B81      		ldd r24,Y+3
+ 636 0298 9C81      		ldd r25,Y+4
+ 637 029a FC01      		movw r30,r24
+ 638 029c 2481      		ldd r18,Z+4
+ 639 029e 3581      		ldd r19,Z+5
+ 640 02a0 8981      		ldd r24,Y+1
+ 641 02a2 9A81      		ldd r25,Y+2
+ 642 02a4 FC01      		movw r30,r24
+ 643 02a6 3283      		std Z+2,r19
+ 644 02a8 2183      		std Z+1,r18
+ 645               	.L10:
  200:../../FreeRTOS/Source/list.c **** 	}
  201:../../FreeRTOS/Source/list.c **** 
  202:../../FreeRTOS/Source/list.c **** 	pxItemToRemove->pvContainer = NULL;
- 556               	.LM38:
- 557 0254 EB81      		ldd r30,Y+3
- 558 0256 FC81      		ldd r31,Y+4
- 559 0258 1186      		std Z+9,__zero_reg__
- 560 025a 1086      		std Z+8,__zero_reg__
+ 647               	.LM40:
+ 648 02aa 8B81      		ldd r24,Y+3
+ 649 02ac 9C81      		ldd r25,Y+4
+ 650 02ae FC01      		movw r30,r24
+ 651 02b0 1186      		std Z+9,__zero_reg__
+ 652 02b2 1086      		std Z+8,__zero_reg__
  203:../../FreeRTOS/Source/list.c **** 	( pxList->uxNumberOfItems )--;
- 562               	.LM39:
- 563 025c E981      		ldd r30,Y+1
- 564 025e FA81      		ldd r31,Y+2
- 565 0260 8081      		ld r24,Z
- 566 0262 8150      		subi r24,lo8(-(-1))
- 567 0264 E981      		ldd r30,Y+1
- 568 0266 FA81      		ldd r31,Y+2
- 569 0268 8083      		st Z,r24
+ 654               	.LM41:
+ 655 02b4 8981      		ldd r24,Y+1
+ 656 02b6 9A81      		ldd r25,Y+2
+ 657 02b8 FC01      		movw r30,r24
+ 658 02ba 8081      		ld r24,Z
+ 659 02bc 2FEF      		ldi r18,lo8(-1)
+ 660 02be 280F      		add r18,r24
+ 661 02c0 8981      		ldd r24,Y+1
+ 662 02c2 9A81      		ldd r25,Y+2
+ 663 02c4 FC01      		movw r30,r24
+ 664 02c6 2083      		st Z,r18
  204:../../FreeRTOS/Source/list.c **** 
  205:../../FreeRTOS/Source/list.c **** 	return pxList->uxNumberOfItems;
- 571               	.LM40:
- 572 026a E981      		ldd r30,Y+1
- 573 026c FA81      		ldd r31,Y+2
- 574 026e 8081      		ld r24,Z
- 575               	/* epilogue start */
+ 666               	.LM42:
+ 667 02c8 8981      		ldd r24,Y+1
+ 668 02ca 9A81      		ldd r25,Y+2
+ 669 02cc FC01      		movw r30,r24
+ 670 02ce 8081      		ld r24,Z
+ 671               	/* epilogue start */
  206:../../FreeRTOS/Source/list.c **** }
- 577               	.LM41:
- 578 0270 0F90      		pop __tmp_reg__
- 579 0272 0F90      		pop __tmp_reg__
- 580 0274 0F90      		pop __tmp_reg__
- 581 0276 0F90      		pop __tmp_reg__
- 582 0278 CF91      		pop r28
- 583 027a DF91      		pop r29
- 584 027c 0895      		ret
- 589               	.Lscope5:
- 591               		.stabd	78,0,0
- 593               	.Letext0:
+ 673               	.LM43:
+ 674 02d0 0F90      		pop __tmp_reg__
+ 675 02d2 0F90      		pop __tmp_reg__
+ 676 02d4 0F90      		pop __tmp_reg__
+ 677 02d6 0F90      		pop __tmp_reg__
+ 678 02d8 DF91      		pop r29
+ 679 02da CF91      		pop r28
+ 680 02dc 0895      		ret
+ 685               	.Lscope5:
+ 687               		.stabd	78,0,0
+ 689               	.Letext0:
+ 690               		.ident	"GCC: (GNU) 4.9.0"
 DEFINED SYMBOLS
-                            *ABS*:00000000 list.c
-     /tmp/ccia5TsH.s:2      *ABS*:0000003f __SREG__
-     /tmp/ccia5TsH.s:3      *ABS*:0000003e __SP_H__
-     /tmp/ccia5TsH.s:4      *ABS*:0000003d __SP_L__
-     /tmp/ccia5TsH.s:5      *ABS*:00000034 __CCP__
-     /tmp/ccia5TsH.s:6      *ABS*:00000000 __tmp_reg__
-     /tmp/ccia5TsH.s:7      *ABS*:00000001 __zero_reg__
-     /tmp/ccia5TsH.s:106    .text:00000000 vListInitialise
-     /tmp/ccia5TsH.s:177    .text:00000056 vListInitialiseItem
-     /tmp/ccia5TsH.s:215    .text:00000078 vListInsertEnd
-     /tmp/ccia5TsH.s:328    .text:0000010e vListInsert
-     /tmp/ccia5TsH.s:482    .text:000001e6 uxListRemove
+                            *ABS*:0000000000000000 list.c
+     /tmp/ccOmvOhK.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccOmvOhK.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccOmvOhK.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccOmvOhK.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccOmvOhK.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccOmvOhK.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccOmvOhK.s:140    .text:0000000000000000 vListInitialise
+     /tmp/ccOmvOhK.s:224    .text:000000000000006c vListInitialiseItem
+     /tmp/ccOmvOhK.s:265    .text:0000000000000090 vListInsertEnd
+     /tmp/ccOmvOhK.s:392    .text:000000000000013e vListInsert
+     /tmp/ccOmvOhK.s:565    .text:0000000000000230 uxListRemove
 
 NO UNDEFINED SYMBOLS

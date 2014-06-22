@@ -391,6 +391,7 @@
  492               	/* frame size = 0 */
  493               	/* stack size = 2 */
  494               	.L__stack_usage = 2
+ 495               	/* epilogue start */
   86:Components/Sonar/Sonar.c ****    //DDRD &= 0xFE;   
   87:Components/Sonar/Sonar.c ****    /*DIDR2 = 0;
   88:Components/Sonar/Sonar.c ****    DDRK = 0;
@@ -407,89 +408,58 @@
   99:Components/Sonar/Sonar.c ****    TCCR0A = 0;
  100:Components/Sonar/Sonar.c ****    TCCR0B = 5;*/
  101:Components/Sonar/Sonar.c **** 
- 102:Components/Sonar/Sonar.c **** 	addADCDevice(0,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum0);			
- 496               	.LM24:
- 497 0196 20E0      		ldi r18,lo8(sonarNum0)
- 498 0198 30E0      		ldi r19,hi8(sonarNum0)
- 499 019a 40E0      		ldi r20,lo8(gs(sonarADCHandler))
- 500 019c 50E0      		ldi r21,hi8(gs(sonarADCHandler))
- 501 019e 60E0      		ldi r22,0
- 502 01a0 70E0      		ldi r23,0
- 503 01a2 80E0      		ldi r24,0
- 504 01a4 90E0      		ldi r25,0
- 505 01a6 0E94 0000 		call addADCDevice
- 103:Components/Sonar/Sonar.c **** 	addADCDevice(12,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum1);			
- 507               	.LM25:
- 508 01aa 20E0      		ldi r18,lo8(sonarNum1)
- 509 01ac 30E0      		ldi r19,hi8(sonarNum1)
- 510 01ae 40E0      		ldi r20,lo8(gs(sonarADCHandler))
- 511 01b0 50E0      		ldi r21,hi8(gs(sonarADCHandler))
- 512 01b2 60E0      		ldi r22,0
- 513 01b4 70E0      		ldi r23,0
- 514 01b6 8CE0      		ldi r24,lo8(12)
- 515 01b8 90E0      		ldi r25,0
- 516 01ba 0E94 0000 		call addADCDevice
- 104:Components/Sonar/Sonar.c **** 	addADCDevice(15,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum2);			
- 518               	.LM26:
- 519 01be 20E0      		ldi r18,lo8(sonarNum2)
- 520 01c0 30E0      		ldi r19,hi8(sonarNum2)
- 521 01c2 40E0      		ldi r20,lo8(gs(sonarADCHandler))
- 522 01c4 50E0      		ldi r21,hi8(gs(sonarADCHandler))
- 523 01c6 60E0      		ldi r22,0
- 524 01c8 70E0      		ldi r23,0
- 525 01ca 8FE0      		ldi r24,lo8(15)
- 526 01cc 90E0      		ldi r25,0
- 527 01ce 0E94 0000 		call addADCDevice
- 528               	/* epilogue start */
+ 102:Components/Sonar/Sonar.c **** 	//addADCDevice(0,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum0);			
+ 103:Components/Sonar/Sonar.c **** 	//addADCDevice(12,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum1);			
+ 104:Components/Sonar/Sonar.c **** 	//addADCDevice(15,ADC_OPT_PRECISION_HIGH,sonarADCHandler,&sonarNum2);			
  105:Components/Sonar/Sonar.c **** 
  106:Components/Sonar/Sonar.c **** }
- 530               	.LM27:
- 531 01d2 DF91      		pop r29
- 532 01d4 CF91      		pop r28
- 533 01d6 0895      		ret
- 535               	.Lscope6:
- 537               		.stabd	78,0,0
- 540               	.global	vTaskSonar
- 542               	vTaskSonar:
- 543               		.stabd	46,0,0
+ 497               	.LM24:
+ 498 0196 DF91      		pop r29
+ 499 0198 CF91      		pop r28
+ 500 019a 0895      		ret
+ 502               	.Lscope6:
+ 504               		.stabd	78,0,0
+ 507               	.global	vTaskSonar
+ 509               	vTaskSonar:
+ 510               		.stabd	46,0,0
  107:Components/Sonar/Sonar.c **** 
  108:Components/Sonar/Sonar.c **** void vTaskSonar(void* parameter){
- 545               	.LM28:
- 546               	.LFBB7:
- 547 01d8 CF93      		push r28
- 548 01da DF93      		push r29
- 549 01dc 1F92      		push __zero_reg__
- 550 01de 1F92      		push __zero_reg__
- 551 01e0 CDB7      		in r28,__SP_L__
- 552 01e2 DEB7      		in r29,__SP_H__
- 553               	/* prologue: function */
- 554               	/* frame size = 2 */
- 555               	/* stack size = 4 */
- 556               	.L__stack_usage = 4
- 557 01e4 9A83      		std Y+2,r25
- 558 01e6 8983      		std Y+1,r24
+ 512               	.LM25:
+ 513               	.LFBB7:
+ 514 019c CF93      		push r28
+ 515 019e DF93      		push r29
+ 516 01a0 1F92      		push __zero_reg__
+ 517 01a2 1F92      		push __zero_reg__
+ 518 01a4 CDB7      		in r28,__SP_L__
+ 519 01a6 DEB7      		in r29,__SP_H__
+ 520               	/* prologue: function */
+ 521               	/* frame size = 2 */
+ 522               	/* stack size = 4 */
+ 523               	.L__stack_usage = 4
+ 524 01a8 9A83      		std Y+2,r25
+ 525 01aa 8983      		std Y+1,r24
  109:Components/Sonar/Sonar.c **** 
  110:Components/Sonar/Sonar.c ****    int i;
  111:Components/Sonar/Sonar.c ****    initializeSonarSensors();
- 560               	.LM29:
- 561 01e8 0E94 0000 		call initializeSonarSensors
- 562               	.L13:
- 563               	.LBB2:
+ 527               	.LM26:
+ 528 01ac 0E94 0000 		call initializeSonarSensors
+ 529               	.L13:
+ 530               	.LBB2:
  112:Components/Sonar/Sonar.c **** 	for(;;){
  113:Components/Sonar/Sonar.c **** 		vTaskDelay(300);
- 565               	.LM30:
- 566 01ec 8CE2      		ldi r24,lo8(44)
- 567 01ee 91E0      		ldi r25,lo8(1)
- 568 01f0 0E94 0000 		call vTaskDelay
- 569               	.LBE2:
+ 532               	.LM27:
+ 533 01b0 8CE2      		ldi r24,lo8(44)
+ 534 01b2 91E0      		ldi r25,lo8(1)
+ 535 01b4 0E94 0000 		call vTaskDelay
+ 536               	.LBE2:
  114:Components/Sonar/Sonar.c **** 	}
- 571               	.LM31:
- 572 01f4 00C0      		rjmp .L13
- 574               	.Lscope7:
- 576               		.stabd	78,0,0
- 579               	.global	getAllSensors
- 581               	getAllSensors:
- 582               		.stabd	46,0,0
+ 538               	.LM28:
+ 539 01b8 00C0      		rjmp .L13
+ 541               	.Lscope7:
+ 543               		.stabd	78,0,0
+ 546               	.global	getAllSensors
+ 548               	getAllSensors:
+ 549               		.stabd	46,0,0
  115:Components/Sonar/Sonar.c ****    
  116:Components/Sonar/Sonar.c ****    vSemaphoreCreateBinary(sonarSemaphore);
  117:Components/Sonar/Sonar.c ****       
@@ -507,308 +477,307 @@
  129:Components/Sonar/Sonar.c **** } 
  130:Components/Sonar/Sonar.c **** 
  131:Components/Sonar/Sonar.c **** char getAllSensors(unsigned short* responseData){
- 584               	.LM32:
- 585               	.LFBB8:
- 586 01f6 CF93      		push r28
- 587 01f8 DF93      		push r29
- 588 01fa 00D0      		rcall .
- 589 01fc 1F92      		push __zero_reg__
- 590 01fe CDB7      		in r28,__SP_L__
- 591 0200 DEB7      		in r29,__SP_H__
- 592               	/* prologue: function */
- 593               	/* frame size = 4 */
- 594               	/* stack size = 6 */
- 595               	.L__stack_usage = 6
- 596 0202 9C83      		std Y+4,r25
- 597 0204 8B83      		std Y+3,r24
+ 551               	.LM29:
+ 552               	.LFBB8:
+ 553 01ba CF93      		push r28
+ 554 01bc DF93      		push r29
+ 555 01be 00D0      		rcall .
+ 556 01c0 1F92      		push __zero_reg__
+ 557 01c2 CDB7      		in r28,__SP_L__
+ 558 01c4 DEB7      		in r29,__SP_H__
+ 559               	/* prologue: function */
+ 560               	/* frame size = 4 */
+ 561               	/* stack size = 6 */
+ 562               	.L__stack_usage = 6
+ 563 01c6 9C83      		std Y+4,r25
+ 564 01c8 8B83      		std Y+3,r24
  132:Components/Sonar/Sonar.c ****    unsigned short i;
  133:Components/Sonar/Sonar.c ****    for(i=0;i<6;i++){
- 599               	.LM33:
- 600 0206 1A82      		std Y+2,__zero_reg__
- 601 0208 1982      		std Y+1,__zero_reg__
- 602 020a 00C0      		rjmp .L15
- 603               	.L16:
+ 566               	.LM30:
+ 567 01ca 1A82      		std Y+2,__zero_reg__
+ 568 01cc 1982      		std Y+1,__zero_reg__
+ 569 01ce 00C0      		rjmp .L15
+ 570               	.L16:
  134:Components/Sonar/Sonar.c ****       //responseData[i] = getSonarData(i);
  135:Components/Sonar/Sonar.c ****       responseData[i] = i+1;
- 605               	.LM34:
- 606 020c 8981      		ldd r24,Y+1
- 607 020e 9A81      		ldd r25,Y+2
- 608 0210 880F      		lsl r24
- 609 0212 991F      		rol r25
- 610 0214 2B81      		ldd r18,Y+3
- 611 0216 3C81      		ldd r19,Y+4
- 612 0218 820F      		add r24,r18
- 613 021a 931F      		adc r25,r19
- 614 021c 2981      		ldd r18,Y+1
- 615 021e 3A81      		ldd r19,Y+2
- 616 0220 2F5F      		subi r18,-1
- 617 0222 3F4F      		sbci r19,-1
- 618 0224 FC01      		movw r30,r24
- 619 0226 3183      		std Z+1,r19
- 620 0228 2083      		st Z,r18
+ 572               	.LM31:
+ 573 01d0 8981      		ldd r24,Y+1
+ 574 01d2 9A81      		ldd r25,Y+2
+ 575 01d4 880F      		lsl r24
+ 576 01d6 991F      		rol r25
+ 577 01d8 2B81      		ldd r18,Y+3
+ 578 01da 3C81      		ldd r19,Y+4
+ 579 01dc 820F      		add r24,r18
+ 580 01de 931F      		adc r25,r19
+ 581 01e0 2981      		ldd r18,Y+1
+ 582 01e2 3A81      		ldd r19,Y+2
+ 583 01e4 2F5F      		subi r18,-1
+ 584 01e6 3F4F      		sbci r19,-1
+ 585 01e8 FC01      		movw r30,r24
+ 586 01ea 3183      		std Z+1,r19
+ 587 01ec 2083      		st Z,r18
  133:Components/Sonar/Sonar.c ****       //responseData[i] = getSonarData(i);
- 622               	.LM35:
- 623 022a 8981      		ldd r24,Y+1
- 624 022c 9A81      		ldd r25,Y+2
- 625 022e 0196      		adiw r24,1
- 626 0230 9A83      		std Y+2,r25
- 627 0232 8983      		std Y+1,r24
- 628               	.L15:
+ 589               	.LM32:
+ 590 01ee 8981      		ldd r24,Y+1
+ 591 01f0 9A81      		ldd r25,Y+2
+ 592 01f2 0196      		adiw r24,1
+ 593 01f4 9A83      		std Y+2,r25
+ 594 01f6 8983      		std Y+1,r24
+ 595               	.L15:
  133:Components/Sonar/Sonar.c ****       //responseData[i] = getSonarData(i);
- 630               	.LM36:
- 631 0234 8981      		ldd r24,Y+1
- 632 0236 9A81      		ldd r25,Y+2
- 633 0238 8630      		cpi r24,6
- 634 023a 9105      		cpc r25,__zero_reg__
- 635 023c 00F0      		brlo .L16
- 636               	/* epilogue start */
+ 597               	.LM33:
+ 598 01f8 8981      		ldd r24,Y+1
+ 599 01fa 9A81      		ldd r25,Y+2
+ 600 01fc 8630      		cpi r24,6
+ 601 01fe 9105      		cpc r25,__zero_reg__
+ 602 0200 00F0      		brlo .L16
+ 603               	/* epilogue start */
  136:Components/Sonar/Sonar.c ****    }
  137:Components/Sonar/Sonar.c **** }
- 638               	.LM37:
- 639 023e 0F90      		pop __tmp_reg__
- 640 0240 0F90      		pop __tmp_reg__
- 641 0242 0F90      		pop __tmp_reg__
- 642 0244 0F90      		pop __tmp_reg__
- 643 0246 DF91      		pop r29
- 644 0248 CF91      		pop r28
- 645 024a 0895      		ret
- 650               	.Lscope8:
- 652               		.stabd	78,0,0
- 656               	.global	getCertainSensor
- 658               	getCertainSensor:
- 659               		.stabd	46,0,0
+ 605               	.LM34:
+ 606 0202 0F90      		pop __tmp_reg__
+ 607 0204 0F90      		pop __tmp_reg__
+ 608 0206 0F90      		pop __tmp_reg__
+ 609 0208 0F90      		pop __tmp_reg__
+ 610 020a DF91      		pop r29
+ 611 020c CF91      		pop r28
+ 612 020e 0895      		ret
+ 617               	.Lscope8:
+ 619               		.stabd	78,0,0
+ 623               	.global	getCertainSensor
+ 625               	getCertainSensor:
+ 626               		.stabd	46,0,0
  138:Components/Sonar/Sonar.c **** 
  139:Components/Sonar/Sonar.c **** char getCertainSensor(char commandData,int* responseData){
- 661               	.LM38:
- 662               	.LFBB9:
- 663 024c 0F93      		push r16
- 664 024e 1F93      		push r17
- 665 0250 CF93      		push r28
- 666 0252 DF93      		push r29
- 667 0254 00D0      		rcall .
- 668 0256 CDB7      		in r28,__SP_L__
- 669 0258 DEB7      		in r29,__SP_H__
- 670               	/* prologue: function */
- 671               	/* frame size = 3 */
- 672               	/* stack size = 7 */
- 673               	.L__stack_usage = 7
- 674 025a 8983      		std Y+1,r24
- 675 025c 7B83      		std Y+3,r23
- 676 025e 6A83      		std Y+2,r22
+ 628               	.LM35:
+ 629               	.LFBB9:
+ 630 0210 0F93      		push r16
+ 631 0212 1F93      		push r17
+ 632 0214 CF93      		push r28
+ 633 0216 DF93      		push r29
+ 634 0218 00D0      		rcall .
+ 635 021a CDB7      		in r28,__SP_L__
+ 636 021c DEB7      		in r29,__SP_H__
+ 637               	/* prologue: function */
+ 638               	/* frame size = 3 */
+ 639               	/* stack size = 7 */
+ 640               	.L__stack_usage = 7
+ 641 021e 8983      		std Y+1,r24
+ 642 0220 7B83      		std Y+3,r23
+ 643 0222 6A83      		std Y+2,r22
  140:Components/Sonar/Sonar.c ****    if(commandData < 6){
- 678               	.LM39:
- 679 0260 8981      		ldd r24,Y+1
- 680 0262 8630      		cpi r24,lo8(6)
- 681 0264 04F4      		brge .L19
+ 645               	.LM36:
+ 646 0224 8981      		ldd r24,Y+1
+ 647 0226 8630      		cpi r24,lo8(6)
+ 648 0228 04F4      		brge .L18
  141:Components/Sonar/Sonar.c ****       responseData[commandData] = getSonarData(commandData);
- 683               	.LM40:
- 684 0266 8981      		ldd r24,Y+1
- 685 0268 9927      		clr r25
- 686 026a 87FD      		sbrc r24,7
- 687 026c 9095      		com r25
- 688 026e 880F      		lsl r24
- 689 0270 991F      		rol r25
- 690 0272 2A81      		ldd r18,Y+2
- 691 0274 3B81      		ldd r19,Y+3
- 692 0276 8901      		movw r16,r18
- 693 0278 080F      		add r16,r24
- 694 027a 191F      		adc r17,r25
- 695 027c 8981      		ldd r24,Y+1
- 696 027e 9927      		clr r25
- 697 0280 87FD      		sbrc r24,7
- 698 0282 9095      		com r25
- 699 0284 0E94 0000 		call getSonarData
- 700 0288 F801      		movw r30,r16
- 701 028a 9183      		std Z+1,r25
- 702 028c 8083      		st Z,r24
- 703               	.L19:
- 704               	/* epilogue start */
+ 650               	.LM37:
+ 651 022a 8981      		ldd r24,Y+1
+ 652 022c 9927      		clr r25
+ 653 022e 87FD      		sbrc r24,7
+ 654 0230 9095      		com r25
+ 655 0232 880F      		lsl r24
+ 656 0234 991F      		rol r25
+ 657 0236 2A81      		ldd r18,Y+2
+ 658 0238 3B81      		ldd r19,Y+3
+ 659 023a 8901      		movw r16,r18
+ 660 023c 080F      		add r16,r24
+ 661 023e 191F      		adc r17,r25
+ 662 0240 8981      		ldd r24,Y+1
+ 663 0242 9927      		clr r25
+ 664 0244 87FD      		sbrc r24,7
+ 665 0246 9095      		com r25
+ 666 0248 0E94 0000 		call getSonarData
+ 667 024c F801      		movw r30,r16
+ 668 024e 9183      		std Z+1,r25
+ 669 0250 8083      		st Z,r24
+ 670               	.L18:
+ 671               	/* epilogue start */
  142:Components/Sonar/Sonar.c ****    }
  143:Components/Sonar/Sonar.c **** }
- 706               	.LM41:
- 707 028e 0F90      		pop __tmp_reg__
- 708 0290 0F90      		pop __tmp_reg__
- 709 0292 0F90      		pop __tmp_reg__
- 710 0294 DF91      		pop r29
- 711 0296 CF91      		pop r28
- 712 0298 1F91      		pop r17
- 713 029a 0F91      		pop r16
- 714 029c 0895      		ret
- 716               	.Lscope9:
- 718               		.stabd	78,0,0
- 722               	.global	getSensorGroup
- 724               	getSensorGroup:
- 725               		.stabd	46,0,0
+ 673               	.LM38:
+ 674 0252 0F90      		pop __tmp_reg__
+ 675 0254 0F90      		pop __tmp_reg__
+ 676 0256 0F90      		pop __tmp_reg__
+ 677 0258 DF91      		pop r29
+ 678 025a CF91      		pop r28
+ 679 025c 1F91      		pop r17
+ 680 025e 0F91      		pop r16
+ 681 0260 0895      		ret
+ 683               	.Lscope9:
+ 685               		.stabd	78,0,0
+ 689               	.global	getSensorGroup
+ 691               	getSensorGroup:
+ 692               		.stabd	46,0,0
  144:Components/Sonar/Sonar.c **** 
  145:Components/Sonar/Sonar.c **** char getSensorGroup(char commandData,int* responseData){
- 727               	.LM42:
- 728               	.LFBB10:
- 729 029e 0F93      		push r16
- 730 02a0 1F93      		push r17
- 731 02a2 CF93      		push r28
- 732 02a4 DF93      		push r29
- 733 02a6 00D0      		rcall .
- 734 02a8 CDB7      		in r28,__SP_L__
- 735 02aa DEB7      		in r29,__SP_H__
- 736               	/* prologue: function */
- 737               	/* frame size = 3 */
- 738               	/* stack size = 7 */
- 739               	.L__stack_usage = 7
- 740 02ac 8983      		std Y+1,r24
- 741 02ae 7B83      		std Y+3,r23
- 742 02b0 6A83      		std Y+2,r22
+ 694               	.LM39:
+ 695               	.LFBB10:
+ 696 0262 0F93      		push r16
+ 697 0264 1F93      		push r17
+ 698 0266 CF93      		push r28
+ 699 0268 DF93      		push r29
+ 700 026a 00D0      		rcall .
+ 701 026c CDB7      		in r28,__SP_L__
+ 702 026e DEB7      		in r29,__SP_H__
+ 703               	/* prologue: function */
+ 704               	/* frame size = 3 */
+ 705               	/* stack size = 7 */
+ 706               	.L__stack_usage = 7
+ 707 0270 8983      		std Y+1,r24
+ 708 0272 7B83      		std Y+3,r23
+ 709 0274 6A83      		std Y+2,r22
  146:Components/Sonar/Sonar.c **** 
  147:Components/Sonar/Sonar.c ****    switch(commandData){
- 744               	.LM43:
- 745 02b2 8981      		ldd r24,Y+1
- 746 02b4 9927      		clr r25
- 747 02b6 87FD      		sbrc r24,7
- 748 02b8 9095      		com r25
- 749 02ba 8130      		cpi r24,1
- 750 02bc 9105      		cpc r25,__zero_reg__
- 751 02be 01F0      		breq .L22
- 752 02c0 8230      		cpi r24,2
- 753 02c2 9105      		cpc r25,__zero_reg__
- 754 02c4 01F0      		breq .L23
- 755 02c6 0097      		sbiw r24,0
- 756 02c8 01F0      		breq .+2
- 757 02ca 00C0      		rjmp .L25
+ 711               	.LM40:
+ 712 0276 8981      		ldd r24,Y+1
+ 713 0278 9927      		clr r25
+ 714 027a 87FD      		sbrc r24,7
+ 715 027c 9095      		com r25
+ 716 027e 8130      		cpi r24,1
+ 717 0280 9105      		cpc r25,__zero_reg__
+ 718 0282 01F0      		breq .L21
+ 719 0284 8230      		cpi r24,2
+ 720 0286 9105      		cpc r25,__zero_reg__
+ 721 0288 01F0      		breq .L22
+ 722 028a 0097      		sbiw r24,0
+ 723 028c 01F0      		breq .+2
+ 724 028e 00C0      		rjmp .L20
  148:Components/Sonar/Sonar.c ****       case SONAR_GROUP_LEFT:
  149:Components/Sonar/Sonar.c ****          responseData[0] = getSonarData(0);
- 759               	.LM44:
- 760 02cc 80E0      		ldi r24,0
- 761 02ce 90E0      		ldi r25,0
- 762 02d0 0E94 0000 		call getSonarData
- 763 02d4 9C01      		movw r18,r24
- 764 02d6 8A81      		ldd r24,Y+2
- 765 02d8 9B81      		ldd r25,Y+3
- 766 02da FC01      		movw r30,r24
- 767 02dc 3183      		std Z+1,r19
- 768 02de 2083      		st Z,r18
+ 726               	.LM41:
+ 727 0290 80E0      		ldi r24,0
+ 728 0292 90E0      		ldi r25,0
+ 729 0294 0E94 0000 		call getSonarData
+ 730 0298 9C01      		movw r18,r24
+ 731 029a 8A81      		ldd r24,Y+2
+ 732 029c 9B81      		ldd r25,Y+3
+ 733 029e FC01      		movw r30,r24
+ 734 02a0 3183      		std Z+1,r19
+ 735 02a2 2083      		st Z,r18
  150:Components/Sonar/Sonar.c ****          responseData[1] = getSonarData(1);
- 770               	.LM45:
- 771 02e0 8A81      		ldd r24,Y+2
- 772 02e2 9B81      		ldd r25,Y+3
- 773 02e4 8C01      		movw r16,r24
- 774 02e6 0E5F      		subi r16,-2
- 775 02e8 1F4F      		sbci r17,-1
- 776 02ea 81E0      		ldi r24,lo8(1)
- 777 02ec 90E0      		ldi r25,0
- 778 02ee 0E94 0000 		call getSonarData
- 779 02f2 F801      		movw r30,r16
- 780 02f4 9183      		std Z+1,r25
- 781 02f6 8083      		st Z,r24
+ 737               	.LM42:
+ 738 02a4 8A81      		ldd r24,Y+2
+ 739 02a6 9B81      		ldd r25,Y+3
+ 740 02a8 8C01      		movw r16,r24
+ 741 02aa 0E5F      		subi r16,-2
+ 742 02ac 1F4F      		sbci r17,-1
+ 743 02ae 81E0      		ldi r24,lo8(1)
+ 744 02b0 90E0      		ldi r25,0
+ 745 02b2 0E94 0000 		call getSonarData
+ 746 02b6 F801      		movw r30,r16
+ 747 02b8 9183      		std Z+1,r25
+ 748 02ba 8083      		st Z,r24
  151:Components/Sonar/Sonar.c ****          break;
- 783               	.LM46:
- 784 02f8 00C0      		rjmp .L25
- 785               	.L22:
+ 750               	.LM43:
+ 751 02bc 00C0      		rjmp .L20
+ 752               	.L21:
  152:Components/Sonar/Sonar.c ****       case SONAR_GROUP_FRONT:
  153:Components/Sonar/Sonar.c ****          responseData[0] = getSonarData(2);
- 787               	.LM47:
- 788 02fa 82E0      		ldi r24,lo8(2)
- 789 02fc 90E0      		ldi r25,0
- 790 02fe 0E94 0000 		call getSonarData
- 791 0302 9C01      		movw r18,r24
- 792 0304 8A81      		ldd r24,Y+2
- 793 0306 9B81      		ldd r25,Y+3
- 794 0308 FC01      		movw r30,r24
- 795 030a 3183      		std Z+1,r19
- 796 030c 2083      		st Z,r18
+ 754               	.LM44:
+ 755 02be 82E0      		ldi r24,lo8(2)
+ 756 02c0 90E0      		ldi r25,0
+ 757 02c2 0E94 0000 		call getSonarData
+ 758 02c6 9C01      		movw r18,r24
+ 759 02c8 8A81      		ldd r24,Y+2
+ 760 02ca 9B81      		ldd r25,Y+3
+ 761 02cc FC01      		movw r30,r24
+ 762 02ce 3183      		std Z+1,r19
+ 763 02d0 2083      		st Z,r18
  154:Components/Sonar/Sonar.c ****          responseData[1] = getSonarData(3);
- 798               	.LM48:
- 799 030e 8A81      		ldd r24,Y+2
- 800 0310 9B81      		ldd r25,Y+3
- 801 0312 8C01      		movw r16,r24
- 802 0314 0E5F      		subi r16,-2
- 803 0316 1F4F      		sbci r17,-1
- 804 0318 83E0      		ldi r24,lo8(3)
- 805 031a 90E0      		ldi r25,0
- 806 031c 0E94 0000 		call getSonarData
- 807 0320 F801      		movw r30,r16
- 808 0322 9183      		std Z+1,r25
- 809 0324 8083      		st Z,r24
+ 765               	.LM45:
+ 766 02d2 8A81      		ldd r24,Y+2
+ 767 02d4 9B81      		ldd r25,Y+3
+ 768 02d6 8C01      		movw r16,r24
+ 769 02d8 0E5F      		subi r16,-2
+ 770 02da 1F4F      		sbci r17,-1
+ 771 02dc 83E0      		ldi r24,lo8(3)
+ 772 02de 90E0      		ldi r25,0
+ 773 02e0 0E94 0000 		call getSonarData
+ 774 02e4 F801      		movw r30,r16
+ 775 02e6 9183      		std Z+1,r25
+ 776 02e8 8083      		st Z,r24
  155:Components/Sonar/Sonar.c ****          break;
- 811               	.LM49:
- 812 0326 00C0      		rjmp .L25
- 813               	.L23:
+ 778               	.LM46:
+ 779 02ea 00C0      		rjmp .L20
+ 780               	.L22:
  156:Components/Sonar/Sonar.c ****       case SONAR_GROUP_RIGHT:
  157:Components/Sonar/Sonar.c ****          responseData[0] = getSonarData(4);
- 815               	.LM50:
- 816 0328 84E0      		ldi r24,lo8(4)
- 817 032a 90E0      		ldi r25,0
- 818 032c 0E94 0000 		call getSonarData
- 819 0330 9C01      		movw r18,r24
- 820 0332 8A81      		ldd r24,Y+2
- 821 0334 9B81      		ldd r25,Y+3
- 822 0336 FC01      		movw r30,r24
- 823 0338 3183      		std Z+1,r19
- 824 033a 2083      		st Z,r18
+ 782               	.LM47:
+ 783 02ec 84E0      		ldi r24,lo8(4)
+ 784 02ee 90E0      		ldi r25,0
+ 785 02f0 0E94 0000 		call getSonarData
+ 786 02f4 9C01      		movw r18,r24
+ 787 02f6 8A81      		ldd r24,Y+2
+ 788 02f8 9B81      		ldd r25,Y+3
+ 789 02fa FC01      		movw r30,r24
+ 790 02fc 3183      		std Z+1,r19
+ 791 02fe 2083      		st Z,r18
  158:Components/Sonar/Sonar.c ****          responseData[1] = getSonarData(5);
- 826               	.LM51:
- 827 033c 8A81      		ldd r24,Y+2
- 828 033e 9B81      		ldd r25,Y+3
- 829 0340 8C01      		movw r16,r24
- 830 0342 0E5F      		subi r16,-2
- 831 0344 1F4F      		sbci r17,-1
- 832 0346 85E0      		ldi r24,lo8(5)
- 833 0348 90E0      		ldi r25,0
- 834 034a 0E94 0000 		call getSonarData
- 835 034e F801      		movw r30,r16
- 836 0350 9183      		std Z+1,r25
- 837 0352 8083      		st Z,r24
+ 793               	.LM48:
+ 794 0300 8A81      		ldd r24,Y+2
+ 795 0302 9B81      		ldd r25,Y+3
+ 796 0304 8C01      		movw r16,r24
+ 797 0306 0E5F      		subi r16,-2
+ 798 0308 1F4F      		sbci r17,-1
+ 799 030a 85E0      		ldi r24,lo8(5)
+ 800 030c 90E0      		ldi r25,0
+ 801 030e 0E94 0000 		call getSonarData
+ 802 0312 F801      		movw r30,r16
+ 803 0314 9183      		std Z+1,r25
+ 804 0316 8083      		st Z,r24
  159:Components/Sonar/Sonar.c ****          break;
- 839               	.LM52:
- 840 0354 0000      		nop
- 841               	.L25:
- 842               	/* epilogue start */
+ 806               	.LM49:
+ 807 0318 0000      		nop
+ 808               	.L20:
+ 809               	/* epilogue start */
  160:Components/Sonar/Sonar.c ****    }
  161:Components/Sonar/Sonar.c **** 
  162:Components/Sonar/Sonar.c **** }
- 844               	.LM53:
- 845 0356 0F90      		pop __tmp_reg__
- 846 0358 0F90      		pop __tmp_reg__
- 847 035a 0F90      		pop __tmp_reg__
- 848 035c DF91      		pop r29
- 849 035e CF91      		pop r28
- 850 0360 1F91      		pop r17
- 851 0362 0F91      		pop r16
- 852 0364 0895      		ret
- 854               	.Lscope10:
- 856               		.stabd	78,0,0
- 866               	.Letext0:
- 867               		.ident	"GCC: (GNU) 4.8.2"
- 868               	.global __do_copy_data
- 869               	.global __do_clear_bss
+ 811               	.LM50:
+ 812 031a 0F90      		pop __tmp_reg__
+ 813 031c 0F90      		pop __tmp_reg__
+ 814 031e 0F90      		pop __tmp_reg__
+ 815 0320 DF91      		pop r29
+ 816 0322 CF91      		pop r28
+ 817 0324 1F91      		pop r17
+ 818 0326 0F91      		pop r16
+ 819 0328 0895      		ret
+ 821               	.Lscope10:
+ 823               		.stabd	78,0,0
+ 833               	.Letext0:
+ 834               		.ident	"GCC: (GNU) 4.9.0"
+ 835               	.global __do_copy_data
+ 836               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Sonar.c
-     /tmp/ccLdpqgH.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccLdpqgH.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccLdpqgH.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccLdpqgH.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/ccLdpqgH.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccLdpqgH.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccD4U3my.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccD4U3my.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccD4U3my.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccD4U3my.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccD4U3my.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccD4U3my.s:7      *ABS*:0000000000000001 __zero_reg__
                             *COM*:0000000000000002 sonarSemaphore
                             *COM*:000000000000000c sonarDataMutex
                              .bss:0000000000000000 sonarData
-     /tmp/ccLdpqgH.s:139    .bss:000000000000000c sonarNum0
-     /tmp/ccLdpqgH.s:145    .data:0000000000000000 sonarNum1
-     /tmp/ccLdpqgH.s:149    .data:0000000000000002 sonarNum2
-     /tmp/ccLdpqgH.s:141    .bss:000000000000000e currSonar
-     /tmp/ccLdpqgH.s:152    .bss:000000000000000f lastSonarData
-     /tmp/ccLdpqgH.s:161    .text:0000000000000000 setSonarData
-     /tmp/ccLdpqgH.s:211    .text:0000000000000038 getSonarData
-     /tmp/ccLdpqgH.s:254    .text:0000000000000064 getTimerCount
-     /tmp/ccLdpqgH.s:286    .text:000000000000007a __vector_11
-     /tmp/ccLdpqgH.s:435    .text:0000000000000158 sonarADCHandler
-     /tmp/ccLdpqgH.s:482    .text:000000000000018e initializeSonarSensors
-     /tmp/ccLdpqgH.s:542    .text:00000000000001d8 vTaskSonar
-     /tmp/ccLdpqgH.s:581    .text:00000000000001f6 getAllSensors
-     /tmp/ccLdpqgH.s:658    .text:000000000000024c getCertainSensor
-     /tmp/ccLdpqgH.s:724    .text:000000000000029e getSensorGroup
+     /tmp/ccD4U3my.s:139    .bss:000000000000000c sonarNum0
+     /tmp/ccD4U3my.s:145    .data:0000000000000000 sonarNum1
+     /tmp/ccD4U3my.s:149    .data:0000000000000002 sonarNum2
+     /tmp/ccD4U3my.s:141    .bss:000000000000000e currSonar
+     /tmp/ccD4U3my.s:152    .bss:000000000000000f lastSonarData
+     /tmp/ccD4U3my.s:161    .text:0000000000000000 setSonarData
+     /tmp/ccD4U3my.s:211    .text:0000000000000038 getSonarData
+     /tmp/ccD4U3my.s:254    .text:0000000000000064 getTimerCount
+     /tmp/ccD4U3my.s:286    .text:000000000000007a __vector_11
+     /tmp/ccD4U3my.s:435    .text:0000000000000158 sonarADCHandler
+     /tmp/ccD4U3my.s:482    .text:000000000000018e initializeSonarSensors
+     /tmp/ccD4U3my.s:509    .text:000000000000019c vTaskSonar
+     /tmp/ccD4U3my.s:548    .text:00000000000001ba getAllSensors
+     /tmp/ccD4U3my.s:625    .text:0000000000000210 getCertainSensor
+     /tmp/ccD4U3my.s:691    .text:0000000000000262 getSensorGroup
 
 UNDEFINED SYMBOLS
 xQueueGenericSendFromISR
-addADCDevice
 vTaskDelay
 __do_copy_data
 __do_clear_bss

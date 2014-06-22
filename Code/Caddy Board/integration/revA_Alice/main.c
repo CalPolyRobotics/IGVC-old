@@ -31,7 +31,7 @@ void vTaskFunction_3(void *pvParameters);
 void vTaskPot(void *pvParameters);
 void vIO_init(void);
 void vApplicationTickHook();
-void printNum(unsigned char i);
+void printNum(unsigned int i);
 void printHex(int i);
 
 int count = 0;
@@ -64,7 +64,9 @@ int main( void )
 	DDRD = 0xFF;
 	DDRE = 0xFF;
 	DDRB = 0xFF; 
+   DDRF = 0;
 	DDRK = 0;
+	DDRJ = 0;
 
 	PORTD = 0;
 	PORTE = 0;
@@ -86,14 +88,14 @@ int main( void )
  
   	xTaskCreate( (pdTASK_CODE) vTaskSteer, (signed char *) "T4", configMINIMAL_STACK_SIZE+1000,
                 (void *) val1, 1, NULL );
-	xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
-                (void *) val1, 1, NULL );
+	/*xTaskCreate( (pdTASK_CODE) vTaskSonar, (signed char *) "TS", configMINIMAL_STACK_SIZE+1000,
+                (void *) val1, 1, NULL );*/
  
    /*xTaskCreate( (pdTASK_CODE) vTaskUSARTWrite, (signed char *) "T2", configMINIMAL_STACK_SIZE+1000,
    				(void *) val1, 1, NULL);*/
 
-   xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
-   				(void *) val1, 1, NULL);
+   //xTaskCreate( (pdTASK_CODE) vTaskUSARTRead, (signed char *) "T3", configMINIMAL_STACK_SIZE+1000,
+   				//(void *) val1, 1, NULL);
 
 	
 	xTaskCreate( (pdTASK_CODE) vTaskADC, (signed char *) "T5", configMINIMAL_STACK_SIZE+1000,
@@ -119,25 +121,24 @@ void printHex(int i){
 
 }
 
-void printNum(unsigned char i){
+void printNum(unsigned int i){
     
-    char str[10];
-    memset(str,0,10);
-    itoa(i,str,10);
-    char * irr = str;
-    while(*irr){
-        USART_AddToQueue((unsigned char )*irr);
-        irr++;
-    }
-    
+	int draw = 0;
+	USART_Write(i / 10000 + '0');
+	USART_Write((i % 10000) / 1000 + '0');
+	USART_Write((i % 1000) / 100 + '0');
+	USART_Write((i % 100) / 10 + '0');
+   USART_Write((i % 10) + '0');
 }
 
-ISR(TIMER5_OVF_vect){
+static int batteryVoltage;
 
-	PORTB ^= 0xFF;
-	TCNT3L = 0;
-	TCNT3H = 0;
-
+void getBatteryVoltageHandler(int a,void *dummy){
+	//batteryVoltage = (a - 218) / 4 - 3;
+   //batteryVoltage = a;
+   printHex(a);
+   USART_Write('\r');
+   USART_Write('\n');
 }
 
 unsigned int getTimerCount2(){
@@ -179,7 +180,7 @@ void vTaskFunction_1(void *pvParameters)
 
 	char a = 'a';
 
-	PORTA = 4;
+	PORTA = 0;
 
    USART_Init(9600, 16000000);
 
@@ -187,10 +188,24 @@ void vTaskFunction_1(void *pvParameters)
 
 	initializeSPI();
 	initSpeedController();
-	setSteeringPWMSpeed(0xB0);
+   initializeSteeringTimer();
+	//setSteeringPWMSpeed(0xB0);
 
-	//setPot(0x20);
+	
+	//addADCDevice(3,ADC_OPT_PRECISION_HIGH,getBatteryVoltageHandler,NULL);
+   for(;;) {
+      PORTA ^= 0x80;
+      vTaskDelay(300);
+   }
+
+
+	//setPot(0x20); 
 	for(;;){
+		printHex(batteryVoltage);
+		USART_Write(' ');
+		printNum(batteryVoltage);
+		USART_Write('\n');
+		USART_Write('\r');
 		vTaskDelay(200);
 	}
 	for(;;){

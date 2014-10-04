@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -19882,7 +19882,6 @@ W = angled&lt;p&gt;
 <part name="R38" library="resistor" deviceset="R-US_" device="R0603" value="27"/>
 <part name="U3" library="roblib" deviceset="TMS570LS0432_PZ_100" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23329,7 +23328,6 @@ COM</text>
 <instances>
 <instance part="U3" gate="A" x="22.86" y="81.28"/>
 <instance part="SUPPLY4" gate="GND" x="154.94" y="30.48"/>
-<instance part="SUPPLY5" gate="GND" x="-15.24" y="-30.48"/>
 </instances>
 <busses>
 </busses>
@@ -23346,28 +23344,6 @@ COM</text>
 <pinref part="U3" gate="A" pin="VSS_9"/>
 <wire x1="124.46" y1="45.72" x2="154.94" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U3" gate="A" pin="VSS_6"/>
-<wire x1="22.86" y1="0" x2="-15.24" y2="0" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_5"/>
-<wire x1="22.86" y1="10.16" x2="-15.24" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_4"/>
-<wire x1="22.86" y1="33.02" x2="-15.24" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="33.02" x2="-15.24" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_3"/>
-<wire x1="22.86" y1="40.64" x2="-15.24" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="40.64" x2="-15.24" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_2"/>
-<wire x1="22.86" y1="66.04" x2="-15.24" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="66.04" x2="-15.24" y2="40.64" width="0.1524" layer="91"/>
-<junction x="-15.24" y="40.64"/>
-<junction x="-15.24" y="33.02"/>
-<wire x1="-15.24" y1="0" x2="-15.24" y2="10.16" width="0.1524" layer="91"/>
-<junction x="-15.24" y="10.16"/>
-<junction x="-15.24" y="0"/>
-<wire x1="-15.24" y1="0" x2="-15.24" y2="-27.94" width="0.1524" layer="91"/>
-<pinref part="SUPPLY5" gate="GND" pin="GND"/>
 </segment>
 </net>
 </nets>

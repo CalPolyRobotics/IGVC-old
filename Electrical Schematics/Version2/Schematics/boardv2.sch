@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12135,13 +12135,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="-1.905" y="-4.699" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="VSS" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
-<symbol name="GND">
-<wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<text x="-1.905" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="VCC" prefix="SUPPLY">
@@ -12174,19 +12167,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="VSS" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="GND" prefix="SUPPLY">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="GND" symbol="GND" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -18618,7 +18598,7 @@ W = angled&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="roblib">
+<library name="version2">
 <packages>
 <package name="PZ100">
 <smd name="1" x="-7.62" y="5.9944" dx="0.2794" dy="1.6764" layer="1" rot="R270"/>
@@ -19283,109 +19263,109 @@ W = angled&lt;p&gt;
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
-<pin name="GIOA[0]/INT[0]" x="0" y="0" length="middle"/>
-<pin name="GIOA[1]/INT[1]" x="0" y="-2.54" length="middle"/>
-<pin name="FLTP1" x="0" y="-5.08" length="middle"/>
-<pin name="FLTP2" x="0" y="-7.62" length="middle"/>
-<pin name="GIOA[2]/INT[2]" x="0" y="-10.16" length="middle"/>
-<pin name="VCCIO_2" x="0" y="-12.7" length="middle" direction="pwr"/>
-<pin name="VSS_2" x="0" y="-15.24" length="middle" direction="pwr"/>
-<pin name="GIOA[3]/INT[3]" x="0" y="-17.78" length="middle"/>
-<pin name="GIOA[4]/INT[4]" x="0" y="-20.32" length="middle"/>
-<pin name="GIOA[5]/INT[5]" x="0" y="-22.86" length="middle"/>
-<pin name="N2HET[022]" x="0" y="-25.4" length="middle"/>
-<pin name="GIOA[6]/INT[6]" x="0" y="-27.94" length="middle"/>
-<pin name="VCCIO_3" x="0" y="-30.48" length="middle" direction="pwr"/>
-<pin name="OSCIN" x="0" y="-33.02" length="middle" direction="pwr"/>
-<pin name="KELVIN_GND" x="0" y="-35.56" length="middle"/>
-<pin name="OSCOUT" x="0" y="-38.1" length="middle"/>
-<pin name="VSS_3" x="0" y="-40.64" length="middle" direction="pwr"/>
-<pin name="GIOA[7]/INT[7]" x="0" y="-43.18" length="middle"/>
-<pin name="N2HET[0]" x="0" y="-45.72" length="middle"/>
-<pin name="VSS_4" x="0" y="-48.26" length="middle" direction="pwr"/>
-<pin name="VCCIO_4" x="0" y="-50.8" length="middle" direction="pwr"/>
-<pin name="N2HET[2]" x="0" y="-53.34" length="middle"/>
-<pin name="SPI2NCS[0]" x="0" y="-55.88" length="middle"/>
-<pin name="TEST" x="0" y="-58.42" length="middle"/>
-<pin name="N2HET[4]" x="0" y="-60.96" length="middle"/>
-<pin name="N2HET[6]" x="0" y="-63.5" length="middle"/>
-<pin name="MIBSPI1NCS[2]" x="0" y="-66.04" length="middle"/>
-<pin name="VCCIO_5" x="0" y="-68.58" length="middle" direction="pwr"/>
-<pin name="VSS_5" x="0" y="-71.12" length="middle" direction="pwr"/>
-<pin name="VCCIO_6" x="0" y="-73.66" length="middle" direction="pwr"/>
-<pin name="NPORRST" x="0" y="-76.2" length="middle"/>
-<pin name="VCCIO_7" x="0" y="-78.74" length="middle" direction="pwr"/>
-<pin name="VSS_6" x="0" y="-81.28" length="middle" direction="pwr"/>
-<pin name="SPI3SOMI" x="0" y="-83.82" length="middle"/>
-<pin name="SPI3SIMO" x="0" y="-86.36" length="middle"/>
-<pin name="SPI3CLK" x="0" y="-88.9" length="middle"/>
-<pin name="SPI3NENA" x="0" y="-91.44" length="middle"/>
-<pin name="SPI3NCS[0]" x="0" y="-93.98" length="middle"/>
-<pin name="MIBSPI1NCS[3]" x="0" y="-96.52" length="middle"/>
-<pin name="ADIN[16]" x="0" y="-99.06" length="middle"/>
-<pin name="ADIN[17]" x="0" y="-101.6" length="middle"/>
-<pin name="ADIN[0]" x="0" y="-104.14" length="middle"/>
-<pin name="ADIN[7]" x="0" y="-106.68" length="middle"/>
-<pin name="ADIN[20]" x="0" y="-109.22" length="middle"/>
-<pin name="ADIN[21]" x="0" y="-111.76" length="middle"/>
-<pin name="VCCAD/ADREFHI" x="0" y="-114.3" length="middle"/>
-<pin name="VSSAD/ADREFLO" x="0" y="-116.84" length="middle"/>
-<pin name="ADIN[9]" x="0" y="-119.38" length="middle"/>
-<pin name="ADIN[1]" x="0" y="-121.92" length="middle"/>
-<pin name="ADIN[10]" x="0" y="-124.46" length="middle"/>
-<pin name="ADIN[2]" x="101.6" y="-124.46" length="middle" rot="R180"/>
-<pin name="ADIN[3]" x="101.6" y="-121.92" length="middle" rot="R180"/>
-<pin name="ADIN[11]" x="101.6" y="-119.38" length="middle" rot="R180"/>
-<pin name="ADIN[4]" x="101.6" y="-116.84" length="middle" rot="R180"/>
-<pin name="ADIN[5]" x="101.6" y="-114.3" length="middle" rot="R180"/>
-<pin name="ADIN[6]" x="101.6" y="-111.76" length="middle" rot="R180"/>
-<pin name="ADIN[8]" x="101.6" y="-109.22" length="middle" rot="R180"/>
-<pin name="ADEVT" x="101.6" y="-106.68" length="middle" rot="R180"/>
-<pin name="VSS_7" x="101.6" y="-104.14" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCCIO_8" x="101.6" y="-101.6" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC_2" x="101.6" y="-99.06" length="middle" direction="pwr" rot="R180"/>
-<pin name="CAN1TX" x="101.6" y="-96.52" length="middle" rot="R180"/>
-<pin name="CAN1RX" x="101.6" y="-93.98" length="middle" rot="R180"/>
-<pin name="N2HET[024]" x="101.6" y="-91.44" length="middle" rot="R180"/>
-<pin name="MIBSPI1SIMO" x="101.6" y="-88.9" length="middle" rot="R180"/>
-<pin name="MIBSPI1SOMI" x="101.6" y="-86.36" length="middle" rot="R180"/>
-<pin name="MIBSPI1CLK" x="101.6" y="-83.82" length="middle" rot="R180"/>
-<pin name="MIBSPI1NENA" x="101.6" y="-81.28" length="middle" rot="R180"/>
-<pin name="SPI2SOMI" x="101.6" y="-78.74" length="middle" rot="R180"/>
-<pin name="SPI2SIMO" x="101.6" y="-76.2" length="middle" rot="R180"/>
-<pin name="SPI2CLK" x="101.6" y="-73.66" length="middle" rot="R180"/>
-<pin name="VSS_8" x="101.6" y="-71.12" length="middle" direction="pwr" rot="R180"/>
-<pin name="MIBSPI1NCS[0]" x="101.6" y="-68.58" length="middle" rot="R180"/>
-<pin name="N2HET[8]" x="101.6" y="-66.04" length="middle" rot="R180"/>
-<pin name="TMS" x="101.6" y="-63.5" length="middle" rot="R180"/>
-<pin name="NTRST" x="101.6" y="-60.96" length="middle" rot="R180"/>
-<pin name="TDI" x="101.6" y="-58.42" length="middle" rot="R180"/>
-<pin name="TDO" x="101.6" y="-55.88" length="middle" rot="R180"/>
-<pin name="TCK" x="101.6" y="-53.34" length="middle" rot="R180"/>
-<pin name="RTCK" x="101.6" y="-50.8" length="middle" rot="R180"/>
-<pin name="NRST" x="101.6" y="-48.26" length="middle" rot="R180"/>
-<pin name="NERROR" x="101.6" y="-45.72" length="middle" rot="R180"/>
-<pin name="N2HET[10]" x="101.6" y="-43.18" length="middle" rot="R180"/>
-<pin name="ECLK" x="101.6" y="-40.64" length="middle" rot="R180"/>
-<pin name="VCCIO" x="101.6" y="-38.1" length="middle" direction="pwr" rot="R180"/>
-<pin name="VSS_9" x="101.6" y="-35.56" length="middle" direction="pwr" rot="R180"/>
-<pin name="VSS_10" x="101.6" y="-33.02" length="middle" direction="pwr" rot="R180"/>
-<pin name="VCC_3" x="101.6" y="-30.48" length="middle" direction="pwr" rot="R180"/>
-<pin name="N2HET[12]" x="101.6" y="-27.94" length="middle" rot="R180"/>
-<pin name="N2HET[14]" x="101.6" y="-25.4" length="middle" rot="R180"/>
-<pin name="CAN2TX" x="101.6" y="-22.86" length="middle" rot="R180"/>
-<pin name="CAN2RX" x="101.6" y="-20.32" length="middle" rot="R180"/>
-<pin name="MIBSPI1NCS[1]" x="101.6" y="-17.78" length="middle" rot="R180"/>
-<pin name="LINRX" x="101.6" y="-15.24" length="middle" rot="R180"/>
-<pin name="LINTX" x="101.6" y="-12.7" length="middle" rot="R180"/>
-<pin name="VCCP" x="101.6" y="-10.16" length="middle" direction="pwr" rot="R180"/>
-<pin name="N2HET[16]" x="101.6" y="-7.62" length="middle" rot="R180"/>
-<pin name="N2HET[18]" x="101.6" y="-5.08" length="middle" rot="R180"/>
-<pin name="VCC" x="101.6" y="-2.54" length="middle" direction="pwr" rot="R180"/>
-<pin name="VSS" x="101.6" y="0" length="middle" direction="pwr" rot="R180"/>
-<wire x1="7.62" y1="5.08" x2="7.62" y2="-129.54" width="0.1524" layer="94"/>
-<wire x1="7.62" y1="-129.54" x2="93.98" y2="-129.54" width="0.1524" layer="94"/>
-<wire x1="93.98" y1="-129.54" x2="93.98" y2="5.08" width="0.1524" layer="94"/>
+<pin name="GIOA[0]/INT[0]" x="0" y="2.54" length="middle"/>
+<pin name="GIOA[1]/INT[1]" x="0" y="0" length="middle"/>
+<pin name="FLTP1" x="0" y="-114.3" length="middle"/>
+<pin name="FLTP2" x="0" y="-116.84" length="middle"/>
+<pin name="GIOA[2]/INT[2]" x="0" y="-2.54" length="middle"/>
+<pin name="VCCIO_2" x="101.6" y="-40.64" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS_2" x="101.6" y="-20.32" length="middle" direction="pwr" rot="R180"/>
+<pin name="GIOA[3]/INT[3]" x="0" y="-5.08" length="middle"/>
+<pin name="GIOA[4]/INT[4]" x="0" y="-7.62" length="middle"/>
+<pin name="GIOA[5]/INT[5]" x="0" y="-10.16" length="middle"/>
+<pin name="N2HET[022]" x="0" y="-55.88" length="middle"/>
+<pin name="GIOA[6]/INT[6]" x="0" y="-12.7" length="middle"/>
+<pin name="VCCIO_3" x="101.6" y="-38.1" length="middle" direction="pwr" rot="R180"/>
+<pin name="OSCIN" x="0" y="-20.32" length="middle" direction="pwr"/>
+<pin name="KELVIN_GND" x="0" y="-22.86" length="middle"/>
+<pin name="OSCOUT" x="0" y="-25.4" length="middle"/>
+<pin name="VSS_3" x="101.6" y="-17.78" length="middle" direction="pwr" rot="R180"/>
+<pin name="GIOA[7]/INT[7]" x="0" y="-15.24" length="middle"/>
+<pin name="N2HET[0]" x="0" y="-30.48" length="middle"/>
+<pin name="VSS_4" x="101.6" y="-15.24" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCIO_4" x="101.6" y="-35.56" length="middle" direction="pwr" rot="R180"/>
+<pin name="N2HET[2]" x="0" y="-33.02" length="middle"/>
+<pin name="SPI2NCS[0]" x="101.6" y="-119.38" length="middle" rot="R180"/>
+<pin name="TEST" x="0" y="-124.46" length="middle"/>
+<pin name="N2HET[4]" x="0" y="-35.56" length="middle"/>
+<pin name="N2HET[6]" x="0" y="-38.1" length="middle"/>
+<pin name="MIBSPI1NCS[2]" x="101.6" y="-104.14" length="middle" rot="R180"/>
+<pin name="VCCIO_5" x="101.6" y="-33.02" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS_5" x="101.6" y="-12.7" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCIO_6" x="101.6" y="-30.48" length="middle" direction="pwr" rot="R180"/>
+<pin name="NPORRST" x="0" y="-132.08" length="middle"/>
+<pin name="VCCIO_7" x="101.6" y="-27.94" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS_6" x="101.6" y="-10.16" length="middle" direction="pwr" rot="R180"/>
+<pin name="SPI3SOMI" x="101.6" y="-121.92" length="middle" rot="R180"/>
+<pin name="SPI3SIMO" x="101.6" y="-124.46" length="middle" rot="R180"/>
+<pin name="SPI3CLK" x="101.6" y="-127" length="middle" rot="R180"/>
+<pin name="SPI3NENA" x="101.6" y="-129.54" length="middle" rot="R180"/>
+<pin name="SPI3NCS[0]" x="101.6" y="-132.08" length="middle" rot="R180"/>
+<pin name="MIBSPI1NCS[3]" x="101.6" y="-106.68" length="middle" rot="R180"/>
+<pin name="ADIN[16]" x="0" y="-68.58" length="middle"/>
+<pin name="ADIN[17]" x="0" y="-78.74" length="middle"/>
+<pin name="ADIN[0]" x="0" y="-81.28" length="middle"/>
+<pin name="ADIN[7]" x="0" y="-83.82" length="middle"/>
+<pin name="ADIN[20]" x="0" y="-86.36" length="middle"/>
+<pin name="ADIN[21]" x="0" y="-88.9" length="middle"/>
+<pin name="VCCAD/ADREFHI" x="0" y="-63.5" length="middle"/>
+<pin name="VSSAD/ADREFLO" x="0" y="-66.04" length="middle"/>
+<pin name="ADIN[9]" x="0" y="-76.2" length="middle"/>
+<pin name="ADIN[1]" x="0" y="-73.66" length="middle"/>
+<pin name="ADIN[10]" x="0" y="-71.12" length="middle"/>
+<pin name="ADIN[2]" x="0" y="-91.44" length="middle"/>
+<pin name="ADIN[3]" x="0" y="-93.98" length="middle"/>
+<pin name="ADIN[11]" x="0" y="-96.52" length="middle"/>
+<pin name="ADIN[4]" x="0" y="-99.06" length="middle"/>
+<pin name="ADIN[5]" x="0" y="-101.6" length="middle"/>
+<pin name="ADIN[6]" x="0" y="-104.14" length="middle"/>
+<pin name="ADIN[8]" x="0" y="-106.68" length="middle"/>
+<pin name="ADEVT" x="0" y="-109.22" length="middle"/>
+<pin name="VSS_7" x="101.6" y="-7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCCIO_8" x="101.6" y="-25.4" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC_2" x="101.6" y="-48.26" length="middle" direction="pwr" rot="R180"/>
+<pin name="CAN1TX" x="101.6" y="-83.82" length="middle" rot="R180"/>
+<pin name="CAN1RX" x="101.6" y="-81.28" length="middle" rot="R180"/>
+<pin name="N2HET[024]" x="0" y="-58.42" length="middle"/>
+<pin name="MIBSPI1SIMO" x="101.6" y="-91.44" length="middle" rot="R180"/>
+<pin name="MIBSPI1SOMI" x="101.6" y="-88.9" length="middle" rot="R180"/>
+<pin name="MIBSPI1CLK" x="101.6" y="-96.52" length="middle" rot="R180"/>
+<pin name="MIBSPI1NENA" x="101.6" y="-93.98" length="middle" rot="R180"/>
+<pin name="SPI2SOMI" x="101.6" y="-111.76" length="middle" rot="R180"/>
+<pin name="SPI2SIMO" x="101.6" y="-114.3" length="middle" rot="R180"/>
+<pin name="SPI2CLK" x="101.6" y="-116.84" length="middle" rot="R180"/>
+<pin name="VSS_8" x="101.6" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="MIBSPI1NCS[0]" x="101.6" y="-99.06" length="middle" rot="R180"/>
+<pin name="N2HET[8]" x="0" y="-40.64" length="middle"/>
+<pin name="TMS" x="101.6" y="-66.04" length="middle" rot="R180"/>
+<pin name="NTRST" x="101.6" y="-53.34" length="middle" rot="R180"/>
+<pin name="TDI" x="101.6" y="-63.5" length="middle" rot="R180"/>
+<pin name="TDO" x="101.6" y="-60.96" length="middle" rot="R180"/>
+<pin name="TCK" x="101.6" y="-58.42" length="middle" rot="R180"/>
+<pin name="RTCK" x="101.6" y="-55.88" length="middle" rot="R180"/>
+<pin name="NRST" x="0" y="-129.54" length="middle"/>
+<pin name="NERROR" x="0" y="-134.62" length="middle"/>
+<pin name="N2HET[10]" x="0" y="-43.18" length="middle"/>
+<pin name="ECLK" x="0" y="-127" length="middle"/>
+<pin name="VCCIO" x="101.6" y="-22.86" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS_9" x="101.6" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS_10" x="101.6" y="0" length="middle" direction="pwr" rot="R180"/>
+<pin name="VCC_3" x="101.6" y="-45.72" length="middle" direction="pwr" rot="R180"/>
+<pin name="N2HET[12]" x="0" y="-45.72" length="middle"/>
+<pin name="N2HET[14]" x="0" y="-48.26" length="middle"/>
+<pin name="CAN2TX" x="101.6" y="-78.74" length="middle" rot="R180"/>
+<pin name="CAN2RX" x="101.6" y="-76.2" length="middle" rot="R180"/>
+<pin name="MIBSPI1NCS[1]" x="101.6" y="-101.6" length="middle" rot="R180"/>
+<pin name="LINRX" x="101.6" y="-73.66" length="middle" rot="R180"/>
+<pin name="LINTX" x="101.6" y="-71.12" length="middle" rot="R180"/>
+<pin name="VCCP" x="0" y="-119.38" length="middle" direction="pwr"/>
+<pin name="N2HET[16]" x="0" y="-50.8" length="middle"/>
+<pin name="N2HET[18]" x="0" y="-53.34" length="middle"/>
+<pin name="VCC" x="101.6" y="-43.18" length="middle" direction="pwr" rot="R180"/>
+<pin name="VSS" x="101.6" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-137.16" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="-137.16" x2="93.98" y2="-137.16" width="0.1524" layer="94"/>
+<wire x1="93.98" y1="-137.16" x2="93.98" y2="5.08" width="0.1524" layer="94"/>
 <wire x1="93.98" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
 <text x="46.0756" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="45.1358" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
@@ -19880,8 +19860,7 @@ W = angled&lt;p&gt;
 <part name="B_+36V" library="custom" deviceset="432550059" device=""/>
 <part name="R37" library="resistor" deviceset="R-US_" device="R0603" value="27"/>
 <part name="R38" library="resistor" deviceset="R-US_" device="R0603" value="27"/>
-<part name="U3" library="roblib" deviceset="TMS570LS0432_PZ_100" device=""/>
-<part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
+<part name="U1" library="version2" deviceset="TMS570LS0432_PZ_100" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23326,26 +23305,11 @@ COM</text>
 <plain>
 </plain>
 <instances>
-<instance part="U3" gate="A" x="22.86" y="81.28"/>
-<instance part="SUPPLY4" gate="GND" x="154.94" y="30.48"/>
+<instance part="U1" gate="A" x="160.02" y="78.74"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="GND" class="0">
-<segment>
-<pinref part="U3" gate="A" pin="VSS"/>
-<wire x1="124.46" y1="81.28" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="81.28" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_10"/>
-<wire x1="154.94" y1="48.26" x2="154.94" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="45.72" x2="154.94" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="48.26" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="U3" gate="A" pin="VSS_9"/>
-<wire x1="124.46" y1="45.72" x2="154.94" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="SUPPLY4" gate="GND" pin="GND"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>

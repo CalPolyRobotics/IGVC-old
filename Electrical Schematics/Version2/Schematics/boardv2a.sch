@@ -19383,15 +19383,9 @@ W = angled&lt;p&gt;
 <pin name="N2HET[18]" x="0" y="-53.34" length="middle"/>
 <pin name="VCC" x="101.6" y="-43.18" length="middle" direction="pwr" rot="R180"/>
 <pin name="VSS" x="101.6" y="2.54" length="middle" direction="pwr" rot="R180"/>
-<<<<<<< HEAD
-<wire x1="7.62" y1="5.08" x2="7.62" y2="-137.16" width="0.1524" layer="94"/>
-<wire x1="7.62" y1="-137.16" x2="93.98" y2="-137.16" width="0.1524" layer="94"/>
-<wire x1="93.98" y1="-137.16" x2="93.98" y2="5.08" width="0.1524" layer="94"/>
-=======
 <wire x1="7.62" y1="5.08" x2="7.62" y2="-134.62" width="0.1524" layer="94"/>
 <wire x1="7.62" y1="-134.62" x2="93.98" y2="-134.62" width="0.1524" layer="94"/>
 <wire x1="93.98" y1="-134.62" x2="93.98" y2="5.08" width="0.1524" layer="94"/>
->>>>>>> 5abb502c80fe1b872951b7689b9b14fc4bcd9266
 <wire x1="93.98" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
 <text x="46.0756" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="45.1358" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
@@ -19887,8 +19881,6 @@ W = angled&lt;p&gt;
 <part name="R37" library="resistor" deviceset="R-US_" device="R0603" value="27"/>
 <part name="R38" library="resistor" deviceset="R-US_" device="R0603" value="27"/>
 <part name="U1" library="version2" deviceset="TMS570LS0432_PZ_100" device=""/>
-<<<<<<< HEAD
-=======
 <part name="C9" library="rcl" deviceset="C-EU" device="C0603" value="18pf"/>
 <part name="C20" library="rcl" deviceset="C-EU" device="C0603" value="18pf"/>
 <part name="C21" library="rcl" deviceset="C-EU" device="C0603" value="0.1uf"/>
@@ -19902,9 +19894,6 @@ W = angled&lt;p&gt;
 <part name="C27" library="rcl" deviceset="C-EU" device="C0603" value="0.1uf"/>
 <part name="C28" library="rcl" deviceset="C-EU" device="C0603" value="0.1uf"/>
 <part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
-<part name="U2" library="SparkFun-DigitalIC" deviceset="W5100" device=""/>
-<part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
->>>>>>> 5abb502c80fe1b872951b7689b9b14fc4bcd9266
 </parts>
 <sheets>
 <sheet>
@@ -23349,9 +23338,6 @@ COM</text>
 <plain>
 </plain>
 <instances>
-<<<<<<< HEAD
-<instance part="U1" gate="A" x="160.02" y="78.74"/>
-=======
 <instance part="U1" gate="A" x="12.7" y="81.28"/>
 <instance part="C9" gate="G$1" x="-15.24" y="55.88"/>
 <instance part="C20" gate="G$1" x="-27.94" y="55.88"/>
@@ -23620,93 +23606,6 @@ COM</text>
 <plain>
 </plain>
 <instances>
-<instance part="U2" gate="G$1" x="33.02" y="48.26"/>
-<instance part="SUPPLY7" gate="GND" x="0" y="-15.24"/>
-</instances>
-<busses>
-</busses>
-<nets>
-<net name="GND" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="GNDA@0"/>
-<wire x1="15.24" y1="10.16" x2="10.16" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="10.16" x2="10.16" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDA@1"/>
-<wire x1="10.16" y1="7.62" x2="15.24" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="7.62" x2="10.16" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDA@2"/>
-<wire x1="10.16" y1="5.08" x2="15.24" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="5.08" x2="10.16" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@0"/>
-<wire x1="10.16" y1="2.54" x2="15.24" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="2.54" x2="10.16" y2="0" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@1"/>
-<wire x1="10.16" y1="0" x2="15.24" y2="0" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="0" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@2"/>
-<wire x1="10.16" y1="-2.54" x2="15.24" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="-2.54" x2="10.16" y2="-5.08" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@3"/>
-<wire x1="10.16" y1="-5.08" x2="15.24" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="-5.08" x2="10.16" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@4"/>
-<wire x1="10.16" y1="-7.62" x2="15.24" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="GNDD@5"/>
-<wire x1="10.16" y1="-10.16" x2="15.24" y2="-10.16" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="-10.16" x2="0" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<wire x1="0" y1="-10.16" x2="0" y2="-12.7" width="0.1524" layer="91"/>
-<junction x="10.16" y="-10.16"/>
-<junction x="10.16" y="-7.62"/>
-<junction x="10.16" y="-5.08"/>
-<junction x="10.16" y="-2.54"/>
-<junction x="10.16" y="0"/>
-<junction x="10.16" y="2.54"/>
-<junction x="10.16" y="5.08"/>
-<junction x="10.16" y="7.62"/>
-<junction x="10.16" y="10.16"/>
-<pinref part="U2" gate="G$1" pin="TEST0"/>
-<wire x1="15.24" y1="22.86" x2="10.16" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="22.86" x2="10.16" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="TEST1"/>
-<wire x1="10.16" y1="20.32" x2="15.24" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="20.32" x2="10.16" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="TEST2"/>
-<wire x1="10.16" y1="17.78" x2="15.24" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="17.78" x2="10.16" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="15.24" x2="17.78" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="15.24" x2="10.16" y2="10.16" width="0.1524" layer="91"/>
-<junction x="10.16" y="15.24"/>
-<junction x="10.16" y="17.78"/>
-<junction x="10.16" y="20.32"/>
-<junction x="10.16" y="22.86"/>
-</segment>
-</net>
-<net name="N$45" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="MISO"/>
-<wire x1="50.8" y1="96.52" x2="66.04" y2="96.52" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$47" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="MOSI"/>
-<wire x1="50.8" y1="99.06" x2="66.04" y2="99.06" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$48" class="0">
-<segment>
-<wire x1="48.26" y1="104.14" x2="66.04" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-</net>
-</nets>
-</sheet>
-<sheet>
-<plain>
-</plain>
-<instances>
->>>>>>> 5abb502c80fe1b872951b7689b9b14fc4bcd9266
 </instances>
 <busses>
 </busses>

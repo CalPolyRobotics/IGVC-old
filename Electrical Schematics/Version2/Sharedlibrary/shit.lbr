@@ -2640,6 +2640,24 @@
 <text x="30.8356" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="29.8958" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
 </symbol>
+<symbol name="RB1-125BAG1A-2">
+<pin name="R1" x="-15.24" y="5.08" length="middle"/>
+<pin name="R2" x="-15.24" y="2.54" length="middle"/>
+<pin name="R3" x="-15.24" y="0" length="middle"/>
+<pin name="R4" x="-15.24" y="-2.54" length="middle"/>
+<pin name="R5" x="-15.24" y="-5.08" length="middle"/>
+<pin name="R6" x="-15.24" y="-7.62" length="middle"/>
+<pin name="R7" x="-15.24" y="-10.16" length="middle"/>
+<pin name="R8" x="-15.24" y="-12.7" length="middle"/>
+<pin name="L1" x="12.7" y="5.08" length="middle" rot="R180"/>
+<pin name="L2" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="L3" x="12.7" y="-2.54" length="middle" rot="R180"/>
+<pin name="L4" x="12.7" y="-5.08" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="-15.24" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-15.24" x2="-10.16" y2="-15.24" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="TMS570LS0432_PZ_100" prefix="U">
@@ -2836,6 +2854,32 @@
 <attribute name="MANUFACTURER_PART_NUMBER" value="lm25061pmm-1nopb" constant="no"/>
 <attribute name="VENDOR" value="National" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ETHERNET_CONNECTOR">
+<gates>
+<gate name="G$1" symbol="RB1-125BAG1A-2" x="2.54" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="RB1-125BAG1A">
+<connects>
+<connect gate="G$1" pin="L1" pad="L1"/>
+<connect gate="G$1" pin="L2" pad="L2"/>
+<connect gate="G$1" pin="L3" pad="L3"/>
+<connect gate="G$1" pin="L4" pad="L4"/>
+<connect gate="G$1" pin="R1" pad="R1"/>
+<connect gate="G$1" pin="R2" pad="R2"/>
+<connect gate="G$1" pin="R3" pad="R3"/>
+<connect gate="G$1" pin="R4" pad="R4"/>
+<connect gate="G$1" pin="R5" pad="R5"/>
+<connect gate="G$1" pin="R6" pad="R6"/>
+<connect gate="G$1" pin="R7" pad="R7"/>
+<connect gate="G$1" pin="R8" pad="R8"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

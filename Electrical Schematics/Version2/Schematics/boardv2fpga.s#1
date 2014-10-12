@@ -1694,6 +1694,11 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 <instances>
 </instances>
 <busses>
+<bus name="B$1">
+<segment>
+<wire x1="-2.54" y1="96.52" x2="-2.54" y2="22.86" width="0.762" layer="92"/>
+</segment>
+</bus>
 </busses>
 <nets>
 </nets>

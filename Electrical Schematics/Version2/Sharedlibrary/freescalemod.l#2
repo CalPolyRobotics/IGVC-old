@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4468,6 +4468,57 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX7042.pdf</description>
 <pin name="PTG2/EXTAL" x="27.94" y="17.78" length="short" rot="R180"/>
 <pin name="EXP" x="0" y="-27.94" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
+<symbol name="MM912_637D1">
+<wire x1="-41.91" y1="33.02" x2="-8.89" y2="33.02" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="33.02" x2="-8.89" y2="-38.1" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="-38.1" x2="-41.91" y2="-38.1" width="0.254" layer="94"/>
+<wire x1="-41.91" y1="-38.1" x2="-41.91" y2="33.02" width="0.254" layer="94"/>
+<pin name="VDDA" x="-46.99" y="30.48" length="middle"/>
+<pin name="AGND" x="-46.99" y="27.94" length="middle"/>
+<pin name="ADCGND" x="-46.99" y="25.4" length="middle"/>
+<pin name="VDDL" x="-46.99" y="22.86" length="middle"/>
+<pin name="VDDH" x="-46.99" y="20.32" length="middle"/>
+<pin name="VDDD2D" x="-46.99" y="17.78" length="middle"/>
+<pin name="VDDX" x="-46.99" y="15.24" length="middle"/>
+<pin name="VDDRX" x="-46.99" y="12.7" length="middle"/>
+<pin name="DGND" x="-46.99" y="10.16" length="middle"/>
+<pin name="VSSD2D" x="-46.99" y="7.62" length="middle"/>
+<pin name="VSSRX" x="-46.99" y="5.08" length="middle"/>
+<pin name="*RESET" x="-46.99" y="2.54" length="middle"/>
+<pin name="*RESET_A" x="-46.99" y="0" length="middle"/>
+<pin name="PA0/MISO" x="-46.99" y="-2.54" length="middle"/>
+<pin name="PA1/MOSI" x="-46.99" y="-5.08" length="middle"/>
+<pin name="PA2/SCK" x="-46.99" y="-7.62" length="middle"/>
+<pin name="PA3/*SS" x="-46.99" y="-10.16" length="middle"/>
+<pin name="PA4" x="-46.99" y="-12.7" length="middle"/>
+<pin name="PA5" x="-46.99" y="-16.51" length="middle"/>
+<pin name="PA6" x="-46.99" y="-19.05" length="middle"/>
+<pin name="PA7" x="-46.99" y="-22.86" length="middle"/>
+<pin name="BKGD/MODC" x="-46.99" y="-25.4" length="middle"/>
+<pin name="PE0/EXTAL" x="-46.99" y="-27.94" length="middle"/>
+<pin name="PE1/XTAL" x="-46.99" y="-30.48" length="middle"/>
+<pin name="TEST" x="-46.99" y="-33.02" length="middle"/>
+<pin name="LIN" x="-3.81" y="24.13" length="middle" rot="R180"/>
+<pin name="LGND" x="-3.81" y="21.59" length="middle" rot="R180"/>
+<pin name="TSUP" x="-3.81" y="19.05" length="middle" rot="R180"/>
+<pin name="VTEMP" x="-3.81" y="16.51" length="middle" rot="R180"/>
+<pin name="VOPT" x="-3.81" y="13.97" length="middle" rot="R180"/>
+<pin name="VSENSE" x="-3.81" y="11.43" length="middle" rot="R180"/>
+<pin name="VSUP" x="-3.81" y="8.89" length="middle" rot="R180"/>
+<pin name="ISENSEL" x="-3.81" y="6.35" length="middle" rot="R180"/>
+<pin name="ISENSEH" x="-3.81" y="3.81" length="middle" rot="R180"/>
+<pin name="PTB0" x="-3.81" y="1.27" length="middle" rot="R180"/>
+<pin name="PTB1" x="-3.81" y="-1.27" length="middle" rot="R180"/>
+<pin name="PTB2" x="-3.81" y="-3.81" length="middle" rot="R180"/>
+<pin name="PTB3/L0" x="-3.81" y="-6.35" length="middle" rot="R180"/>
+<pin name="GNDSUB" x="-3.81" y="-8.89" length="middle" rot="R180"/>
+<pin name="TCLK" x="-3.81" y="-11.43" length="middle" rot="R180"/>
+<pin name="TEST_A" x="-3.81" y="-13.97" length="middle" rot="R180"/>
+<pin name="GNDSUB1" x="-3.81" y="-19.05" length="middle" rot="R180"/>
+<pin name="GNDSUB2" x="-3.81" y="-21.59" length="middle" rot="R180"/>
+<pin name="GNDSUB3" x="-3.81" y="-24.13" length="middle" rot="R180"/>
+<pin name="DGND1" x="-3.81" y="-27.94" length="middle" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FSA95601" prefix="IC">
@@ -5955,6 +6006,65 @@ Source: http://www.freescale.com/files/microcontrollers/doc/data_sheet/MC9S08GT1
 <attribute name="OC_FARNELL" value="1294367" constant="no"/>
 <attribute name="OC_NEWARK" value="01M5873" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MM912_637D1">
+<gates>
+<gate name="G$1" symbol="MM912_637D1" x="20.32" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="QFN48">
+<connects>
+<connect gate="G$1" pin="*RESET" pad="46"/>
+<connect gate="G$1" pin="*RESET_A" pad="45"/>
+<connect gate="G$1" pin="ADCGND" pad="33"/>
+<connect gate="G$1" pin="AGND" pad="27"/>
+<connect gate="G$1" pin="BKGD/MODC" pad="47"/>
+<connect gate="G$1" pin="DGND" pad="18"/>
+<connect gate="G$1" pin="DGND1" pad="44"/>
+<connect gate="G$1" pin="GNDSUB" pad="16"/>
+<connect gate="G$1" pin="GNDSUB1" pad="20"/>
+<connect gate="G$1" pin="GNDSUB2" pad="30"/>
+<connect gate="G$1" pin="GNDSUB3" pad="41"/>
+<connect gate="G$1" pin="ISENSEH" pad="32"/>
+<connect gate="G$1" pin="ISENSEL" pad="31"/>
+<connect gate="G$1" pin="LGND" pad="23"/>
+<connect gate="G$1" pin="LIN" pad="22"/>
+<connect gate="G$1" pin="PA0/MISO" pad="10"/>
+<connect gate="G$1" pin="PA1/MOSI" pad="9"/>
+<connect gate="G$1" pin="PA2/SCK" pad="8"/>
+<connect gate="G$1" pin="PA3/*SS" pad="7"/>
+<connect gate="G$1" pin="PA4" pad="6"/>
+<connect gate="G$1" pin="PA5" pad="5"/>
+<connect gate="G$1" pin="PA6" pad="1"/>
+<connect gate="G$1" pin="PA7" pad="48"/>
+<connect gate="G$1" pin="PE0/EXTAL" pad="2"/>
+<connect gate="G$1" pin="PE1/XTAL" pad="3"/>
+<connect gate="G$1" pin="PTB0" pad="39"/>
+<connect gate="G$1" pin="PTB1" pad="38"/>
+<connect gate="G$1" pin="PTB2" pad="37"/>
+<connect gate="G$1" pin="PTB3/L0" pad="36"/>
+<connect gate="G$1" pin="TCLK" pad="40"/>
+<connect gate="G$1" pin="TEST" pad="4"/>
+<connect gate="G$1" pin="TEST_A" pad="43"/>
+<connect gate="G$1" pin="TSUP" pad="29"/>
+<connect gate="G$1" pin="VDDA" pad="26"/>
+<connect gate="G$1" pin="VDDD2D" pad="14"/>
+<connect gate="G$1" pin="VDDH" pad="19"/>
+<connect gate="G$1" pin="VDDL" pad="42"/>
+<connect gate="G$1" pin="VDDRX" pad="12"/>
+<connect gate="G$1" pin="VDDX" pad="17"/>
+<connect gate="G$1" pin="VOPT" pad="35"/>
+<connect gate="G$1" pin="VSENSE" pad="34"/>
+<connect gate="G$1" pin="VSSD2D" pad="13"/>
+<connect gate="G$1" pin="VSSRX" pad="11"/>
+<connect gate="G$1" pin="VSUP" pad="21"/>
+<connect gate="G$1" pin="VTEMP" pad="28"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

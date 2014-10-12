@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -4469,54 +4469,54 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX7042.pdf</description>
 <pin name="EXP" x="0" y="-27.94" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
 <symbol name="MM912_637D1">
-<wire x1="-41.91" y1="33.02" x2="-8.89" y2="33.02" width="0.254" layer="94"/>
-<wire x1="-8.89" y1="33.02" x2="-8.89" y2="-38.1" width="0.254" layer="94"/>
-<wire x1="-8.89" y1="-38.1" x2="-41.91" y2="-38.1" width="0.254" layer="94"/>
-<wire x1="-41.91" y1="-38.1" x2="-41.91" y2="33.02" width="0.254" layer="94"/>
-<pin name="VDDA" x="-46.99" y="30.48" length="middle"/>
-<pin name="AGND" x="-46.99" y="27.94" length="middle"/>
-<pin name="ADCGND" x="-46.99" y="25.4" length="middle"/>
-<pin name="VDDL" x="-46.99" y="22.86" length="middle"/>
-<pin name="VDDH" x="-46.99" y="20.32" length="middle"/>
-<pin name="VDDD2D" x="-46.99" y="17.78" length="middle"/>
-<pin name="VDDX" x="-46.99" y="15.24" length="middle"/>
-<pin name="VDDRX" x="-46.99" y="12.7" length="middle"/>
-<pin name="DGND" x="-46.99" y="10.16" length="middle"/>
-<pin name="VSSD2D" x="-46.99" y="7.62" length="middle"/>
-<pin name="VSSRX" x="-46.99" y="5.08" length="middle"/>
-<pin name="*RESET" x="-46.99" y="2.54" length="middle"/>
-<pin name="*RESET_A" x="-46.99" y="0" length="middle"/>
-<pin name="PA0/MISO" x="-46.99" y="-2.54" length="middle"/>
-<pin name="PA1/MOSI" x="-46.99" y="-5.08" length="middle"/>
-<pin name="PA2/SCK" x="-46.99" y="-7.62" length="middle"/>
-<pin name="PA3/*SS" x="-46.99" y="-10.16" length="middle"/>
-<pin name="PA4" x="-46.99" y="-12.7" length="middle"/>
-<pin name="PA5" x="-46.99" y="-16.51" length="middle"/>
-<pin name="PA6" x="-46.99" y="-19.05" length="middle"/>
-<pin name="PA7" x="-46.99" y="-22.86" length="middle"/>
-<pin name="BKGD/MODC" x="-46.99" y="-25.4" length="middle"/>
-<pin name="PE0/EXTAL" x="-46.99" y="-27.94" length="middle"/>
-<pin name="PE1/XTAL" x="-46.99" y="-30.48" length="middle"/>
-<pin name="TEST" x="-46.99" y="-33.02" length="middle"/>
-<pin name="LIN" x="-3.81" y="24.13" length="middle" rot="R180"/>
-<pin name="LGND" x="-3.81" y="21.59" length="middle" rot="R180"/>
-<pin name="TSUP" x="-3.81" y="19.05" length="middle" rot="R180"/>
-<pin name="VTEMP" x="-3.81" y="16.51" length="middle" rot="R180"/>
-<pin name="VOPT" x="-3.81" y="13.97" length="middle" rot="R180"/>
-<pin name="VSENSE" x="-3.81" y="11.43" length="middle" rot="R180"/>
-<pin name="VSUP" x="-3.81" y="8.89" length="middle" rot="R180"/>
-<pin name="ISENSEL" x="-3.81" y="6.35" length="middle" rot="R180"/>
-<pin name="ISENSEH" x="-3.81" y="3.81" length="middle" rot="R180"/>
-<pin name="PTB0" x="-3.81" y="1.27" length="middle" rot="R180"/>
-<pin name="PTB1" x="-3.81" y="-1.27" length="middle" rot="R180"/>
-<pin name="PTB2" x="-3.81" y="-3.81" length="middle" rot="R180"/>
-<pin name="PTB3/L0" x="-3.81" y="-6.35" length="middle" rot="R180"/>
-<pin name="GNDSUB" x="-3.81" y="-8.89" length="middle" rot="R180"/>
-<pin name="TCLK" x="-3.81" y="-11.43" length="middle" rot="R180"/>
-<pin name="TEST_A" x="-3.81" y="-13.97" length="middle" rot="R180"/>
-<pin name="GNDSUB1" x="-3.81" y="-16.51" length="middle" rot="R180"/>
-<pin name="GNDSUB2" x="-3.81" y="-19.05" length="middle" rot="R180"/>
-<pin name="GNDSUB3" x="-3.81" y="-21.59" length="middle" rot="R180"/>
+<wire x1="-41.91" y1="29.21" x2="-8.89" y2="29.21" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="29.21" x2="-8.89" y2="-26.67" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="-26.67" x2="-41.91" y2="-26.67" width="0.254" layer="94"/>
+<wire x1="-41.91" y1="-26.67" x2="-41.91" y2="29.21" width="0.254" layer="94"/>
+<pin name="P$1" x="-39.37" y="22.86" length="middle"/>
+<pin name="P$2" x="-46.99" y="27.94" length="middle"/>
+<pin name="P$3" x="-46.99" y="25.4" length="middle"/>
+<pin name="P$4" x="-46.99" y="22.86" length="middle"/>
+<pin name="P$5" x="-46.99" y="20.32" length="middle"/>
+<pin name="P$6" x="-46.99" y="17.78" length="middle"/>
+<pin name="P$7" x="-46.99" y="15.24" length="middle"/>
+<pin name="P$8" x="-46.99" y="12.7" length="middle"/>
+<pin name="P$9" x="-46.99" y="10.16" length="middle"/>
+<pin name="P$10" x="-46.99" y="7.62" length="middle"/>
+<pin name="P$11" x="-46.99" y="5.08" length="middle"/>
+<pin name="P$12" x="-46.99" y="2.54" length="middle"/>
+<pin name="P$13" x="-46.99" y="0" length="middle"/>
+<pin name="P$14" x="-46.99" y="-2.54" length="middle"/>
+<pin name="P$15" x="-46.99" y="-5.08" length="middle"/>
+<pin name="P$16" x="-46.99" y="-7.62" length="middle"/>
+<pin name="P$17" x="-46.99" y="-10.16" length="middle"/>
+<pin name="P$18" x="-46.99" y="-12.7" length="middle"/>
+<pin name="P$19" x="-46.99" y="-16.51" length="middle"/>
+<pin name="P$20" x="-46.99" y="-19.05" length="middle"/>
+<pin name="P$21" x="-46.99" y="-22.86" length="middle"/>
+<pin name="P$22" x="-46.99" y="-25.4" length="middle"/>
+<pin name="P$23" x="-3.81" y="27.94" length="middle" rot="R180"/>
+<pin name="P$24" x="-3.81" y="25.4" length="middle" rot="R180"/>
+<pin name="P$25" x="-3.81" y="22.86" length="middle" rot="R180"/>
+<pin name="P$26" x="-3.81" y="20.32" length="middle" rot="R180"/>
+<pin name="P$27" x="-3.81" y="17.78" length="middle" rot="R180"/>
+<pin name="P$28" x="-3.81" y="15.24" length="middle" rot="R180"/>
+<pin name="P$29" x="-3.81" y="12.7" length="middle" rot="R180"/>
+<pin name="P$30" x="-3.81" y="10.16" length="middle" rot="R180"/>
+<pin name="P$31" x="-3.81" y="7.62" length="middle" rot="R180"/>
+<pin name="P$32" x="-3.81" y="5.08" length="middle" rot="R180"/>
+<pin name="P$33" x="-3.81" y="2.54" length="middle" rot="R180"/>
+<pin name="P$34" x="-3.81" y="0" length="middle" rot="R180"/>
+<pin name="P$35" x="-3.81" y="-2.54" length="middle" rot="R180"/>
+<pin name="P$36" x="-3.81" y="-5.08" length="middle" rot="R180"/>
+<pin name="P$37" x="-3.81" y="-7.62" length="middle" rot="R180"/>
+<pin name="P$38" x="-3.81" y="-10.16" length="middle" rot="R180"/>
+<pin name="P$39" x="-3.81" y="-12.7" length="middle" rot="R180"/>
+<pin name="P$40" x="-3.81" y="-15.24" length="middle" rot="R180"/>
+<pin name="P$41" x="-3.81" y="-17.78" length="middle" rot="R180"/>
+<pin name="P$42" x="-3.81" y="-20.32" length="middle" rot="R180"/>
+<pin name="P$43" x="-3.81" y="-22.86" length="middle" rot="R180"/>
+<pin name="P$44" x="-3.81" y="-25.4" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -6009,40 +6009,11 @@ Source: http://www.freescale.com/files/microcontrollers/doc/data_sheet/MC9S08GT1
 </device>
 </devices>
 </deviceset>
-<deviceset name="MM912_637D1" uservalue="yes">
+<deviceset name="MM912_637D1">
 <gates>
-<gate name="A" symbol="MM912_637D1" x="20.32" y="10.16"/>
 </gates>
 <devices>
-<device name="" package="QFP44">
-<connects>
-<connect gate="A" pin="AGND" pad="27"/>
-<connect gate="A" pin="DGND" pad="18"/>
-<connect gate="A" pin="GNDSUB" pad="16"/>
-<connect gate="A" pin="GNDSUB1" pad="20"/>
-<connect gate="A" pin="LGND" pad="23"/>
-<connect gate="A" pin="LIN" pad="22"/>
-<connect gate="A" pin="PA0/MISO" pad="10"/>
-<connect gate="A" pin="PA1/MOSI" pad="9"/>
-<connect gate="A" pin="PA2/SCK" pad="8"/>
-<connect gate="A" pin="PA3/*SS" pad="7"/>
-<connect gate="A" pin="PA4" pad="6"/>
-<connect gate="A" pin="PA5" pad="5"/>
-<connect gate="A" pin="PA6" pad="1"/>
-<connect gate="A" pin="PE0/EXTAL" pad="2"/>
-<connect gate="A" pin="PE1/XTAL" pad="3"/>
-<connect gate="A" pin="TEST" pad="4"/>
-<connect gate="A" pin="TSUP" pad="29"/>
-<connect gate="A" pin="VDDA" pad="26"/>
-<connect gate="A" pin="VDDD2D" pad="14"/>
-<connect gate="A" pin="VDDH" pad="19"/>
-<connect gate="A" pin="VDDRX" pad="11"/>
-<connect gate="A" pin="VDDX" pad="17"/>
-<connect gate="A" pin="VSSD2D" pad="13"/>
-<connect gate="A" pin="VSSRX" pad="12"/>
-<connect gate="A" pin="VSUP" pad="21"/>
-<connect gate="A" pin="VTEMP" pad="28"/>
-</connects>
+<device name="">
 <technologies>
 <technology name=""/>
 </technologies>

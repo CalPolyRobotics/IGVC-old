@@ -1179,9 +1179,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="1uF"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="1uF"/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
-<part name="C16" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="1uF"/>
-<part name="C17" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value="1uF"/>
-<part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1209,9 +1206,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="C13" gate="G$1" x="233.68" y="45.72"/>
 <instance part="C15" gate="G$1" x="243.84" y="45.72"/>
 <instance part="SUPPLY5" gate="GND" x="231.14" y="40.64"/>
-<instance part="C16" gate="G$1" x="182.88" y="25.4"/>
-<instance part="C17" gate="G$1" x="193.04" y="25.4"/>
-<instance part="SUPPLY6" gate="GND" x="180.34" y="20.32"/>
 </instances>
 <busses>
 </busses>
@@ -1355,15 +1349,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="233.68" y1="43.18" x2="243.84" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
 </segment>
-<segment>
-<pinref part="C17" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="22.86" x2="182.88" y2="22.86" width="0.1524" layer="91"/>
-<junction x="193.04" y="22.86"/>
-<pinref part="C16" gate="G$1" pin="2"/>
-<junction x="182.88" y="22.86"/>
-<wire x1="182.88" y1="22.86" x2="193.04" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="SUPPLY6" gate="GND" pin="GND"/>
-</segment>
 </net>
 <net name="VCCINT" class="0">
 <segment>
@@ -1486,15 +1471,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="233.68" y1="50.8" x2="228.6" y2="50.8" width="0.1524" layer="91"/>
 <junction x="243.84" y="50.8"/>
 <label x="228.6" y="50.8" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="C17" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="30.48" x2="182.88" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="C16" gate="G$1" pin="1"/>
-<junction x="182.88" y="30.48"/>
-<wire x1="182.88" y1="30.48" x2="177.8" y2="30.48" width="0.1524" layer="91"/>
-<junction x="193.04" y="30.48"/>
-<label x="177.8" y="30.48" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>

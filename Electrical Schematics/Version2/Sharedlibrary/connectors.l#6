@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mm"/>
+<grid distance="0.71" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -71,24 +71,52 @@
 <library>
 <packages>
 <package name="JTAG14PIN">
-<pad name="P$1" x="0" y="0" drill="0.9" shape="square"/>
-<pad name="P$2" x="0" y="2" drill="0.9"/>
-<pad name="P$3" x="2" y="0" drill="0.9"/>
-<pad name="P$4" x="2" y="2" drill="0.9"/>
-<pad name="P$5" x="4" y="0" drill="0.9"/>
-<pad name="P$6" x="4" y="2" drill="0.9"/>
-<pad name="P$7" x="6" y="0" drill="0.9"/>
-<pad name="P$8" x="6" y="2" drill="0.9"/>
-<pad name="P$9" x="8" y="0" drill="0.9"/>
-<pad name="P$10" x="8" y="2" drill="0.9"/>
-<pad name="P$11" x="10" y="0" drill="0.9"/>
-<pad name="P$12" x="10" y="2" drill="0.9"/>
-<pad name="P$13" x="12" y="0" drill="0.9"/>
-<pad name="P$14" x="12" y="2" drill="0.9"/>
-<wire x1="-2.325" y1="4.15" x2="-2.325" y2="-2.15" width="0.127" layer="51"/>
-<wire x1="-2.325" y1="-2.15" x2="14.325" y2="-2.15" width="0.127" layer="51"/>
-<wire x1="14.325" y1="-2.15" x2="14.325" y2="4.15" width="0.127" layer="51"/>
-<wire x1="14.325" y1="4.15" x2="-2.325" y2="4.15" width="0.127" layer="51"/>
+<pad name="P$1" x="-5.08" y="-1.27" drill="0.9" shape="square"/>
+<pad name="P$2" x="-5.08" y="0.73" drill="0.9"/>
+<pad name="P$3" x="-3.08" y="-1.27" drill="0.9"/>
+<pad name="P$4" x="-3.08" y="0.73" drill="0.9"/>
+<pad name="P$5" x="-1.08" y="-1.27" drill="0.9"/>
+<pad name="P$6" x="-1.08" y="0.73" drill="0.9"/>
+<pad name="P$7" x="0.92" y="-1.27" drill="0.9"/>
+<pad name="P$8" x="0.92" y="0.73" drill="0.9"/>
+<pad name="P$9" x="2.92" y="-1.27" drill="0.9"/>
+<pad name="P$10" x="2.92" y="0.73" drill="0.9"/>
+<pad name="P$11" x="4.92" y="-1.27" drill="0.9"/>
+<pad name="P$12" x="4.92" y="0.73" drill="0.9"/>
+<pad name="P$13" x="6.92" y="-1.27" drill="0.9"/>
+<pad name="P$14" x="6.92" y="0.73" drill="0.9"/>
+<wire x1="-7.405" y1="2.88" x2="-7.405" y2="-3.42" width="0.127" layer="51"/>
+<wire x1="-7.405" y1="-3.42" x2="9.245" y2="-3.42" width="0.127" layer="51"/>
+<wire x1="9.245" y1="-3.42" x2="9.245" y2="2.88" width="0.127" layer="51"/>
+<wire x1="9.245" y1="2.88" x2="-7.405" y2="2.88" width="0.127" layer="51"/>
+</package>
+<package name="34830-2001">
+<pad name="P$1" x="1.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$2" x="-1.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$3" x="-1.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$4" x="1.72" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$5" x="5.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$6" x="5.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$7" x="8.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$8" x="8.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$9" x="12.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$10" x="12.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$11" x="15.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$12" x="15.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$13" x="-5.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$14" x="-5.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$15" x="-8.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$16" x="-8.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$17" x="-12.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$18" x="-12.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$19" x="-15.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$20" x="-15.75" y="-1.75" drill="1.5" rot="R90"/>
+<hole x="-22.75" y="-0.71" drill="4"/>
+<hole x="22.75" y="-0.71" drill="4"/>
+<wire x1="27.41" y1="-7.39" x2="27.41" y2="6.25" width="0.127" layer="51"/>
+<wire x1="27.41" y1="6.25" x2="-27.41" y2="6.25" width="0.127" layer="51"/>
+<wire x1="-27.41" y1="6.25" x2="-27.41" y2="-7.39" width="0.127" layer="51"/>
+<wire x1="-27.41" y1="-7.39" x2="27.41" y2="-7.39" width="0.127" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -112,6 +140,32 @@
 <wire x1="11.43" y1="-11.43" x2="-26.67" y2="-11.43" width="0.254" layer="94"/>
 <wire x1="-26.67" y1="-11.43" x2="-26.67" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="-26.67" y1="-2.54" x2="-25.4" y2="-2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="34830-2001">
+<wire x1="-30.48" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="2.54" x2="22.86" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="-30.48" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-30.48" y1="-5.08" x2="-30.48" y2="2.54" width="0.254" layer="94"/>
+<pin name="P$1" x="-27.94" y="7.62" length="middle" rot="R270"/>
+<pin name="P$2" x="-25.4" y="7.62" length="middle" rot="R270"/>
+<pin name="P$3" x="-22.86" y="7.62" length="middle" rot="R270"/>
+<pin name="P$4" x="-20.32" y="7.62" length="middle" rot="R270"/>
+<pin name="P$5" x="-17.78" y="7.62" length="middle" rot="R270"/>
+<pin name="P$6" x="-15.24" y="7.62" length="middle" rot="R270"/>
+<pin name="P$7" x="-12.7" y="7.62" length="middle" rot="R270"/>
+<pin name="P$8" x="-10.16" y="7.62" length="middle" rot="R270"/>
+<pin name="P$9" x="-7.62" y="7.62" length="middle" rot="R270"/>
+<pin name="P$10" x="-5.08" y="7.62" length="middle" rot="R270"/>
+<pin name="P$11" x="-2.54" y="7.62" length="middle" rot="R270"/>
+<pin name="P$12" x="0" y="7.62" length="middle" rot="R270"/>
+<pin name="P$13" x="2.54" y="7.62" length="middle" rot="R270"/>
+<pin name="P$14" x="5.08" y="7.62" length="middle" rot="R270"/>
+<pin name="P$15" x="7.62" y="7.62" length="middle" rot="R270"/>
+<pin name="P$16" x="10.16" y="7.62" length="middle" rot="R270"/>
+<pin name="P$17" x="12.7" y="7.62" length="middle" rot="R270"/>
+<pin name="P$18" x="15.24" y="7.62" length="middle" rot="R270"/>
+<pin name="P$19" x="17.78" y="7.62" length="middle" rot="R270"/>
+<pin name="P$20" x="20.32" y="7.62" length="middle" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>

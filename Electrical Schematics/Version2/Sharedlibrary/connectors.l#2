@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -91,26 +91,26 @@
 <wire x1="9.245" y1="2.88" x2="-7.405" y2="2.88" width="0.127" layer="51"/>
 </package>
 <package name="34830-2001">
-<pad name="P$1" x="1.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$2" x="-1.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$3" x="-1.75" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$4" x="1.72" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$5" x="5.25" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$6" x="5.25" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$7" x="8.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$8" x="8.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$6" x="1.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$5" x="-1.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$15" x="-1.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$16" x="1.72" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$7" x="5.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$17" x="5.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$8" x="8.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$18" x="8.75" y="-1.75" drill="1.5" rot="R90"/>
 <pad name="P$9" x="12.25" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$10" x="12.25" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$11" x="15.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$12" x="15.75" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$13" x="-5.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$19" x="12.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$10" x="15.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$20" x="15.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$4" x="-5.25" y="1.75" drill="1.5" rot="R90"/>
 <pad name="P$14" x="-5.25" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$15" x="-8.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$16" x="-8.75" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$17" x="-12.25" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$18" x="-12.25" y="-1.75" drill="1.5" rot="R90"/>
-<pad name="P$19" x="-15.75" y="1.75" drill="1.5" rot="R90"/>
-<pad name="P$20" x="-15.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$3" x="-8.75" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$13" x="-8.75" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$2" x="-12.25" y="1.75" drill="1.5" rot="R90"/>
+<pad name="P$12" x="-12.25" y="-1.75" drill="1.5" rot="R90"/>
+<pad name="P$1" x="-15.75" y="1.75" drill="1.5" shape="square" rot="R90"/>
+<pad name="P$11" x="-15.75" y="-1.75" drill="1.5" rot="R90"/>
 <hole x="-22.75" y="-0.71" drill="4"/>
 <hole x="22.75" y="-0.71" drill="4"/>
 <wire x1="27.41" y1="-7.39" x2="27.41" y2="6.25" width="0.127" layer="51"/>
@@ -167,6 +167,32 @@
 <pin name="P$19" x="17.78" y="7.62" length="middle" rot="R270"/>
 <pin name="P$20" x="20.32" y="7.62" length="middle" rot="R270"/>
 </symbol>
+<symbol name="15-80-0201">
+<wire x1="-25.4" y1="5.08" x2="27.94" y2="5.08" width="0.254" layer="94"/>
+<wire x1="27.94" y1="5.08" x2="27.94" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-2.54" x2="-25.4" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-25.4" y1="-2.54" x2="-25.4" y2="5.08" width="0.254" layer="94"/>
+<pin name="P$1" x="-22.86" y="10.16" length="middle" rot="R270"/>
+<pin name="P$2" x="-20.32" y="10.16" length="middle" rot="R270"/>
+<pin name="P$3" x="-17.78" y="10.16" length="middle" rot="R270"/>
+<pin name="P$4" x="-15.24" y="10.16" length="middle" rot="R270"/>
+<pin name="P$5" x="-12.7" y="10.16" length="middle" rot="R270"/>
+<pin name="P$6" x="-10.16" y="10.16" length="middle" rot="R270"/>
+<pin name="P$7" x="-7.62" y="10.16" length="middle" rot="R270"/>
+<pin name="P$8" x="-5.08" y="10.16" length="middle" rot="R270"/>
+<pin name="P$9" x="-2.54" y="10.16" length="middle" rot="R270"/>
+<pin name="P$10" x="0" y="10.16" length="middle" rot="R270"/>
+<pin name="P$11" x="2.54" y="10.16" length="middle" rot="R270"/>
+<pin name="P$12" x="5.08" y="10.16" length="middle" rot="R270"/>
+<pin name="P$13" x="7.62" y="10.16" length="middle" rot="R270"/>
+<pin name="P$14" x="10.16" y="10.16" length="middle" rot="R270"/>
+<pin name="P$15" x="12.7" y="10.16" length="middle" rot="R270"/>
+<pin name="P$16" x="15.24" y="10.16" length="middle" rot="R270"/>
+<pin name="P$17" x="17.78" y="10.16" length="middle" rot="R270"/>
+<pin name="P$18" x="20.32" y="10.16" length="middle" rot="R270"/>
+<pin name="P$19" x="22.86" y="10.16" length="middle" rot="R270"/>
+<pin name="P$20" x="25.4" y="10.16" length="middle" rot="R270"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="JTAG14PIN">
@@ -183,6 +209,40 @@
 <connect gate="G$1" pin="P$13" pad="P$13"/>
 <connect gate="G$1" pin="P$14" pad="P$14"/>
 <connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
+<connect gate="G$1" pin="P$4" pad="P$4"/>
+<connect gate="G$1" pin="P$5" pad="P$5"/>
+<connect gate="G$1" pin="P$6" pad="P$6"/>
+<connect gate="G$1" pin="P$7" pad="P$7"/>
+<connect gate="G$1" pin="P$8" pad="P$8"/>
+<connect gate="G$1" pin="P$9" pad="P$9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="34830-2001">
+<gates>
+<gate name="G$1" symbol="34830-2001" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="34830-2001">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$10" pad="P$10"/>
+<connect gate="G$1" pin="P$11" pad="P$11"/>
+<connect gate="G$1" pin="P$12" pad="P$12"/>
+<connect gate="G$1" pin="P$13" pad="P$13"/>
+<connect gate="G$1" pin="P$14" pad="P$14"/>
+<connect gate="G$1" pin="P$15" pad="P$15"/>
+<connect gate="G$1" pin="P$16" pad="P$16"/>
+<connect gate="G$1" pin="P$17" pad="P$17"/>
+<connect gate="G$1" pin="P$18" pad="P$18"/>
+<connect gate="G$1" pin="P$19" pad="P$19"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$20" pad="P$20"/>
 <connect gate="G$1" pin="P$3" pad="P$3"/>
 <connect gate="G$1" pin="P$4" pad="P$4"/>
 <connect gate="G$1" pin="P$5" pad="P$5"/>

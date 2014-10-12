@@ -57,7 +57,7 @@
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -70,6 +70,26 @@
 </layers>
 <library>
 <packages>
+<package name="JTAG14PIN">
+<pad name="P$1" x="0" y="0" drill="0.9" shape="square"/>
+<pad name="P$2" x="0" y="2" drill="0.9"/>
+<pad name="P$3" x="2" y="0" drill="0.9"/>
+<pad name="P$4" x="2" y="2" drill="0.9"/>
+<pad name="P$5" x="4" y="0" drill="0.9"/>
+<pad name="P$6" x="4" y="2" drill="0.9"/>
+<pad name="P$7" x="6" y="0" drill="0.9"/>
+<pad name="P$8" x="6" y="2" drill="0.9"/>
+<pad name="P$9" x="8" y="0" drill="0.9"/>
+<pad name="P$10" x="8" y="2" drill="0.9"/>
+<pad name="P$11" x="10" y="0" drill="0.9"/>
+<pad name="P$12" x="10" y="2" drill="0.9"/>
+<pad name="P$13" x="12" y="0" drill="0.9"/>
+<pad name="P$14" x="12" y="2" drill="0.9"/>
+<wire x1="-2.325" y1="4.15" x2="-2.325" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="-2.325" y1="-2.15" x2="14.325" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="14.325" y1="-2.15" x2="14.325" y2="4.15" width="0.127" layer="51"/>
+<wire x1="14.325" y1="4.15" x2="-2.325" y2="4.15" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="JTAG">

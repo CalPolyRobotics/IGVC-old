@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2263,6 +2263,57 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="frames">
+<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="DOCFIELD">
+<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
+<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
+<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
+<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
+<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
+<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
+<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2349,10 +2400,16 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="SUPPLY23" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
 <part name="JP4" library="jumper" deviceset="JP1E" device=""/>
+<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME2" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME3" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME4" library="frames" deviceset="DOCFIELD" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<frame x1="-17.78" y1="-10.16" x2="233.68" y2="157.48" columns="8" rows="5" layer="91"/>
+<text x="-7.62" y="139.7" size="5.08" layer="91">Battery Monitoring Block A</text>
 </plain>
 <instances>
 <instance part="K1" gate="1" x="33.02" y="86.36" rot="R270"/>
@@ -2376,6 +2433,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY5" gate="GND" x="135.89" y="35.56"/>
 <instance part="SUPPLY6" gate="GND" x="73.66" y="25.4"/>
 <instance part="JP1" gate="A" x="57.15" y="113.03"/>
+<instance part="FRAME1" gate="G$1" x="127" y="-7.62"/>
 </instances>
 <busses>
 <bus name="TO_MCU">
@@ -2631,6 +2689,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
+<text x="-60.96" y="132.08" size="5.08" layer="91">Battery Monitoring Block B</text>
+<frame x1="-81.28" y1="-10.16" x2="170.18" y2="157.48" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
 <instance part="K2" gate="1" x="-35.56" y="91.44" rot="R270"/>
@@ -2654,6 +2714,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY11" gate="GND" x="67.31" y="40.64"/>
 <instance part="SUPPLY12" gate="GND" x="5.08" y="30.48"/>
 <instance part="JP2" gate="A" x="-11.43" y="118.11"/>
+<instance part="FRAME2" gate="G$1" x="63.5" y="-7.62"/>
 </instances>
 <busses>
 <bus name="TO_MCU">
@@ -2909,6 +2970,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
+<text x="-86.36" y="142.24" size="5.08" layer="91">Battery Monitoring Block C</text>
+<frame x1="-99.06" y1="0" x2="152.4" y2="167.64" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
 <instance part="K3" gate="1" x="-60.96" y="104.14" rot="R270"/>
@@ -2932,6 +2995,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY17" gate="GND" x="41.91" y="53.34"/>
 <instance part="SUPPLY18" gate="GND" x="-20.32" y="43.18"/>
 <instance part="JP3" gate="A" x="-36.83" y="130.81"/>
+<instance part="FRAME3" gate="G$1" x="45.72" y="2.54"/>
 </instances>
 <busses>
 <bus name="TO_MCU">
@@ -3187,6 +3251,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
+<text x="-68.58" y="129.54" size="5.08" layer="91">Battery Monitoring Block D</text>
+<frame x1="-86.36" y1="-17.78" x2="165.1" y2="149.86" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
 <instance part="K4" gate="1" x="-44.45" y="91.44" rot="R270"/>
@@ -3210,6 +3276,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY23" gate="GND" x="58.42" y="40.64"/>
 <instance part="SUPPLY24" gate="GND" x="-3.81" y="30.48"/>
 <instance part="JP4" gate="A" x="-20.32" y="118.11"/>
+<instance part="FRAME4" gate="G$1" x="58.42" y="-15.24"/>
 </instances>
 <busses>
 <bus name="TO_MCU">

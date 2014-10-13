@@ -599,8 +599,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="104.14" y="43.18" size="1.778" layer="91">regulator 12v temp</text>
 <text x="104.14" y="27.94" size="1.778" layer="91">motor temp</text>
 <text x="104.14" y="12.7" size="1.778" layer="91">ESC temp</text>
-<text x="-15.24" y="121.92" size="5.08" layer="91">Tempature Measurement Block</text>
-<frame x1="-35.56" y1="-2.54" x2="147.32" y2="132.08" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
 <instance part="X1" gate="-1" x="91.44" y="91.44"/>
@@ -623,10 +621,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R6" gate="G$1" x="63.5" y="12.7" rot="R90"/>
 </instances>
 <busses>
-<bus name="TOMCU">
+<bus name="B$1">
 <segment>
 <wire x1="-27.94" y1="114.3" x2="-27.94" y2="7.62" width="0.762" layer="92"/>
-<label x="-22.86" y="96.52" size="1.778" layer="95"/>
 </segment>
 </bus>
 </busses>

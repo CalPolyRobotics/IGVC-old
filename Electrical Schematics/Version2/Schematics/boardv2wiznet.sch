@@ -1611,6 +1611,57 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="frames">
+<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="DOCFIELD">
+<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
+<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
+<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
+<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
+<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
+<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
+<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1656,16 +1707,19 @@ Source: AVX .. aphvc.pdf</description>
 <part name="C33" library="eagle-ltspice" deviceset="C" device="C0603"/>
 <part name="C32" library="eagle-ltspice" deviceset="C" device="C0603"/>
 <part name="C41" library="eagle-ltspice" deviceset="C" device="C0603"/>
+<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<frame x1="-33.02" y1="-17.78" x2="198.12" y2="134.62" columns="8" rows="5" layer="91"/>
+<text x="-20.32" y="124.46" size="5.08" layer="91">Ethernet Hardware Block</text>
 </plain>
 <instances>
 <instance part="U2" gate="G$1" x="53.34" y="53.34"/>
 <instance part="U$16" gate="G$1" x="10.16" y="66.04"/>
 <instance part="SUPPLY7" gate="GND" x="7.62" y="48.26"/>
-<instance part="SUPPLY8" gate="GND" x="17.78" y="-12.7"/>
+<instance part="SUPPLY8" gate="GND" x="17.78" y="-10.16"/>
 <instance part="SUPPLY9" gate="GND" x="5.08" y="93.98"/>
 <instance part="R2" gate="G$1" x="99.06" y="101.6" rot="R270"/>
 <instance part="R3" gate="G$1" x="93.98" y="101.6" rot="R90"/>
@@ -1687,11 +1741,13 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C33" gate="G$1" x="2.54" y="104.14"/>
 <instance part="C32" gate="G$1" x="12.7" y="104.14"/>
 <instance part="C41" gate="G$1" x="-17.78" y="104.14"/>
+<instance part="FRAME1" gate="G$1" x="88.9" y="-12.7"/>
 </instances>
 <busses>
-<bus name="B$1">
+<bus name="TOMCU">
 <segment>
-<wire x1="86.36" y1="101.6" x2="86.36" y2="116.84" width="0.762" layer="92"/>
+<wire x1="91.44" y1="101.6" x2="91.44" y2="116.84" width="0.762" layer="92"/>
+<label x="88.9" y="114.3" size="1.778" layer="95"/>
 </segment>
 </bus>
 </busses>
@@ -1820,7 +1876,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="17.78" y1="2.54" x2="17.78" y2="0" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="0" x2="17.78" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="-2.54" x2="17.78" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="-5.08" x2="17.78" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="-5.08" x2="17.78" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="12.7" x2="17.78" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="12.7" x2="17.78" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="GNDA@2"/>
@@ -1986,24 +2042,11 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="B$1" class="0">
 <segment>
-<pinref part="U2" gate="G$1" pin="SEN"/>
-<wire x1="86.36" y1="111.76" x2="71.12" y2="111.76" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="SCLK"/>
-<wire x1="86.36" y1="109.22" x2="71.12" y2="109.22" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="*SCS"/>
-<wire x1="86.36" y1="106.68" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="MOSI"/>
-<wire x1="86.36" y1="104.14" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="MISO"/>
-<wire x1="86.36" y1="101.6" x2="71.12" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="106.68" x2="83.82" y2="106.68" width="0.1524" layer="91"/>
+<label x="73.66" y="106.68" size="0.762" layer="95"/>
+<wire x1="83.82" y1="106.68" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="106.68" x2="91.44" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -2027,6 +2070,34 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="U2" gate="G$1" pin="1V8D@0"/>
 <wire x1="35.56" y1="93.98" x2="33.02" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="93.98" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ETHERNET_SEN_TO_EN_MCU" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="SEN"/>
+<wire x1="91.44" y1="111.76" x2="71.12" y2="111.76" width="0.1524" layer="91"/>
+<label x="73.66" y="111.76" size="0.762" layer="95"/>
+</segment>
+</net>
+<net name="ETHERNET_SCK_TO_SCK_MCU" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="SCLK"/>
+<wire x1="91.44" y1="109.22" x2="71.12" y2="109.22" width="0.1524" layer="91"/>
+<label x="73.66" y="109.22" size="0.762" layer="95"/>
+</segment>
+</net>
+<net name="ETHERNET_MOSI_TO_MOSI_MCU" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="MOSI"/>
+<wire x1="91.44" y1="104.14" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
+<label x="73.66" y="104.14" size="0.762" layer="95"/>
+</segment>
+</net>
+<net name="ETHERNET_MISO_TO_MISO_MCU" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="MISO"/>
+<wire x1="91.44" y1="101.6" x2="71.12" y2="101.6" width="0.1524" layer="91"/>
+<label x="73.66" y="101.6" size="0.762" layer="95"/>
 </segment>
 </net>
 </nets>

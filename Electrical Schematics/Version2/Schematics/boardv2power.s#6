@@ -1707,7 +1707,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
-<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="U1" library="shit" deviceset="LM1085_KTT_3" device=""/>
 <part name="U2" library="shit" deviceset="LM1085_KTT_3" device=""/>
 <part name="U3" library="shit" deviceset="LM1084_KTT_3" device=""/>
@@ -1754,7 +1753,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="R5" gate="G$1" x="93.98" y="40.64" rot="R270"/>
 <instance part="R6" gate="G$1" x="-22.86" y="17.78" rot="R270"/>
 <instance part="SUPPLY5" gate="GND" x="-22.86" y="7.62"/>
-<instance part="R7" gate="G$1" x="76.2" y="35.56" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -1876,11 +1874,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$9" class="0">
 <segment>
 <pinref part="U$1" gate="A" pin="PGD"/>
-<wire x1="60.96" y1="27.94" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="27.94" x2="76.2" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="2"/>
-<junction x="76.2" y="27.94"/>
+<wire x1="60.96" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

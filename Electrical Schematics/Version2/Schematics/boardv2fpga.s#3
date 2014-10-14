@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2166,6 +2166,57 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="frames">
+<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="DOCFIELD">
+<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
+<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
+<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
+<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
+<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
+<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
+<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2356,10 +2407,23 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="U$2" library="connectors" deviceset="JTAG14PIN" device=""/>
 <part name="SUPPLY48" library="supply2" deviceset="GND" device=""/>
+<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME2" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME3" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME4" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME5" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME6" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME7" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME8" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME9" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="FRAME10" library="frames" deviceset="DOCFIELD" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<frame x1="-124.46" y1="-91.44" x2="373.38" y2="175.26" columns="8" rows="5" layer="91"/>
+<text x="-109.22" y="160.02" size="5.08" layer="91">FPGA Block</text>
+<text x="-101.6" y="152.4" size="5.08" layer="91">Primary FPGA</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="17.78" y="20.32"/>
@@ -2388,6 +2452,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY6" gate="GND" x="180.34" y="20.32"/>
 <instance part="Q1" gate="G$1" x="-7.62" y="-30.48"/>
 <instance part="SUPPLY7" gate="GND" x="-38.1" y="-48.26"/>
+<instance part="FRAME1" gate="G$1" x="269.24" y="-86.36"/>
 </instances>
 <busses>
 <bus name="JTAGBUS">
@@ -2848,10 +2913,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
+<frame x1="-20.32" y1="-20.32" x2="198.12" y2="109.22" columns="8" rows="5" layer="91"/>
+<text x="-12.7" y="99.06" size="5.08" layer="91">FPGA Block</text>
+<text x="20.32" y="91.44" size="5.08" layer="91">JTAG Programmer</text>
 </plain>
 <instances>
 <instance part="U$2" gate="G$1" x="63.5" y="68.58" rot="R90"/>
 <instance part="SUPPLY48" gate="GND" x="43.18" y="66.04"/>
+<instance part="FRAME2" gate="G$1" x="91.44" y="-15.24"/>
 </instances>
 <busses>
 <bus name="JTAG">
@@ -2938,6 +3007,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="-17.78" y="88.9" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-88.9" y1="-35.56" x2="177.8" y2="124.46" columns="8" rows="5" layer="91"/>
+<text x="-81.28" y="111.76" size="5.08" layer="91">FPGA Block</text>
+<text x="-58.42" y="104.14" size="5.08" layer="91">Modular Connector A With Isolation</text>
 </plain>
 <instances>
 <instance part="OK1" gate="-1" x="15.24" y="63.5"/>
@@ -2962,6 +3034,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R3" gate="G$1" x="30.48" y="76.2" rot="R90"/>
 <instance part="JP7" gate="1" x="43.18" y="38.1"/>
 <instance part="R4" gate="G$1" x="43.18" y="30.48" rot="R90"/>
+<instance part="FRAME3" gate="G$1" x="63.5" y="-25.4"/>
 </instances>
 <busses>
 </busses>
@@ -3160,6 +3233,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="35.56" y="83.82" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-40.64" y1="-30.48" x2="226.06" y2="129.54" columns="8" rows="5" layer="91"/>
+<text x="-33.02" y="116.84" size="5.08" layer="91">FPGA Block</text>
+<text x="-17.78" y="106.68" size="5.08" layer="91">Modular Connector B With Isolation</text>
 </plain>
 <instances>
 <instance part="OK3" gate="-1" x="68.58" y="58.42"/>
@@ -3184,6 +3260,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R7" gate="G$1" x="83.82" y="71.12" rot="R90"/>
 <instance part="JP14" gate="1" x="96.52" y="33.02"/>
 <instance part="R8" gate="G$1" x="96.52" y="25.4" rot="R90"/>
+<instance part="FRAME4" gate="G$1" x="111.76" y="-20.32"/>
 </instances>
 <busses>
 </busses>
@@ -3382,6 +3459,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="35.56" y="93.98" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-25.4" y1="-33.02" x2="241.3" y2="127" columns="8" rows="5" layer="91"/>
+<text x="-15.24" y="114.3" size="5.08" layer="91">FPGA Block</text>
+<text x="-5.08" y="104.14" size="5.08" layer="91">Modular Connector C With Isolation</text>
 </plain>
 <instances>
 <instance part="OK5" gate="-1" x="68.58" y="68.58"/>
@@ -3406,6 +3486,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R11" gate="G$1" x="83.82" y="81.28" rot="R90"/>
 <instance part="JP21" gate="1" x="96.52" y="43.18"/>
 <instance part="R12" gate="G$1" x="96.52" y="35.56" rot="R90"/>
+<instance part="FRAME5" gate="G$1" x="127" y="-22.86"/>
 </instances>
 <busses>
 </busses>
@@ -3604,6 +3685,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="38.1" y="78.74" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-27.94" y1="-40.64" x2="238.76" y2="119.38" columns="8" rows="5" layer="91"/>
+<text x="-20.32" y="106.68" size="5.08" layer="91">FPGA Block</text>
+<text x="-12.7" y="99.06" size="5.08" layer="91">Modular Connector D With Isolation</text>
 </plain>
 <instances>
 <instance part="OK7" gate="-1" x="71.12" y="53.34"/>
@@ -3628,6 +3712,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R15" gate="G$1" x="86.36" y="66.04" rot="R90"/>
 <instance part="JP28" gate="1" x="99.06" y="27.94"/>
 <instance part="R16" gate="G$1" x="99.06" y="20.32" rot="R90"/>
+<instance part="FRAME6" gate="G$1" x="124.46" y="-30.48"/>
 </instances>
 <busses>
 </busses>
@@ -3826,6 +3911,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="40.64" y="76.2" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-30.48" y1="-45.72" x2="236.22" y2="114.3" columns="8" rows="5" layer="91"/>
+<text x="-22.86" y="101.6" size="5.08" layer="91">FPGA Block</text>
+<text x="-17.78" y="93.98" size="5.08" layer="91">Modular Connector E With Isolation</text>
 </plain>
 <instances>
 <instance part="OK9" gate="-1" x="73.66" y="50.8"/>
@@ -3850,6 +3938,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R19" gate="G$1" x="88.9" y="63.5" rot="R90"/>
 <instance part="JP35" gate="1" x="101.6" y="25.4"/>
 <instance part="R20" gate="G$1" x="101.6" y="17.78" rot="R90"/>
+<instance part="FRAME7" gate="G$1" x="121.92" y="-35.56"/>
 </instances>
 <busses>
 </busses>
@@ -4048,6 +4137,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="35.56" y="78.74" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-27.94" y1="-48.26" x2="238.76" y2="111.76" columns="8" rows="5" layer="91"/>
+<text x="-17.78" y="99.06" size="5.08" layer="91">FPGA Block</text>
+<text x="-12.7" y="91.44" size="5.08" layer="91">Modular Connector F With Isolation</text>
 </plain>
 <instances>
 <instance part="OK11" gate="-1" x="68.58" y="53.34"/>
@@ -4072,6 +4164,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R23" gate="G$1" x="83.82" y="66.04" rot="R90"/>
 <instance part="JP42" gate="1" x="96.52" y="27.94"/>
 <instance part="R24" gate="G$1" x="96.52" y="20.32" rot="R90"/>
+<instance part="FRAME8" gate="G$1" x="124.46" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -4270,6 +4363,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="35.56" y="78.74" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-35.56" y1="-48.26" x2="231.14" y2="111.76" columns="8" rows="5" layer="91"/>
+<text x="-25.4" y="96.52" size="5.08" layer="91">FPGA Block</text>
+<text x="-17.78" y="88.9" size="5.08" layer="91">Modular Connector N With Isolation</text>
 </plain>
 <instances>
 <instance part="OK13" gate="-1" x="68.58" y="53.34"/>
@@ -4294,6 +4390,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R27" gate="G$1" x="83.82" y="66.04" rot="R90"/>
 <instance part="JP49" gate="1" x="96.52" y="27.94"/>
 <instance part="R28" gate="G$1" x="96.52" y="20.32" rot="R90"/>
+<instance part="FRAME9" gate="G$1" x="116.84" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -4492,6 +4589,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="38.1" y="78.74" size="1.778" layer="95">1.Anode    4.Emitter
 2.Cathode 5.Collector
 3.NC          6.Base</text>
+<frame x1="-40.64" y1="-45.72" x2="226.06" y2="114.3" columns="8" rows="5" layer="91"/>
+<text x="-30.48" y="99.06" size="5.08" layer="91">FPGA Block</text>
+<text x="-27.94" y="88.9" size="5.08" layer="91">Modular Connector H With Isolation</text>
 </plain>
 <instances>
 <instance part="OK15" gate="-1" x="71.12" y="53.34"/>
@@ -4516,6 +4616,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R31" gate="G$1" x="86.36" y="66.04" rot="R90"/>
 <instance part="JP56" gate="1" x="99.06" y="27.94"/>
 <instance part="R32" gate="G$1" x="99.06" y="20.32" rot="R90"/>
+<instance part="FRAME10" gate="G$1" x="111.76" y="-35.56"/>
 </instances>
 <busses>
 </busses>

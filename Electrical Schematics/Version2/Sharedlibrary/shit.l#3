@@ -4666,6 +4666,15 @@
 <wire x1="-1.55" y1="1.6" x2="1.55" y2="1.6" width="0.3048" layer="51"/>
 <wire x1="-1.55" y1="-1.6" x2="1.55" y2="-1.6" width="0.3048" layer="51"/>
 </package>
+<package name="TC33X-2">
+<smd name="P$3" x="1" y="-1.8" dx="1.2" dy="1.2" layer="1"/>
+<smd name="P$1" x="-1" y="-1.8" dx="1.2" dy="1.2" layer="1"/>
+<smd name="P$2" x="0" y="1.45" dx="1.6" dy="1.5" layer="1"/>
+<wire x1="-1.8" y1="1.9" x2="1.8" y2="1.9" width="0.127" layer="51"/>
+<wire x1="1.8" y1="1.9" x2="1.8" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="1.8" y1="-1.9" x2="-1.8" y2="-1.9" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="-1.9" x2="-1.8" y2="1.9" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -4967,8 +4976,20 @@
 </symbol>
 <symbol name="PVZ3A">
 <pin name="P$1" x="-5.08" y="0" length="short"/>
-<pin name="P$3" x="5.08" y="0" length="short" rot="R180"/>
-<pin name="P$2" x="-2.54" y="-3.81" length="short" rot="R90"/>
+<pin name="P$2" x="5.08" y="0" length="short" rot="R180"/>
+<pin name="P$3" x="-2.54" y="-3.81" length="short" rot="R90"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="1.27" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="TC33X-2">
+<pin name="P$1" x="-5.08" y="0" length="short"/>
+<pin name="P$2" x="5.08" y="0" length="short" rot="R180"/>
+<pin name="P$3" x="-2.54" y="-3.81" length="short" rot="R90"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
 <wire x1="-1.27" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94"/>
@@ -5408,6 +5429,28 @@
 </gates>
 <devices>
 <device name="" package="PVZ3A">
+<connects>
+<connect gate="G$1" pin="P$1" pad="T1"/>
+<connect gate="G$1" pin="P$2" pad="T2"/>
+<connect gate="G$1" pin="P$3" pad="T3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TC33X-2">
+<gates>
+<gate name="G$1" symbol="TC33X-2" x="17.78" y="-12.7"/>
+</gates>
+<devices>
+<device name="" package="TC33X-2">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -4666,6 +4666,11 @@
 <wire x1="-1.55" y1="1.6" x2="1.55" y2="1.6" width="0.3048" layer="51"/>
 <wire x1="-1.55" y1="-1.6" x2="1.55" y2="-1.6" width="0.3048" layer="51"/>
 </package>
+<package name="TC33X-2">
+<smd name="P$1" x="1" y="-1.8" dx="1.2" dy="1.2" layer="1"/>
+<smd name="P$2" x="-1" y="-1.8" dx="1.2" dy="1.2" layer="1"/>
+<smd name="P$3" x="0" y="1.45" dx="1.6" dy="1.5" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -4966,18 +4971,18 @@
 <text x="32.4358" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
 </symbol>
 <symbol name="PVZ3A">
-<wire x1="-21" y1="9" x2="-20" y2="10" width="0.254" layer="94"/>
-<wire x1="-20" y1="10" x2="-19" y2="9" width="0.254" layer="94"/>
-<wire x1="-19" y1="9" x2="-18" y2="10" width="0.254" layer="94"/>
-<wire x1="-18" y1="10" x2="-17" y2="9" width="0.254" layer="94"/>
-<wire x1="-17" y1="9" x2="-16" y2="10" width="0.254" layer="94"/>
-<wire x1="-16" y1="10" x2="-15" y2="9" width="0.254" layer="94"/>
-<wire x1="-19" y1="8" x2="-15" y2="12" width="0.254" layer="94"/>
-<wire x1="-15" y1="12" x2="-16" y2="12" width="0.254" layer="94"/>
-<wire x1="-15" y1="12" x2="-15" y2="11" width="0.254" layer="94"/>
-<pin name="P$1" x="-23.46" y="9" length="short"/>
-<pin name="P$2" x="-12.54" y="9" length="short" rot="R180"/>
-<pin name="P$3" x="-19" y="5.54" length="short" rot="R90"/>
+<pin name="P$1" x="-5.08" y="0" length="short"/>
+<pin name="P$2" x="5.08" y="0" length="short" rot="R180"/>
+<pin name="P$3" x="-2.54" y="-3.81" length="short" rot="R90"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="1.27" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="TC33X-2">
 </symbol>
 </symbols>
 <devicesets>
@@ -5406,7 +5411,7 @@
 </deviceset>
 <deviceset name="PVZ3A">
 <gates>
-<gate name="G$1" symbol="PVZ3A" x="5.08" y="5.08"/>
+<gate name="G$1" symbol="PVZ3A" x="7.62" y="5.08"/>
 </gates>
 <devices>
 <device name="" package="PVZ3A">

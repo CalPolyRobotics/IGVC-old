@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -4965,6 +4965,18 @@
 <text x="33.3756" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="32.4358" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
 </symbol>
+<symbol name="PVZ3A">
+<pin name="P$1" x="-5.08" y="0" length="short"/>
+<pin name="P$2" x="5.08" y="0" length="short" rot="R180"/>
+<pin name="P$3" x="-2.54" y="-3.81" length="short" rot="R90"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="1.27" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="TMS570LS0432_PZ_100" prefix="U">
@@ -5390,11 +5402,17 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="PVZ3A102C01R00">
+<deviceset name="PVZ3A">
 <gates>
+<gate name="G$1" symbol="PVZ3A" x="7.62" y="5.08"/>
 </gates>
 <devices>
-<device name="">
+<device name="" package="PVZ3A">
+<connects>
+<connect gate="G$1" pin="P$1" pad="T1"/>
+<connect gate="G$1" pin="P$2" pad="T3"/>
+<connect gate="G$1" pin="P$3" pad="T2"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

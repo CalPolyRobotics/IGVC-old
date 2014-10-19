@@ -2392,20 +2392,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <busses>
 <bus name="JTAGBUS">
 <segment>
-<wire x1="60.96" y1="137.16" x2="60.96" y2="86.36" width="0.762" layer="92"/>
+<wire x1="60.96" y1="137.16" x2="60.96" y2="82.55" width="0.762" layer="92"/>
 <label x="60.96" y="119.38" size="1.778" layer="95"/>
-</segment>
-</bus>
-<bus name="FRONTENDIO">
-<segment>
-<wire x1="281.94" y1="116.84" x2="281.94" y2="7.62" width="0.762" layer="92"/>
-<label x="284.48" y="71.12" size="1.778" layer="95"/>
-</segment>
-</bus>
-<bus name="TOMCU">
-<segment>
-<wire x1="309.88" y1="109.22" x2="309.88" y2="2.54" width="0.762" layer="92"/>
-<label x="297.18" y="83.82" size="1.778" layer="95"/>
 </segment>
 </bus>
 </busses>
@@ -2725,31 +2713,23 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <net name="JTAGBUS" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="TDO"/>
-<wire x1="40.64" y1="93.98" x2="50.8" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
 <label x="45.72" y="93.98" size="1.778" layer="95"/>
-<wire x1="60.96" y1="96.52" x2="53.34" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="96.52" x2="50.8" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="TMS"/>
-<wire x1="40.64" y1="91.44" x2="53.34" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
 <label x="45.72" y="91.44" size="1.778" layer="95"/>
-<wire x1="60.96" y1="93.98" x2="55.88" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="93.98" x2="53.34" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="TCK"/>
-<wire x1="40.64" y1="86.36" x2="50.8" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="86.36" x2="60.96" y2="86.36" width="0.1524" layer="91"/>
 <label x="45.72" y="86.36" size="1.778" layer="95"/>
-<wire x1="60.96" y1="91.44" x2="55.88" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="91.44" x2="50.8" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="TDI"/>
-<wire x1="40.64" y1="83.82" x2="50.8" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="83.82" x2="60.96" y2="83.82" width="0.1524" layer="91"/>
 <label x="45.72" y="83.82" size="1.778" layer="95"/>
-<wire x1="60.96" y1="88.9" x2="55.88" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="88.9" x2="50.8" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FPGA_L41P_MODULEA_ISOLATOR" class="0">
@@ -2874,9 +2854,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="SUPPLY48" gate="GND" x="43.18" y="66.04"/>
 </instances>
 <busses>
-<bus name="B$1">
+<bus name="JTAG">
 <segment>
 <wire x1="-2.54" y1="96.52" x2="-2.54" y2="22.86" width="0.762" layer="92"/>
+<label x="2.54" y="85.09" size="1.778" layer="95"/>
 </segment>
 </bus>
 </busses>

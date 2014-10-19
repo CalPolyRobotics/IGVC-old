@@ -3148,7 +3148,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-5.08" y1="68.58" x2="-10.16" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP6" gate="1" pin="1"/>
 <wire x1="27.94" y1="88.9" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
@@ -3393,7 +3393,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="48.26" y1="63.5" x2="43.18" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP13" gate="1" pin="1"/>
 <wire x1="81.28" y1="83.82" x2="68.58" y2="83.82" width="0.1524" layer="91"/>
@@ -3637,7 +3637,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="48.26" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP20" gate="1" pin="1"/>
 <wire x1="81.28" y1="93.98" x2="68.58" y2="93.98" width="0.1524" layer="91"/>
@@ -3883,7 +3883,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="50.8" y1="58.42" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP27" gate="1" pin="1"/>
 <wire x1="83.82" y1="78.74" x2="71.12" y2="78.74" width="0.1524" layer="91"/>
@@ -4143,7 +4143,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="53.34" y1="55.88" x2="48.26" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP34" gate="1" pin="1"/>
 <wire x1="86.36" y1="76.2" x2="73.66" y2="76.2" width="0.1524" layer="91"/>
@@ -4403,7 +4403,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="48.26" y1="58.42" x2="43.18" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP41" gate="1" pin="1"/>
 <wire x1="81.28" y1="78.74" x2="68.58" y2="78.74" width="0.1524" layer="91"/>
@@ -4663,7 +4663,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="48.26" y1="58.42" x2="43.18" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP48" gate="1" pin="1"/>
 <wire x1="81.28" y1="78.74" x2="68.58" y2="78.74" width="0.1524" layer="91"/>
@@ -4923,7 +4923,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="50.8" y1="58.42" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3.3V" class="0">
+<net name="+3.3VFPGA" class="0">
 <segment>
 <pinref part="JP55" gate="1" pin="1"/>
 <wire x1="83.82" y1="78.74" x2="71.12" y2="78.74" width="0.1524" layer="91"/>

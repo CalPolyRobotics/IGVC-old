@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4077,16 +4077,16 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </net>
 <net name="CONGND" class="0">
 <segment>
-<pinref part="JP57" gate="1" pin="1"/>
-<wire x1="-5.08" y1="55.88" x2="2.54" y2="55.88" width="0.1524" layer="91"/>
-<label x="2.54" y="50.8" size="1.27" layer="95" xref="yes"/>
-<wire x1="2.54" y1="55.88" x2="2.54" y2="50.8" width="0.1524" layer="91"/>
+<label x="68.58" y="48.26" size="1.27" layer="95" xref="yes"/>
+<wire x1="68.58" y1="48.26" x2="68.58" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="JP59" gate="1" pin="2"/>
+<wire x1="68.58" y1="53.34" x2="58.42" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="53.34" x2="58.42" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP59" gate="1" pin="1"/>
-<wire x1="60.96" y1="50.8" x2="68.58" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="50.8" x2="68.58" y2="48.26" width="0.1524" layer="91"/>
-<label x="68.58" y="48.26" size="1.27" layer="95" xref="yes"/>
+<pinref part="OK1" gate="-1" pin="A1"/>
+<wire x1="25.4" y1="58.42" x2="27.94" y2="58.42" width="0.1524" layer="91"/>
+<label x="27.94" y="58.42" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="GSENSE1" class="0">
@@ -4097,15 +4097,16 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </segment>
 <segment>
 <pinref part="X1" gate="-4" pin="S"/>
-<wire x1="68.58" y1="63.5" x2="58.42" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="JP59" gate="1" pin="2"/>
-<wire x1="58.42" y1="63.5" x2="58.42" y2="50.8" width="0.1524" layer="91"/>
-<label x="58.42" y="55.88" size="1.27" layer="95" xref="yes"/>
+<wire x1="68.58" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
+<label x="60.96" y="55.88" size="1.27" layer="95" xref="yes"/>
+<pinref part="JP59" gate="1" pin="1"/>
+<wire x1="60.96" y1="50.8" x2="60.96" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="OK1" gate="-1" pin="A1"/>
-<wire x1="25.4" y1="58.42" x2="27.94" y2="58.42" width="0.1524" layer="91"/>
-<label x="27.94" y="58.42" size="1.27" layer="95" rot="R270" xref="yes"/>
+<pinref part="JP57" gate="1" pin="1"/>
+<wire x1="-5.08" y1="55.88" x2="2.54" y2="55.88" width="0.1524" layer="91"/>
+<label x="2.54" y="50.8" size="1.27" layer="95" xref="yes"/>
+<wire x1="2.54" y1="55.88" x2="2.54" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PP_3.3V_FPGA" class="0">

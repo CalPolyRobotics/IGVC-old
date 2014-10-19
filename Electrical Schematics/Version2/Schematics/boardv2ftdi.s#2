@@ -3249,6 +3249,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="81.28" y="81.28" size="1.778" layer="91">USB to SPI</text>
 <frame x1="-187.96" y1="-91.44" x2="302.26" y2="157.48" columns="8" rows="5" layer="91"/>
 <text x="-160.02" y="134.62" size="7.62" layer="91">SPI to USB</text>
+<text x="287.02" y="-76.2" size="1.778" layer="91">B</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="27.94" y="66.04"/>
@@ -3647,8 +3648,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="132.08" y="0"/>
 <junction x="132.08" y="-15.24"/>
 <pinref part="TP6" gate="G$1" pin="TP"/>
-<wire x1="137.16" y1="0" x2="172.72" y2="0" width="0.1524" layer="91"/>
-<label x="172.72" y="0" size="1.778" layer="95" xref="yes"/>
+<wire x1="137.16" y1="0" x2="175.26" y2="0" width="0.1524" layer="91"/>
+<label x="175.26" y="0" size="1.778" layer="95" xref="yes"/>
 <junction x="121.92" y="-15.24"/>
 <junction x="121.92" y="-12.7"/>
 <junction x="121.92" y="-10.16"/>

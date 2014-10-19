@@ -5119,147 +5119,6 @@ Source: http://pdf1.alldatasheet.com/datasheet-pdf/view/84563/STMICROELECTRONICS
 </deviceset>
 </devicesets>
 </library>
-<library name="Atlanta Robotics">
-<packages>
-<package name="TO252">
-<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
-<wire x1="-3.973" y1="5.983" x2="3.973" y2="5.983" width="0.0508" layer="39"/>
-<wire x1="3.973" y1="-5.983" x2="-3.973" y2="-5.983" width="0.0508" layer="39"/>
-<wire x1="-3.973" y1="-5.983" x2="-3.973" y2="5.983" width="0.0508" layer="39"/>
-<wire x1="3.973" y1="5.983" x2="3.973" y2="-5.983" width="0.0508" layer="39"/>
-<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
-<smd name="3" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
-<smd name="1" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<smd name="2" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
-<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
-<polygon width="0.1998" layer="51">
-<vertex x="-2.5654" y="3.937"/>
-<vertex x="-2.5654" y="4.6482"/>
-<vertex x="-2.1082" y="5.1054"/>
-<vertex x="2.1082" y="5.1054"/>
-<vertex x="2.5654" y="4.6482"/>
-<vertex x="2.5654" y="3.937"/>
-</polygon>
-</package>
-<package name="SOD123">
-<wire x1="-1.8725" y1="0.835" x2="1.8725" y2="0.835" width="0.127" layer="51"/>
-<wire x1="-1.8725" y1="-0.835" x2="1.8725" y2="-0.835" width="0.127" layer="51"/>
-<wire x1="-0.3175" y1="0" x2="0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="-0.4763" x2="0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0.4763" x2="-0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.5613" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.5613" y2="0" width="0.127" layer="21"/>
-<smd name="A" x="1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<smd name="C" x="-1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<text x="-3.048" y="1.143" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.048" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.95" y1="-0.9" x2="-1.5875" y2="0.9" layer="51"/>
-<rectangle x1="1.5875" y1="-0.9" x2="1.95" y2="0.9" layer="51"/>
-<rectangle x1="-1.0249" y1="-0.9" x2="-0.6625" y2="0.9" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="HEXFET_N_CHANNEL">
-<wire x1="-3.6576" y1="2.413" x2="-3.6576" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-3.6576" y1="-2.54" x2="-5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="-2.032" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.905" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-0.889" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
-<wire x1="0.762" y1="0.508" x2="1.27" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="0.508" x2="1.778" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="1.905" x2="0" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.905" x2="-2.0066" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="0.508" x2="1.27" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-1.905" x2="1.27" y2="-0.127" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<circle x="0" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
-<text x="3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="3.81" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.794" y1="-2.54" x2="-2.032" y2="-1.27" layer="94"/>
-<rectangle x1="-2.794" y1="1.27" x2="-2.032" y2="2.54" layer="94"/>
-<rectangle x1="-2.794" y1="-0.889" x2="-2.032" y2="0.889" layer="94"/>
-<pin name="G" x="-5.08" y="-2.54" visible="off" length="point" direction="pas"/>
-<pin name="D" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<polygon width="0.1524" layer="94">
-<vertex x="-2.032" y="0"/>
-<vertex x="-0.762" y="-0.508"/>
-<vertex x="-0.762" y="0.508"/>
-</polygon>
-<polygon width="0.1524" layer="94">
-<vertex x="1.27" y="0.508"/>
-<vertex x="0.762" y="-0.254"/>
-<vertex x="1.778" y="-0.254"/>
-</polygon>
-</symbol>
-<symbol name="ZENER">
-<wire x1="-1.27" y1="-1.905" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.905" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.397" y1="1.905" x2="1.397" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.397" y1="-1.905" x2="2.032" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.397" y1="1.905" x2="0.762" y2="1.905" width="0.254" layer="94"/>
-<text x="-2.9464" y="2.6416" size="1.778" layer="95">&gt;NAME</text>
-<text x="-4.4704" y="-4.4958" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="IRFR3707Z" prefix="Q">
-<description>Hexfet power MOSFET N channel with free wheeling diode.</description>
-<gates>
-<gate name="G$1" symbol="HEXFET_N_CHANNEL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TO252">
-<connects>
-<connect gate="G$1" pin="D" pad="3"/>
-<connect gate="G$1" pin="G" pad="1"/>
-<connect gate="G$1" pin="S" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="ZENER_SOD123" prefix="D">
-<description>Zener diode. sod123 package</description>
-<gates>
-<gate name="G$1" symbol="ZENER" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOD123">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="led">
 <description>&lt;b&gt;LEDs&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;br&gt;
@@ -6834,6 +6693,41 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="supply2">
+<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
+GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
+Please keep in mind, that these devices are necessary for the
+automatic wiring of the supply signals.&lt;p&gt;
+The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
+In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="GND">
+<wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<text x="-1.905" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="GND" prefix="SUPPLY">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="GND" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6845,10 +6739,6 @@ Source: www.kingbright.com</description>
 </class>
 </classes>
 <parts>
-<part name="Q2402" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
-<part name="R2411" library="rcl" deviceset="R-US_" device="R1206W" value="100k"/>
-<part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="D2401" library="Atlanta Robotics" deviceset="ZENER_SOD123" device=""/>
 <part name="R2403" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
 <part name="R2404" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
 <part name="R2402" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
@@ -6863,8 +6753,6 @@ Source: www.kingbright.com</description>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
-<part name="Q2401" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
-<part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="LED2401" library="led" deviceset="LED" device="SML1206"/>
 <part name="LED2402" library="led" deviceset="LED" device="SML1206"/>
@@ -6873,6 +6761,7 @@ Source: www.kingbright.com</description>
 <part name="FRAME24" library="frames" deviceset="DOCFIELD" device=""/>
 <part name="J2402" library="jumper" deviceset="JP1E" device=""/>
 <part name="J2403" library="jumper" deviceset="JP1E" device=""/>
+<part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6881,12 +6770,6 @@ Source: www.kingbright.com</description>
 <frame x1="0" y1="0" x2="292.1" y2="185.42" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
-<instance part="Q2402" gate="G$1" x="152.4" y="63.5" rot="MR180"/>
-<instance part="R2411" gate="G$1" x="127" y="81.28" rot="R90"/>
-<instance part="GND7" gate="1" x="152.4" y="53.34"/>
-<instance part="D2401" gate="G$1" x="144.78" y="76.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="147.4216" y="79.1464" size="1.778" layer="95" rot="R270"/>
-</instance>
 <instance part="R2403" gate="G$1" x="78.74" y="111.76"/>
 <instance part="R2404" gate="G$1" x="68.58" y="106.68"/>
 <instance part="R2402" gate="G$1" x="68.58" y="116.84"/>
@@ -6901,8 +6784,6 @@ Source: www.kingbright.com</description>
 <instance part="GND10" gate="1" x="60.96" y="78.74"/>
 <instance part="GND11" gate="1" x="99.06" y="78.74"/>
 <instance part="P+8" gate="1" x="121.92" y="149.86"/>
-<instance part="Q2401" gate="G$1" x="137.16" y="63.5" rot="R180"/>
-<instance part="GND16" gate="1" x="137.16" y="53.34"/>
 <instance part="P+7" gate="1" x="121.92" y="160.02"/>
 <instance part="LED2401" gate="G$1" x="190.5" y="116.84"/>
 <instance part="LED2402" gate="G$1" x="200.66" y="114.3" rot="R180"/>
@@ -6912,16 +6793,12 @@ Source: www.kingbright.com</description>
 <instance part="FRAME24" gate="G$1" x="185.42" y="5.08"/>
 <instance part="J2402" gate="A" x="132.08" y="157.48"/>
 <instance part="J2403" gate="A" x="132.08" y="147.32"/>
+<instance part="SUPPLY1" gate="GND" x="144.78" y="73.66"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="GND" class="0">
-<segment>
-<pinref part="Q2402" gate="G$1" pin="D"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="152.4" y1="55.88" x2="152.4" y2="58.42" width="0.1524" layer="91"/>
-</segment>
 <segment>
 <pinref part="C64" gate="G$1" pin="2"/>
 <pinref part="GND10" gate="1" pin="GND"/>
@@ -6933,51 +6810,32 @@ Source: www.kingbright.com</description>
 <wire x1="99.06" y1="81.28" x2="99.06" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q2401" gate="G$1" pin="D"/>
-<pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="137.16" y1="55.88" x2="137.16" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="STEERCTRL_GND" class="0">
-<segment>
-<pinref part="U2401" gate="G$1" pin="GNDA@2"/>
-<wire x1="137.16" y1="91.44" x2="137.16" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U2401" gate="G$1" pin="GNDB@2"/>
-<wire x1="137.16" y1="88.9" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="88.9" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="88.9" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="88.9" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="88.9" x2="152.4" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="88.9" x2="152.4" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="88.9" x2="152.4" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U2401" gate="G$1" pin="GNDB@1"/>
 <wire x1="149.86" y1="91.44" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
 <junction x="149.86" y="88.9"/>
+<wire x1="147.32" y1="88.9" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U2401" gate="G$1" pin="GNDB"/>
 <wire x1="147.32" y1="91.44" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
 <junction x="147.32" y="88.9"/>
+<wire x1="142.24" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U2401" gate="G$1" pin="GNDA"/>
+<wire x1="144.78" y1="88.9" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="91.44" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
 <junction x="142.24" y="88.9"/>
+<wire x1="139.7" y1="88.9" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U2401" gate="G$1" pin="GNDA@1"/>
 <wire x1="139.7" y1="91.44" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
 <junction x="139.7" y="88.9"/>
+<pinref part="U2401" gate="G$1" pin="GNDA@2"/>
+<wire x1="137.16" y1="91.44" x2="137.16" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="88.9" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="88.9" x2="144.78" y2="76.2" width="0.1524" layer="91"/>
 <junction x="144.78" y="88.9"/>
-<wire x1="144.78" y1="88.9" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
-<junction x="144.78" y="81.28"/>
-<pinref part="D2401" gate="G$1" pin="A"/>
-<wire x1="144.78" y1="81.28" x2="144.78" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
-<junction x="144.78" y="81.28"/>
-<pinref part="Q2402" gate="G$1" pin="S"/>
-<wire x1="152.4" y1="81.28" x2="152.4" y2="68.58" width="0.1524" layer="91"/>
-<label x="154.94" y="81.28" size="1.27" layer="95"/>
-<pinref part="Q2401" gate="G$1" pin="S"/>
-<wire x1="137.16" y1="68.58" x2="137.16" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="81.28" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
-<junction x="152.4" y="81.28"/>
-<wire x1="152.4" y1="81.28" x2="162.56" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="GND" pin="GND"/>
+<junction x="144.78" y="76.2"/>
 </segment>
 </net>
 <net name="MCU_STEERCTRL_INA_R" class="0">
@@ -7073,6 +6931,7 @@ Source: www.kingbright.com</description>
 <junction x="195.58" y="101.6"/>
 <pinref part="J2401" gate="G$2" pin="SK"/>
 <label x="167.64" y="101.6" size="1.27" layer="95"/>
+<junction x="165.1" y="106.68"/>
 </segment>
 </net>
 <net name="STEER_OUT_LED" class="0">
@@ -7151,25 +7010,6 @@ Source: www.kingbright.com</description>
 <label x="55.88" y="96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="STEERCTRL_GND_ZENER" class="0">
-<segment>
-<pinref part="R2411" gate="G$1" pin="1"/>
-<wire x1="127" y1="76.2" x2="127" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="127" y1="71.12" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
-<label x="101.6" y="71.12" size="1.27" layer="95"/>
-<wire x1="127" y1="71.12" x2="106.68" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="D2401" gate="G$1" pin="C"/>
-<wire x1="144.78" y1="73.66" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="Q2401" gate="G$1" pin="G"/>
-<pinref part="Q2402" gate="G$1" pin="G"/>
-<wire x1="142.24" y1="66.04" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="66.04" x2="147.32" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="71.12" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
-<junction x="144.78" y="71.12"/>
-<junction x="144.78" y="66.04"/>
-<junction x="127" y="71.12"/>
-</segment>
-</net>
 <net name="STEERCTRL_+12V" class="0">
 <segment>
 <pinref part="U2401" gate="G$1" pin="VCC@2"/>
@@ -7184,12 +7024,6 @@ Source: www.kingbright.com</description>
 <wire x1="147.32" y1="129.54" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
 <label x="132.08" y="134.62" size="1.27" layer="95"/>
-</segment>
-<segment>
-<pinref part="R2411" gate="G$1" pin="2"/>
-<wire x1="127" y1="86.36" x2="127" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="127" y1="88.9" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
-<label x="114.3" y="88.9" size="1.27" layer="95"/>
 </segment>
 <segment>
 <pinref part="J2402" gate="A" pin="2"/>

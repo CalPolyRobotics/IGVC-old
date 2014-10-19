@@ -58,8 +58,13 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="6" fill="1" visible="no" active="no"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -68,1059 +73,189 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="250" name="Descript" color="3" fill="1" visible="no" active="yes"/>
-<layer number="254" name="OrgLBR" color="13" fill="1" visible="no" active="yes"/>
+<layer number="99" name="SpiceOrder" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="103" name="tMap" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="104" name="Name" color="16" fill="1" visible="yes" active="yes"/>
+<layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="tplace-old" color="10" fill="1" visible="yes" active="yes"/>
+<layer number="109" name="ref-old" color="11" fill="1" visible="yes" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="113" name="Connect" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
+<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="153" name="FabDoc1" color="6" fill="1" visible="no" active="no"/>
+<layer number="154" name="FabDoc2" color="2" fill="1" visible="no" active="no"/>
+<layer number="155" name="FabDoc3" color="7" fill="15" visible="no" active="no"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="202" name="202bmp" color="3" fill="10" visible="yes" active="yes"/>
+<layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="204" name="204bmp" color="5" fill="10" visible="yes" active="yes"/>
+<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
+<layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
+<layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="217" name="217bmp" color="18" fill="1" visible="no" active="no"/>
+<layer number="218" name="218bmp" color="19" fill="1" visible="no" active="no"/>
+<layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
+<layer number="220" name="220bmp" color="21" fill="1" visible="no" active="no"/>
+<layer number="221" name="221bmp" color="22" fill="1" visible="no" active="no"/>
+<layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
+<layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
+<layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
+<layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
+<layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
+<library name="jumper">
+<description>&lt;b&gt;Jumpers&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="JP1">
+<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
+<wire x1="-1.016" y1="0" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="0" x2="-1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="0" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="0" x2="1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.254" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="-2.54" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.286" x2="1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.286" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="2.54" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="2.286" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="2.286" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.254" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-2.54" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-2.54" x2="1.016" y2="-2.54" width="0.1524" layer="21"/>
+<pad name="1" x="0" y="-1.27" drill="0.9144" shape="long"/>
+<pad name="2" x="0" y="1.27" drill="0.9144" shape="long"/>
+<text x="-1.651" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="2.921" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="-0.3048" y1="0.9652" x2="0.3048" y2="1.5748" layer="51"/>
+<rectangle x1="-0.3048" y1="-1.5748" x2="0.3048" y2="-0.9652" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="JP2E">
+<wire x1="0" y1="0" x2="0" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.4064" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.4064" layer="94"/>
+<wire x1="-0.635" y1="0" x2="3.175" y2="0" width="0.4064" layer="94"/>
+<wire x1="3.175" y1="0" x2="3.175" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="3.175" y1="0.635" x2="-0.635" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
+<text x="-1.27" y="0" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="5.715" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="1" x="0" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="2" x="2.54" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="JP1E" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="JP2E" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="JP1">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="frames">
+<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="DOCFIELD">
+<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
+<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
+<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
+<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
+<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
+<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
+<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 <library name="rcl">
-<description>&lt;b&gt;Resistors, Capacitors, Inductors&lt;/b&gt;&lt;p&gt;
-Based on the previous libraries:
-&lt;ul&gt;
-&lt;li&gt;r.lbr
-&lt;li&gt;cap.lbr 
-&lt;li&gt;cap-fe.lbr
-&lt;li&gt;captant.lbr
-&lt;li&gt;polcap.lbr
-&lt;li&gt;ipc-smd.lbr
-&lt;/ul&gt;
-All SMD packages are defined according to the IPC specifications and  CECC&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;p&gt;
-&lt;p&gt;
-for Electrolyt Capacitors see also :&lt;p&gt;
-www.bccomponents.com &lt;p&gt;
-www.panasonic.com&lt;p&gt;
-www.kemet.com&lt;p&gt;
-http://www.secc.co.jp/pdf/os_e/2004/e_os_all.pdf &lt;b&gt;(SANYO)&lt;/b&gt;
-&lt;p&gt;
-for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trimpotcrossref.asp&lt;/u&gt;&lt;p&gt;
-
-&lt;table border=0 cellspacing=0 cellpadding=0 width="100%" cellpaddding=0&gt;
-&lt;tr valign="top"&gt;
-
-&lt;! &lt;td width="10"&gt;&amp;nbsp;&lt;/td&gt;
-&lt;td width="90%"&gt;
-
-&lt;b&gt;&lt;font color="#0000FF" size="4"&gt;TRIM-POT CROSS REFERENCE&lt;/font&gt;&lt;/b&gt;
-&lt;P&gt;
-&lt;TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=8&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;RECTANGULAR MULTI-TURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;BOURNS&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;BI&amp;nbsp;TECH&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;DALE-VISHAY&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;PHILIPS/MEPCO&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;MURATA&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;PANASONIC&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;SPECTROL&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;MILSPEC&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;&lt;TD&gt;&amp;nbsp;&lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3 &gt;
-      3005P&lt;BR&gt;
-      3006P&lt;BR&gt;
-      3006W&lt;BR&gt;
-      3006Y&lt;BR&gt;
-      3009P&lt;BR&gt;
-      3009W&lt;BR&gt;
-      3009Y&lt;BR&gt;
-      3057J&lt;BR&gt;
-      3057L&lt;BR&gt;
-      3057P&lt;BR&gt;
-      3057Y&lt;BR&gt;
-      3059J&lt;BR&gt;
-      3059L&lt;BR&gt;
-      3059P&lt;BR&gt;
-      3059Y&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      89P&lt;BR&gt;
-      89W&lt;BR&gt;
-      89X&lt;BR&gt;
-      89PH&lt;BR&gt;
-      76P&lt;BR&gt;
-      89XH&lt;BR&gt;
-      78SLT&lt;BR&gt;
-      78L&amp;nbsp;ALT&lt;BR&gt;
-      56P&amp;nbsp;ALT&lt;BR&gt;
-      78P&amp;nbsp;ALT&lt;BR&gt;
-      T8S&lt;BR&gt;
-      78L&lt;BR&gt;
-      56P&lt;BR&gt;
-      78P&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      T18/784&lt;BR&gt;
-      783&lt;BR&gt;
-      781&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      2199&lt;BR&gt;
-      1697/1897&lt;BR&gt;
-      1680/1880&lt;BR&gt;
-      2187&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      8035EKP/CT20/RJ-20P&lt;BR&gt;
-      -&lt;BR&gt;
-      RJ-20X&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      1211L&lt;BR&gt;
-      8012EKQ&amp;nbsp;ALT&lt;BR&gt;
-      8012EKR&amp;nbsp;ALT&lt;BR&gt;
-      1211P&lt;BR&gt;
-      8012EKJ&lt;BR&gt;
-      8012EKL&lt;BR&gt;
-      8012EKQ&lt;BR&gt;
-      8012EKR&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      2101P&lt;BR&gt;
-      2101W&lt;BR&gt;
-      2101Y&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      2102L&lt;BR&gt;
-      2102S&lt;BR&gt;
-      2102Y&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      EVMCOG&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      43P&lt;BR&gt;
-      43W&lt;BR&gt;
-      43Y&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      40L&lt;BR&gt;
-      40P&lt;BR&gt;
-      40Y&lt;BR&gt;
-      70Y-T602&lt;BR&gt;
-      70L&lt;BR&gt;
-      70P&lt;BR&gt;
-      70Y&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      RT/RTR12&lt;BR&gt;
-      RT/RTR12&lt;BR&gt;
-      RT/RTR12&lt;BR&gt;
-      -&lt;BR&gt;
-      RJ/RJR12&lt;BR&gt;
-      RJ/RJR12&lt;BR&gt;
-      RJ/RJR12&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=8&gt;&amp;nbsp;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=8&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;SQUARE MULTI-TURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-   &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BOURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BI&amp;nbsp;TECH&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;DALE-VISHAY&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PHILIPS/MEPCO&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;MURATA&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PANASONIC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;SPECTROL&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;MILSPEC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      3250L&lt;BR&gt;
-      3250P&lt;BR&gt;
-      3250W&lt;BR&gt;
-      3250X&lt;BR&gt;
-      3252P&lt;BR&gt;
-      3252W&lt;BR&gt;
-      3252X&lt;BR&gt;
-      3260P&lt;BR&gt;
-      3260W&lt;BR&gt;
-      3260X&lt;BR&gt;
-      3262P&lt;BR&gt;
-      3262W&lt;BR&gt;
-      3262X&lt;BR&gt;
-      3266P&lt;BR&gt;
-      3266W&lt;BR&gt;
-      3266X&lt;BR&gt;
-      3290H&lt;BR&gt;
-      3290P&lt;BR&gt;
-      3290W&lt;BR&gt;
-      3292P&lt;BR&gt;
-      3292W&lt;BR&gt;
-      3292X&lt;BR&gt;
-      3296P&lt;BR&gt;
-      3296W&lt;BR&gt;
-      3296X&lt;BR&gt;
-      3296Y&lt;BR&gt;
-      3296Z&lt;BR&gt;
-      3299P&lt;BR&gt;
-      3299W&lt;BR&gt;
-      3299X&lt;BR&gt;
-      3299Y&lt;BR&gt;
-      3299Z&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      66P&amp;nbsp;ALT&lt;BR&gt;
-      66W&amp;nbsp;ALT&lt;BR&gt;
-      66X&amp;nbsp;ALT&lt;BR&gt;
-      66P&amp;nbsp;ALT&lt;BR&gt;
-      66W&amp;nbsp;ALT&lt;BR&gt;
-      66X&amp;nbsp;ALT&lt;BR&gt;
-      -&lt;BR&gt;
-      64W&amp;nbsp;ALT&lt;BR&gt;
-      -&lt;BR&gt;
-      64P&amp;nbsp;ALT&lt;BR&gt;
-      64W&amp;nbsp;ALT&lt;BR&gt;
-      64X&amp;nbsp;ALT&lt;BR&gt;
-      64P&lt;BR&gt;
-      64W&lt;BR&gt;
-      64X&lt;BR&gt;
-      66X&amp;nbsp;ALT&lt;BR&gt;
-      66P&amp;nbsp;ALT&lt;BR&gt;
-      66W&amp;nbsp;ALT&lt;BR&gt;
-      66P&lt;BR&gt;
-      66W&lt;BR&gt;
-      66X&lt;BR&gt;
-      67P&lt;BR&gt;
-      67W&lt;BR&gt;
-      67X&lt;BR&gt;
-      67Y&lt;BR&gt;
-      67Z&lt;BR&gt;
-      68P&lt;BR&gt;
-      68W&lt;BR&gt;
-      68X&lt;BR&gt;
-      67Y&amp;nbsp;ALT&lt;BR&gt;
-      67Z&amp;nbsp;ALT&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      5050&lt;BR&gt;
-      5091&lt;BR&gt;
-      5080&lt;BR&gt;
-      5087&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      T63YB&lt;BR&gt;
-      T63XB&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      5887&lt;BR&gt;
-      5891&lt;BR&gt;
-      5880&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      T93Z&lt;BR&gt;
-      T93YA&lt;BR&gt;
-      T93XA&lt;BR&gt;
-      T93YB&lt;BR&gt;
-      T93XB&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      8026EKP&lt;BR&gt;
-      8026EKW&lt;BR&gt;
-      8026EKM&lt;BR&gt;
-      8026EKP&lt;BR&gt;
-      8026EKB&lt;BR&gt;
-      8026EKM&lt;BR&gt;
-      1309X&lt;BR&gt;
-      1309P&lt;BR&gt;
-      1309W&lt;BR&gt;
-      8024EKP&lt;BR&gt;
-      8024EKW&lt;BR&gt;
-      8024EKN&lt;BR&gt;
-      RJ-9P/CT9P&lt;BR&gt;
-      RJ-9W&lt;BR&gt;
-      RJ-9X&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      3103P&lt;BR&gt;
-      3103Y&lt;BR&gt;
-      3103Z&lt;BR&gt;
-      3103P&lt;BR&gt;
-      3103Y&lt;BR&gt;
-      3103Z&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      3105P/3106P&lt;BR&gt;
-      3105W/3106W&lt;BR&gt;
-      3105X/3106X&lt;BR&gt;
-      3105Y/3106Y&lt;BR&gt;
-      3105Z/3105Z&lt;BR&gt;
-      3102P&lt;BR&gt;
-      3102W&lt;BR&gt;
-      3102X&lt;BR&gt;
-      3102Y&lt;BR&gt;
-      3102Z&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMCBG&lt;BR&gt;
-      EVMCCG&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      55-1-X&lt;BR&gt;
-      55-4-X&lt;BR&gt;
-      55-3-X&lt;BR&gt;
-      55-2-X&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      50-2-X&lt;BR&gt;
-      50-4-X&lt;BR&gt;
-      50-3-X&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      64P&lt;BR&gt;
-      64W&lt;BR&gt;
-      64X&lt;BR&gt;
-      64Y&lt;BR&gt;
-      64Z&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      RT/RTR22&lt;BR&gt;
-      RT/RTR22&lt;BR&gt;
-      RT/RTR22&lt;BR&gt;
-      RT/RTR22&lt;BR&gt;
-      RJ/RJR22&lt;BR&gt;
-      RJ/RJR22&lt;BR&gt;
-      RJ/RJR22&lt;BR&gt;
-      RT/RTR26&lt;BR&gt;
-      RT/RTR26&lt;BR&gt;
-      RT/RTR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RJ/RJR26&lt;BR&gt;
-      RT/RTR24&lt;BR&gt;
-      RT/RTR24&lt;BR&gt;
-      RT/RTR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      RJ/RJR24&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=8&gt;&amp;nbsp;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=8&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;SINGLE TURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BOURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BI&amp;nbsp;TECH&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;DALE-VISHAY&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PHILIPS/MEPCO&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;MURATA&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PANASONIC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;SPECTROL&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=CENTER&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;MILSPEC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      3323P&lt;BR&gt;
-      3323S&lt;BR&gt;
-      3323W&lt;BR&gt;
-      3329H&lt;BR&gt;
-      3329P&lt;BR&gt;
-      3329W&lt;BR&gt;
-      3339H&lt;BR&gt;
-      3339P&lt;BR&gt;
-      3339W&lt;BR&gt;
-      3352E&lt;BR&gt;
-      3352H&lt;BR&gt;
-      3352K&lt;BR&gt;
-      3352P&lt;BR&gt;
-      3352T&lt;BR&gt;
-      3352V&lt;BR&gt;
-      3352W&lt;BR&gt;
-      3362H&lt;BR&gt;
-      3362M&lt;BR&gt;
-      3362P&lt;BR&gt;
-      3362R&lt;BR&gt;
-      3362S&lt;BR&gt;
-      3362U&lt;BR&gt;
-      3362W&lt;BR&gt;
-      3362X&lt;BR&gt;
-      3386B&lt;BR&gt;
-      3386C&lt;BR&gt;
-      3386F&lt;BR&gt;
-      3386H&lt;BR&gt;
-      3386K&lt;BR&gt;
-      3386M&lt;BR&gt;
-      3386P&lt;BR&gt;
-      3386S&lt;BR&gt;
-      3386W&lt;BR&gt;
-      3386X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      25P&lt;BR&gt;
-      25S&lt;BR&gt;
-      25RX&lt;BR&gt;
-      82P&lt;BR&gt;
-      82M&lt;BR&gt;
-      82PA&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      91E&lt;BR&gt;
-      91X&lt;BR&gt;
-      91T&lt;BR&gt;
-      91B&lt;BR&gt;
-      91A&lt;BR&gt;
-      91V&lt;BR&gt;
-      91W&lt;BR&gt;
-      25W&lt;BR&gt;
-      25V&lt;BR&gt;
-      25P&lt;BR&gt;
-      -&lt;BR&gt;
-      25S&lt;BR&gt;
-      25U&lt;BR&gt;
-      25RX&lt;BR&gt;
-      25X&lt;BR&gt;
-      72XW&lt;BR&gt;
-      72XL&lt;BR&gt;
-      72PM&lt;BR&gt;
-      72RX&lt;BR&gt;
-      -&lt;BR&gt;
-      72PX&lt;BR&gt;
-      72P&lt;BR&gt;
-      72RXW&lt;BR&gt;
-      72RXL&lt;BR&gt;
-      72X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      T7YB&lt;BR&gt;
-      T7YA&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      TXD&lt;BR&gt;
-      TYA&lt;BR&gt;
-      TYP&lt;BR&gt;
-      -&lt;BR&gt;
-      TYD&lt;BR&gt;
-      TX&lt;BR&gt;
-      -&lt;BR&gt;
-      150SX&lt;BR&gt;
-      100SX&lt;BR&gt;
-      102T&lt;BR&gt;
-      101S&lt;BR&gt;
-      190T&lt;BR&gt;
-      150TX&lt;BR&gt;
-      101&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      101SX&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      ET6P&lt;BR&gt;
-      ET6S&lt;BR&gt;
-      ET6X&lt;BR&gt;
-      RJ-6W/8014EMW&lt;BR&gt;
-      RJ-6P/8014EMP&lt;BR&gt;
-      RJ-6X/8014EMX&lt;BR&gt;
-      TM7W&lt;BR&gt;
-      TM7P&lt;BR&gt;
-      TM7X&lt;BR&gt;
-      -&lt;BR&gt;
-      8017SMS&lt;BR&gt;
-      -&lt;BR&gt;
-      8017SMB&lt;BR&gt;
-      8017SMA&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      CT-6W&lt;BR&gt;
-      CT-6H&lt;BR&gt;
-      CT-6P&lt;BR&gt;
-      CT-6R&lt;BR&gt;
-      -&lt;BR&gt;
-      CT-6V&lt;BR&gt;
-      CT-6X&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      8038EKV&lt;BR&gt;
-      -&lt;BR&gt;
-      8038EKX&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      8038EKP&lt;BR&gt;
-      8038EKZ&lt;BR&gt;
-      8038EKW&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      3321H&lt;BR&gt;
-      3321P&lt;BR&gt;
-      3321N&lt;BR&gt;
-      1102H&lt;BR&gt;
-      1102P&lt;BR&gt;
-      1102T&lt;BR&gt;
-      RVA0911V304A&lt;BR&gt;
-      -&lt;BR&gt;
-      RVA0911H413A&lt;BR&gt;
-      RVG0707V100A&lt;BR&gt;
-      RVA0607V(H)306A&lt;BR&gt;
-      RVA1214H213A&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      3104B&lt;BR&gt;
-      3104C&lt;BR&gt;
-      3104F&lt;BR&gt;
-      3104H&lt;BR&gt;
-      -&lt;BR&gt;
-      3104M&lt;BR&gt;
-      3104P&lt;BR&gt;
-      3104S&lt;BR&gt;
-      3104W&lt;BR&gt;
-      3104X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      EVMQ0G&lt;BR&gt;
-      EVMQIG&lt;BR&gt;
-      EVMQ3G&lt;BR&gt;
-      EVMS0G&lt;BR&gt;
-      EVMQ0G&lt;BR&gt;
-      EVMG0G&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMK4GA00B&lt;BR&gt;
-      EVM30GA00B&lt;BR&gt;
-      EVMK0GA00B&lt;BR&gt;
-      EVM38GA00B&lt;BR&gt;
-      EVMB6&lt;BR&gt;
-      EVLQ0&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMMSG&lt;BR&gt;
-      EVMMBG&lt;BR&gt;
-      EVMMAG&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMMCS&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMM1&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMM0&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      EVMM3&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      62-3-1&lt;BR&gt;
-      62-1-2&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      67R&lt;BR&gt;
-      -&lt;BR&gt;
-      67P&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      67X&lt;BR&gt;
-      63V&lt;BR&gt;
-      63S&lt;BR&gt;
-      63M&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      63H&lt;BR&gt;
-      63P&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      63X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      RJ/RJR50&lt;BR&gt;
-      RJ/RJR50&lt;BR&gt;
-      RJ/RJR50&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-&lt;/TABLE&gt;
-&lt;P&gt;&amp;nbsp;&lt;P&gt;
-&lt;TABLE BORDER=0 CELLSPACING=1 CELLPADDING=3&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=7&gt;
-      &lt;FONT color="#0000FF" SIZE=4 FACE=ARIAL&gt;&lt;B&gt;SMD TRIM-POT CROSS REFERENCE&lt;/B&gt;&lt;/FONT&gt;
-      &lt;P&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;MULTI-TURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BOURNS&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BI&amp;nbsp;TECH&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;DALE-VISHAY&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PHILIPS/MEPCO&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PANASONIC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;TOCOS&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;AUX/KYOCERA&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      3224G&lt;BR&gt;
-      3224J&lt;BR&gt;
-      3224W&lt;BR&gt;
-      3269P&lt;BR&gt;
-      3269W&lt;BR&gt;
-      3269X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      44G&lt;BR&gt;
-      44J&lt;BR&gt;
-      44W&lt;BR&gt;
-      84P&lt;BR&gt;
-      84W&lt;BR&gt;
-      84X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      ST63Z&lt;BR&gt;
-      ST63Y&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      ST5P&lt;BR&gt;
-      ST5W&lt;BR&gt;
-      ST5X&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=7&gt;&amp;nbsp;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD COLSPAN=7&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;SINGLE TURN&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BOURNS&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;BI&amp;nbsp;TECH&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;DALE-VISHAY&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PHILIPS/MEPCO&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;PANASONIC&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;TOCOS&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL&gt;&lt;B&gt;AUX/KYOCERA&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      3314G&lt;BR&gt;
-      3314J&lt;BR&gt;
-      3364A/B&lt;BR&gt;
-      3364C/D&lt;BR&gt;
-      3364W/X&lt;BR&gt;
-      3313G&lt;BR&gt;
-      3313J&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      23B&lt;BR&gt;
-      23A&lt;BR&gt;
-      21X&lt;BR&gt;
-      21W&lt;BR&gt;
-      -&lt;BR&gt;
-      22B&lt;BR&gt;
-      22A&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      ST5YL/ST53YL&lt;BR&gt;
-      ST5YJ/5T53YJ&lt;BR&gt;
-      ST-23A&lt;BR&gt;
-      ST-22B&lt;BR&gt;
-      ST-22&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      ST-4B&lt;BR&gt;
-      ST-4A&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      ST-3B&lt;BR&gt;
-      ST-3A&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      EVM-6YS&lt;BR&gt;
-      EVM-1E&lt;BR&gt;
-      EVM-1G&lt;BR&gt;
-      EVM-1D&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      G4B&lt;BR&gt;
-      G4A&lt;BR&gt;
-      TR04-3S1&lt;BR&gt;
-      TRG04-2S1&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;
-      DVR-43A&lt;BR&gt;
-      CVR-42C&lt;BR&gt;
-      CVR-42A/C&lt;BR&gt;
-      -&lt;BR&gt;
-      -&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-&lt;/TABLE&gt;
-&lt;P&gt;
-&lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;ALT =&amp;nbsp;ALTERNATE&lt;/B&gt;&lt;/FONT&gt;
-&lt;P&gt;
-
-&amp;nbsp;
-&lt;P&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</description>
 <packages>
 <package name="R0402">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
@@ -7699,418 +6834,400 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="frames">
-<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="DOCFIELD">
-<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
-<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
-<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
-<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
-<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
-<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
-<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
-<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
-<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
-<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
-<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
-<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
-<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
-<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
-<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
-<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
-<gates>
-<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.2032" drill="0.4064">
+<clearance class="0" value="0.1016"/>
 </class>
 </classes>
 <parts>
-<part name="Q2" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
-<part name="R10" library="rcl" deviceset="R-US_" device="R1206W" value="100k"/>
+<part name="Q2402" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
+<part name="R2411" library="rcl" deviceset="R-US_" device="R1206W" value="100k"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="P+5" library="supply1" deviceset="+12V" device=""/>
-<part name="D1" library="Atlanta Robotics" deviceset="ZENER_SOD123" device=""/>
-<part name="R11" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="R14" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R1206W" value="3.3k"/>
-<part name="R16" library="rcl" deviceset="R-US_" device="R1206W" value="3.3k"/>
-<part name="R17" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="IC3" library="st-microelectronics" deviceset="VNH2SP30-E" device=""/>
-<part name="R18" library="rcl" deviceset="R-US_" device="R1206W" value="10k"/>
-<part name="R19" library="rcl" deviceset="R-US_" device="R1206W" value="1.5k"/>
-<part name="C4" library="rcl" deviceset="C-US" device="C1206K" value="33nF"/>
+<part name="D2401" library="Atlanta Robotics" deviceset="ZENER_SOD123" device=""/>
+<part name="R2403" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="R2404" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="R2402" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="R2401" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="R2408" library="rcl" deviceset="R-US_" device="R1206W" value="3.3k"/>
+<part name="R2407" library="rcl" deviceset="R-US_" device="R1206W" value="3.3k"/>
+<part name="R2405" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="U2401" library="st-microelectronics" deviceset="VNH2SP30-E" device=""/>
+<part name="R2406" library="rcl" deviceset="R-US_" device="R1206W" value="10k"/>
+<part name="R2409" library="rcl" deviceset="R-US_" device="R1206W" value="1.5k"/>
+<part name="C64" library="rcl" deviceset="C-US" device="C1206K" value="33nF"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
-<part name="P+9" library="supply1" deviceset="+5V" device=""/>
-<part name="Q1" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
+<part name="Q2401" library="Atlanta Robotics" deviceset="IRFR3707Z" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
-<part name="LED3" library="led" deviceset="LED" device="SML1206"/>
-<part name="LED4" library="led" deviceset="LED" device="SML1206"/>
-<part name="R21" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
-<part name="J2" library="Atlanta-Robotics LAPTOP" deviceset="PHOENIX_2POS_1792863" device="" value=""/>
-<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="LED2401" library="led" deviceset="LED" device="SML1206"/>
+<part name="LED2402" library="led" deviceset="LED" device="SML1206"/>
+<part name="R2410" library="rcl" deviceset="R-US_" device="R1206W" value="1k"/>
+<part name="J2401" library="Atlanta-Robotics LAPTOP" deviceset="PHOENIX_2POS_1792863" device="" value=""/>
+<part name="FRAME24" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="J2402" library="jumper" deviceset="JP1E" device=""/>
+<part name="J2403" library="jumper" deviceset="JP1E" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="-76.2" y="114.3" size="5.08" layer="91">Steering Controller</text>
-<frame x1="-101.6" y1="-58.42" x2="190.5" y2="127" columns="8" rows="5" layer="91"/>
+<text x="25.4" y="172.72" size="5.08" layer="91">Steering Controller</text>
+<frame x1="0" y1="0" x2="292.1" y2="185.42" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
-<instance part="Q2" gate="G$1" x="-2.54" y="76.2" rot="R180"/>
-<instance part="R10" gate="G$1" x="15.24" y="78.74"/>
-<instance part="GND7" gate="1" x="-2.54" y="68.58"/>
-<instance part="P+5" gate="1" x="22.86" y="86.36"/>
-<instance part="D1" gate="G$1" x="5.08" y="83.82" smashed="yes" rot="R270">
-<attribute name="NAME" x="7.7216" y="86.7664" size="1.778" layer="95" rot="R270"/>
+<instance part="Q2402" gate="G$1" x="152.4" y="63.5" rot="MR180"/>
+<instance part="R2411" gate="G$1" x="127" y="81.28" rot="R90"/>
+<instance part="GND7" gate="1" x="152.4" y="53.34"/>
+<instance part="D2401" gate="G$1" x="144.78" y="76.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="147.4216" y="79.1464" size="1.778" layer="95" rot="R270"/>
 </instance>
-<instance part="R11" gate="G$1" x="-50.8" y="35.56"/>
-<instance part="R12" gate="G$1" x="-60.96" y="30.48"/>
-<instance part="R13" gate="G$1" x="-60.96" y="40.64"/>
-<instance part="R14" gate="G$1" x="-50.8" y="45.72"/>
-<instance part="R15" gate="G$1" x="-30.48" y="53.34" rot="R90"/>
-<instance part="R16" gate="G$1" x="-38.1" y="53.34" rot="R90"/>
-<instance part="R17" gate="G$1" x="-48.26" y="22.86"/>
-<instance part="IC3" gate="G$1" x="0" y="33.02"/>
-<instance part="R18" gate="G$1" x="-48.26" y="15.24"/>
-<instance part="R19" gate="G$1" x="-30.48" y="10.16" rot="R90"/>
-<instance part="C4" gate="G$1" x="-58.42" y="10.16"/>
-<instance part="GND10" gate="1" x="-58.42" y="2.54"/>
-<instance part="GND11" gate="1" x="-30.48" y="2.54"/>
-<instance part="P+8" gate="1" x="-38.1" y="60.96"/>
-<instance part="P+9" gate="1" x="-30.48" y="60.96"/>
-<instance part="Q1" gate="G$1" x="-2.54" y="0" rot="R180"/>
-<instance part="GND16" gate="1" x="-2.54" y="-7.62"/>
-<instance part="P+7" gate="1" x="-2.54" y="60.96"/>
-<instance part="LED3" gate="G$1" x="40.64" y="40.64"/>
-<instance part="LED4" gate="G$1" x="53.34" y="38.1" rot="R180"/>
-<instance part="R21" gate="G$1" x="40.64" y="27.94" rot="R90"/>
-<instance part="J2" gate="G$1" x="60.96" y="45.72" rot="R180"/>
-<instance part="J2" gate="G$2" x="60.96" y="22.86" rot="R180"/>
-<instance part="FRAME1" gate="G$1" x="83.82" y="-53.34"/>
+<instance part="R2403" gate="G$1" x="78.74" y="111.76"/>
+<instance part="R2404" gate="G$1" x="68.58" y="106.68"/>
+<instance part="R2402" gate="G$1" x="68.58" y="116.84"/>
+<instance part="R2401" gate="G$1" x="78.74" y="121.92"/>
+<instance part="R2408" gate="G$1" x="99.06" y="129.54" rot="R90"/>
+<instance part="R2407" gate="G$1" x="91.44" y="129.54" rot="R90"/>
+<instance part="R2405" gate="G$1" x="78.74" y="101.6"/>
+<instance part="U2401" gate="G$1" x="147.32" y="109.22"/>
+<instance part="R2406" gate="G$1" x="68.58" y="96.52"/>
+<instance part="R2409" gate="G$1" x="99.06" y="88.9" rot="R90"/>
+<instance part="C64" gate="G$1" x="60.96" y="88.9"/>
+<instance part="GND10" gate="1" x="60.96" y="78.74"/>
+<instance part="GND11" gate="1" x="99.06" y="78.74"/>
+<instance part="P+8" gate="1" x="121.92" y="149.86"/>
+<instance part="Q2401" gate="G$1" x="137.16" y="63.5" rot="R180"/>
+<instance part="GND16" gate="1" x="137.16" y="53.34"/>
+<instance part="P+7" gate="1" x="121.92" y="160.02"/>
+<instance part="LED2401" gate="G$1" x="190.5" y="116.84"/>
+<instance part="LED2402" gate="G$1" x="200.66" y="114.3" rot="R180"/>
+<instance part="R2410" gate="G$1" x="195.58" y="106.68" rot="R90"/>
+<instance part="J2401" gate="G$1" x="208.28" y="121.92" rot="R180"/>
+<instance part="J2401" gate="G$2" x="208.28" y="101.6" rot="R180"/>
+<instance part="FRAME24" gate="G$1" x="185.42" y="5.08"/>
+<instance part="J2402" gate="A" x="132.08" y="157.48"/>
+<instance part="J2403" gate="A" x="132.08" y="147.32"/>
 </instances>
 <busses>
-<bus name="TOMCU">
-<segment>
-<wire x1="-88.9" y1="106.68" x2="-88.9" y2="10.16" width="0.762" layer="92"/>
-<label x="-86.36" y="88.9" size="1.778" layer="95"/>
-</segment>
-</bus>
 </busses>
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="Q2" gate="G$1" pin="D"/>
+<pinref part="Q2402" gate="G$1" pin="D"/>
 <pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="152.4" y1="55.88" x2="152.4" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="C64" gate="G$1" pin="2"/>
 <pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="60.96" y1="83.82" x2="60.96" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R19" gate="G$1" pin="1"/>
+<pinref part="R2409" gate="G$1" pin="1"/>
 <pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="99.06" y1="81.28" x2="99.06" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="D"/>
+<pinref part="Q2401" gate="G$1" pin="D"/>
 <pinref part="GND16" gate="1" pin="GND"/>
+<wire x1="137.16" y1="55.88" x2="137.16" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="STEERCTRL_GND" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="GNDA@2"/>
+<wire x1="137.16" y1="91.44" x2="137.16" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="GNDB@2"/>
+<wire x1="137.16" y1="88.9" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="88.9" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="88.9" x2="144.78" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="88.9" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="88.9" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="88.9" x2="152.4" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="88.9" x2="152.4" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="GNDB@1"/>
+<wire x1="149.86" y1="91.44" x2="149.86" y2="88.9" width="0.1524" layer="91"/>
+<junction x="149.86" y="88.9"/>
+<pinref part="U2401" gate="G$1" pin="GNDB"/>
+<wire x1="147.32" y1="91.44" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
+<junction x="147.32" y="88.9"/>
+<pinref part="U2401" gate="G$1" pin="GNDA"/>
+<wire x1="142.24" y1="91.44" x2="142.24" y2="88.9" width="0.1524" layer="91"/>
+<junction x="142.24" y="88.9"/>
+<pinref part="U2401" gate="G$1" pin="GNDA@1"/>
+<wire x1="139.7" y1="91.44" x2="139.7" y2="88.9" width="0.1524" layer="91"/>
+<junction x="139.7" y="88.9"/>
+<junction x="144.78" y="88.9"/>
+<wire x1="144.78" y1="88.9" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
+<junction x="144.78" y="81.28"/>
+<pinref part="D2401" gate="G$1" pin="A"/>
+<wire x1="144.78" y1="81.28" x2="144.78" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
+<junction x="144.78" y="81.28"/>
+<pinref part="Q2402" gate="G$1" pin="S"/>
+<wire x1="152.4" y1="81.28" x2="152.4" y2="68.58" width="0.1524" layer="91"/>
+<label x="154.94" y="81.28" size="1.27" layer="95"/>
+<pinref part="Q2401" gate="G$1" pin="S"/>
+<wire x1="137.16" y1="68.58" x2="137.16" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="81.28" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
+<junction x="152.4" y="81.28"/>
+<wire x1="152.4" y1="81.28" x2="162.56" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_INA_R" class="0">
+<segment>
+<pinref part="R2401" gate="G$1" pin="2"/>
+<wire x1="132.08" y1="119.38" x2="88.9" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="119.38" x2="88.9" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="121.92" x2="83.82" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="INA"/>
+<label x="129.54" y="119.38" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_DIAGA_R" class="0">
+<segment>
+<pinref part="R2403" gate="G$1" pin="2"/>
+<wire x1="132.08" y1="111.76" x2="91.44" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="R2407" gate="G$1" pin="1"/>
+<wire x1="91.44" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="124.46" x2="91.44" y2="111.76" width="0.1524" layer="91"/>
+<junction x="91.44" y="111.76"/>
+<pinref part="U2401" gate="G$1" pin="DIAGA"/>
+<label x="129.54" y="111.76" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_DIAGB_R" class="0">
+<segment>
+<pinref part="R2404" gate="G$1" pin="2"/>
+<wire x1="132.08" y1="109.22" x2="99.06" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="109.22" x2="83.82" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="109.22" x2="83.82" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="106.68" x2="73.66" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R2408" gate="G$1" pin="1"/>
+<wire x1="99.06" y1="124.46" x2="99.06" y2="109.22" width="0.1524" layer="91"/>
+<junction x="99.06" y="109.22"/>
+<pinref part="U2401" gate="G$1" pin="DIAGB"/>
+<label x="129.54" y="109.22" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_CS_R" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="CS"/>
+<wire x1="132.08" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="101.6" x2="88.9" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="101.6" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="96.52" x2="73.66" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R2406" gate="G$1" pin="2"/>
+<pinref part="R2409" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="93.98" x2="99.06" y2="101.6" width="0.1524" layer="91"/>
+<junction x="99.06" y="101.6"/>
+<label x="129.54" y="101.6" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="STEERCTRL_OUTA" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="OUTA"/>
+<wire x1="162.56" y1="121.92" x2="165.1" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="121.92" x2="165.1" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="OUTA@1"/>
+<wire x1="165.1" y1="119.38" x2="162.56" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="119.38" x2="165.1" y2="116.84" width="0.1524" layer="91"/>
+<junction x="165.1" y="119.38"/>
+<pinref part="U2401" gate="G$1" pin="OUTA@2"/>
+<wire x1="165.1" y1="116.84" x2="162.56" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="121.92" x2="190.5" y2="121.92" width="0.1524" layer="91"/>
+<junction x="165.1" y="121.92"/>
+<pinref part="LED2402" gate="G$1" pin="C"/>
+<wire x1="190.5" y1="121.92" x2="200.66" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="121.92" x2="208.28" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="119.38" x2="200.66" y2="121.92" width="0.1524" layer="91"/>
+<junction x="200.66" y="121.92"/>
+<pinref part="LED2401" gate="G$1" pin="A"/>
+<wire x1="190.5" y1="119.38" x2="190.5" y2="121.92" width="0.1524" layer="91"/>
+<junction x="190.5" y="121.92"/>
+<pinref part="J2401" gate="G$1" pin="SK"/>
+<label x="167.64" y="121.92" size="1.27" layer="95"/>
+</segment>
+</net>
+<net name="STEERCTRL_OUTB" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="OUTB"/>
+<pinref part="U2401" gate="G$1" pin="OUTB@1"/>
+<wire x1="165.1" y1="106.68" x2="162.56" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="106.68" x2="165.1" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="104.14" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="OUTB@2"/>
+<wire x1="165.1" y1="104.14" x2="165.1" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="101.6" x2="162.56" y2="101.6" width="0.1524" layer="91"/>
+<junction x="165.1" y="104.14"/>
+<junction x="165.1" y="101.6"/>
+<pinref part="R2410" gate="G$1" pin="1"/>
+<wire x1="195.58" y1="101.6" x2="165.1" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="101.6" x2="208.28" y2="101.6" width="0.1524" layer="91"/>
+<junction x="195.58" y="101.6"/>
+<pinref part="J2401" gate="G$2" pin="SK"/>
+<label x="167.64" y="101.6" size="1.27" layer="95"/>
+</segment>
+</net>
+<net name="STEER_OUT_LED" class="0">
+<segment>
+<pinref part="R2410" gate="G$1" pin="2"/>
+<pinref part="LED2402" gate="G$1" pin="A"/>
+<wire x1="195.58" y1="111.76" x2="200.66" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="LED2401" gate="G$1" pin="C"/>
+<wire x1="190.5" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<junction x="195.58" y="111.76"/>
+<label x="203.2" y="111.76" size="1.27" layer="95"/>
+<wire x1="195.58" y1="111.76" x2="215.9" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_PWM_R" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="PWM"/>
+<wire x1="86.36" y1="104.14" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="104.14" x2="86.36" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="R2405" gate="G$1" pin="2"/>
+<wire x1="86.36" y1="101.6" x2="83.82" y2="101.6" width="0.1524" layer="91"/>
+<label x="129.54" y="104.14" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_INB_R" class="0">
+<segment>
+<pinref part="R2402" gate="G$1" pin="2"/>
+<pinref part="U2401" gate="G$1" pin="INB"/>
+<wire x1="73.66" y1="116.84" x2="132.08" y2="116.84" width="0.1524" layer="91"/>
+<label x="129.54" y="116.84" size="1.27" layer="95" rot="MR0"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_INA" class="0">
+<segment>
+<pinref part="R2401" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="121.92" x2="73.66" y2="121.92" width="0.1524" layer="91"/>
+<label x="55.88" y="121.92" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_INB" class="0">
+<segment>
+<pinref part="R2402" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="116.84" x2="63.5" y2="116.84" width="0.1524" layer="91"/>
+<label x="55.88" y="116.84" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_DIAGA" class="0">
+<segment>
+<pinref part="R2403" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="111.76" x2="55.88" y2="111.76" width="0.1524" layer="91"/>
+<label x="55.88" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_DIAGB" class="0">
+<segment>
+<pinref part="R2404" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="106.68" x2="55.88" y2="106.68" width="0.1524" layer="91"/>
+<label x="55.88" y="106.68" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_PWM" class="0">
+<segment>
+<pinref part="R2405" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="101.6" x2="55.88" y2="101.6" width="0.1524" layer="91"/>
+<label x="55.88" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_STEERCTRL_CS" class="0">
+<segment>
+<pinref part="R2406" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="96.52" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="C64" gate="G$1" pin="1"/>
+<wire x1="60.96" y1="96.52" x2="55.88" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="91.44" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
+<junction x="60.96" y="96.52"/>
+<label x="55.88" y="96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="STEERCTRL_GND_ZENER" class="0">
+<segment>
+<pinref part="R2411" gate="G$1" pin="1"/>
+<wire x1="127" y1="76.2" x2="127" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="127" y1="71.12" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
+<label x="101.6" y="71.12" size="1.27" layer="95"/>
+<wire x1="127" y1="71.12" x2="106.68" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="D2401" gate="G$1" pin="C"/>
+<wire x1="144.78" y1="73.66" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="Q2401" gate="G$1" pin="G"/>
+<pinref part="Q2402" gate="G$1" pin="G"/>
+<wire x1="142.24" y1="66.04" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="66.04" x2="147.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="71.12" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
+<junction x="144.78" y="71.12"/>
+<junction x="144.78" y="66.04"/>
+<junction x="127" y="71.12"/>
+</segment>
+</net>
+<net name="STEERCTRL_+12V" class="0">
+<segment>
+<pinref part="U2401" gate="G$1" pin="VCC@2"/>
+<pinref part="U2401" gate="G$1" pin="VCC"/>
+<wire x1="144.78" y1="129.54" x2="144.78" y2="127" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="127" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="129.54" x2="144.78" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="U2401" gate="G$1" pin="VCC@1"/>
+<wire x1="149.86" y1="127" x2="149.86" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
+<junction x="147.32" y="129.54"/>
+<wire x1="147.32" y1="129.54" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
+<label x="132.08" y="134.62" size="1.27" layer="95"/>
+</segment>
+<segment>
+<pinref part="R2411" gate="G$1" pin="2"/>
+<wire x1="127" y1="86.36" x2="127" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="127" y1="88.9" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
+<label x="114.3" y="88.9" size="1.27" layer="95"/>
+</segment>
+<segment>
+<pinref part="J2402" gate="A" pin="2"/>
+<wire x1="134.62" y1="154.94" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
+<label x="137.16" y="154.94" size="1.27" layer="95"/>
 </segment>
 </net>
 <net name="+12V" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
-<pinref part="P+5" gate="1" pin="+12V"/>
-<wire x1="20.32" y1="78.74" x2="22.86" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="78.74" x2="22.86" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="VCC@2"/>
-<pinref part="IC3" gate="G$1" pin="VCC"/>
-<wire x1="-2.54" y1="53.34" x2="-2.54" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="0" y1="50.8" x2="0" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="0" y1="53.34" x2="-2.54" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="VCC@1"/>
-<wire x1="2.54" y1="50.8" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="53.34" x2="0" y2="53.34" width="0.1524" layer="91"/>
-<junction x="0" y="53.34"/>
 <pinref part="P+7" gate="1" pin="+12V"/>
-<wire x1="-2.54" y1="53.34" x2="-2.54" y2="58.42" width="0.1524" layer="91"/>
-<junction x="-2.54" y="53.34"/>
+<wire x1="121.92" y1="157.48" x2="121.92" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="J2402" gate="A" pin="1"/>
+<wire x1="121.92" y1="154.94" x2="132.08" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
-<pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="P+8" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<pinref part="R15" gate="G$1" pin="2"/>
-<pinref part="P+9" gate="1" pin="+5V"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="Q2" gate="G$1" pin="S"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="-2.54" y1="88.9" x2="-2.54" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="86.36" x2="5.08" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="88.9" x2="-2.54" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="88.9" x2="27.94" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="88.9" x2="27.94" y2="7.62" width="0.1524" layer="91"/>
-<junction x="5.08" y="88.9"/>
-<pinref part="IC3" gate="G$1" pin="GNDA@2"/>
-<wire x1="-10.16" y1="15.24" x2="-10.16" y2="12.7" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="GNDB@2"/>
-<wire x1="-10.16" y1="12.7" x2="-7.62" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="12.7" x2="-5.08" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="12.7" x2="-2.54" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-2.54" y1="12.7" x2="0" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="0" y1="12.7" x2="2.54" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="12.7" x2="5.08" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="12.7" x2="5.08" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="GNDB@1"/>
-<wire x1="2.54" y1="15.24" x2="2.54" y2="12.7" width="0.1524" layer="91"/>
-<junction x="2.54" y="12.7"/>
-<pinref part="IC3" gate="G$1" pin="GNDB"/>
-<wire x1="0" y1="15.24" x2="0" y2="12.7" width="0.1524" layer="91"/>
-<junction x="0" y="12.7"/>
-<pinref part="IC3" gate="G$1" pin="GNDA"/>
-<wire x1="-5.08" y1="15.24" x2="-5.08" y2="12.7" width="0.1524" layer="91"/>
-<junction x="-5.08" y="12.7"/>
-<pinref part="IC3" gate="G$1" pin="GNDA@1"/>
-<wire x1="-7.62" y1="15.24" x2="-7.62" y2="12.7" width="0.1524" layer="91"/>
-<junction x="-7.62" y="12.7"/>
-<pinref part="Q1" gate="G$1" pin="S"/>
-<junction x="-2.54" y="12.7"/>
-<wire x1="-2.54" y1="12.7" x2="-2.54" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="-2.54" y1="7.62" x2="-2.54" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="7.62" x2="-2.54" y2="7.62" width="0.1524" layer="91"/>
-<junction x="-2.54" y="7.62"/>
+<wire x1="121.92" y1="147.32" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="J2403" gate="A" pin="1"/>
+<wire x1="121.92" y1="144.78" x2="132.08" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="STEERCTRL_+5V" class="0">
 <segment>
-<pinref part="R14" gate="G$1" pin="2"/>
-<wire x1="-15.24" y1="43.18" x2="-43.18" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="43.18" x2="-43.18" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="45.72" x2="-45.72" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="INA"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="-15.24" y1="40.64" x2="-55.88" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="INB"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="-15.24" y1="35.56" x2="-38.1" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="-38.1" y1="35.56" x2="-45.72" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="-38.1" y1="48.26" x2="-38.1" y2="35.56" width="0.1524" layer="91"/>
-<junction x="-38.1" y="35.56"/>
-<pinref part="IC3" gate="G$1" pin="DIAGA"/>
-</segment>
-</net>
-<net name="N$20" class="0">
-<segment>
-<pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="-15.24" y1="33.02" x2="-30.48" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="33.02" x2="-43.18" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="33.02" x2="-43.18" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="30.48" x2="-55.88" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="1"/>
-<wire x1="-30.48" y1="48.26" x2="-30.48" y2="33.02" width="0.1524" layer="91"/>
-<junction x="-30.48" y="33.02"/>
-<pinref part="IC3" gate="G$1" pin="DIAGB"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<wire x1="-15.24" y1="27.94" x2="-40.64" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="-40.64" y1="27.94" x2="-40.64" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="-40.64" y1="22.86" x2="-43.18" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="PWM"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="CS"/>
-<wire x1="-15.24" y1="25.4" x2="-30.48" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="25.4" x2="-38.1" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="-38.1" y1="25.4" x2="-38.1" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-38.1" y1="15.24" x2="-43.18" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="R18" gate="G$1" pin="2"/>
-<pinref part="R19" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="15.24" x2="-30.48" y2="25.4" width="0.1524" layer="91"/>
-<junction x="-30.48" y="25.4"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="OUTA"/>
-<wire x1="15.24" y1="45.72" x2="17.78" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="45.72" x2="17.78" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="OUTA@1"/>
-<wire x1="17.78" y1="43.18" x2="15.24" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="43.18" x2="17.78" y2="40.64" width="0.1524" layer="91"/>
-<junction x="17.78" y="43.18"/>
-<pinref part="IC3" gate="G$1" pin="OUTA@2"/>
-<wire x1="17.78" y1="40.64" x2="15.24" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="45.72" x2="40.64" y2="45.72" width="0.1524" layer="91"/>
-<junction x="17.78" y="45.72"/>
-<pinref part="LED4" gate="G$1" pin="C"/>
-<wire x1="40.64" y1="45.72" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="45.72" x2="60.96" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="43.18" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
-<junction x="53.34" y="45.72"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
-<wire x1="40.64" y1="43.18" x2="40.64" y2="45.72" width="0.1524" layer="91"/>
-<junction x="40.64" y="45.72"/>
-<pinref part="J2" gate="G$1" pin="SK"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="OUTB"/>
-<pinref part="IC3" gate="G$1" pin="OUTB@1"/>
-<wire x1="17.78" y1="30.48" x2="15.24" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="30.48" x2="17.78" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="27.94" x2="15.24" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="OUTB@2"/>
-<wire x1="17.78" y1="27.94" x2="17.78" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="25.4" x2="15.24" y2="25.4" width="0.1524" layer="91"/>
-<junction x="17.78" y="27.94"/>
-<wire x1="17.78" y1="25.4" x2="33.02" y2="25.4" width="0.1524" layer="91"/>
-<junction x="17.78" y="25.4"/>
-<pinref part="R21" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="22.86" x2="33.02" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="22.86" x2="33.02" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="22.86" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
-<junction x="40.64" y="22.86"/>
-<pinref part="J2" gate="G$2" pin="SK"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="2.54" y1="2.54" x2="25.4" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="2.54" x2="25.4" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="G"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="78.74" x2="5.08" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="5.08" y1="78.74" x2="10.16" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="81.28" x2="5.08" y2="78.74" width="0.1524" layer="91"/>
-<junction x="5.08" y="78.74"/>
-<wire x1="25.4" y1="60.96" x2="5.08" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="60.96" x2="5.08" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="LED3" gate="G$1" pin="C"/>
-<pinref part="R21" gate="G$1" pin="2"/>
-<wire x1="40.64" y1="35.56" x2="40.64" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="LED4" gate="G$1" pin="A"/>
-<wire x1="40.64" y1="33.02" x2="53.34" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="33.02" x2="53.34" y2="35.56" width="0.1524" layer="91"/>
-<junction x="40.64" y="33.02"/>
-</segment>
-</net>
-<net name="B$1" class="0">
-<segment>
-<pinref part="R18" gate="G$1" pin="1"/>
-<wire x1="-53.34" y1="15.24" x2="-58.42" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="-58.42" y1="15.24" x2="-78.74" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-58.42" y1="12.7" x2="-58.42" y2="15.24" width="0.1524" layer="91"/>
-<junction x="-58.42" y="15.24"/>
-<wire x1="-78.74" y1="15.24" x2="-78.74" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="53.34" x2="-78.74" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="58.42" x2="-78.74" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="58.42" x2="-78.74" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="J2403" gate="A" pin="2"/>
+<wire x1="134.62" y1="144.78" x2="147.32" y2="144.78" width="0.1524" layer="91"/>
+<label x="137.16" y="144.78" size="1.27" layer="95"/>
 </segment>
 <segment>
-<pinref part="R17" gate="G$1" pin="1"/>
-<wire x1="-53.34" y1="22.86" x2="-76.2" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-76.2" y1="22.86" x2="-76.2" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-76.2" y1="55.88" x2="-76.2" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="63.5" x2="-76.2" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-76.2" y1="63.5" x2="-76.2" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="-66.04" y1="30.48" x2="-73.66" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="-73.66" y1="30.48" x2="-73.66" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="-73.66" y1="58.42" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="66.04" x2="-73.66" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-73.66" y1="66.04" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="-55.88" y1="35.56" x2="-71.12" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="35.56" x2="-71.12" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="60.96" x2="-71.12" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="71.12" x2="-71.12" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="71.12" x2="-71.12" y2="63.5" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="-66.04" y1="40.64" x2="-68.58" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="40.64" x2="-68.58" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="63.5" x2="-68.58" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="76.2" x2="-68.58" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="76.2" x2="-68.58" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R14" gate="G$1" pin="1"/>
-<wire x1="-55.88" y1="45.72" x2="-66.04" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="45.72" x2="-66.04" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="81.28" x2="-66.04" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="R2408" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="134.62" x2="99.06" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="137.16" x2="91.44" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="R2407" gate="G$1" pin="2"/>
+<wire x1="91.44" y1="137.16" x2="91.44" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="137.16" x2="78.74" y2="137.16" width="0.1524" layer="91"/>
+<junction x="91.44" y="137.16"/>
+<label x="78.74" y="137.16" size="1.27" layer="95"/>
 </segment>
 </net>
 </nets>

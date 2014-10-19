@@ -2689,7 +2689,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
-<text x="-60.96" y="132.08" size="5.08" layer="91">Battery Monitoring Block A</text>
+<text x="-60.96" y="132.08" size="5.08" layer="91">Battery Monitoring Block B</text>
 <frame x1="-81.28" y1="-10.16" x2="170.18" y2="157.48" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
@@ -2970,7 +2970,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
-<text x="-86.36" y="142.24" size="5.08" layer="91">Battery Monitoring Block A</text>
+<text x="-86.36" y="142.24" size="5.08" layer="91">Battery Monitoring Block C</text>
 <frame x1="-99.06" y1="0" x2="152.4" y2="167.64" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
@@ -3251,7 +3251,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </sheet>
 <sheet>
 <plain>
-<text x="-68.58" y="129.54" size="5.08" layer="91">Battery Monitoring Block A</text>
+<text x="-68.58" y="129.54" size="5.08" layer="91">Battery Monitoring Block D</text>
 <frame x1="-86.36" y1="-17.78" x2="165.1" y2="149.86" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>

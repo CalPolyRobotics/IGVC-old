@@ -336,76 +336,13 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="SUPPLY6" gate="GND" x="33.02" y="12.7"/>
 </instances>
 <busses>
-<bus name="TOMCU">
-<segment>
-<wire x1="-27.94" y1="114.3" x2="-27.94" y2="7.62" width="0.762" layer="92"/>
-<label x="-22.86" y="96.52" size="1.778" layer="95"/>
-</segment>
-</bus>
 </busses>
 <nets>
-<net name="TEMPERATURE_SIGNAL_TO_ADC_MCU" class="0">
-<segment>
-<pinref part="JP1" gate="1" pin="1"/>
-<wire x1="40.64" y1="99.06" x2="17.78" y2="99.06" width="0.1524" layer="91"/>
-<label x="-2.54" y="99.06" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="1" pin="1"/>
-<wire x1="40.64" y1="83.82" x2="17.78" y2="83.82" width="0.1524" layer="91"/>
-<label x="-2.54" y="83.82" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP3" gate="1" pin="1"/>
-<wire x1="40.64" y1="68.58" x2="17.78" y2="68.58" width="0.1524" layer="91"/>
-<label x="-2.54" y="68.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP4" gate="1" pin="1"/>
-<wire x1="40.64" y1="53.34" x2="17.78" y2="53.34" width="0.1524" layer="91"/>
-<label x="-2.54" y="53.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP5" gate="1" pin="1"/>
-<wire x1="40.64" y1="38.1" x2="17.78" y2="38.1" width="0.1524" layer="91"/>
-<label x="-2.54" y="38.1" size="1.778" layer="95"/>
-</segment>
+<net name="MCU_TEMPF_A6" class="0">
 <segment>
 <pinref part="JP6" gate="1" pin="1"/>
 <wire x1="40.64" y1="22.86" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
-<label x="-2.54" y="22.86" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="+5V" class="0">
-<segment>
-<pinref part="JP1" gate="1" pin="2"/>
-<wire x1="40.64" y1="96.52" x2="17.78" y2="96.52" width="0.1524" layer="91"/>
-<label x="17.78" y="96.52" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="1" pin="2"/>
-<wire x1="40.64" y1="81.28" x2="17.78" y2="81.28" width="0.1524" layer="91"/>
-<label x="17.78" y="81.28" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP3" gate="1" pin="2"/>
-<wire x1="40.64" y1="66.04" x2="17.78" y2="66.04" width="0.1524" layer="91"/>
-<label x="17.78" y="66.04" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP4" gate="1" pin="2"/>
-<wire x1="40.64" y1="50.8" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
-<label x="17.78" y="50.8" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP5" gate="1" pin="2"/>
-<wire x1="40.64" y1="35.56" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
-<label x="17.78" y="35.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP6" gate="1" pin="2"/>
-<wire x1="40.64" y1="20.32" x2="17.78" y2="20.32" width="0.1524" layer="91"/>
-<label x="17.78" y="20.32" size="1.778" layer="95"/>
+<label x="17.78" y="22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -444,6 +381,78 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="40.64" y1="17.78" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="17.78" x2="33.02" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
+</segment>
+</net>
+<net name="MCU_TEMP_A0" class="0">
+<segment>
+<pinref part="JP1" gate="1" pin="1"/>
+<wire x1="40.64" y1="99.06" x2="17.78" y2="99.06" width="0.1524" layer="91"/>
+<label x="17.78" y="99.06" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_TEMPB_A1" class="0">
+<segment>
+<pinref part="JP2" gate="1" pin="1"/>
+<wire x1="40.64" y1="83.82" x2="17.78" y2="83.82" width="0.1524" layer="91"/>
+<label x="17.78" y="83.82" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_TEMPC_A2" class="0">
+<segment>
+<pinref part="JP3" gate="1" pin="1"/>
+<wire x1="40.64" y1="68.58" x2="17.78" y2="68.58" width="0.1524" layer="91"/>
+<label x="17.78" y="68.58" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_TEMPD_A4" class="0">
+<segment>
+<pinref part="JP4" gate="1" pin="1"/>
+<wire x1="40.64" y1="53.34" x2="17.78" y2="53.34" width="0.1524" layer="91"/>
+<label x="17.78" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_TEMPE_A5" class="0">
+<segment>
+<pinref part="JP5" gate="1" pin="1"/>
+<wire x1="40.64" y1="38.1" x2="17.78" y2="38.1" width="0.1524" layer="91"/>
+<label x="17.78" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="3.3V_TEMP_PWR" class="0">
+<segment>
+<pinref part="JP1" gate="1" pin="2"/>
+<wire x1="40.64" y1="96.52" x2="17.78" y2="96.52" width="0.1524" layer="91"/>
+<label x="17.78" y="93.98" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="17.78" y1="96.52" x2="17.78" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="1" pin="2"/>
+<wire x1="40.64" y1="81.28" x2="17.78" y2="81.28" width="0.1524" layer="91"/>
+<label x="17.78" y="78.74" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="1" pin="2"/>
+<wire x1="40.64" y1="66.04" x2="17.78" y2="66.04" width="0.1524" layer="91"/>
+<label x="17.78" y="63.5" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="17.78" y1="66.04" x2="17.78" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP5" gate="1" pin="2"/>
+<wire x1="40.64" y1="35.56" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
+<label x="17.78" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="17.78" y1="35.56" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="1" pin="2"/>
+<wire x1="40.64" y1="50.8" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
+<label x="17.78" y="48.26" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="17.78" y1="50.8" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP6" gate="1" pin="2"/>
+<wire x1="40.64" y1="20.32" x2="17.78" y2="20.32" width="0.1524" layer="91"/>
+<label x="17.78" y="17.78" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="17.78" y1="20.32" x2="17.78" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

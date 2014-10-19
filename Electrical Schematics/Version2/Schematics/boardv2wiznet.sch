@@ -1699,15 +1699,18 @@ Source: AVX .. aphvc.pdf</description>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="C5" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1"/>
 <part name="C3" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1"/>
-<part name="C30" library="eagle-ltspice" deviceset="C" device="C0603"/>
-<part name="C29" library="eagle-ltspice" deviceset="C" device="C0603"/>
-<part name="C31" library="eagle-ltspice" deviceset="C" device="C0603"/>
-<part name="C34" library="eagle-ltspice" deviceset="C" device="C0603"/>
+<part name="C30" library="eagle-ltspice" deviceset="C" device="C0603" value="18pf"/>
+<part name="C29" library="eagle-ltspice" deviceset="C" device="C0603" value="18pf"/>
+<part name="C31" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uf"/>
+<part name="C34" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uf"/>
 <part name="C4" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1"/>
-<part name="C33" library="eagle-ltspice" deviceset="C" device="C0603"/>
-<part name="C32" library="eagle-ltspice" deviceset="C" device="C0603"/>
-<part name="C41" library="eagle-ltspice" deviceset="C" device="C0603"/>
+<part name="C33" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uf"/>
+<part name="C32" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uf"/>
+<part name="C41" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uf"/>
 <part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
+<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="16"/>
+<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="300"/>
+<part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1742,14 +1745,11 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C32" gate="G$1" x="12.7" y="104.14"/>
 <instance part="C41" gate="G$1" x="-17.78" y="104.14"/>
 <instance part="FRAME1" gate="G$1" x="88.9" y="-12.7"/>
+<instance part="R1" gate="G$1" x="-17.78" y="43.18" rot="R90"/>
+<instance part="R6" gate="G$1" x="-17.78" y="27.94" rot="R90"/>
+<instance part="SUPPLY1" gate="GND" x="-5.08" y="17.78"/>
 </instances>
 <busses>
-<bus name="TOMCU">
-<segment>
-<wire x1="91.44" y1="101.6" x2="91.44" y2="116.84" width="0.762" layer="92"/>
-<label x="88.9" y="114.3" size="1.778" layer="95"/>
-</segment>
-</bus>
 </busses>
 <nets>
 <net name="N$40" class="0">
@@ -1841,6 +1841,12 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
 <pinref part="C4" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="-17.78" y1="22.86" x2="-5.08" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="22.86" x2="-5.08" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="GND" pin="GND"/>
+</segment>
 </net>
 <net name="P$2_CLK_TO_XTLP_WIZNET" class="0">
 <segment>
@@ -1919,6 +1925,18 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="17.78" y="22.86"/>
 <junction x="17.78" y="25.4"/>
 <junction x="17.78" y="27.94"/>
+<pinref part="U2" gate="G$1" pin="OPMODE0"/>
+<wire x1="35.56" y1="38.1" x2="17.78" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="38.1" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="OPMODE1"/>
+<wire x1="17.78" y1="33.02" x2="17.78" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="35.56" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="35.56" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="OPMODE2"/>
+<wire x1="35.56" y1="33.02" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
+<junction x="17.78" y="33.02"/>
+<junction x="17.78" y="35.56"/>
+<junction x="17.78" y="38.1"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -2040,15 +2058,6 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="82.55" y1="88.9" x2="71.12" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="B$1" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="*SCS"/>
-<wire x1="86.36" y1="106.68" x2="83.82" y2="106.68" width="0.1524" layer="91"/>
-<label x="73.66" y="106.68" size="0.762" layer="95"/>
-<wire x1="83.82" y1="106.68" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="106.68" x2="91.44" y2="106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="1V8A@1"/>
@@ -2072,32 +2081,57 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="33.02" y1="93.98" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="ETHERNET_SEN_TO_EN_MCU" class="0">
+<net name="N$13" class="0">
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="-17.78" y1="33.02" x2="-17.78" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="-17.78" y1="48.26" x2="0" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="0" y1="48.26" x2="0" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="0" y1="40.64" x2="30.48" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="40.64" x2="30.48" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="RSET_BG"/>
+<wire x1="30.48" y1="63.5" x2="35.56" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MCU_ETHERNET_SEN" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="SEN"/>
-<wire x1="91.44" y1="111.76" x2="71.12" y2="111.76" width="0.1524" layer="91"/>
-<label x="73.66" y="111.76" size="0.762" layer="95"/>
+<wire x1="71.12" y1="111.76" x2="73.66" y2="111.76" width="0.1524" layer="91"/>
+<label x="73.66" y="111.76" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="ETHERNET_SCK_TO_SCK_MCU" class="0">
+<net name="MCU_ETHERNET_SCLK" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="SCLK"/>
-<wire x1="91.44" y1="109.22" x2="71.12" y2="109.22" width="0.1524" layer="91"/>
-<label x="73.66" y="109.22" size="0.762" layer="95"/>
+<wire x1="71.12" y1="109.22" x2="73.66" y2="109.22" width="0.1524" layer="91"/>
+<label x="73.66" y="109.22" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="ETHERNET_MOSI_TO_MOSI_MCU" class="0">
+<net name="MCU_ETHERNET_SCS" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="*SCS"/>
+<wire x1="71.12" y1="106.68" x2="73.66" y2="106.68" width="0.1524" layer="91"/>
+<label x="73.66" y="106.68" size="1.4224" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MCU_ETHERNET_MOSI" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="MOSI"/>
-<wire x1="91.44" y1="104.14" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
-<label x="73.66" y="104.14" size="0.762" layer="95"/>
+<wire x1="71.12" y1="104.14" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
+<label x="73.66" y="104.14" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="ETHERNET_MISO_TO_MISO_MCU" class="0">
+<net name="MCU_ETHERNET_MISO" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="MISO"/>
-<wire x1="91.44" y1="101.6" x2="71.12" y2="101.6" width="0.1524" layer="91"/>
-<label x="73.66" y="101.6" size="0.762" layer="95"/>
+<wire x1="71.12" y1="101.6" x2="73.66" y2="101.6" width="0.1524" layer="91"/>
+<label x="73.66" y="101.6" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

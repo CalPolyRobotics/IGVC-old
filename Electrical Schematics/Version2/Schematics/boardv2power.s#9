@@ -3194,18 +3194,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <sheet>
 <description>Supervisor</description>
 <plain>
-<text x="-38.1" y="99.06" size="1.778" layer="91">12V</text>
-<text x="-38.1" y="60.96" size="1.778" layer="91">PG</text>
-<text x="-43.18" y="71.12" size="1.778" layer="91">5V VSB</text>
-<text x="-38.1" y="93.98" size="1.778" layer="91">5V</text>
 <frame x1="-63.5" y1="-27.94" x2="218.44" y2="137.16" columns="8" rows="5" layer="91"/>
 <text x="-50.8" y="124.46" size="5.08" layer="91">Power Block</text>
 <text x="-50.8" y="119.38" size="2.54" layer="91">3.3v 5v 12v power supervisor Watches all the lines voltages and current draw</text>
-<text x="-40.64" y="76.2" size="1.778" layer="91">3.3V</text>
-<text x="172.72" y="99.06" size="1.778" layer="91">12V</text>
-<text x="172.72" y="93.98" size="1.778" layer="91">5V</text>
-<text x="172.72" y="76.2" size="1.778" layer="91">3.3V</text>
-<text x="172.72" y="71.12" size="1.778" layer="91">5V VSB</text>
 </plain>
 <instances>
 <instance part="U4" gate="A" x="33.02" y="55.88"/>
@@ -3225,7 +3216,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="TP15" gate="G$1" x="25.4" y="48.26"/>
 <instance part="TP16" gate="G$1" x="12.7" y="40.64"/>
 <instance part="TP17" gate="G$1" x="88.9" y="25.4"/>
-<instance part="TP18" gate="G$1" x="10.16" y="25.4"/>
+<instance part="TP18" gate="G$1" x="15.24" y="25.4"/>
 <instance part="TP19" gate="G$1" x="86.36" y="96.52"/>
 <instance part="TP20" gate="G$1" x="78.74" y="73.66"/>
 <instance part="R31" gate="G$1" x="96.52" y="63.5" rot="R90"/>
@@ -3283,13 +3274,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="27.94" y1="38.1" x2="12.7" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$22" class="0">
+<net name="FAULT_PROTECTION" class="0">
 <segment>
 <wire x1="17.78" y1="50.8" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="22.86" x2="10.16" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="22.86" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="22.86" x2="10.16" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="TP18" gate="G$1" pin="TP"/>
-<junction x="10.16" y="22.86"/>
+<junction x="15.24" y="22.86"/>
 <pinref part="U4" gate="A" pin="*FPO"/>
 <wire x1="33.02" y1="50.8" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="TP13" gate="G$1" pin="TP"/>
@@ -3298,6 +3289,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="50.8" x2="17.78" y2="58.42" width="0.1524" layer="91"/>
 <junction x="17.78" y="50.8"/>
+<label x="-10.16" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -3308,7 +3300,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="124.46" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="5V_UNSUPERVISED" class="0">
 <segment>
 <wire x1="-33.02" y1="93.98" x2="86.36" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="93.98" x2="139.7" y2="93.98" width="0.1524" layer="91"/>
@@ -3320,9 +3312,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="139.7" y1="93.98" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="U$9" gate="G$1" pin="P$2"/>
+<label x="-58.42" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="12V_UNSUPERVISED" class="0">
 <segment>
 <wire x1="-25.4" y1="45.72" x2="-25.4" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="99.06" x2="-25.4" y2="99.06" width="0.1524" layer="91"/>
@@ -3334,9 +3327,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="35.56" y="99.06"/>
 <wire x1="0" y1="45.72" x2="-25.4" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="P$1"/>
+<label x="-58.42" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="ON_OFF_CONTROL_INPUT" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="*PSON"/>
 <pinref part="TP14" gate="G$1" pin="TP"/>
@@ -3347,9 +3341,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="TP17" gate="G$1" pin="TP"/>
 <junction x="88.9" y="22.86"/>
 <wire x1="88.9" y1="22.86" x2="170.18" y2="22.86" width="0.1524" layer="91"/>
+<label x="170.18" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$29" class="0">
+<net name="POWER_GOOD_OUT" class="0">
 <segment>
 <pinref part="U4" gate="A" pin="PGO"/>
 <wire x1="93.98" y1="55.88" x2="96.52" y2="55.88" width="0.1524" layer="91"/>
@@ -3359,6 +3354,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="104.14" y1="55.88" x2="104.14" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="30.48" x2="170.18" y2="30.48" width="0.1524" layer="91"/>
 <junction x="96.52" y="55.88"/>
+<label x="170.18" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$48" class="0">
@@ -3374,7 +3370,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="152.4" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$27" class="0">
+<net name="3.3V_UNSUPERVISED" class="0">
 <segment>
 <pinref part="R31" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="76.2" x2="96.52" y2="76.2" width="0.1524" layer="91"/>
@@ -3387,9 +3383,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="132.08" y="76.2"/>
 <pinref part="U$8" gate="G$1" pin="P$2"/>
 <wire x1="129.54" y1="43.18" x2="132.08" y2="43.18" width="0.1524" layer="91"/>
+<label x="-58.42" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$53" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="76.2" x2="167.64" y2="76.2" width="0.1524" layer="91"/>
@@ -3403,9 +3400,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="142.24" y1="60.96" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 <junction x="142.24" y="48.26"/>
+<label x="172.72" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="12V_SUPERVISED" class="0">
 <segment>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="99.06" x2="99.06" y2="99.06" width="0.1524" layer="91"/>
@@ -3421,9 +3419,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="88.9" x2="119.38" y2="88.9" width="0.1524" layer="91"/>
 <junction x="111.76" y="88.9"/>
+<label x="172.72" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <wire x1="116.84" y1="50.8" x2="116.84" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="50.8" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
@@ -3438,6 +3437,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="162.56" y="93.98"/>
 <wire x1="121.92" y1="66.04" x2="162.56" y2="66.04" width="0.1524" layer="91"/>
 <junction x="121.92" y="66.04"/>
+<label x="172.72" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$54" class="0">
@@ -3465,7 +3465,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U$9" gate="G$1" pin="P$1"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="5V_TO_SUPERVISOR" class="0">
 <segment>
 <wire x1="-33.02" y1="71.12" x2="-2.54" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -3488,6 +3488,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="25.4" y="55.88"/>
 <wire x1="25.4" y1="55.88" x2="-2.54" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="71.12" x2="-2.54" y2="55.88" width="0.1524" layer="91"/>
+<label x="-58.42" y="71.12" size="1.778" layer="95"/>
+<label x="172.72" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

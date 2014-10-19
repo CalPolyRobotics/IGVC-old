@@ -4298,7 +4298,7 @@ High-power, low thermal resistance package.</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MOSFET-NCHANNEL" prefix="Q">
+<deviceset name="IRLML2060TRPBF" prefix="Q">
 <description>&lt;B&gt;Common NMOSFET Parts&lt;/b&gt;&lt;p&gt;
 &lt;table border = "1"&gt;
 &lt;tr&gt;&lt;th&gt;MFG P/N&lt;/th&gt;&lt;th&gt;Store ID&lt;/th&gt;&lt;th&gt;Prod ID&lt;/th&gt;&lt;/tr&gt;
@@ -4468,12 +4468,12 @@ High-power, low thermal resistance package.</description>
 <part name="U$19" library="custom" deviceset="MCP4131-502E" device=""/>
 <part name="GS_C" library="adafruit" deviceset="PINHD-1X1" device="" value="N"/>
 <part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
-<part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
-<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
-<part name="Q3" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
-<part name="Q4" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
-<part name="Q6" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
-<part name="Q7" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
+<part name="Q1" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
+<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
+<part name="Q3" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
+<part name="Q4" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
+<part name="Q5" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
+<part name="Q6" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
 </parts>
 <sheets>
 <sheet>
@@ -4610,8 +4610,8 @@ F</text>
 <instance part="Q2" gate="G$1" x="5.08" y="43.18" rot="R270"/>
 <instance part="Q3" gate="G$1" x="17.78" y="43.18" rot="R270"/>
 <instance part="Q4" gate="G$1" x="33.02" y="43.18" rot="R270"/>
-<instance part="Q6" gate="G$1" x="45.72" y="43.18" rot="MR270"/>
-<instance part="Q7" gate="G$1" x="111.76" y="81.28" rot="MR0"/>
+<instance part="Q5" gate="G$1" x="45.72" y="43.18" rot="MR270"/>
+<instance part="Q6" gate="G$1" x="111.76" y="81.28" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -4658,7 +4658,7 @@ F</text>
 <wire x1="60.96" y1="30.48" x2="66.04" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <pinref part="Q4" gate="G$1" pin="D"/>
-<pinref part="Q6" gate="G$1" pin="D"/>
+<pinref part="Q5" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="AUTO_SENSE" class="0">
@@ -4700,8 +4700,8 @@ F</text>
 <wire x1="111.76" y1="93.98" x2="111.76" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="43.18" x2="53.34" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="Q6" gate="G$1" pin="S"/>
-<pinref part="Q7" gate="G$1" pin="D"/>
+<pinref part="Q5" gate="G$1" pin="S"/>
+<pinref part="Q6" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="GEARSHIFT_R" class="0">
@@ -4835,7 +4835,7 @@ F</text>
 <junction x="111.76" y="63.5"/>
 <wire x1="111.76" y1="76.2" x2="111.76" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="K1" gate="A" pin="2"/>
-<pinref part="Q7" gate="G$1" pin="S"/>
+<pinref part="Q6" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -4848,8 +4848,8 @@ F</text>
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="-12.7" y1="60.96" x2="-12.7" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="G"/>
 <wire x1="-12.7" y1="50.8" x2="-10.16" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -4863,8 +4863,8 @@ F</text>
 <segment>
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="48.26" y1="53.34" x2="48.26" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="Q6" gate="G$1" pin="G"/>
 <wire x1="45.72" y1="50.8" x2="48.26" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q5" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="THROTTLE1" class="0">
@@ -4914,8 +4914,8 @@ F</text>
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="78.74" x2="121.92" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="Q7" gate="G$1" pin="G"/>
 <wire x1="119.38" y1="78.74" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="Q6" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="DPOT_ENABLE" class="0">
@@ -4928,22 +4928,22 @@ F</text>
 <net name="N$3" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
-<pinref part="Q2" gate="G$1" pin="G"/>
 <wire x1="2.54" y1="50.8" x2="5.08" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
-<pinref part="Q3" gate="G$1" pin="G"/>
 <wire x1="15.24" y1="50.8" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
 <pinref part="R16" gate="G$1" pin="2"/>
-<pinref part="Q4" gate="G$1" pin="G"/>
 <wire x1="30.48" y1="50.8" x2="33.02" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q4" gate="G$1" pin="G"/>
 </segment>
 </net>
 </nets>

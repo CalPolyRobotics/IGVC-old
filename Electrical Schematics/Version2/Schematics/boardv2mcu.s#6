@@ -3898,6 +3898,57 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="frames">
+<description>&lt;b&gt;Frames for Sheet and Layout&lt;/b&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="DOCFIELD">
+<wire x1="0" y1="0" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="87.63" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="71.12" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="0" y1="5.08" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="15.24" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="71.12" y2="0" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="5.08" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="71.12" y1="0" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="87.63" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="15.24" x2="0" y2="15.24" width="0.1016" layer="94"/>
+<wire x1="87.63" y1="5.08" x2="101.6" y2="5.08" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="5.08" x2="101.6" y2="0" width="0.1016" layer="94"/>
+<wire x1="0" y1="15.24" x2="0" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="35.56" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="101.6" y2="22.86" width="0.1016" layer="94"/>
+<wire x1="0" y1="22.86" x2="0" y2="35.56" width="0.1016" layer="94"/>
+<wire x1="101.6" y1="22.86" x2="101.6" y2="15.24" width="0.1016" layer="94"/>
+<text x="1.27" y="1.27" size="2.54" layer="94">Date:</text>
+<text x="12.7" y="1.27" size="2.54" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="72.39" y="1.27" size="2.54" layer="94">Sheet:</text>
+<text x="86.36" y="1.27" size="2.54" layer="94">&gt;SHEET</text>
+<text x="88.9" y="11.43" size="2.54" layer="94">REV:</text>
+<text x="1.27" y="19.05" size="2.54" layer="94">TITLE:</text>
+<text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
+<text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DOCFIELD" prefix="FRAME" uservalue="yes">
+<description>&lt;B&gt;DOCUMENT FIELD&lt;/B&gt;</description>
+<gates>
+<gate name="G$1" symbol="DOCFIELD" x="0" y="0" addlevel="always"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3943,10 +3994,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
+<part name="FRAME1" library="frames" deviceset="DOCFIELD" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="203.2" y="30.48" size="1.778" layer="91">Jtag programmer</text>
+<text x="-30.48" y="111.76" size="5.08" layer="91">MCU BLock</text>
+<frame x1="-71.12" y1="-116.84" x2="358.14" y2="129.54" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="12.7" y="81.28"/>
@@ -3974,8 +4029,19 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R4" gate="G$1" x="195.58" y="-12.7"/>
 <instance part="R5" gate="G$1" x="195.58" y="-7.62"/>
 <instance part="R8" gate="G$1" x="195.58" y="7.62"/>
+<instance part="FRAME1" gate="G$1" x="251.46" y="-111.76"/>
 </instances>
 <busses>
+<bus name="TOMCU">
+<segment>
+<wire x1="144.78" y1="12.7" x2="144.78" y2="-53.34" width="0.762" layer="92"/>
+<label x="149.86" y="-35.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="-2.54" y1="35.56" x2="-2.54" y2="-33.02" width="0.762" layer="92"/>
+<label x="-15.24" y="0" size="1.778" layer="95"/>
+</segment>
+</bus>
 </busses>
 <nets>
 <net name="N$38" class="0">
@@ -4373,6 +4439,63 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U$1" gate="G$1" pin="P$1"/>
 <wire x1="210.82" y1="-27.94" x2="195.58" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="180.34" y1="-27.94" x2="195.58" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="B$2" class="0">
+<segment>
+<wire x1="144.78" y1="-50.8" x2="111.76" y2="-50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-48.26" x2="111.76" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-45.72" x2="111.76" y2="-45.72" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-43.18" x2="111.76" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-40.64" x2="111.76" y2="-40.64" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-38.1" x2="111.76" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-33.02" x2="111.76" y2="-33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-35.56" x2="111.76" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="SPI2SOMI"/>
+<wire x1="144.78" y1="-30.48" x2="114.3" y2="-30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-25.4" x2="111.76" y2="-25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="MIBSPI1NCS[2]"/>
+<wire x1="144.78" y1="-22.86" x2="114.3" y2="-22.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-20.32" x2="111.76" y2="-20.32" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="MIBSPI1NCS[0]"/>
+<wire x1="144.78" y1="-17.78" x2="114.3" y2="-17.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-12.7" x2="111.76" y2="-12.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-15.24" x2="111.76" y2="-15.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="MIBSPI1SIMO"/>
+<wire x1="144.78" y1="-10.16" x2="114.3" y2="-10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="144.78" y1="-7.62" x2="111.76" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

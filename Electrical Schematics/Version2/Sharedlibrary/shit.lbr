@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -4657,6 +4657,15 @@
 <text x="-2.8702" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="-3.4544" y="-0.635" size="1.27" layer="27" ratio="6" rot="SR0">&gt;VALUE</text>
 </package>
+<package name="PVZ3A">
+<smd name="T1" x="-0.85" y="-1.45" dx="1" dy="0.9" layer="1"/>
+<smd name="T3" x="0.85" y="-1.45" dx="1" dy="0.9" layer="1"/>
+<smd name="T2" x="0" y="1.45" dx="1.1" dy="0.9" layer="1"/>
+<wire x1="1.55" y1="1.6" x2="1.55" y2="-1.6" width="0.3048" layer="51"/>
+<wire x1="-1.55" y1="1.6" x2="-1.55" y2="-1.6" width="0.3048" layer="51"/>
+<wire x1="-1.55" y1="1.6" x2="1.55" y2="1.6" width="0.3048" layer="51"/>
+<wire x1="-1.55" y1="-1.6" x2="1.55" y2="-1.6" width="0.3048" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -4955,6 +4964,26 @@
 <wire x1="68.58" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
 <text x="33.3756" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="32.4358" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
+</symbol>
+<symbol name="PVZ3A">
+<wire x1="-25.4" y1="10.16" x2="-22.86" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-22.86" y1="12.7" x2="-20.32" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="10.16" x2="-17.78" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="12.7" x2="-15.24" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="10.16" x2="-12.7" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="12.7" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="10.16" x2="-7.62" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="12.7" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="10.16" x2="-2.54" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="12.7" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="7.62" x2="-5.08" y2="22.86" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="22.86" x2="-5.08" y2="20.32" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="22.86" x2="-7.62" y2="22.86" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="22.86" x2="-5.08" y2="20.32" width="0.254" layer="94"/>
+<circle x="-12.7" y="12.7" radius="5.6796125" width="0.254" layer="94"/>
+<pin name="T1" x="-30.48" y="10.16" length="middle"/>
+<pin name="T3" x="5.08" y="10.16" length="middle" rot="R180"/>
+<pin name="T2" x="-20.32" y="2.54" length="middle" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5377,6 +5406,23 @@
 <attribute name="PACKAGE_DESIGNATOR" value="RGV" constant="no"/>
 <attribute name="PIN_COUNT" value="16" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PVZ3A">
+<gates>
+<gate name="G$1" symbol="PVZ3A" x="5.08" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="PVZ3A">
+<connects>
+<connect gate="G$1" pin="T1" pad="T1"/>
+<connect gate="G$1" pin="T2" pad="T2"/>
+<connect gate="G$1" pin="T3" pad="T3"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

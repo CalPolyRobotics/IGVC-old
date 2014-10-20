@@ -11559,6 +11559,24 @@ The old path of data sheet not more available 2013-05-06.</description>
 <wire x1="15.75" y1="21.72" x2="0" y2="21.72" width="0.127" layer="51"/>
 <wire x1="0" y1="21.72" x2="0" y2="0" width="0.127" layer="51"/>
 </package>
+<package name="MMS42">
+<pad name="P$1" x="0" y="0" drill="0.9" shape="square"/>
+<pad name="P$2" x="0" y="2" drill="0.9"/>
+<pad name="P$3" x="0" y="4" drill="0.9"/>
+<pad name="P$4" x="0" y="6" drill="0.9"/>
+<pad name="P$5" x="0" y="8" drill="0.9"/>
+<pad name="P$6" x="0" y="10" drill="0.9"/>
+<pad name="P$7" x="2.5" y="10" drill="0.9"/>
+<pad name="P$8" x="2.5" y="8" drill="0.9"/>
+<pad name="P$9" x="2.5" y="6" drill="0.9"/>
+<pad name="P$10" x="2.5" y="4" drill="0.9"/>
+<pad name="P$11" x="2.5" y="2" drill="0.9"/>
+<pad name="P$12" x="2.5" y="0" drill="0.9"/>
+<wire x1="-2.25" y1="-2.5" x2="4.75" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="4.75" y1="-2.5" x2="4.75" y2="12.5" width="0.127" layer="51"/>
+<wire x1="4.75" y1="12.5" x2="-2.25" y2="12.5" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="12.5" x2="-2.25" y2="-2.5" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CP2130-GM">
@@ -11695,6 +11713,44 @@ The old path of data sheet not more available 2013-05-06.</description>
 <wire x1="-10.16" y1="7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
 <wire x1="7.62" y1="7.62" x2="7.62" y2="-15.24" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-15.24" x2="-10.16" y2="-15.24" width="0.254" layer="94"/>
+</symbol>
+<symbol name="MMS42">
+<wire x1="0" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-10.16" x2="0" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-10.16" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<pin name="GND@2" x="-5.08" y="-5.08" length="middle"/>
+<pin name="P2" x="-7.62" y="0" length="middle"/>
+<pin name="P1" x="-7.62" y="-10.16" length="middle"/>
+<pin name="P7" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="GND@3" x="10.16" y="-5.08" length="middle" rot="R180"/>
+<pin name="P8" x="12.7" y="-10.16" length="middle" rot="R180"/>
+<wire x1="0" y1="15.24" x2="-2.54" y2="15.24" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="15.24" x2="-2.54" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="12.7" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="7.62" y2="12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="12.7" x2="7.62" y2="15.24" width="0.254" layer="94"/>
+<wire x1="7.62" y1="15.24" x2="5.08" y2="15.24" width="0.254" layer="94"/>
+<pin name="GND" x="-5.08" y="10.16" length="middle"/>
+<pin name="P4" x="-7.62" y="15.24" length="middle"/>
+<pin name="P3" x="-7.62" y="5.08" length="middle"/>
+<pin name="P5" x="12.7" y="15.24" length="middle" rot="R180"/>
+<pin name="GND@1" x="10.16" y="10.16" length="middle" rot="R180"/>
+<pin name="P6" x="12.7" y="5.08" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -11892,6 +11948,32 @@ The old path of data sheet not more available 2013-05-06.</description>
 <connect gate="G$1" pin="R6" pad="R6"/>
 <connect gate="G$1" pin="R7" pad="R7"/>
 <connect gate="G$1" pin="R8" pad="R8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="4PDT_SWITCH">
+<gates>
+<gate name="4PDT_SWITCH" symbol="MMS42" x="-2.54" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="MMS42">
+<connects>
+<connect gate="4PDT_SWITCH" pin="GND" pad="P$2"/>
+<connect gate="4PDT_SWITCH" pin="GND@1" pad="P$5"/>
+<connect gate="4PDT_SWITCH" pin="GND@2" pad="P$8"/>
+<connect gate="4PDT_SWITCH" pin="GND@3" pad="P$11"/>
+<connect gate="4PDT_SWITCH" pin="P1" pad="P$1"/>
+<connect gate="4PDT_SWITCH" pin="P2" pad="P$3"/>
+<connect gate="4PDT_SWITCH" pin="P3" pad="P$4"/>
+<connect gate="4PDT_SWITCH" pin="P4" pad="P$6"/>
+<connect gate="4PDT_SWITCH" pin="P5" pad="P$7"/>
+<connect gate="4PDT_SWITCH" pin="P6" pad="P$9"/>
+<connect gate="4PDT_SWITCH" pin="P7" pad="P$10"/>
+<connect gate="4PDT_SWITCH" pin="P8" pad="P$12"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -18068,7 +18150,7 @@ variable-capacitance diode (Infineon)</description>
 <part name="TP101" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP102" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP103" library="testpad" deviceset="TP" device="B1,27"/>
-<part name="TP104" library="testpad" deviceset="TP" device="B1,27"/>
+<part name="TP104" library="testpad" deviceset="TP" device="TP06R" value="TPTP06R"/>
 <part name="TP105" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP106" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP107" library="testpad" deviceset="TP" device="B1,27"/>
@@ -18258,6 +18340,10 @@ variable-capacitance diode (Infineon)</description>
 <part name="C20" library="eagle-ltspice" deviceset="C" device="C0603" value="220pf"/>
 <part name="SUPPLY85" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY86" library="supply2" deviceset="GND" device=""/>
+<part name="U$14" library="shit" deviceset="4PDT_SWITCH" device=""/>
+<part name="U$16" library="shit" deviceset="4PDT_SWITCH" device=""/>
+<part name="U$17" library="shit" deviceset="4PDT_SWITCH" device=""/>
+<part name="U$18" library="shit" deviceset="4PDT_SWITCH" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -21234,6 +21320,8 @@ F</text>
 <instance part="SUPPLY45" gate="GND" x="53.34" y="38.1"/>
 <instance part="JP68" gate="1" x="127" y="33.02" rot="R180"/>
 <instance part="SUPPLY46" gate="GND" x="119.38" y="33.02"/>
+<instance part="U$17" gate="4PDT_SWITCH" x="109.22" y="78.74"/>
+<instance part="U$18" gate="4PDT_SWITCH" x="53.34" y="-5.08"/>
 </instances>
 <busses>
 </busses>
@@ -21400,9 +21488,15 @@ F</text>
 <pinref part="JP44" gate="1" pin="3"/>
 <wire x1="121.92" y1="0" x2="121.92" y2="-25.4" width="0.1524" layer="91"/>
 <junction x="121.92" y="0"/>
-<wire x1="33.02" y1="0" x2="73.66" y2="0" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="0" x2="45.72" y2="0" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="0" x2="66.04" y2="0" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="0" x2="73.66" y2="0" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="0" x2="73.66" y2="-25.4" width="0.1524" layer="91"/>
 <label x="33.02" y="0" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$18" gate="4PDT_SWITCH" pin="P3"/>
+<junction x="45.72" y="0"/>
+<pinref part="U$18" gate="4PDT_SWITCH" pin="P6"/>
+<junction x="66.04" y="0"/>
 </segment>
 </net>
 <net name="G6" class="0">
@@ -21489,6 +21583,8 @@ F</text>
 <instance part="SUPPLY43" gate="GND" x="50.8" y="40.64"/>
 <instance part="JP66" gate="1" x="124.46" y="35.56" rot="R180"/>
 <instance part="SUPPLY44" gate="GND" x="116.84" y="35.56"/>
+<instance part="U$14" gate="4PDT_SWITCH" x="106.68" y="81.28"/>
+<instance part="U$16" gate="4PDT_SWITCH" x="53.34" y="0"/>
 </instances>
 <busses>
 </busses>

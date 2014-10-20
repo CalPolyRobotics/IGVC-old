@@ -4675,6 +4675,24 @@
 <wire x1="1.8" y1="-1.9" x2="-1.8" y2="-1.9" width="0.127" layer="51"/>
 <wire x1="-1.8" y1="-1.9" x2="-1.8" y2="1.9" width="0.127" layer="51"/>
 </package>
+<package name="MMS42">
+<pad name="P$1" x="0" y="0" drill="0.9" shape="square"/>
+<pad name="P$2" x="0" y="2" drill="0.9"/>
+<pad name="P$3" x="0" y="4" drill="0.9"/>
+<pad name="P$4" x="0" y="6" drill="0.9"/>
+<pad name="P$5" x="0" y="8" drill="0.9"/>
+<pad name="P$6" x="0" y="10" drill="0.9"/>
+<pad name="P$7" x="2.5" y="10" drill="0.9"/>
+<pad name="P$8" x="2.5" y="8" drill="0.9"/>
+<pad name="P$9" x="2.5" y="6" drill="0.9"/>
+<pad name="P$10" x="2.5" y="4" drill="0.9"/>
+<pad name="P$11" x="2.5" y="2" drill="0.9"/>
+<pad name="P$12" x="2.5" y="0" drill="0.9"/>
+<wire x1="-2.25" y1="-2.5" x2="4.75" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="4.75" y1="-2.5" x2="4.75" y2="12.5" width="0.127" layer="51"/>
+<wire x1="4.75" y1="12.5" x2="-2.25" y2="12.5" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="12.5" x2="-2.25" y2="-2.5" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -4997,6 +5015,44 @@
 <wire x1="-2.54" y1="-1.27" x2="2.54" y2="3.81" width="0.254" layer="94"/>
 <wire x1="2.54" y1="3.81" x2="1.27" y2="3.81" width="0.254" layer="94"/>
 <wire x1="2.54" y1="3.81" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="MMS42">
+<wire x1="0" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-10.16" x2="0" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-10.16" x2="7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-10.16" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<pin name="GND@2" x="-5.08" y="-5.08" length="middle"/>
+<pin name="P2" x="-7.62" y="0" length="middle"/>
+<pin name="P1" x="-7.62" y="-10.16" length="middle"/>
+<pin name="P7" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="GND@3" x="10.16" y="-5.08" length="middle" rot="R180"/>
+<pin name="P8" x="12.7" y="-10.16" length="middle" rot="R180"/>
+<wire x1="0" y1="15.24" x2="-2.54" y2="15.24" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="15.24" x2="-2.54" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="12.7" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="7.62" y2="12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="12.7" x2="7.62" y2="15.24" width="0.254" layer="94"/>
+<wire x1="7.62" y1="15.24" x2="5.08" y2="15.24" width="0.254" layer="94"/>
+<pin name="GND" x="-5.08" y="10.16" length="middle"/>
+<pin name="P4" x="-7.62" y="15.24" length="middle"/>
+<pin name="P3" x="-7.62" y="5.08" length="middle"/>
+<pin name="P5" x="12.7" y="15.24" length="middle" rot="R180"/>
+<pin name="GND@1" x="10.16" y="10.16" length="middle" rot="R180"/>
+<pin name="P6" x="12.7" y="5.08" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5467,6 +5523,32 @@
 <connect gate="G$1" pin="P$1" pad="T1"/>
 <connect gate="G$1" pin="P$2" pad="T2"/>
 <connect gate="G$1" pin="P$3" pad="T3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="4PDT_SWITCH">
+<gates>
+<gate name="4PDT_SWITCH" symbol="MMS42" x="-2.54" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="MMS42">
+<connects>
+<connect gate="4PDT_SWITCH" pin="GND" pad="P$2"/>
+<connect gate="4PDT_SWITCH" pin="GND@1" pad="P$5"/>
+<connect gate="4PDT_SWITCH" pin="GND@2" pad="P$8"/>
+<connect gate="4PDT_SWITCH" pin="GND@3" pad="P$11"/>
+<connect gate="4PDT_SWITCH" pin="P1" pad="P$1"/>
+<connect gate="4PDT_SWITCH" pin="P2" pad="P$3"/>
+<connect gate="4PDT_SWITCH" pin="P3" pad="P$4"/>
+<connect gate="4PDT_SWITCH" pin="P4" pad="P$6"/>
+<connect gate="4PDT_SWITCH" pin="P5" pad="P$7"/>
+<connect gate="4PDT_SWITCH" pin="P6" pad="P$9"/>
+<connect gate="4PDT_SWITCH" pin="P7" pad="P$10"/>
+<connect gate="4PDT_SWITCH" pin="P8" pad="P$12"/>
 </connects>
 <technologies>
 <technology name=""/>

@@ -4977,11 +4977,11 @@ design rules under a new name.</description>
 <attribute name="MF" value="" x="190.5" y="105.41" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="190.5" y="105.41" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="X1" library="con-molex" package="KK-156-2" value="" x="204.089" y="114.173" rot="R180">
-<attribute name="OC_NEWARK" value="unknown" x="211.709" y="124.333" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="211.709" y="124.333" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="" x="211.709" y="124.333" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="211.709" y="124.333" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="X1" library="con-molex" package="KK-156-2" value="" x="223.647" y="111.506" rot="R180">
+<attribute name="OC_NEWARK" value="unknown" x="231.267" y="121.666" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="" x="231.267" y="121.666" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="" x="231.267" y="121.666" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="231.267" y="121.666" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C1" library="eagle-ltspice" package="C0603" value="47nF" x="185.42" y="60.96">
 <attribute name="SPICEMODEL" value="NONE" x="165.1" y="82.55" size="1.778" layer="27" display="off"/>
@@ -5053,11 +5053,11 @@ design rules under a new name.</description>
 <attribute name="MF" value="" x="41.91" y="140.97" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="41.91" y="140.97" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="X3" library="con-molex" package="KK-156-2" value="" x="182.88" y="99.06">
-<attribute name="OC_NEWARK" value="unknown" x="137.16" y="-48.26" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="137.16" y="-48.26" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="" x="137.16" y="-48.26" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="137.16" y="-48.26" size="1.778" layer="27" display="off"/>
+<element name="X3" library="con-molex" package="KK-156-2" value="" x="171.196" y="104.521">
+<attribute name="OC_NEWARK" value="unknown" x="125.476" y="-42.799" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="125.476" y="-42.799" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="125.476" y="-42.799" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="125.476" y="-42.799" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C11" library="eagle-ltspice" package="C0603" value="47nF" x="173.99" y="104.14" rot="R90">
 <attribute name="SPICEMODEL" value="NONE" x="289.56" y="53.34" size="1.778" layer="27" rot="R90" display="off"/>
@@ -5091,11 +5091,11 @@ design rules under a new name.</description>
 <attribute name="MF" value="" x="240.411" y="298.45" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="240.411" y="298.45" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="X4" library="con-molex" package="KK-156-2" value="" x="153.162" y="114.681">
-<attribute name="OC_NEWARK" value="unknown" x="88.392" y="-101.219" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="" x="88.392" y="-101.219" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="" x="88.392" y="-101.219" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="unknown" x="88.392" y="-101.219" size="1.778" layer="27" display="off"/>
+<element name="X4" library="con-molex" package="KK-156-2" value="" x="202.438" y="118.745">
+<attribute name="OC_NEWARK" value="unknown" x="137.668" y="-97.155" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="137.668" y="-97.155" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="137.668" y="-97.155" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="137.668" y="-97.155" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C16" library="eagle-ltspice" package="C0603" value="47nF" x="196.723" y="106.045" rot="R90">
 <attribute name="SPICEMODEL" value="NONE" x="380.873" y="40.005" size="1.778" layer="27" rot="R90" display="off"/>
@@ -7868,8 +7868,10 @@ design rules under a new name.</description>
 <contactref element="U2" pad="95"/>
 <contactref element="TP41" pad="TP"/>
 <contactref element="U$3" pad="22"/>
+<contactref element="U$1" pad="22"/>
 <wire x1="65.0748" y1="80.01" x2="64.77" y2="86.36" width="0" layer="19" extent="1-1"/>
 <wire x1="168.12" y1="104.675" x2="64.77" y2="86.36" width="0" layer="19" extent="1-1"/>
+<wire x1="189.71" y1="93.245" x2="168.12" y2="104.675" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MCU_BATMON_LIN-">
 <contactref element="TP40" pad="TP"/>
@@ -8606,10 +8608,14 @@ design rules under a new name.</description>
 <signal name="N$8">
 <contactref element="X1" pad="1"/>
 <contactref element="C4" pad="1"/>
-<wire x1="203.454" y1="107.403" x2="206.069" y2="114.173" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="29"/>
+<wire x1="203.454" y1="107.403" x2="225.627" y2="111.506" width="0" layer="19" extent="1-1"/>
+<wire x1="191.235" y1="95.77" x2="203.454" y2="107.403" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$13">
 <contactref element="X1" pad="2"/>
+<contactref element="U$1" pad="28"/>
+<wire x1="191.235" y1="95.27" x2="221.667" y2="111.506" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$14">
 <contactref element="U$1" pad="46"/>
@@ -8751,13 +8757,13 @@ design rules under a new name.</description>
 <contactref element="X3" pad="1"/>
 <contactref element="C15" pad="1"/>
 <contactref element="U$3" pad="29"/>
-<wire x1="182.03" y1="91.44" x2="180.9" y2="99.06" width="0" layer="19" extent="1-1"/>
-<wire x1="169.645" y1="107.2" x2="180.9" y2="99.06" width="0" layer="19" extent="1-1"/>
+<wire x1="182.03" y1="91.44" x2="169.216" y2="104.521" width="0" layer="19" extent="1-1"/>
+<wire x1="169.645" y1="107.2" x2="169.216" y2="104.521" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$218">
 <contactref element="X3" pad="2"/>
 <contactref element="U$3" pad="28"/>
-<wire x1="169.645" y1="106.7" x2="184.86" y2="99.06" width="0" layer="19" extent="1-1"/>
+<wire x1="169.645" y1="106.7" x2="173.176" y2="104.521" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$219">
 <contactref element="U$3" pad="46"/>
@@ -8825,13 +8831,13 @@ design rules under a new name.</description>
 <contactref element="X4" pad="1"/>
 <contactref element="C20" pad="1"/>
 <contactref element="U$4" pad="29"/>
+<wire x1="193.521" y1="110.121" x2="200.458" y2="118.745" width="0" layer="19" extent="1-1"/>
 <wire x1="156.63" y1="109.22" x2="193.521" y2="110.121" width="0" layer="19" extent="1-1"/>
-<wire x1="151.182" y1="114.681" x2="156.63" y2="109.22" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$232">
 <contactref element="X4" pad="2"/>
 <contactref element="U$4" pad="28"/>
-<wire x1="155.142" y1="114.681" x2="193.521" y2="109.621" width="0" layer="19" extent="1-1"/>
+<wire x1="193.521" y1="109.621" x2="204.418" y2="118.745" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$233">
 <contactref element="U$4" pad="46"/>
@@ -8864,8 +8870,10 @@ design rules under a new name.</description>
 <contactref element="U$4" pad="23"/>
 <contactref element="U$3" pad="23"/>
 <contactref element="U$2" pad="23"/>
-<wire x1="168.62" y1="104.675" x2="192.496" y2="107.596" width="0" layer="19" extent="1-1"/>
-<wire x1="168.62" y1="91.975" x2="168.62" y2="104.675" width="0" layer="19" extent="1-1"/>
+<contactref element="U$1" pad="23"/>
+<wire x1="190.21" y1="93.245" x2="192.496" y2="107.596" width="0" layer="19" extent="1-1"/>
+<wire x1="168.62" y1="91.975" x2="190.21" y2="93.245" width="0" layer="19" extent="1-1"/>
+<wire x1="168.62" y1="104.675" x2="168.62" y2="91.975" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

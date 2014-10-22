@@ -25678,6 +25678,7 @@ F</text>
 <junction x="22.86" y="55.88"/>
 <pinref part="R64" gate="G$1" pin="2"/>
 <pinref part="Q8" gate="G$1" pin="D"/>
+<junction x="55.88" y="55.88"/>
 </segment>
 </net>
 <net name="3.3V_SUPERVISED" class="0">
@@ -25700,6 +25701,8 @@ F</text>
 <segment>
 <wire x1="60.96" y1="48.26" x2="60.96" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="U$10" gate="A" pin="GATE"/>
+<pinref part="Q8" gate="G$1" pin="G"/>
+<junction x="60.96" y="48.26"/>
 </segment>
 </net>
 <net name="N$184" class="0">
@@ -25736,6 +25739,7 @@ F</text>
 <junction x="71.12" y="55.88"/>
 <label x="109.22" y="55.88" size="1.778" layer="95" xref="yes"/>
 <pinref part="Q8" gate="G$1" pin="S"/>
+<junction x="66.04" y="55.88"/>
 </segment>
 </net>
 <net name="N$185" class="0">
@@ -25837,6 +25841,7 @@ F</text>
 <pinref part="R90" gate="G$1" pin="1"/>
 <junction x="2.54" y="73.66"/>
 <pinref part="Q9" gate="G$1" pin="D"/>
+<junction x="81.28" y="81.28"/>
 </segment>
 </net>
 <net name="3.3V_SUPERVISED" class="0">
@@ -25858,6 +25863,8 @@ F</text>
 <segment>
 <wire x1="86.36" y1="73.66" x2="86.36" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U$12" gate="A" pin="GATE"/>
+<pinref part="Q9" gate="G$1" pin="G"/>
+<junction x="86.36" y="73.66"/>
 </segment>
 </net>
 <net name="N$191" class="0">
@@ -25887,6 +25894,7 @@ F</text>
 <wire x1="119.38" y1="78.74" x2="119.38" y2="81.28" width="0.1524" layer="91"/>
 <junction x="119.38" y="81.28"/>
 <pinref part="Q9" gate="G$1" pin="S"/>
+<junction x="91.44" y="81.28"/>
 </segment>
 </net>
 <net name="N$193" class="0">

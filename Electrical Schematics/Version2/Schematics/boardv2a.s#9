@@ -18083,7 +18083,6 @@ variable-capacitance diode (Infineon)</description>
 <part name="TP93" library="testpad" deviceset="TP" device="B2,54"/>
 <part name="TP94" library="testpad" deviceset="TP" device="B2,54"/>
 <part name="U$10" library="shit" deviceset="LM25061_DGS_10" device=""/>
-<part name="U$11" library="transistor-fet" deviceset="FDD8874" device=""/>
 <part name="R59" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="R60" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
 <part name="R61" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES"/>
@@ -18344,6 +18343,7 @@ variable-capacitance diode (Infineon)</description>
 <part name="U$16" library="shit" deviceset="4PDT_SWITCH" device=""/>
 <part name="U$17" library="shit" deviceset="4PDT_SWITCH" device=""/>
 <part name="U$18" library="shit" deviceset="4PDT_SWITCH" device=""/>
+<part name="Q8" library="SparkFun-DiscreteSemi" deviceset="IRLML2060TRPBF" device="BSS123LT1G"/>
 </parts>
 <sheets>
 <sheet>
@@ -25697,7 +25697,6 @@ F</text>
 </plain>
 <instances>
 <instance part="U$10" gate="A" x="-10.16" y="33.02"/>
-<instance part="U$11" gate="A" x="60.96" y="53.34" rot="R90"/>
 <instance part="R59" gate="G$1" x="-33.02" y="35.56" rot="R270"/>
 <instance part="R60" gate="G$1" x="81.28" y="25.4" rot="R180"/>
 <instance part="R61" gate="G$1" x="-33.02" y="17.78" rot="R90"/>
@@ -25720,6 +25719,7 @@ F</text>
 <instance part="TP122" gate="G$1" x="-38.1" y="43.18"/>
 <instance part="TP123" gate="G$1" x="58.42" y="35.56"/>
 <instance part="R64" gate="G$1" x="-17.78" y="40.64"/>
+<instance part="Q8" gate="G$1" x="60.96" y="55.88" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -25785,13 +25785,13 @@ F</text>
 <pinref part="U$10" gate="A" pin="SENSE"/>
 <wire x1="-10.16" y1="40.64" x2="-10.16" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="40.64" x2="-10.16" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="U$11" gate="A" pin="D"/>
 <wire x1="-10.16" y1="55.88" x2="22.86" y2="55.88" width="0.1524" layer="91"/>
 <junction x="-10.16" y="40.64"/>
 <pinref part="TP115" gate="G$1" pin="TP"/>
 <wire x1="22.86" y1="55.88" x2="55.88" y2="55.88" width="0.1524" layer="91"/>
 <junction x="22.86" y="55.88"/>
 <pinref part="R64" gate="G$1" pin="2"/>
+<pinref part="Q8" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="3.3V_SUPERVISED" class="0">
@@ -25812,10 +25812,8 @@ F</text>
 </net>
 <net name="N$183" class="0">
 <segment>
-<pinref part="U$11" gate="A" pin="G"/>
-<wire x1="63.5" y1="50.8" x2="63.5" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="48.26" x2="60.96" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="U$10" gate="A" pin="GATE"/>
-<wire x1="63.5" y1="33.02" x2="60.96" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$184" class="0">
@@ -25837,7 +25835,6 @@ F</text>
 </net>
 <net name="MCU_+3.3V" class="0">
 <segment>
-<pinref part="U$11" gate="A" pin="S"/>
 <wire x1="66.04" y1="55.88" x2="68.58" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="55.88" x2="68.58" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="U$10" gate="A" pin="OUT"/>
@@ -25852,6 +25849,7 @@ F</text>
 <pinref part="TP116" gate="G$1" pin="TP"/>
 <junction x="71.12" y="55.88"/>
 <label x="109.22" y="55.88" size="1.778" layer="95" xref="yes"/>
+<pinref part="Q8" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$185" class="0">

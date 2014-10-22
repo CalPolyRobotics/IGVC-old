@@ -7867,7 +7867,9 @@ design rules under a new name.</description>
 <signal name="MCU_BATMON_LIN">
 <contactref element="U2" pad="95"/>
 <contactref element="TP41" pad="TP"/>
+<contactref element="U$3" pad="22"/>
 <wire x1="65.0748" y1="80.01" x2="64.77" y2="86.36" width="0" layer="19" extent="1-1"/>
+<wire x1="168.12" y1="104.675" x2="64.77" y2="86.36" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MCU_BATMON_LIN-">
 <contactref element="TP40" pad="TP"/>
@@ -8674,10 +8676,14 @@ design rules under a new name.</description>
 <signal name="N$40">
 <contactref element="X2" pad="1"/>
 <contactref element="C10" pad="1"/>
+<contactref element="U$2" pad="29"/>
 <wire x1="164.084" y1="72.338" x2="173.14" y2="68.58" width="0" layer="19" extent="1-1"/>
+<wire x1="169.645" y1="94.5" x2="164.084" y2="72.338" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$41">
 <contactref element="X2" pad="2"/>
+<contactref element="U$2" pad="28"/>
+<wire x1="169.645" y1="94" x2="164.084" y2="68.378" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$42">
 <contactref element="U$2" pad="46"/>
@@ -8744,10 +8750,14 @@ design rules under a new name.</description>
 <signal name="N$217">
 <contactref element="X3" pad="1"/>
 <contactref element="C15" pad="1"/>
+<contactref element="U$3" pad="29"/>
 <wire x1="182.03" y1="91.44" x2="180.9" y2="99.06" width="0" layer="19" extent="1-1"/>
+<wire x1="169.645" y1="107.2" x2="180.9" y2="99.06" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$218">
 <contactref element="X3" pad="2"/>
+<contactref element="U$3" pad="28"/>
+<wire x1="169.645" y1="106.7" x2="184.86" y2="99.06" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$219">
 <contactref element="U$3" pad="46"/>
@@ -8852,6 +8862,10 @@ design rules under a new name.</description>
 </signal>
 <signal name="MCU_BATMON_LINGND">
 <contactref element="U$4" pad="23"/>
+<contactref element="U$3" pad="23"/>
+<contactref element="U$2" pad="23"/>
+<wire x1="168.62" y1="104.675" x2="192.496" y2="107.596" width="0" layer="19" extent="1-1"/>
+<wire x1="168.62" y1="91.975" x2="168.62" y2="104.675" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

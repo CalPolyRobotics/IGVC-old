@@ -26965,10 +26965,13 @@ F</text>
 </net>
 <net name="MCU_BATMON_LINGND" class="0">
 <segment>
-<wire x1="137.16" y1="87.63" x2="127" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="87.63" x2="129.54" y2="87.63" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="87.63" x2="127" y2="87.63" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="102.87" x2="137.16" y2="87.63" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="102.87" x2="198.12" y2="102.87" width="0.1524" layer="91"/>
 <label x="198.12" y="102.87" size="1.778" layer="95" xref="yes"/>
+<pinref part="U$1" gate="A" pin="LGND"/>
+<junction x="129.54" y="87.63"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -26987,24 +26990,30 @@ F</text>
 </net>
 <net name="N$8" class="0">
 <segment>
-<wire x1="140.97" y1="85.09" x2="128.27" y2="85.09" width="0.1524" layer="91"/>
+<wire x1="140.97" y1="85.09" x2="129.54" y2="85.09" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="85.09" x2="128.27" y2="85.09" width="0.1524" layer="91"/>
 <wire x1="140.97" y1="85.09" x2="140.97" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-1" pin="S"/>
 <wire x1="140.97" y1="99.06" x2="184.15" y2="99.06" width="0.1524" layer="91"/>
 <junction x="184.15" y="99.06"/>
 <pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="198.12" y1="99.06" x2="184.15" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="A" pin="TSUP"/>
+<junction x="129.54" y="85.09"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<wire x1="146.05" y1="82.55" x2="128.27" y2="82.55" width="0.1524" layer="91"/>
+<wire x1="146.05" y1="82.55" x2="129.54" y2="82.55" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="82.55" x2="128.27" y2="82.55" width="0.1524" layer="91"/>
 <wire x1="146.05" y1="82.55" x2="146.05" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="146.05" y1="96.52" x2="184.15" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="184.15" y1="96.52" x2="185.42" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-2" pin="S"/>
 <junction x="184.15" y="96.52"/>
 <junction x="185.42" y="96.52"/>
+<pinref part="U$1" gate="A" pin="VTEMP"/>
+<junction x="129.54" y="82.55"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -27020,8 +27029,11 @@ F</text>
 <segment>
 <wire x1="198.12" y1="115.57" x2="134.62" y2="115.57" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="115.57" x2="134.62" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="90.17" x2="128.27" y2="90.17" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="90.17" x2="129.54" y2="90.17" width="0.1524" layer="91"/>
 <label x="198.12" y="115.57" size="1.778" layer="95" xref="yes"/>
+<pinref part="U$1" gate="A" pin="LIN"/>
+<junction x="129.54" y="90.17"/>
+<wire x1="129.54" y1="90.17" x2="128.27" y2="90.17" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$45" class="0">

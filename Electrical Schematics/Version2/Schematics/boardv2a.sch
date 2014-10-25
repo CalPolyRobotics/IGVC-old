@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -21511,6 +21511,7 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 </nets>
 </sheet>
 <sheet>
+<description>Relay</description>
 <plain>
 </plain>
 <instances>
@@ -21643,6 +21644,7 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 </nets>
 </sheet>
 <sheet>
+<description>FNR Block</description>
 <plain>
 <text x="-29.464" y="79.502" size="1.778" layer="97">AUTO/MANUAL
 TOGGLE</text>
@@ -22120,6 +22122,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>SPI to USB</description>
 <plain>
 <text x="50.8" y="7.62" size="1.778" layer="91">USB Isolation</text>
 <text x="81.28" y="81.28" size="1.778" layer="91">USB to SPI</text>
@@ -22653,6 +22656,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>MCU Block</description>
 <plain>
 <text x="55.88" y="-124.46" size="1.778" layer="91">Jtag programmer</text>
 <text x="-38.1" y="111.76" size="5.08" layer="91">MCU BLock</text>
@@ -24347,6 +24351,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Power Regulators</description>
 <plain>
 <text x="-27.94" y="137.16" size="1.778" layer="91">11-15v in</text>
 <text x="83.82" y="101.6" size="1.778" layer="91">12v</text>
@@ -24772,6 +24777,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Supervisor</description>
 <plain>
 <frame x1="-63.5" y1="-27.94" x2="218.44" y2="137.16" columns="8" rows="5" layer="91"/>
 <text x="-50.8" y="124.46" size="5.08" layer="91">Power Block</text>
@@ -25268,6 +25274,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>MCU Power Protection</description>
 <plain>
 <frame x1="-63.5" y1="-48.26" x2="132.08" y2="71.12" columns="8" rows="5" layer="91"/>
 <text x="-55.88" y="58.42" size="5.08" layer="91">Power Block</text>
@@ -25487,6 +25494,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA Power Protection</description>
 <plain>
 <frame x1="-27.94" y1="-7.62" x2="167.64" y2="111.76" columns="8" rows="5" layer="91"/>
 <text x="-20.32" y="99.06" size="5.08" layer="91">Power Block</text>
@@ -25681,6 +25689,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Steering Controller</description>
 <plain>
 <text x="25.4" y="172.72" size="5.08" layer="91">Steering Controller</text>
 <frame x1="0" y1="0" x2="292.1" y2="185.42" columns="8" rows="5" layer="91"/>
@@ -25985,6 +25994,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Temperature Measurement Block</description>
 <plain>
 <text x="45.72" y="99.06" size="1.778" layer="91">motorcontroler</text>
 <text x="45.72" y="83.82" size="1.778" layer="91">regular 3.3 temp</text>
@@ -26133,6 +26143,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Ethernet Hardware</description>
 <plain>
 <frame x1="-33.02" y1="-17.78" x2="198.12" y2="134.62" columns="8" rows="5" layer="91"/>
 <text x="-20.32" y="124.46" size="5.08" layer="91">Ethernet Hardware Block</text>
@@ -26675,6 +26686,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Battery A</description>
 <plain>
 <frame x1="-17.78" y1="-10.16" x2="233.68" y2="157.48" columns="8" rows="5" layer="91"/>
 <text x="-7.62" y="139.7" size="5.08" layer="91">Battery Monitoring Block A</text>
@@ -27022,6 +27034,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Battery B</description>
 <plain>
 <text x="-73.66" y="144.78" size="5.08" layer="91">Battery Monitor B</text>
 <frame x1="-92.71" y1="-2.54" x2="158.75" y2="165.1" columns="8" rows="5" layer="91"/>
@@ -27363,6 +27376,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Battery C</description>
 <plain>
 <text x="-86.36" y="142.24" size="5.08" layer="91">Battery Monitoring Block C</text>
 <frame x1="-116.84" y1="3.81" x2="134.62" y2="171.45" columns="8" rows="5" layer="91"/>
@@ -27711,6 +27725,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Battery D</description>
 <plain>
 <text x="-68.58" y="129.54" size="5.08" layer="91">Battery Monitoring Block D</text>
 <frame x1="-83.82" y1="-16.51" x2="167.64" y2="151.13" columns="8" rows="5" layer="91"/>
@@ -28054,6 +28069,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Analog Connector</description>
 <plain>
 </plain>
 <instances>
@@ -28110,6 +28126,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>Primary FPGA Block</description>
 <plain>
 <frame x1="-124.46" y1="-91.44" x2="373.38" y2="175.26" columns="8" rows="5" layer="91"/>
 <text x="-109.22" y="160.02" size="5.08" layer="91">FPGA Block</text>
@@ -29316,6 +29333,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - JTAG Programmer</description>
 <plain>
 <frame x1="-20.32" y1="-20.32" x2="198.12" y2="109.22" columns="8" rows="5" layer="91"/>
 <text x="-12.7" y="99.06" size="5.08" layer="91">FPGA Block</text>
@@ -29401,6 +29419,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Connector A</description>
 <plain>
 <frame x1="-88.9" y1="-35.56" x2="177.8" y2="124.46" columns="8" rows="5" layer="91"/>
 <text x="-81.28" y="111.76" size="5.08" layer="91">FPGA Block</text>
@@ -29633,6 +29652,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA Modular Conenctor B</description>
 <plain>
 <frame x1="-40.64" y1="-30.48" x2="226.06" y2="129.54" columns="8" rows="5" layer="91"/>
 <text x="-33.02" y="116.84" size="5.08" layer="91">FPGA Block</text>
@@ -29865,6 +29885,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Connector C</description>
 <plain>
 <frame x1="-25.4" y1="-33.02" x2="241.3" y2="127" columns="8" rows="5" layer="91"/>
 <text x="-15.24" y="114.3" size="5.08" layer="91">FPGA Block</text>
@@ -30097,6 +30118,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Conenctor D</description>
 <plain>
 <frame x1="-27.94" y1="-40.64" x2="238.76" y2="119.38" columns="8" rows="5" layer="91"/>
 <text x="-20.32" y="106.68" size="5.08" layer="91">FPGA Block</text>
@@ -30329,6 +30351,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Connector E</description>
 <plain>
 <frame x1="-30.48" y1="-45.72" x2="236.22" y2="114.3" columns="8" rows="5" layer="91"/>
 <text x="-22.86" y="101.6" size="5.08" layer="91">FPGA Block</text>
@@ -30561,6 +30584,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Connector F</description>
 <plain>
 <frame x1="-27.94" y1="-48.26" x2="238.76" y2="111.76" columns="8" rows="5" layer="91"/>
 <text x="-17.78" y="99.06" size="5.08" layer="91">FPGA Block</text>
@@ -30793,6 +30817,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Connector G</description>
 <plain>
 <frame x1="-35.56" y1="-48.26" x2="231.14" y2="111.76" columns="8" rows="5" layer="91"/>
 <text x="-25.4" y="96.52" size="5.08" layer="91">FPGA Block</text>
@@ -31025,6 +31050,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA - Modular Conenctor H</description>
 <plain>
 <frame x1="-40.64" y1="-45.72" x2="226.06" y2="114.3" columns="8" rows="5" layer="91"/>
 <text x="-30.48" y="99.06" size="5.08" layer="91">FPGA Block</text>
@@ -31257,6 +31283,7 @@ F</text>
 </nets>
 </sheet>
 <sheet>
+<description>FPGA Connectors</description>
 <plain>
 <frame x1="-81.28" y1="-40.64" x2="289.56" y2="185.42" columns="8" rows="5" layer="91"/>
 </plain>

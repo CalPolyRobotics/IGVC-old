@@ -21244,7 +21244,6 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 <part name="JP92" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP93" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP94" library="pinhead" deviceset="PINHD-1X8" device=""/>
-<part name="JP74" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP75" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP79" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP80" library="pinhead" deviceset="PINHD-1X8" device=""/>
@@ -31268,7 +31267,6 @@ F</text>
 <instance part="JP92" gate="A" x="33.02" y="109.22" rot="R180"/>
 <instance part="JP93" gate="A" x="81.28" y="109.22" rot="R180"/>
 <instance part="JP94" gate="A" x="81.28" y="81.28" rot="R180"/>
-<instance part="JP74" gate="A" x="81.28" y="53.34" rot="R180"/>
 <instance part="JP75" gate="A" x="81.28" y="25.4" rot="R180"/>
 <instance part="JP79" gate="A" x="127" y="109.22" rot="R180"/>
 <instance part="JP80" gate="A" x="127" y="81.28" rot="R180"/>
@@ -31666,62 +31664,6 @@ F</text>
 <pinref part="JP75" gate="A" pin="1"/>
 <label x="88.9" y="15.24" size="1.27" layer="95" xref="yes"/>
 <wire x1="83.82" y1="15.24" x2="88.9" y2="15.24" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="FPGA_L37N_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="8"/>
-<wire x1="83.82" y1="60.96" x2="88.9" y2="60.96" width="0.1524" layer="91"/>
-<label x="88.9" y="60.96" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L37P_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="7"/>
-<wire x1="83.82" y1="58.42" x2="88.9" y2="58.42" width="0.1524" layer="91"/>
-<label x="88.9" y="58.42" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L36N_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="6"/>
-<wire x1="83.82" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
-<label x="88.9" y="55.88" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L36P_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="5"/>
-<wire x1="83.82" y1="53.34" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
-<label x="88.9" y="53.34" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L35N_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="4"/>
-<wire x1="83.82" y1="50.8" x2="88.9" y2="50.8" width="0.1524" layer="91"/>
-<label x="88.9" y="50.8" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L35P_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="3"/>
-<wire x1="83.82" y1="48.26" x2="88.9" y2="48.26" width="0.1524" layer="91"/>
-<label x="88.9" y="48.26" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L34N_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="2"/>
-<wire x1="83.82" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
-<label x="88.9" y="45.72" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FPGA_L34P_0" class="0">
-<segment>
-<pinref part="JP74" gate="A" pin="1"/>
-<wire x1="83.82" y1="43.18" x2="88.9" y2="43.18" width="0.1524" layer="91"/>
-<label x="88.9" y="43.18" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="FPGA_L83N_3" class="0">

@@ -1,0 +1,19 @@
+**********************************************************************
+* Exports the board to HyperLynx Signal-Integrity Transfer Format (.HYP)
+* Version 2.00 9/11/97 -- 4.16 17/12/2012
+*
+* EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
+*
+* HyperLynx Board exported from:
+* C:/Users/michael roberts/Documents/GitHub/IGVC/Electrical Schematics/Version2/Schematics/boardv2a.brd
+* At 10/26/2014 11:16:38 PM
+*
+* Schematic is loaded.
+*
+*
+**********************************************************************
+* Auto Mapped Reference File for ICs and Us
+*
+IC5, 74LVC1G04.PML, 74LVC1G04DBV_SSOP
+IC6, 74LVC1G04.PML, 74LVC1G04DBV_SSOP
+IC7, 74HC.PML, 74HC4030D_SSOP

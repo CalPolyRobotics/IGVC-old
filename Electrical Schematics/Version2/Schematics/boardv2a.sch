@@ -20583,7 +20583,6 @@ Based on the following sources:
 <part name="X4" library="con-molex" deviceset="5566-4" device=""/>
 <part name="D3" library="diode" deviceset="GF1" device=""/>
 <part name="IC7" library="40xx" deviceset="4030" device="D"/>
-<part name="TP143" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP144" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP145" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP146" library="testpad" deviceset="TP" device="B1,27"/>
@@ -26267,14 +26266,6 @@ Based on the following sources:
 <nets>
 <net name="5V_SUPERVISED" class="0">
 <segment>
-<wire x1="50.8" y1="85.09" x2="52.07" y2="85.09" width="0.1524" layer="91"/>
-<wire x1="52.07" y1="85.09" x2="90.17" y2="85.09" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="A" pin="VSUP"/>
-<junction x="52.07" y="85.09"/>
-<pinref part="JP23" gate="A" pin="2"/>
-<wire x1="90.17" y1="85.09" x2="90.17" y2="82.55" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C9" gate="G$1" pin="1"/>
 <wire x1="97.79" y1="81.28" x2="110.49" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="110.49" y1="81.28" x2="113.03" y2="81.28" width="0.1524" layer="91"/>
@@ -26620,6 +26611,16 @@ Based on the following sources:
 <wire x1="-2.54" y1="63.5" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="48.26" x2="-17.78" y2="48.26" width="0.1524" layer="91"/>
 <label x="-17.78" y="48.26" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="5V_SUP_J1" class="0">
+<segment>
+<wire x1="50.8" y1="85.09" x2="52.07" y2="85.09" width="0.1524" layer="91"/>
+<wire x1="52.07" y1="85.09" x2="90.17" y2="85.09" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="A" pin="VSUP"/>
+<junction x="52.07" y="85.09"/>
+<pinref part="JP23" gate="A" pin="2"/>
+<wire x1="90.17" y1="85.09" x2="90.17" y2="82.55" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -31027,7 +31028,6 @@ Based on the following sources:
 <instance part="D3" gate="D" x="148.59" y="50.8"/>
 <instance part="IC5" gate="P" x="-71.12" y="22.86"/>
 <instance part="IC6" gate="P" x="-78.74" y="22.86"/>
-<instance part="TP143" gate="G$1" x="-17.78" y="76.2"/>
 <instance part="TP144" gate="G$1" x="-7.62" y="74.93"/>
 <instance part="TP145" gate="G$1" x="6.35" y="38.1"/>
 <instance part="TP146" gate="G$1" x="41.91" y="78.74"/>
@@ -31217,9 +31217,9 @@ Based on the following sources:
 <net name="FNR_CON_R" class="0">
 <segment>
 <pinref part="D2" gate="D" pin="A"/>
-<label x="138.43" y="-41.91" size="1.778" layer="95" xref="yes"/>
-<wire x1="138.43" y1="-41.91" x2="119.38" y2="-40.64" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="-36.83" x2="138.43" y2="-41.91" width="0.1524" layer="91"/>
+<label x="137.16" y="-40.64" size="1.778" layer="95" xref="yes"/>
+<wire x1="137.16" y1="-40.64" x2="119.38" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="-36.83" x2="137.16" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="JP27" gate="A" pin="2"/>
 <wire x1="129.54" y1="-36.83" x2="137.16" y2="-36.83" width="0.1524" layer="91"/>
 </segment>
@@ -31517,9 +31517,6 @@ Based on the following sources:
 <pinref part="TP146" gate="G$1" pin="TP"/>
 <wire x1="41.91" y1="76.2" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
 <junction x="41.91" y="76.2"/>
-</segment>
-<segment>
-<wire x1="39.37" y1="78.74" x2="40.64" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$131" class="0">

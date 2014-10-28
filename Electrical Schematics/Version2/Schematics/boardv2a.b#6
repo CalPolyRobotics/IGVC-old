@@ -6338,6 +6338,72 @@ design rules under a new name.</description>
 </element>
 <element name="D3" library="diode" package="SMA-DO214AC" value="GF1" x="3.175" y="-119.0244"/>
 <element name="IC7" library="40xx" package="SO14" value="4030D" x="5.8928" y="-127.3556"/>
+<element name="TP143" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-134.2644">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-134.2644" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP144" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-138.2522">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-138.2522" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP145" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-142.24">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-142.24" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP146" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-146.2278">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-146.2278" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP147" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-150.2156">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-150.2156" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP148" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-154.2034">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-154.2034" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP149" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-158.1912">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-158.1912" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP150" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-162.179">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-162.179" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP151" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-166.1668">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-166.1668" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP152" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-170.1546">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-170.1546" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP153" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-174.1424">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-174.1424" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP154" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-178.1302">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-178.1302" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP155" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-182.118">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-182.118" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP156" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-186.1058">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-186.1058" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP157" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-190.0936">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-190.0936" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP158" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-194.0814">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-194.0814" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP159" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-198.0692">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-198.0692" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP160" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-202.057">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-202.057" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP161" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-206.0448">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-206.0448" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP162" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-210.0326">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-210.0326" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP163" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-214.0204">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-214.0204" size="1.778" layer="27" display="off"/>
+</element>
+<element name="TP164" library="testpad" package="B1,27" value="TPB1,27" x="0.635" y="-218.0082">
+<attribute name="TP_SIGNAL_NAME" value="" x="0.635" y="-218.0082" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="V+">
@@ -6846,26 +6912,34 @@ design rules under a new name.</description>
 <contactref element="D1" pad="K"/>
 <contactref element="D2" pad="A"/>
 <contactref element="JP27" pad="2"/>
-<wire x1="211.77" y1="41.656" x2="177.066" y2="11.372" width="0" layer="19" extent="1-1"/>
+<contactref element="TP149" pad="TP"/>
 <wire x1="244.094" y1="47.836" x2="211.77" y2="41.656" width="0" layer="19" extent="1-1"/>
+<wire x1="177.066" y1="11.372" x2="211.77" y2="41.656" width="0" layer="19" extent="1-1"/>
 <wire x1="155.974" y1="-23.368" x2="177.066" y2="11.372" width="0" layer="19" extent="1-1"/>
 <wire x1="163.304" y1="-33.274" x2="155.974" y2="-23.368" width="0" layer="19" extent="1-1"/>
-<wire x1="144.272" y1="-28.448" x2="163.304" y2="-33.274" width="0" layer="19" extent="1-1"/>
+<wire x1="144.272" y1="-28.448" x2="155.974" y2="-23.368" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-158.1912" x2="144.272" y2="-28.448" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FNR_CON_THROTTLE+">
 <contactref element="U$5" pad="P$3"/>
 <contactref element="K1" pad="4"/>
-<wire x1="173.482" y1="-49.784" x2="177.066" y2="14.872" width="0" layer="19" extent="1-1"/>
+<contactref element="TP162" pad="TP"/>
+<wire x1="173.482" y1="-49.784" x2="0.635" y2="-210.0326" width="0" layer="19" extent="1-1"/>
+<wire x1="177.066" y1="14.872" x2="173.482" y2="-49.784" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FNR_CON_THROTTLE-">
 <contactref element="U$5" pad="P$4"/>
 <contactref element="K1" pad="13"/>
-<wire x1="173.482" y1="-42.164" x2="177.066" y2="18.372" width="0" layer="19" extent="1-1"/>
+<contactref element="TP161" pad="TP"/>
+<wire x1="173.482" y1="-42.164" x2="0.635" y2="-206.0448" width="0" layer="19" extent="1-1"/>
+<wire x1="177.066" y1="18.372" x2="173.482" y2="-42.164" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FNR_CON_THROTTLEWIPER">
 <contactref element="U$5" pad="P$5"/>
 <contactref element="K1" pad="6"/>
-<wire x1="178.562" y1="-49.784" x2="177.066" y2="21.872" width="0" layer="19" extent="1-1"/>
+<contactref element="TP164" pad="TP"/>
+<wire x1="178.562" y1="-49.784" x2="0.635" y2="-218.0082" width="0" layer="19" extent="1-1"/>
+<wire x1="177.066" y1="21.872" x2="178.562" y2="-49.784" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FNR_CON_GROUND">
 <contactref element="U$5" pad="P$6"/>
@@ -7039,8 +7113,10 @@ design rules under a new name.</description>
 <contactref element="U$5" pad="P$20"/>
 <contactref element="Q18" pad="1"/>
 <contactref element="R17" pad="2"/>
+<contactref element="TP146" pad="TP"/>
 <wire x1="226.148" y1="40.132" x2="180.566" y2="39.372" width="0" layer="19" extent="1-1"/>
 <wire x1="140.6906" y1="-14.5034" x2="180.566" y2="39.372" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-146.2278" x2="140.6906" y2="-14.5034" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$252">
 <contactref element="Q13" pad="1"/>
@@ -8302,6 +8378,7 @@ design rules under a new name.</description>
 <contactref element="IC4" pad="14"/>
 <contactref element="IC5" pad="5"/>
 <contactref element="IC6" pad="5"/>
+<contactref element="TP155" pad="TP"/>
 <wire x1="118.11" y1="89.408" x2="118.11" y2="92.484" width="0" layer="19" extent="1-1"/>
 <wire x1="130.048" y1="68.492" x2="118.11" y2="89.408" width="0" layer="19" extent="1-1"/>
 <wire x1="114.3" y1="25.4" x2="130.048" y2="68.492" width="0" layer="19" extent="1-1"/>
@@ -8322,6 +8399,7 @@ design rules under a new name.</description>
 <wire x1="240.604" y1="42.956" x2="236.322" y2="41.656" width="0" layer="19" extent="1-1"/>
 <wire x1="239.334" y1="49.306" x2="240.604" y2="42.956" width="0" layer="19" extent="1-1"/>
 <wire x1="5.225" y1="-119.0244" x2="146.6908" y2="-47.3932" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-182.118" x2="5.225" y2="-119.0244" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$178">
 <contactref element="TP110" pad="TP"/>
@@ -10559,7 +10637,9 @@ design rules under a new name.</description>
 <signal name="N$49">
 <contactref element="K1" pad="8"/>
 <contactref element="IC1" pad="12"/>
-<wire x1="147.9908" y1="-41.5576" x2="183.642" y2="-49.784" width="0" layer="19" extent="1-1"/>
+<contactref element="TP163" pad="TP"/>
+<wire x1="147.9908" y1="-41.5576" x2="0.635" y2="-214.0204" width="0" layer="19" extent="1-1"/>
+<wire x1="183.642" y1="-49.784" x2="147.9908" y2="-41.5576" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$57">
 <contactref element="R21" pad="2"/>
@@ -10612,9 +10692,13 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$61">
 <contactref element="IC7" pad="3"/>
+<contactref element="TP156" pad="TP"/>
+<wire x1="4.6228" y1="-130.429" x2="0.635" y2="-186.1058" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$62">
 <contactref element="Q4" pad="1"/>
+<contactref element="TP145" pad="TP"/>
+<wire x1="0.635" y1="-142.24" x2="154.9908" y2="-11.176" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$147">
 <contactref element="IC3" pad="5"/>
@@ -10625,8 +10709,10 @@ design rules under a new name.</description>
 <contactref element="R16" pad="2"/>
 <contactref element="IC3" pad="6"/>
 <contactref element="C119" pad="1"/>
-<wire x1="237.324" y1="31.496" x2="166.183" y2="-25.908" width="0" layer="19" extent="1-1"/>
-<wire x1="229.782" y1="26.67" x2="237.324" y2="31.496" width="0" layer="19" extent="1-1"/>
+<contactref element="TP154" pad="TP"/>
+<wire x1="166.183" y1="-25.908" x2="0.635" y2="-178.1302" width="0" layer="19" extent="1-1"/>
+<wire x1="229.782" y1="26.67" x2="166.183" y2="-25.908" width="0" layer="19" extent="1-1"/>
+<wire x1="237.324" y1="31.496" x2="229.782" y2="26.67" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$60">
 <contactref element="C69" pad="2"/>
@@ -10652,7 +10738,9 @@ design rules under a new name.</description>
 <signal name="N$131">
 <contactref element="IC6" pad="4"/>
 <contactref element="R18" pad="1"/>
-<wire x1="226.148" y1="34.29" x2="241.234" y2="49.306" width="0" layer="19" extent="1-1"/>
+<contactref element="TP153" pad="TP"/>
+<wire x1="226.148" y1="34.29" x2="0.635" y2="-174.1424" width="0" layer="19" extent="1-1"/>
+<wire x1="241.234" y1="49.306" x2="226.148" y2="34.29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$135">
 <contactref element="Q1" pad="1"/>
@@ -10662,14 +10750,18 @@ design rules under a new name.</description>
 <signal name="N$136">
 <contactref element="Q3" pad="1"/>
 <contactref element="R13" pad="2"/>
-<wire x1="238.6702" y1="9.1186" x2="255.508" y2="12.766" width="0" layer="19" extent="1-1"/>
+<contactref element="TP152" pad="TP"/>
+<wire x1="255.508" y1="12.766" x2="238.6702" y2="9.1186" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-170.1546" x2="238.6702" y2="9.1186" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$137">
 <contactref element="Q2" pad="1"/>
 <contactref element="R19" pad="2"/>
 <contactref element="R20" pad="2"/>
+<contactref element="TP147" pad="TP"/>
 <wire x1="254.574" y1="36.846" x2="214.122" y2="26.328" width="0" layer="19" extent="1-1"/>
 <wire x1="261.454" y1="22.606" x2="254.574" y2="36.846" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-150.2156" x2="214.122" y2="26.328" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$139">
 <contactref element="Q1" pad="3"/>
@@ -10679,7 +10771,9 @@ design rules under a new name.</description>
 <signal name="N$141">
 <contactref element="Q19" pad="2"/>
 <contactref element="Q3" pad="3"/>
-<wire x1="253.408" y1="13.716" x2="245.044" y2="45.736" width="0" layer="19" extent="1-1"/>
+<contactref element="TP151" pad="TP"/>
+<wire x1="253.408" y1="13.716" x2="0.635" y2="-166.1668" width="0" layer="19" extent="1-1"/>
+<wire x1="245.044" y1="45.736" x2="253.408" y2="13.716" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$138">
 <contactref element="R19" pad="1"/>
@@ -10691,7 +10785,9 @@ design rules under a new name.</description>
 <signal name="N$142">
 <contactref element="R20" pad="1"/>
 <contactref element="Q19" pad="1"/>
-<wire x1="259.754" y1="22.606" x2="243.144" y2="45.736" width="0" layer="19" extent="1-1"/>
+<contactref element="TP150" pad="TP"/>
+<wire x1="259.754" y1="22.606" x2="0.635" y2="-162.179" width="0" layer="19" extent="1-1"/>
+<wire x1="243.144" y1="45.736" x2="259.754" y2="22.606" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$63">
 <contactref element="JP27" pad="1"/>
@@ -10732,15 +10828,19 @@ design rules under a new name.</description>
 <contactref element="IC5" pad="2"/>
 <contactref element="IC6" pad="2"/>
 <contactref element="R13" pad="1"/>
-<wire x1="3.3528" y1="-130.429" x2="236.9702" y2="9.1186" width="0" layer="19" extent="1-1"/>
+<contactref element="TP144" pad="TP"/>
 <wire x1="241.554" y1="40.366" x2="236.9702" y2="9.1186" width="0" layer="19" extent="1-1"/>
 <wire x1="240.284" y1="46.716" x2="241.554" y2="40.366" width="0" layer="19" extent="1-1"/>
-<wire x1="152.02535" y1="-16.51" x2="3.3528" y2="-130.429" width="0" layer="19" extent="1-1"/>
+<wire x1="152.02535" y1="-16.51" x2="236.9702" y2="9.1186" width="0" layer="19" extent="1-1"/>
+<wire x1="3.3528" y1="-130.429" x2="152.02535" y2="-16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="0.635" y1="-138.2522" x2="3.3528" y2="-130.429" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MCU_FNR_ENABLEO">
 <contactref element="U20" pad="12"/>
 <contactref element="Q5" pad="1"/>
-<wire x1="152.02535" y1="-17.78" x2="160.2638" y2="-23.4282" width="0" layer="19" extent="1-1"/>
+<contactref element="TP157" pad="TP"/>
+<wire x1="152.02535" y1="-17.78" x2="0.635" y2="-190.0936" width="0" layer="19" extent="1-1"/>
+<wire x1="160.2638" y1="-23.4282" x2="152.02535" y2="-17.78" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

@@ -23319,10 +23319,13 @@ Based on the following sources:
 <junction x="236.22" y="-93.98"/>
 <junction x="114.3" y="-7.62"/>
 <wire x1="355.6" y1="-93.98" x2="355.6" y2="-86.36" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="-86.36" x2="373.38" y2="-86.36" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="-86.36" x2="370.84" y2="-86.36" width="0.1524" layer="91"/>
 <pinref part="JP13" gate="A" pin="2"/>
+<wire x1="370.84" y1="-86.36" x2="373.38" y2="-86.36" width="0.1524" layer="91"/>
 <wire x1="355.6" y1="-93.98" x2="375.92" y2="-93.98" width="0.1524" layer="91"/>
 <junction x="355.6" y="-93.98"/>
+<pinref part="JP14" gate="A" pin="1"/>
+<junction x="370.84" y="-86.36"/>
 </segment>
 </net>
 <net name="MCU_COMMS_MOSI" class="0">
@@ -23361,8 +23364,11 @@ Based on the following sources:
 <pinref part="JP17" gate="A" pin="2"/>
 <wire x1="375.92" y1="-116.84" x2="370.84" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="370.84" y1="-116.84" x2="370.84" y2="-121.92" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="-121.92" x2="378.46" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="-121.92" x2="375.92" y2="-121.92" width="0.1524" layer="91"/>
 <junction x="370.84" y="-116.84"/>
+<pinref part="JP18" gate="A" pin="2"/>
+<wire x1="375.92" y1="-121.92" x2="378.46" y2="-121.92" width="0.1524" layer="91"/>
+<junction x="375.92" y="-121.92"/>
 </segment>
 </net>
 <net name="MCU_ETHERNET_SCS" class="0">

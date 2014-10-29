@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -31195,25 +31195,6 @@ Based on the following sources:
 <label x="99.06" y="180.34" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="FNR_CON_GROUND" class="0">
-<segment>
-<pinref part="Q3" gate="G$1" pin="S"/>
-<label x="48.26" y="15.24" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="59.69" y1="15.24" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
-<junction x="59.69" y="15.24"/>
-</segment>
-<segment>
-<wire x1="62.23" y1="38.1" x2="62.23" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="62.23" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
-<label x="58.42" y="30.48" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="Q1" gate="G$1" pin="S"/>
-</segment>
-<segment>
-<pinref part="R40" gate="G$1" pin="1"/>
-<wire x1="53.34" y1="50.8" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
-<label x="53.34" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="FNR_CON_R" class="0">
 <segment>
 <pinref part="D2" gate="D" pin="A"/>
@@ -31517,6 +31498,23 @@ Based on the following sources:
 <pinref part="TP146" gate="G$1" pin="TP"/>
 <wire x1="41.91" y1="76.2" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
 <junction x="41.91" y="76.2"/>
+</segment>
+<segment>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="53.34" y1="50.8" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
+<label x="53.34" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="Q3" gate="G$1" pin="S"/>
+<label x="48.26" y="15.24" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="59.69" y1="15.24" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
+<junction x="59.69" y="15.24"/>
+</segment>
+<segment>
+<wire x1="62.23" y1="38.1" x2="62.23" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="62.23" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<label x="58.42" y="30.48" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="Q1" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$131" class="0">

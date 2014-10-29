@@ -20011,7 +20011,6 @@ Based on the following sources:
 <part name="TP114" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP115" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP116" library="testpad" deviceset="TP" device="B1,27"/>
-<part name="TP117" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP118" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP119" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP120" library="testpad" deviceset="TP" device="B1,27"/>
@@ -20219,7 +20218,6 @@ Based on the following sources:
 <part name="JP89" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP90" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP91" library="pinhead" deviceset="PINHD-1X8" device=""/>
-<part name="JP92" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP93" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP94" library="pinhead" deviceset="PINHD-1X8" device=""/>
 <part name="JP75" library="pinhead" deviceset="PINHD-1X8" device=""/>
@@ -20482,6 +20480,14 @@ Based on the following sources:
 <part name="TP164" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="U$32" library="shit" deviceset="RHM1620CT-ND" device=""/>
 <part name="U$4" library="shit" deviceset="RHM1620CT-ND" device=""/>
+<part name="TP143" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP165" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP166" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP167" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP168" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP169" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP170" library="testpad" deviceset="TP" device="PAD1-13"/>
+<part name="TP171" library="testpad" deviceset="TP" device="PAD1-13"/>
 </parts>
 <sheets>
 <sheet>
@@ -24454,7 +24460,6 @@ Based on the following sources:
 <instance part="FRAME19" gate="G$1" x="25.4" y="-43.18"/>
 <instance part="TP115" gate="G$1" x="22.86" y="58.42"/>
 <instance part="TP116" gate="G$1" x="71.12" y="58.42"/>
-<instance part="TP117" gate="G$1" x="76.2" y="30.48"/>
 <instance part="TP118" gate="G$1" x="86.36" y="27.94"/>
 <instance part="TP119" gate="G$1" x="60.96" y="20.32" rot="R180"/>
 <instance part="TP120" gate="G$1" x="20.32" y="12.7"/>
@@ -24597,10 +24602,7 @@ Based on the following sources:
 <net name="N$185" class="0">
 <segment>
 <pinref part="U$10" gate="A" pin="PGD"/>
-<wire x1="60.96" y1="27.94" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="TP117" gate="G$1" pin="TP"/>
-<wire x1="76.2" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
-<junction x="76.2" y="27.94"/>
+<wire x1="60.96" y1="27.94" x2="83.82" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$258" class="0">
@@ -26490,10 +26492,13 @@ Based on the following sources:
 </net>
 <net name="MCU_IO_RALAYB" class="0">
 <segment>
-<wire x1="10.16" y1="63.5" x2="-2.54" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="63.5" x2="8.89" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="8.89" y1="63.5" x2="-2.54" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="63.5" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="48.26" x2="-17.78" y2="48.26" width="0.1524" layer="91"/>
 <label x="-17.78" y="48.26" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$2" gate="A" pin="PA4"/>
+<junction x="8.89" y="63.5"/>
 </segment>
 </net>
 <net name="5V_SUP_J1" class="0">
@@ -26544,14 +26549,6 @@ Based on the following sources:
 </busses>
 <nets>
 <net name="5V_SUPERVISED" class="0">
-<segment>
-<wire x1="26.67" y1="90.17" x2="27.94" y2="90.17" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="90.17" x2="66.04" y2="90.17" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="A" pin="VSUP"/>
-<junction x="27.94" y="90.17"/>
-<pinref part="JP25" gate="A" pin="2"/>
-<wire x1="66.04" y1="90.17" x2="66.04" y2="87.63" width="0.1524" layer="91"/>
-</segment>
 <segment>
 <pinref part="C14" gate="G$1" pin="1"/>
 <wire x1="73.66" y1="86.36" x2="86.36" y2="86.36" width="0.1524" layer="91"/>
@@ -26901,6 +26898,16 @@ Based on the following sources:
 <label x="-33.02" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="5V_SU_J" class="0">
+<segment>
+<wire x1="26.67" y1="90.17" x2="27.94" y2="90.17" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="90.17" x2="66.04" y2="90.17" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="A" pin="VSUP"/>
+<junction x="27.94" y="90.17"/>
+<pinref part="JP25" gate="A" pin="2"/>
+<wire x1="66.04" y1="90.17" x2="66.04" y2="87.63" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -26978,7 +26985,7 @@ Based on the following sources:
 <instance part="SUPPLY24" gate="GND" x="200.66" y="104.14"/>
 <instance part="C88" gate="G$1" x="213.36" y="114.3"/>
 <instance part="C89" gate="G$1" x="187.96" y="114.3"/>
-<instance part="L7" gate="G$1" x="111.76" y="-27.94"/>
+<instance part="L7" gate="G$1" x="109.22" y="-27.94"/>
 </instances>
 <busses>
 </busses>
@@ -27153,8 +27160,9 @@ Based on the following sources:
 <junction x="200.66" y="109.22"/>
 </segment>
 <segment>
-<wire x1="88.9" y1="-27.94" x2="106.68" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="-27.94" x2="104.14" y2="-27.94" width="0.1524" layer="91"/>
 <label x="91.44" y="-25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="L7" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="VCCINT" class="0">
@@ -28154,9 +28162,9 @@ Based on the following sources:
 </net>
 <net name="CONGND" class="0">
 <segment>
-<wire x1="116.84" y1="-27.94" x2="121.92" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="-27.94" x2="121.92" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="L7" gate="G$1" pin="2"/>
-<junction x="116.84" y="-27.94"/>
+<junction x="114.3" y="-27.94"/>
 <wire x1="139.7" y1="-45.72" x2="121.92" y2="-45.72" width="0.1524" layer="91"/>
 <label x="137.16" y="-43.18" size="1.27" layer="95" xref="yes"/>
 <wire x1="121.92" y1="-27.94" x2="121.92" y2="-45.72" width="0.1524" layer="91"/>
@@ -30254,50 +30262,67 @@ Based on the following sources:
 <instance part="JP89" gate="A" x="33.02" y="25.4" rot="R180"/>
 <instance part="JP90" gate="A" x="33.02" y="53.34" rot="R180"/>
 <instance part="JP91" gate="A" x="33.02" y="81.28" rot="R180"/>
-<instance part="JP92" gate="A" x="33.02" y="109.22" rot="R180"/>
 <instance part="JP93" gate="A" x="81.28" y="109.22" rot="R180"/>
 <instance part="JP94" gate="A" x="81.28" y="81.28" rot="R180"/>
 <instance part="JP75" gate="A" x="81.28" y="25.4" rot="R180"/>
 <instance part="JP79" gate="A" x="127" y="109.22" rot="R180"/>
 <instance part="JP80" gate="A" x="127" y="81.28" rot="R180"/>
 <instance part="JP95" gate="A" x="127" y="53.34" rot="R180"/>
+<instance part="TP143" gate="G$1" x="35.56" y="114.3" rot="R90"/>
+<instance part="TP165" gate="G$1" x="35.56" y="111.76" rot="R90"/>
+<instance part="TP166" gate="G$1" x="35.56" y="109.22" rot="R90"/>
+<instance part="TP167" gate="G$1" x="35.56" y="106.68" rot="R90"/>
+<instance part="TP168" gate="G$1" x="35.56" y="104.14" rot="R90"/>
+<instance part="TP169" gate="G$1" x="35.56" y="101.6" rot="R90"/>
+<instance part="TP170" gate="G$1" x="35.56" y="99.06" rot="R90"/>
+<instance part="TP171" gate="G$1" x="35.56" y="116.84" rot="R90"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="FPGA_L46P_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="5"/>
-<wire x1="35.56" y1="109.22" x2="40.64" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="109.22" x2="38.1" y2="109.22" width="0.1524" layer="91"/>
 <label x="40.64" y="109.22" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP166" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="109.22" x2="40.64" y2="109.22" width="0.1524" layer="91"/>
+<junction x="38.1" y="109.22"/>
 </segment>
 </net>
 <net name="FPGA_L45N_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="4"/>
-<wire x1="35.56" y1="106.68" x2="40.64" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="106.68" x2="38.1" y2="106.68" width="0.1524" layer="91"/>
 <label x="40.64" y="106.68" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP167" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="106.68" x2="40.64" y2="106.68" width="0.1524" layer="91"/>
+<junction x="38.1" y="106.68"/>
 </segment>
 </net>
 <net name="FPGA_L45P_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="3"/>
-<wire x1="35.56" y1="104.14" x2="40.64" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="104.14" x2="38.1" y2="104.14" width="0.1524" layer="91"/>
 <label x="40.64" y="104.14" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP168" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="104.14" x2="40.64" y2="104.14" width="0.1524" layer="91"/>
+<junction x="38.1" y="104.14"/>
 </segment>
 </net>
 <net name="FPGA_L43N_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="2"/>
-<wire x1="35.56" y1="101.6" x2="40.64" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="101.6" x2="38.1" y2="101.6" width="0.1524" layer="91"/>
 <label x="40.64" y="101.6" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP169" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="101.6" x2="40.64" y2="101.6" width="0.1524" layer="91"/>
+<junction x="38.1" y="101.6"/>
 </segment>
 </net>
 <net name="FPGA_L43P_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="1"/>
-<wire x1="35.56" y1="99.06" x2="40.64" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="99.06" x2="38.1" y2="99.06" width="0.1524" layer="91"/>
 <label x="40.64" y="99.06" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP170" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="99.06" x2="40.64" y2="99.06" width="0.1524" layer="91"/>
+<junction x="38.1" y="99.06"/>
 </segment>
 </net>
 <net name="FPGA_L62N_2" class="0">
@@ -30463,23 +30488,29 @@ Based on the following sources:
 </net>
 <net name="FPGA_L47N_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="8"/>
-<wire x1="35.56" y1="116.84" x2="40.64" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="116.84" x2="38.1" y2="116.84" width="0.1524" layer="91"/>
 <label x="40.64" y="116.84" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP171" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="116.84" x2="40.64" y2="116.84" width="0.1524" layer="91"/>
+<junction x="38.1" y="116.84"/>
 </segment>
 </net>
 <net name="FPGA_L47P_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="7"/>
-<wire x1="35.56" y1="114.3" x2="40.64" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="114.3" x2="38.1" y2="114.3" width="0.1524" layer="91"/>
 <label x="40.64" y="114.3" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP143" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="114.3" x2="40.64" y2="114.3" width="0.1524" layer="91"/>
+<junction x="38.1" y="114.3"/>
 </segment>
 </net>
 <net name="FPGA_L46N_1" class="0">
 <segment>
-<pinref part="JP92" gate="A" pin="6"/>
-<wire x1="35.56" y1="111.76" x2="40.64" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="111.76" x2="38.1" y2="111.76" width="0.1524" layer="91"/>
 <label x="40.64" y="111.76" size="1.27" layer="95" xref="yes"/>
+<pinref part="TP165" gate="G$1" pin="TP"/>
+<wire x1="38.1" y1="111.76" x2="40.64" y2="111.76" width="0.1524" layer="91"/>
+<junction x="38.1" y="111.76"/>
 </segment>
 </net>
 <net name="FPGA_L2N_3" class="0">
@@ -30754,20 +30785,6 @@ Based on the following sources:
 <wire x1="129.54" y1="71.12" x2="134.62" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$87" class="0">
-<segment>
-<pinref part="JP80" gate="A" pin="7"/>
-<wire x1="129.54" y1="86.36" x2="134.62" y2="86.36" width="0.1524" layer="91"/>
-<label x="134.62" y="86.36" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="N$88" class="0">
-<segment>
-<pinref part="JP80" gate="A" pin="8"/>
-<wire x1="129.54" y1="88.9" x2="134.62" y2="88.9" width="0.1524" layer="91"/>
-<label x="134.62" y="88.9" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="FPGA_L42N_GCLK6_TRDY1_1" class="0">
 <segment>
 <pinref part="JP95" gate="A" pin="8"/>
@@ -30822,6 +30839,20 @@ Based on the following sources:
 <pinref part="JP95" gate="A" pin="1"/>
 <wire x1="129.54" y1="43.18" x2="134.62" y2="43.18" width="0.1524" layer="91"/>
 <label x="134.62" y="43.18" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$301" class="0">
+<segment>
+<pinref part="JP80" gate="A" pin="8"/>
+<wire x1="129.54" y1="88.9" x2="134.62" y2="88.9" width="0.1524" layer="91"/>
+<label x="134.62" y="88.9" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$302" class="0">
+<segment>
+<pinref part="JP80" gate="A" pin="7"/>
+<wire x1="129.54" y1="86.36" x2="134.62" y2="86.36" width="0.1524" layer="91"/>
+<label x="134.62" y="86.36" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

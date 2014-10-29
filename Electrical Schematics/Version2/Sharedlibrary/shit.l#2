@@ -4238,10 +4238,10 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="RESISTORARRAY">
+<deviceset name="RHM1620CT-ND">
 <gates>
 <gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
-<gate name="G$2" symbol="RESISTOR" x="0" y="-7.62"/>
+<gate name="G$2" symbol="RESISTOR" x="0" y="-7.62" swaplevel="1"/>
 <gate name="G$3" symbol="RESISTOR" x="0" y="-15.24"/>
 <gate name="G$4" symbol="RESISTOR" x="0" y="-22.86"/>
 <gate name="G$5" symbol="RESISTOR" x="0" y="-30.48"/>
@@ -4251,6 +4251,24 @@
 </gates>
 <devices>
 <device name="" package="MNR18">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$2" pin="P$1" pad="P$3"/>
+<connect gate="G$2" pin="P$2" pad="P$4"/>
+<connect gate="G$3" pin="P$1" pad="P$5"/>
+<connect gate="G$3" pin="P$2" pad="P$6"/>
+<connect gate="G$4" pin="P$1" pad="P$7"/>
+<connect gate="G$4" pin="P$2" pad="P$8"/>
+<connect gate="G$5" pin="P$1" pad="P$9"/>
+<connect gate="G$5" pin="P$2" pad="P$10"/>
+<connect gate="G$6" pin="P$1" pad="P$11"/>
+<connect gate="G$6" pin="P$2" pad="P$12"/>
+<connect gate="G$7" pin="P$1" pad="P$13"/>
+<connect gate="G$7" pin="P$2" pad="P$14"/>
+<connect gate="G$8" pin="P$1" pad="P$15"/>
+<connect gate="G$8" pin="P$2" pad="P$16"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

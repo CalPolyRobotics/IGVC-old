@@ -4992,8 +4992,8 @@ design rules under a new name.</description>
 <element name="TP9" library="testpad" package="B2,54" value="TPB2,54" x="37.846" y="55.118">
 <attribute name="TP_SIGNAL_NAME" value="" x="185.166" y="-88.392" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP10" library="testpad" package="B2,54" value="TPB2,54" x="46.99" y="21.844">
-<attribute name="TP_SIGNAL_NAME" value="" x="200.66" y="-102.616" size="1.778" layer="27" display="off"/>
+<element name="TP10" library="testpad" package="B2,54" value="TPB2,54" x="96.901" y="64.389">
+<attribute name="TP_SIGNAL_NAME" value="" x="250.571" y="-60.071" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP11" library="testpad" package="B2,54" value="TPB2,54" x="37.592" y="93.091" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="181.102" y="230.251" size="1.778" layer="27" rot="R90" display="off"/>
@@ -5148,8 +5148,8 @@ design rules under a new name.</description>
 <element name="TP48" library="testpad" package="B2,54" value="TPB2,54" x="57.785" y="65.405">
 <attribute name="TP_SIGNAL_NAME" value="" x="239.395" y="-65.405" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP49" library="testpad" package="B2,54" value="TPB2,54" x="85.09" y="13.97">
-<attribute name="TP_SIGNAL_NAME" value="" x="101.6" y="-123.19" size="1.778" layer="27" display="off"/>
+<element name="TP49" library="testpad" package="B2,54" value="TPB2,54" x="46.99" y="22.86">
+<attribute name="TP_SIGNAL_NAME" value="" x="63.5" y="-114.3" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP50" library="testpad" package="B2,54" value="TPB2,54" x="58.166" y="63.373">
 <attribute name="TP_SIGNAL_NAME" value="" x="81.026" y="-73.787" size="1.778" layer="27" display="off"/>
@@ -5163,8 +5163,8 @@ design rules under a new name.</description>
 <element name="TP53" library="testpad" package="B2,54" value="TPB2,54" x="58.293" y="60.833">
 <attribute name="TP_SIGNAL_NAME" value="" x="100.203" y="-76.327" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP54" library="testpad" package="B2,54" value="TPB2,54" x="75.311" y="23.495">
-<attribute name="TP_SIGNAL_NAME" value="" x="123.571" y="-113.665" size="1.778" layer="27" display="off"/>
+<element name="TP54" library="testpad" package="B2,54" value="TPB2,54" x="74.422" y="24.511">
+<attribute name="TP_SIGNAL_NAME" value="" x="122.682" y="-112.649" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP55" library="testpad" package="B2,54" value="TPB2,54" x="58.166" y="57.023">
 <attribute name="TP_SIGNAL_NAME" value="" x="112.776" y="-80.137" size="1.778" layer="27" display="off"/>
@@ -5184,17 +5184,17 @@ design rules under a new name.</description>
 <element name="TP60" library="testpad" package="B2,54" value="TPB2,54" x="91.567" y="64.897">
 <attribute name="TP_SIGNAL_NAME" value="" x="177.927" y="-72.263" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP61" library="testpad" package="B2,54" value="TPB2,54" x="56.007" y="15.367">
-<attribute name="TP_SIGNAL_NAME" value="" x="148.717" y="-121.793" size="1.778" layer="27" display="off"/>
+<element name="TP61" library="testpad" package="B2,54" value="TPB2,54" x="46.355" y="19.812" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="183.515" y="112.522" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP62" library="testpad" package="B2,54" value="TPB2,54" x="78.105" y="-16.256">
-<attribute name="TP_SIGNAL_NAME" value="" x="177.165" y="-153.416" size="1.778" layer="27" display="off"/>
+<element name="TP62" library="testpad" package="B2,54" value="TPB2,54" x="81.153" y="21.59">
+<attribute name="TP_SIGNAL_NAME" value="" x="180.213" y="-115.57" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP63" library="testpad" package="B2,54" value="TPB2,54" x="87.884" y="27.94">
 <attribute name="TP_SIGNAL_NAME" value="" x="193.294" y="-109.22" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP64" library="testpad" package="B2,54" value="TPB2,54" x="72.136" y="-6.096">
-<attribute name="TP_SIGNAL_NAME" value="" x="183.896" y="-143.256" size="1.778" layer="27" display="off"/>
+<element name="TP64" library="testpad" package="B2,54" value="TPB2,54" x="83.185" y="21.336">
+<attribute name="TP_SIGNAL_NAME" value="" x="194.945" y="-115.824" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP65" library="testpad" package="B2,54" value="TPB2,54" x="68.072" y="73.025">
 <attribute name="TP_SIGNAL_NAME" value="" x="186.182" y="-64.135" size="1.778" layer="27" display="off"/>
@@ -5247,8 +5247,8 @@ design rules under a new name.</description>
 <element name="TP89" library="testpad" package="B2,54" value="TPB2,54" x="69.215" y="73.025">
 <attribute name="TP_SIGNAL_NAME" value="" x="168.275" y="-70.485" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP90" library="testpad" package="B2,54" value="TPB2,54" x="64.77" y="34.29">
-<attribute name="TP_SIGNAL_NAME" value="" x="170.18" y="-109.22" size="1.778" layer="27" display="off"/>
+<element name="TP90" library="testpad" package="B2,54" value="TPB2,54" x="76.962" y="5.588">
+<attribute name="TP_SIGNAL_NAME" value="" x="182.372" y="-137.922" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP91" library="testpad" package="B2,54" value="TPB2,54" x="74.93" y="71.501">
 <attribute name="TP_SIGNAL_NAME" value="" x="186.69" y="-72.009" size="1.778" layer="27" display="off"/>
@@ -5421,8 +5421,8 @@ design rules under a new name.</description>
 <element name="TP116" library="testpad" package="B1,27" value="TPB1,27" x="106.553" y="51.181">
 <attribute name="TP_SIGNAL_NAME" value="" x="208.153" y="-127.889" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP118" library="testpad" package="B1,27" value="TPB1,27" x="71.755" y="4.445">
-<attribute name="TP_SIGNAL_NAME" value="" x="186.055" y="-174.625" size="1.778" layer="27" display="off"/>
+<element name="TP118" library="testpad" package="B1,27" value="TPB1,27" x="71.374" y="3.937">
+<attribute name="TP_SIGNAL_NAME" value="" x="185.674" y="-175.133" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP119" library="testpad" package="B1,27" value="TPB1,27" x="111.252" y="42.037">
 <attribute name="TP_SIGNAL_NAME" value="" x="231.902" y="-137.033" size="1.778" layer="27" display="off"/>
@@ -5638,8 +5638,8 @@ design rules under a new name.</description>
 <element name="TP126" library="testpad" package="B2,54" value="TPB2,54" x="95.377" y="90.043">
 <attribute name="TP_SIGNAL_NAME" value="" x="166.497" y="-34.417" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP127" library="testpad" package="B2,54" value="TPB2,54" x="104.14" y="67.945" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="228.6" y="145.415" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP127" library="testpad" package="B2,54" value="TPB2,54" x="117.729" y="46.736" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="242.189" y="124.206" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP128" library="testpad" package="B2,54" value="TPB2,54" x="113.284" y="71.882">
 <attribute name="TP_SIGNAL_NAME" value="" x="197.104" y="-52.578" size="1.778" layer="27" display="off"/>
@@ -5701,18 +5701,18 @@ design rules under a new name.</description>
 <element name="PTC" library="resistor" package="R1206W" value="" x="146.558" y="45.72" rot="R270"/>
 <element name="JP111" library="jumper" package="JP2" value="" x="88.265" y="42.799" rot="MR90"/>
 <element name="U$6" library="xilinx_devices_V6" package="TQ144" value="XC6SLX4-2TQG144C" x="52.578" y="1.143"/>
-<element name="C21" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="93.853" y="10.541" rot="R270"/>
+<element name="C21" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="82.677" y="9.144" rot="R90"/>
 <element name="C22" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="90.424" y="-4.318" rot="R180"/>
-<element name="C23" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="80.899" y="19.812"/>
-<element name="C24" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="73.66" y="17.78"/>
+<element name="C23" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="86.487" y="17.78"/>
+<element name="C24" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="68.834" y="1.397" rot="R90"/>
 <element name="C25" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="92.329" y="4.826" rot="R180"/>
-<element name="C26" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="63.5" y="21.59"/>
+<element name="C26" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="86.614" y="10.287"/>
 <element name="C27" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="81.407" y="2.667" rot="R270"/>
-<element name="C28" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="62.23" y="12.7"/>
-<element name="C29" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="52.07" y="12.7"/>
-<element name="C30" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="58.674" y="12.446"/>
-<element name="C31" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="95.25" y="7.747"/>
-<element name="C32" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="56.007" y="8.382" rot="R180"/>
+<element name="C28" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="87.884" y="6.477"/>
+<element name="C29" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="51.181" y="8.763" rot="MR180"/>
+<element name="C30" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="45.847" y="2.54" rot="MR90"/>
+<element name="C31" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="99.06" y="13.716"/>
+<element name="C32" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="58.674" y="8.382" rot="MR0"/>
 <element name="C33" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="98.679" y="8.128" rot="R270"/>
 <element name="C34" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="89.027" y="1.778"/>
 <element name="C35" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="94.488" y="-8.763"/>
@@ -5733,9 +5733,9 @@ design rules under a new name.</description>
 <element name="JP5" library="jumper" package="JP2" value="" x="94.742" y="-16.383" rot="R90"/>
 <element name="U$7" library="connectors" package="JTAG14PIN" value="JTAG14PIN" x="92.456" y="23.368"/>
 <element name="R33" library="SparkFun-Passives" package="0603-RES" value="10k" x="90.678" y="-22.225" rot="R90"/>
-<element name="U$11" library="shit" package="SOT-223" value="1.2VREG" x="92.6592" y="-5.4102" rot="R270"/>
+<element name="U$11" library="shit" package="SOT-223" value="1.2VREG" x="91.8972" y="13.1572"/>
 <element name="C88" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="92.71" y="-11.049"/>
-<element name="C89" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="47.625" y="7.874" rot="R180"/>
+<element name="C89" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="46.736" y="7.874" rot="MR90"/>
 <element name="U9" library="digital-isolator" package="RW_16" value="ADUM3442CRWZ" x="105.6386" y="-12.319" rot="R90"/>
 <element name="U$13" library="shit" package="JS202011" value="DPDTSWITCH" x="106.553" y="-24.003"/>
 <element name="U$14" library="shit" package="JS202011" value="DPDTSWITCH" x="106.299" y="-4.318"/>
@@ -5822,7 +5822,7 @@ design rules under a new name.</description>
 <element name="JP12" library="jumper" package="JP2" value="" x="117.983" y="-30.353" rot="R180"/>
 <element name="U17" library="digital-isolator" package="RW_16" value="ADUM3442CRWZ" x="116.713" y="-39.497"/>
 <element name="U$30" library="shit" package="JS202011" value="DPDTSWITCH" x="126.111" y="-42.037" rot="R270"/>
-<element name="U$31" library="shit" package="JS202011" value="DPDTSWITCH" x="107.188" y="-39.243" rot="R90"/>
+<element name="U$31" library="shit" package="JS202011" value="DPDTSWITCH" x="107.188" y="-39.37" rot="R90"/>
 <element name="C104" library="SparkFun-Capacitors" package="0603-CAP" value=".1uF" x="109.982" y="-34.417" rot="R90"/>
 <element name="C105" library="SparkFun-Capacitors" package="0603-CAP" value=".1uF" x="123.063" y="-35.433" rot="R270"/>
 <element name="C106" library="eagle-ltspice" package="C0603" value="3.3uf" x="14.097" y="42.291" rot="R270">
@@ -5859,9 +5859,9 @@ design rules under a new name.</description>
 <attribute name="SPICEMODEL" value="NONE" x="25.019" y="250.698" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SPICEPREFIX" value="C" x="25.019" y="250.698" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R24" library="SparkFun-Passives" package="0603-RES" value="1k" x="79.375" y="-1.651"/>
+<element name="R24" library="SparkFun-Passives" package="0603-RES" value="1k" x="73.914" y="4.064"/>
 <element name="R25" library="SparkFun-Passives" package="0603-RES" value="1k" x="63.627" y="67.056" rot="R180"/>
-<element name="C114" library="rcl" package="C0402" value=".1uF" x="63.5" y="12.7"/>
+<element name="C114" library="rcl" package="C0402" value=".1uF" x="55.626" y="36.322"/>
 <element name="L5" library="inductors" package="0402" value="BLM15HB121SN1" x="82.55" y="47.625"/>
 <element name="C115" library="rcl" package="C0402" value=".1uF" x="96.393" y="50.038" rot="R180"/>
 <element name="TP132" library="testpad" package="B2,54" value="TPB2,54" x="97.028" y="52.07">
@@ -5909,8 +5909,8 @@ design rules under a new name.</description>
 <element name="TP80" library="testpad" package="B2,54" value="TPB2,54" x="81.28" y="35.56">
 <attribute name="TP_SIGNAL_NAME" value="" x="123.19" y="-107.95" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP81" library="testpad" package="B2,54" value="TPB2,54" x="76.327" y="20.066">
-<attribute name="TP_SIGNAL_NAME" value="" x="124.587" y="-123.444" size="1.778" layer="27" display="off"/>
+<element name="TP81" library="testpad" package="B2,54" value="TPB2,54" x="52.07" y="19.177">
+<attribute name="TP_SIGNAL_NAME" value="" x="100.33" y="-124.333" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP82" library="testpad" package="B2,54" value="TPB2,54" x="83.82" y="36.83">
 <attribute name="TP_SIGNAL_NAME" value="" x="138.43" y="-106.68" size="1.778" layer="27" display="off"/>
@@ -5918,8 +5918,8 @@ design rules under a new name.</description>
 <element name="TP83" library="testpad" package="B2,54" value="TPB2,54" x="69.85" y="33.02">
 <attribute name="TP_SIGNAL_NAME" value="" x="130.81" y="-110.49" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP84" library="testpad" package="B2,54" value="TPB2,54" x="50.419" y="27.813">
-<attribute name="TP_SIGNAL_NAME" value="" x="117.729" y="-115.697" size="1.778" layer="27" display="off"/>
+<element name="TP84" library="testpad" package="B2,54" value="TPB2,54" x="73.66" y="34.798">
+<attribute name="TP_SIGNAL_NAME" value="" x="140.97" y="-108.712" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP77" library="testpad" package="B2,54" value="TPB2,54" x="76.2" y="43.18">
 <attribute name="TP_SIGNAL_NAME" value="" x="99.06" y="-100.33" size="1.778" layer="27" display="off"/>
@@ -5945,8 +5945,8 @@ design rules under a new name.</description>
 <element name="TP139" library="testpad" package="B2,54" value="TPB2,54" x="97.917" y="55.499">
 <attribute name="TP_SIGNAL_NAME" value="" x="238.887" y="-68.961" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP140" library="testpad" package="B2,54" value="TPB2,54" x="73.66" y="21.59">
-<attribute name="TP_SIGNAL_NAME" value="" x="220.98" y="-102.87" size="1.778" layer="27" display="off"/>
+<element name="TP140" library="testpad" package="B2,54" value="TPB2,54" x="78.359" y="25.908" rot="R270">
+<attribute name="TP_SIGNAL_NAME" value="" x="-46.101" y="-121.412" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="L6" library="inductors" package="0402" value="BLM15HB121SN1" x="46.355" y="37.465" rot="R90"/>
 <element name="U18" library="shit" package="KTT3" value="LM1085_KTT_3" x="164.6936" y="-0.5588" rot="R180">
@@ -6191,53 +6191,53 @@ design rules under a new name.</description>
 </element>
 <element name="U$32" library="shit" package="MNR18" value="RHM1620CT-ND" x="83.058" y="29.972"/>
 <element name="U$4" library="shit" package="MNR18" value="RHM1620CT-ND" x="76.454" y="28.448" rot="R180"/>
-<element name="TP143" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-29.718" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-29.718" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP143" library="testpad" package="P1-13" value="TPPAD1-13" x="82.931" y="-4.064" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="82.931" y="-4.064" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP165" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-25.527" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-25.527" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP165" library="testpad" package="P1-13" value="TPPAD1-13" x="86.233" y="-2.286" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="86.233" y="-2.286" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP166" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-21.336" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-21.336" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP166" library="testpad" package="P1-13" value="TPPAD1-13" x="83.439" y="-0.254">
+<attribute name="TP_SIGNAL_NAME" value="" x="83.439" y="-0.254" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP167" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-17.145" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-17.145" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP167" library="testpad" package="P1-13" value="TPPAD1-13" x="75.438" y="-2.032">
+<attribute name="TP_SIGNAL_NAME" value="" x="75.438" y="-2.032" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP168" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-12.954" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-12.954" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP168" library="testpad" package="P1-13" value="TPPAD1-13" x="75.057" y="0.254">
+<attribute name="TP_SIGNAL_NAME" value="" x="75.057" y="0.254" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP169" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-8.763" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-8.763" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP169" library="testpad" package="P1-13" value="TPPAD1-13" x="71.628" y="-0.508">
+<attribute name="TP_SIGNAL_NAME" value="" x="71.628" y="-0.508" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP170" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-4.572" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-4.572" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP170" library="testpad" package="P1-13" value="TPPAD1-13" x="72.644" y="2.032" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="72.644" y="2.032" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP171" library="testpad" package="P1-13" value="TPPAD1-13" x="87.503" y="-0.381" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="87.503" y="-0.381" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP171" library="testpad" package="P1-13" value="TPPAD1-13" x="80.264" y="-5.08" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="80.264" y="-5.08" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP117" library="testpad" package="P1-13" value="TPPAD1-13" x="59.69" y="-18.542" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="59.69" y="-18.542" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP117" library="testpad" package="P1-13" value="TPPAD1-13" x="59.436" y="-18.669" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="59.436" y="-18.669" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP172" library="testpad" package="P1-13" value="TPPAD1-13" x="67.945" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="67.945" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP172" library="testpad" package="P1-13" value="TPPAD1-13" x="59.944" y="-15.621" rot="R270">
+<attribute name="TP_SIGNAL_NAME" value="" x="59.944" y="-15.621" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="TP173" library="testpad" package="P1-13" value="TPPAD1-13" x="72.136" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="72.136" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP173" library="testpad" package="P1-13" value="TPPAD1-13" x="62.738" y="-19.304" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="62.738" y="-19.304" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP174" library="testpad" package="P1-13" value="TPPAD1-13" x="76.327" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="76.327" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP174" library="testpad" package="P1-13" value="TPPAD1-13" x="63.881" y="-16.51" rot="R270">
+<attribute name="TP_SIGNAL_NAME" value="" x="63.881" y="-16.51" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="TP175" library="testpad" package="P1-13" value="TPPAD1-13" x="80.518" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="80.518" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP175" library="testpad" package="P1-13" value="TPPAD1-13" x="66.548" y="-19.939" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="66.548" y="-19.939" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP176" library="testpad" package="P1-13" value="TPPAD1-13" x="84.709" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="84.709" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP176" library="testpad" package="P1-13" value="TPPAD1-13" x="63.119" y="-22.098" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="63.119" y="-22.098" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP177" library="testpad" package="P1-13" value="TPPAD1-13" x="88.9" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="88.9" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP177" library="testpad" package="P1-13" value="TPPAD1-13" x="77.47" y="-9.144" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="77.47" y="-9.144" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP178" library="testpad" package="P1-13" value="TPPAD1-13" x="93.091" y="-26.289" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="93.091" y="-26.289" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP178" library="testpad" package="P1-13" value="TPPAD1-13" x="76.835" y="-6.731" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="76.835" y="-6.731" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP179" library="testpad" package="P1-13" value="TPPAD1-13" x="52.578" y="-15.748" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="52.578" y="-15.748" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6257,14 +6257,14 @@ design rules under a new name.</description>
 <element name="TP185" library="testpad" package="P1-13" value="TPPAD1-13" x="59.944" y="-22.479" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="59.944" y="-22.479" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP186" library="testpad" package="P1-13" value="TPPAD1-13" x="70.485" y="-23.368" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="70.485" y="-23.368" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP186" library="testpad" package="P1-13" value="TPPAD1-13" x="61.849" y="-25.527">
+<attribute name="TP_SIGNAL_NAME" value="" x="61.849" y="-25.527" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP187" library="testpad" package="P1-13" value="TPPAD1-13" x="74.676" y="-23.368" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="74.676" y="-23.368" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP187" library="testpad" package="P1-13" value="TPPAD1-13" x="-38.989" y="-6.223" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="-38.989" y="-6.223" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP188" library="testpad" package="P1-13" value="TPPAD1-13" x="78.867" y="-23.368" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="78.867" y="-23.368" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP188" library="testpad" package="P1-13" value="TPPAD1-13" x="-34.163" y="-11.557" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="-34.163" y="-11.557" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP189" library="testpad" package="P1-13" value="TPPAD1-13" x="47.625" y="-16.129" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="47.625" y="-16.129" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6284,8 +6284,8 @@ design rules under a new name.</description>
 <element name="TP194" library="testpad" package="P1-13" value="TPPAD1-13" x="52.324" y="-18.542" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="52.324" y="-18.542" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP195" library="testpad" package="P1-13" value="TPPAD1-13" x="60.706" y="19.177" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="60.706" y="19.177" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP195" library="testpad" package="P1-13" value="TPPAD1-13" x="60.96" y="24.003" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="60.96" y="24.003" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP196" library="testpad" package="P1-13" value="TPPAD1-13" x="59.182" y="21.59" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="59.182" y="21.59" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6344,11 +6344,11 @@ design rules under a new name.</description>
 <element name="TP213" library="testpad" package="P1-13" value="TPPAD1-13" x="42.926" y="-18.796" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="42.926" y="-18.796" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP214" library="testpad" package="P1-13" value="TPPAD1-13" x="27.559" y="-9.906" rot="MR90">
-<attribute name="TP_SIGNAL_NAME" value="" x="27.559" y="-9.906" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP214" library="testpad" package="P1-13" value="TPPAD1-13" x="30.353" y="-9.017" rot="MR90">
+<attribute name="TP_SIGNAL_NAME" value="" x="30.353" y="-9.017" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="TP215" library="testpad" package="P1-13" value="TPPAD1-13" x="28.575" y="-11.303" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="28.575" y="-11.303" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP215" library="testpad" package="P1-13" value="TPPAD1-13" x="31.623" y="-7.112" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="31.623" y="-7.112" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP216" library="testpad" package="P1-13" value="TPPAD1-13" x="27.813" y="-6.731" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="27.813" y="-6.731" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6359,44 +6359,44 @@ design rules under a new name.</description>
 <element name="TP218" library="testpad" package="P1-13" value="TPPAD1-13" x="30.353" y="10.795" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="30.353" y="10.795" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP219" library="testpad" package="P1-13" value="TPPAD1-13" x="27.051" y="8.001" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="27.051" y="8.001" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP219" library="testpad" package="P1-13" value="TPPAD1-13" x="26.162" y="10.668" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="26.162" y="10.668" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP220" library="testpad" package="P1-13" value="TPPAD1-13" x="27.813" y="3.556" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="27.813" y="3.556" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP220" library="testpad" package="P1-13" value="TPPAD1-13" x="36.068" y="4.572" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="36.068" y="4.572" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP221" library="testpad" package="P1-13" value="TPPAD1-13" x="24.257" y="2.032" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="24.257" y="2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP221" library="testpad" package="P1-13" value="TPPAD1-13" x="33.274" y="4.699" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="33.274" y="4.699" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP222" library="testpad" package="P1-13" value="TPPAD1-13" x="24.384" y="-0.508" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="24.384" y="-0.508" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP222" library="testpad" package="P1-13" value="TPPAD1-13" x="20.193" y="7.366" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="20.193" y="7.366" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP223" library="testpad" package="P1-13" value="TPPAD1-13" x="90.424" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="90.424" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP223" library="testpad" package="P1-13" value="TPPAD1-13" x="25.781" y="5.588" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="25.781" y="5.588" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP224" library="testpad" package="P1-13" value="TPPAD1-13" x="94.615" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="94.615" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP224" library="testpad" package="P1-13" value="TPPAD1-13" x="24.638" y="3.175" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="24.638" y="3.175" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP225" library="testpad" package="P1-13" value="TPPAD1-13" x="98.806" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="98.806" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP225" library="testpad" package="P1-13" value="TPPAD1-13" x="20.574" y="0" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="20.574" y="0" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP228" library="testpad" package="P1-13" value="TPPAD1-13" x="111.379" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="111.379" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP228" library="testpad" package="P1-13" value="TPPAD1-13" x="28.702" y="1.016" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="28.702" y="1.016" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP229" library="testpad" package="P1-13" value="TPPAD1-13" x="115.57" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="115.57" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP229" library="testpad" package="P1-13" value="TPPAD1-13" x="24.892" y="-0.381" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="24.892" y="-0.381" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP230" library="testpad" package="P1-13" value="TPPAD1-13" x="119.761" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="119.761" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP230" library="testpad" package="P1-13" value="TPPAD1-13" x="30.099" y="-1.651" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="30.099" y="-1.651" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP231" library="testpad" package="P1-13" value="TPPAD1-13" x="123.952" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="123.952" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP231" library="testpad" package="P1-13" value="TPPAD1-13" x="27.432" y="-2.794" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="27.432" y="-2.794" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP232" library="testpad" package="P1-13" value="TPPAD1-13" x="128.143" y="7.874" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="128.143" y="7.874" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP232" library="testpad" package="P1-13" value="TPPAD1-13" x="33.274" y="-2.921" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="33.274" y="-2.921" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP233" library="testpad" package="P1-13" value="TPPAD1-13" x="29.591" y="-4.318" rot="MR90">
-<attribute name="TP_SIGNAL_NAME" value="" x="29.591" y="-4.318" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="TP233" library="testpad" package="P1-13" value="TPPAD1-13" x="19.304" y="-3.683" rot="MR0">
+<attribute name="TP_SIGNAL_NAME" value="" x="19.304" y="-3.683" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 </elements>
 <signals>
@@ -6913,20 +6913,27 @@ design rules under a new name.</description>
 <wire x1="59.836" y1="-6.712" x2="59.309" y2="-7.239" width="0.2032" layer="1"/>
 <wire x1="59.309" y1="-7.239" x2="59.309" y2="-9.938" width="0.2032" layer="1"/>
 <wire x1="59.309" y1="-9.938" x2="59.328" y2="-9.957" width="0.2032" layer="1"/>
+<wire x1="41.478" y1="-2.107" x2="44.883" y2="-2.107" width="0.2032" layer="1"/>
+<wire x1="44.883" y1="-2.107" x2="45.593" y2="-1.397" width="0.2032" layer="1"/>
+<via x="45.593" y="-1.397" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="45.593" y1="-1.397" x2="45.593" y2="-2.833" width="0.2032" layer="16"/>
 <wire x1="186.094" y1="72.771" x2="187.618" y2="65.913" width="0" layer="19" extent="1-1"/>
 <wire x1="185.547" y1="77.47" x2="186.094" y2="72.771" width="0" layer="19" extent="1-16"/>
 <wire x1="139.231" y1="17.78" x2="139.319" y2="17.78" width="0" layer="19" extent="1-1"/>
 <wire x1="65.771" y1="70.612" x2="65.913" y2="68.707" width="0" layer="19" extent="1-16"/>
 <wire x1="17.78" y1="56.857" x2="18.63" y2="60.198" width="0" layer="19" extent="1-1"/>
+<wire x1="50.828" y1="12.243" x2="52.031" y2="8.763" width="0" layer="19" extent="1-16"/>
+<wire x1="47.828" y1="12.243" x2="50.828" y2="12.243" width="0" layer="19" extent="1-1"/>
 <wire x1="37.68" y1="80.137" x2="34.163" y2="78.613" width="0" layer="19" extent="1-1"/>
 <wire x1="163.549" y1="80.633" x2="160.524" y2="83.158" width="0" layer="19" extent="1-1"/>
 <wire x1="163.549" y1="78.633" x2="163.549" y2="80.633" width="0" layer="19" extent="1-1"/>
 <wire x1="178.685" y1="82.015" x2="181.71" y2="79.49" width="0" layer="19" extent="1-1"/>
-<wire x1="41.478" y1="-2.107" x2="45.593" y2="-2.833" width="0" layer="19" extent="1-16"/>
+<wire x1="59.328" y1="12.243" x2="57.824" y2="8.382" width="0" layer="19" extent="1-16"/>
 <wire x1="156.999" y1="80.633" x2="160.524" y2="83.158" width="0" layer="19" extent="1-1"/>
 <wire x1="156.999" y1="79.133" x2="156.999" y2="80.633" width="0" layer="19" extent="1-1"/>
 <wire x1="159.024" y1="76.608" x2="156.999" y2="79.133" width="0" layer="19" extent="1-1"/>
 <wire x1="154.52" y1="76.708" x2="156.999" y2="79.133" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="3.893" x2="45.847" y2="3.39" width="0" layer="19" extent="1-16"/>
 <wire x1="109.093" y1="40.298" x2="104.687" y2="39.917" width="0" layer="19" extent="1-1"/>
 <wire x1="9.613" y1="71.882" x2="8.431" y2="76.415" width="0" layer="19" extent="1-1"/>
 <wire x1="10.375" y1="67.818" x2="9.613" y2="71.882" width="0" layer="19" extent="1-1"/>
@@ -6937,24 +6944,18 @@ design rules under a new name.</description>
 <wire x1="61.737" y1="55.626" x2="61.834" y2="59.817" width="0" layer="19" extent="1-1"/>
 <wire x1="65.532" y1="55.9308" x2="61.737" y2="55.626" width="0" layer="19" extent="1-1"/>
 <wire x1="65.532" y1="57.4294" x2="65.532" y2="55.9308" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="9.893" x2="59.328" y2="12.243" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="8.893" x2="41.478" y2="3.893" width="0" layer="19" extent="1-1"/>
 <wire x1="68.6562" y1="51.816" x2="65.532" y2="55.9308" width="0" layer="19" extent="1-1"/>
 <wire x1="70.6628" y1="51.816" x2="68.6562" y2="51.816" width="0" layer="19" extent="1-1"/>
 <wire x1="155.575" y1="71.54" x2="154.52" y2="76.708" width="0" layer="19" extent="1-1"/>
 <wire x1="0.127" y1="70.446" x2="2.667" y2="75.692" width="0" layer="19" extent="1-16"/>
 <wire x1="95.743" y1="50.038" x2="96.94" y2="44.196" width="0" layer="19" extent="1-1"/>
-<wire x1="41.478" y1="3.893" x2="41.478" y2="-2.107" width="0" layer="19" extent="1-1"/>
-<wire x1="41.478" y1="8.893" x2="41.478" y2="3.893" width="0" layer="19" extent="1-1"/>
-<wire x1="46.775" y1="7.874" x2="41.478" y2="8.893" width="0" layer="19" extent="1-1"/>
-<wire x1="47.828" y1="12.243" x2="46.775" y2="7.874" width="0" layer="19" extent="1-1"/>
-<wire x1="50.828" y1="12.243" x2="47.828" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="52.92" y1="12.7" x2="50.828" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="55.157" y1="8.382" x2="52.92" y2="12.7" width="0" layer="19" extent="1-1"/>
-<wire x1="59.328" y1="12.243" x2="55.157" y2="8.382" width="0" layer="19" extent="1-1"/>
-<wire x1="59.524" y1="12.446" x2="59.328" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="63.08" y1="12.7" x2="59.524" y2="12.446" width="0" layer="19" extent="1-1"/>
-<wire x1="63.678" y1="9.893" x2="63.08" y2="12.7" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="3.893" x2="63.678" y2="9.893" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="1.393" x2="63.678" y2="3.893" width="0" layer="19" extent="1-1"/>
+<wire x1="68.834" y1="2.247" x2="63.678" y2="1.393" width="0" layer="19" extent="1-1"/>
+<wire x1="71.374" y1="3.937" x2="68.834" y2="2.247" width="0" layer="19" extent="1-1"/>
+<wire x1="73.064" y1="4.064" x2="71.374" y2="3.937" width="0" layer="19" extent="1-1"/>
 <wire x1="126.477" y1="-16.383" x2="132.334" y2="-14.478" width="0" layer="19" extent="1-16"/>
 <wire x1="42.799" y1="92.837" x2="42.291" y2="99.021" width="0" layer="19" extent="1-1"/>
 <wire x1="42.037" y1="90.9574" x2="42.799" y2="92.837" width="0" layer="19" extent="1-1"/>
@@ -6971,9 +6972,21 @@ design rules under a new name.</description>
 <wire x1="84.724" y1="58.166" x2="80.772" y2="57.4294" width="0" layer="19" extent="1-1"/>
 <wire x1="70.27" y1="36.83" x2="76.2" y2="41.275" width="0" layer="19" extent="1-1"/>
 <wire x1="135.17245" y1="-25.7302" x2="135.17245" y2="-18.1102" width="0" layer="19" extent="1-1"/>
-<wire x1="71.755" y1="4.445" x2="63.678" y2="3.893" width="0" layer="19" extent="1-1"/>
 <wire x1="93.614" y1="58.166" x2="95.743" y2="50.038" width="0" layer="19" extent="1-1"/>
-<wire x1="64.35" y1="21.59" x2="63.08" y2="12.7" width="0" layer="19" extent="1-1"/>
+<wire x1="99.91" y1="13.716" x2="99.376" y2="22.098" width="0" layer="19" extent="1-1"/>
+<wire x1="98.679" y1="7.278" x2="99.91" y2="13.716" width="0" layer="19" extent="1-1"/>
+<wire x1="91.479" y1="4.826" x2="98.679" y2="7.278" width="0" layer="19" extent="1-1"/>
+<wire x1="88.734" y1="6.477" x2="91.479" y2="4.826" width="0" layer="19" extent="1-1"/>
+<wire x1="89.877" y1="1.778" x2="91.479" y2="4.826" width="0" layer="19" extent="1-1"/>
+<wire x1="89.5972" y1="10.2572" x2="88.734" y2="6.477" width="0" layer="19" extent="1-1"/>
+<wire x1="87.464" y1="10.287" x2="89.5972" y2="10.2572" width="0" layer="19" extent="1-1"/>
+<wire x1="82.677" y1="9.994" x2="87.464" y2="10.287" width="0" layer="19" extent="1-1"/>
+<wire x1="89.574" y1="-4.318" x2="89.877" y2="1.778" width="0" layer="19" extent="1-1"/>
+<wire x1="91.186" y1="-4.865" x2="89.574" y2="-4.318" width="0" layer="19" extent="1-1"/>
+<wire x1="95.338" y1="-8.763" x2="91.186" y2="-4.865" width="0" layer="19" extent="1-1"/>
+<wire x1="93.56" y1="-11.049" x2="95.338" y2="-8.763" width="0" layer="19" extent="1-1"/>
+<wire x1="87.337" y1="17.78" x2="87.464" y2="10.287" width="0" layer="19" extent="1-1"/>
+<wire x1="81.407" y1="1.817" x2="82.677" y2="9.994" width="0" layer="19" extent="1-1"/>
 <wire x1="9.017" y1="54.903" x2="17.78" y2="56.857" width="0" layer="19" extent="1-1"/>
 <wire x1="6.223" y1="50.077" x2="9.017" y2="54.903" width="0" layer="19" extent="1-1"/>
 <wire x1="7.454" y1="48.514" x2="6.223" y2="50.077" width="0" layer="19" extent="1-1"/>
@@ -6984,18 +6997,6 @@ design rules under a new name.</description>
 <wire x1="-2.794" y1="46.394" x2="-0.127" y2="46.394" width="0" layer="19" extent="1-1"/>
 <wire x1="14.097" y1="41.441" x2="10.541" y2="47.664" width="0" layer="19" extent="1-1"/>
 <wire x1="-8.509" y1="72.937" x2="0.127" y2="70.446" width="0" layer="19" extent="1-1"/>
-<wire x1="78.525" y1="-1.651" x2="71.755" y2="4.445" width="0" layer="19" extent="1-1"/>
-<wire x1="81.407" y1="1.817" x2="78.525" y2="-1.651" width="0" layer="19" extent="1-1"/>
-<wire x1="89.877" y1="1.778" x2="81.407" y2="1.817" width="0" layer="19" extent="1-1"/>
-<wire x1="91.479" y1="4.826" x2="89.877" y2="1.778" width="0" layer="19" extent="1-1"/>
-<wire x1="89.7592" y1="-3.1102" x2="89.877" y2="1.778" width="0" layer="19" extent="1-1"/>
-<wire x1="89.574" y1="-4.318" x2="89.7592" y2="-3.1102" width="0" layer="19" extent="1-1"/>
-<wire x1="91.186" y1="-4.865" x2="89.574" y2="-4.318" width="0" layer="19" extent="1-1"/>
-<wire x1="93.853" y1="9.691" x2="91.479" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="96.1" y1="7.747" x2="93.853" y2="9.691" width="0" layer="19" extent="1-1"/>
-<wire x1="98.679" y1="7.278" x2="96.1" y2="7.747" width="0" layer="19" extent="1-1"/>
-<wire x1="95.338" y1="-8.763" x2="91.186" y2="-4.865" width="0" layer="19" extent="1-1"/>
-<wire x1="93.56" y1="-11.049" x2="95.338" y2="-8.763" width="0" layer="19" extent="1-1"/>
 <wire x1="134.913" y1="88.519" x2="133.604" y2="97.917" width="0" layer="19" extent="1-1"/>
 <wire x1="135.505" y1="84.301" x2="134.913" y2="88.519" width="0" layer="19" extent="1-1"/>
 <wire x1="138.53" y1="81.776" x2="135.505" y2="84.301" width="0" layer="19" extent="1-1"/>
@@ -7009,8 +7010,6 @@ design rules under a new name.</description>
 <wire x1="110.0836" y1="-16.84655" x2="102.4636" y2="-16.84655" width="0" layer="19" extent="1-1"/>
 <wire x1="109.435" y1="-20.32" x2="110.0836" y2="-16.84655" width="0" layer="19" extent="1-1"/>
 <wire x1="90.678" y1="-21.375" x2="93.56" y2="-11.049" width="0" layer="19" extent="1-1"/>
-<wire x1="74.51" y1="17.78" x2="64.35" y2="21.59" width="0" layer="19" extent="1-1"/>
-<wire x1="81.749" y1="19.812" x2="74.51" y2="17.78" width="0" layer="19" extent="1-1"/>
 <wire x1="92.964" y1="94.83" x2="84.201" y2="84.963" width="0" layer="19" extent="1-1"/>
 <wire x1="92.71" y1="97.448" x2="92.964" y2="94.83" width="0" layer="19" extent="1-1"/>
 <wire x1="119.11" y1="101.28" x2="133.604" y2="97.917" width="0" layer="19" extent="1-1"/>
@@ -7597,8 +7596,8 @@ design rules under a new name.</description>
 <wire x1="40.9194" y1="92.583" x2="35.56" y2="92.583" width="0.2032" layer="1"/>
 <wire x1="40.9194" y1="92.583" x2="40.894" y2="92.583" width="0.2032" layer="1"/>
 <wire x1="40.894" y1="92.583" x2="40.64" y2="92.837" width="0.2032" layer="1"/>
+<wire x1="93.726" y1="64.389" x2="96.901" y2="64.389" width="0" layer="19" extent="1-1"/>
 <wire x1="40.9194" y1="92.583" x2="80.772" y2="64.4398" width="0" layer="19" extent="1-1"/>
-<wire x1="46.99" y1="21.844" x2="80.772" y2="64.4398" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$159">
 <contactref element="IC2" pad="6"/>
@@ -7916,7 +7915,7 @@ design rules under a new name.</description>
 <contactref element="TP54" pad="TP"/>
 <contactref element="U$4" pad="P$12"/>
 <wire x1="74.954" y1="27.748" x2="65.532" y2="59.944" width="0" layer="19" extent="1-1"/>
-<wire x1="75.311" y1="23.495" x2="74.954" y2="27.748" width="0" layer="19" extent="1-1"/>
+<wire x1="74.422" y1="24.511" x2="74.954" y2="27.748" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$39">
 <contactref element="U2" pad="18"/>
@@ -8028,8 +8027,8 @@ design rules under a new name.</description>
 <contactref element="U2" pad="24"/>
 <contactref element="TP90" pad="TP"/>
 <contactref element="R24" pad="2"/>
-<wire x1="64.77" y1="34.29" x2="65.532" y2="53.9242" width="0" layer="19" extent="1-1"/>
-<wire x1="80.225" y1="-1.651" x2="64.77" y2="34.29" width="0" layer="19" extent="1-1"/>
+<wire x1="76.962" y1="5.588" x2="65.532" y2="53.9242" width="0" layer="19" extent="1-1"/>
+<wire x1="74.764" y1="4.064" x2="76.962" y2="5.588" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$78">
 <contactref element="U2" pad="84"/>
@@ -8121,8 +8120,8 @@ design rules under a new name.</description>
 <contactref element="U2" pad="2"/>
 <contactref element="TP49" pad="TP"/>
 <contactref element="U$6" pad="P138"/>
-<wire x1="85.09" y1="13.97" x2="65.532" y2="64.9478" width="0" layer="19" extent="1-1"/>
-<wire x1="46.828" y1="12.243" x2="85.09" y2="13.97" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="22.86" x2="65.532" y2="64.9478" width="0" layer="19" extent="1-1"/>
+<wire x1="46.828" y1="12.243" x2="46.99" y2="22.86" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_CLK">
 <contactref element="TP50" pad="TP"/>
@@ -8332,21 +8331,21 @@ design rules under a new name.</description>
 <contactref element="U$4" pad="P$2"/>
 <wire x1="80.772" y1="55.9308" x2="71.6534" y2="67.056" width="0" layer="19" extent="1-1"/>
 <wire x1="77.454" y1="27.748" x2="80.772" y2="55.9308" width="0" layer="19" extent="1-1"/>
-<wire x1="73.66" y1="21.59" x2="77.454" y2="27.748" width="0" layer="19" extent="1-1"/>
+<wire x1="78.359" y1="25.908" x2="77.454" y2="27.748" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_RES1">
 <contactref element="TP61" pad="TP"/>
 <contactref element="U$6" pad="P140"/>
 <contactref element="U$32" pad="P$1"/>
-<wire x1="56.007" y1="15.367" x2="82.058" y2="28.972" width="0" layer="19" extent="1-1"/>
-<wire x1="45.828" y1="12.243" x2="56.007" y2="15.367" width="0" layer="19" extent="1-1"/>
+<wire x1="46.355" y1="19.812" x2="82.058" y2="28.972" width="0" layer="19" extent="1-1"/>
+<wire x1="45.828" y1="12.243" x2="46.355" y2="19.812" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_RES2">
 <contactref element="TP62" pad="TP"/>
 <contactref element="U$6" pad="P41"/>
 <contactref element="U$32" pad="P$3"/>
-<wire x1="78.105" y1="-16.256" x2="82.558" y2="28.972" width="0" layer="19" extent="1-1"/>
-<wire x1="45.828" y1="-9.957" x2="78.105" y2="-16.256" width="0" layer="19" extent="1-1"/>
+<wire x1="81.153" y1="21.59" x2="82.558" y2="28.972" width="0" layer="19" extent="1-1"/>
+<wire x1="45.828" y1="-9.957" x2="81.153" y2="21.59" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_RES3">
 <contactref element="TP63" pad="TP"/>
@@ -8359,8 +8358,8 @@ design rules under a new name.</description>
 <contactref element="TP64" pad="TP"/>
 <contactref element="U$6" pad="P44"/>
 <contactref element="U$32" pad="P$7"/>
-<wire x1="72.136" y1="-6.096" x2="83.558" y2="28.972" width="0" layer="19" extent="1-1"/>
-<wire x1="47.328" y1="-9.957" x2="72.136" y2="-6.096" width="0" layer="19" extent="1-1"/>
+<wire x1="83.185" y1="21.336" x2="83.558" y2="28.972" width="0" layer="19" extent="1-1"/>
+<wire x1="47.328" y1="-9.957" x2="83.185" y2="21.336" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_RES1_RES">
 <contactref element="U2" pad="83"/>
@@ -8390,7 +8389,7 @@ design rules under a new name.</description>
 <wire x1="77.1398" y1="51.816" x2="77.1398" y2="44.8818" width="0.2032" layer="1"/>
 <wire x1="77.1398" y1="44.8818" x2="77.089" y2="44.831" width="0.2032" layer="1"/>
 <wire x1="77.1398" y1="44.8818" x2="83.2" y2="47.625" width="0" layer="19" extent="1-1"/>
-<wire x1="62.85" y1="12.7" x2="77.089" y2="44.831" width="0" layer="19" extent="1-1"/>
+<wire x1="54.976" y1="36.322" x2="77.089" y2="44.831" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V_SUPERVISED">
 <contactref element="C86" pad="1"/>
@@ -8421,13 +8420,13 @@ design rules under a new name.</description>
 <wire x1="187.794" y1="72.771" x2="170.434" y2="71.501" width="0" layer="19" extent="1-1"/>
 <wire x1="189.484" y1="84.836" x2="187.794" y2="72.771" width="0" layer="19" extent="1-1"/>
 <wire x1="113.284" y1="71.882" x2="134.2" y2="73.533" width="0" layer="19" extent="1-1"/>
-<wire x1="104.14" y1="67.945" x2="113.284" y2="71.882" width="0" layer="19" extent="1-1"/>
-<wire x1="92.71" y1="99.148" x2="104.14" y2="67.945" width="0" layer="19" extent="1-1"/>
+<wire x1="117.729" y1="46.736" x2="113.284" y2="71.882" width="0" layer="19" extent="1-1"/>
+<wire x1="114.935" y1="33.313" x2="117.729" y2="46.736" width="0" layer="19" extent="1-1"/>
+<wire x1="92.71" y1="99.148" x2="113.284" y2="71.882" width="0" layer="19" extent="1-1"/>
 <wire x1="88.558" y1="99.314" x2="92.71" y2="99.148" width="0" layer="19" extent="1-1"/>
 <wire x1="80.899" y1="99.837" x2="88.558" y2="99.314" width="0" layer="19" extent="1-1"/>
 <wire x1="77.6478" y1="97.917" x2="80.899" y2="99.837" width="0" layer="19" extent="1-1"/>
 <wire x1="77.6478" y1="96.647" x2="77.6478" y2="97.917" width="0" layer="19" extent="1-1"/>
-<wire x1="114.935" y1="33.313" x2="104.14" y2="67.945" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MCU_ETHERNET_MISO">
 <contactref element="JP13" pad="1"/>
@@ -8531,8 +8530,8 @@ design rules under a new name.</description>
 <contactref element="TP81" pad="TP"/>
 <contactref element="U$6" pad="P127"/>
 <contactref element="U$4" pad="P$7"/>
-<wire x1="76.327" y1="20.066" x2="75.954" y2="29.448" width="0" layer="19" extent="1-1"/>
-<wire x1="52.328" y1="12.243" x2="76.327" y2="20.066" width="0" layer="19" extent="1-1"/>
+<wire x1="52.07" y1="19.177" x2="75.954" y2="29.448" width="0" layer="19" extent="1-1"/>
+<wire x1="52.328" y1="12.243" x2="52.07" y2="19.177" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_AD5">
 <contactref element="TP82" pad="TP"/>
@@ -8552,8 +8551,8 @@ design rules under a new name.</description>
 <contactref element="TP84" pad="TP"/>
 <contactref element="U$6" pad="P133"/>
 <contactref element="U$4" pad="P$1"/>
-<wire x1="50.419" y1="27.813" x2="77.454" y2="29.448" width="0" layer="19" extent="1-1"/>
-<wire x1="49.328" y1="12.243" x2="50.419" y2="27.813" width="0" layer="19" extent="1-1"/>
+<wire x1="77.454" y1="29.448" x2="73.66" y2="34.798" width="0" layer="19" extent="1-1"/>
+<wire x1="49.328" y1="12.243" x2="77.454" y2="29.448" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MCU_A_GND">
 <contactref element="TP69" pad="TP"/>
@@ -8568,7 +8567,8 @@ design rules under a new name.</description>
 <contactref element="JP102" pad="3"/>
 <contactref element="JP111" pad="1"/>
 <wire x1="88.265" y1="40.259" x2="77.6478" y2="51.816" width="0" layer="19" extent="1-1"/>
-<wire x1="46.355" y1="36.815" x2="77.6478" y2="51.816" width="0" layer="19" extent="1-1"/>
+<wire x1="56.276" y1="36.322" x2="77.6478" y2="51.816" width="0" layer="19" extent="1-1"/>
+<wire x1="46.355" y1="36.815" x2="56.276" y2="36.322" width="0" layer="19" extent="1-1"/>
 <wire x1="39.497" y1="34.671" x2="46.355" y2="36.815" width="0" layer="19" extent="1-1"/>
 <wire x1="31.75" y1="34.925" x2="39.497" y2="34.671" width="0" layer="19" extent="1-1"/>
 <wire x1="25.4" y1="33.528" x2="31.75" y2="34.925" width="0" layer="19" extent="1-1"/>
@@ -8576,7 +8576,6 @@ design rules under a new name.</description>
 <wire x1="42.418" y1="49.022" x2="43.18" y2="44.196" width="0" layer="19" extent="1-1"/>
 <wire x1="34.417" y1="44.958" x2="43.18" y2="44.196" width="0" layer="19" extent="1-1"/>
 <wire x1="14.097" y1="43.561" x2="25.4" y2="33.528" width="0" layer="19" extent="1-1"/>
-<wire x1="64.15" y1="12.7" x2="46.355" y2="36.815" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VOLTAGEJMP_+_TO_INPUT_VREG">
 <contactref element="C57" pad="1"/>
@@ -10116,13 +10115,14 @@ design rules under a new name.</description>
 <contactref element="U$11" pad="2"/>
 <contactref element="C88" pad="1"/>
 <contactref element="U$11" pad="4"/>
-<wire x1="91.274" y1="-4.318" x2="93.853" y2="11.391" width="0" layer="19" extent="1-1"/>
-<wire x1="89.7592" y1="-5.4102" x2="91.274" y2="-4.318" width="0" layer="19" extent="1-1"/>
-<wire x1="95.5592" y1="-5.4102" x2="91.274" y2="-4.318" width="0" layer="19" extent="1-1"/>
-<wire x1="91.86" y1="-11.049" x2="89.7592" y2="-5.4102" width="0" layer="19" extent="1-1"/>
-<wire x1="80.049" y1="19.812" x2="93.853" y2="11.391" width="0" layer="19" extent="1-1"/>
-<wire x1="72.81" y1="17.78" x2="80.049" y2="19.812" width="0" layer="19" extent="1-1"/>
-<wire x1="63.678" y1="0.393" x2="72.81" y2="17.78" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="0.393" x2="68.68" y2="0.393" width="0.2032" layer="1"/>
+<wire x1="68.68" y1="0.393" x2="68.834" y2="0.547" width="0.2032" layer="1"/>
+<wire x1="91.8972" y1="10.2572" x2="91.8972" y2="16.0572" width="0" layer="19" extent="1-1"/>
+<wire x1="85.637" y1="17.78" x2="91.8972" y2="16.0572" width="0" layer="19" extent="1-1"/>
+<wire x1="82.677" y1="8.294" x2="91.8972" y2="10.2572" width="0" layer="19" extent="1-1"/>
+<wire x1="91.274" y1="-4.318" x2="91.8972" y2="10.2572" width="0" layer="19" extent="1-1"/>
+<wire x1="91.86" y1="-11.049" x2="91.274" y2="-4.318" width="0" layer="19" extent="1-1"/>
+<wire x1="68.834" y1="0.547" x2="82.677" y2="8.294" width="0" layer="19" extent="1-1"/>
 <wire x1="51.328" y1="-9.957" x2="63.678" y2="0.393" width="0" layer="19" extent="1-1"/>
 <wire x1="41.478" y1="-3.607" x2="51.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 <wire x1="41.478" y1="0.893" x2="41.478" y2="-3.607" width="0" layer="19" extent="1-1"/>
@@ -10168,37 +10168,41 @@ design rules under a new name.</description>
 <via x="58.039" y="-2.159" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="58.039" y1="-2.159" x2="59.309" y2="-2.159" width="0.2032" layer="1"/>
 <wire x1="59.309" y1="-2.159" x2="60.198" y2="-1.27" width="0.2032" layer="1"/>
-<wire x1="94.4" y1="7.747" x2="98.679" y2="8.978" width="0" layer="19" extent="1-1"/>
-<wire x1="93.179" y1="4.826" x2="94.4" y2="7.747" width="0" layer="19" extent="1-1"/>
+<wire x1="98.679" y1="8.978" x2="98.21" y2="13.716" width="0" layer="19" extent="1-1"/>
+<wire x1="94.1972" y1="10.2572" x2="98.679" y2="8.978" width="0" layer="19" extent="1-1"/>
+<wire x1="93.179" y1="4.826" x2="94.1972" y2="10.2572" width="0" layer="19" extent="1-1"/>
 <wire x1="88.177" y1="1.778" x2="93.179" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="81.407" y1="3.517" x2="88.177" y2="1.778" width="0" layer="19" extent="1-1"/>
+<wire x1="87.034" y1="6.477" x2="88.177" y2="1.778" width="0" layer="19" extent="1-1"/>
+<wire x1="85.764" y1="10.287" x2="87.034" y2="6.477" width="0" layer="19" extent="1-1"/>
+<wire x1="81.407" y1="3.517" x2="87.034" y2="6.477" width="0" layer="19" extent="1-1"/>
 <wire x1="91.186" y1="-6.565" x2="88.177" y2="1.778" width="0" layer="19" extent="1-1"/>
-<wire x1="89.7592" y1="-7.7102" x2="91.186" y2="-6.565" width="0" layer="19" extent="1-1"/>
 <wire x1="93.638" y1="-8.763" x2="91.186" y2="-6.565" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="0.893" x2="81.407" y2="3.517" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="-1.107" x2="63.678" y2="0.893" width="0" layer="19" extent="1-1"/>
 <wire x1="60.198" y1="-1.27" x2="63.678" y2="-1.107" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="-6.107" x2="63.678" y2="-1.107" width="0" layer="19" extent="1-1"/>
 <wire x1="63.678" y1="7.393" x2="63.678" y2="0.893" width="0" layer="19" extent="1-1"/>
-<wire x1="61.38" y1="12.7" x2="63.678" y2="7.393" width="0" layer="19" extent="1-1"/>
-<wire x1="57.824" y1="12.446" x2="61.38" y2="12.7" width="0" layer="19" extent="1-1"/>
-<wire x1="54.828" y1="12.243" x2="57.824" y2="12.446" width="0" layer="19" extent="1-1"/>
+<wire x1="59.524" y1="8.382" x2="63.678" y2="7.393" width="0" layer="19" extent="1-16"/>
+<wire x1="54.828" y1="12.243" x2="59.524" y2="8.382" width="0" layer="19" extent="1-16"/>
 <wire x1="53.328" y1="12.243" x2="54.828" y2="12.243" width="0" layer="19" extent="1-1"/>
 <wire x1="51.328" y1="12.243" x2="53.328" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="51.22" y1="12.7" x2="51.328" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="48.328" y1="12.243" x2="51.22" y2="12.7" width="0" layer="19" extent="1-1"/>
-<wire x1="56.857" y1="8.382" x2="57.824" y2="12.446" width="0" layer="19" extent="1-1"/>
-<wire x1="48.475" y1="7.874" x2="48.328" y2="12.243" width="0" layer="19" extent="1-1"/>
-<wire x1="41.478" y1="8.393" x2="48.475" y2="7.874" width="0" layer="19" extent="1-1"/>
-<wire x1="41.478" y1="1.393" x2="41.478" y2="8.393" width="0" layer="19" extent="1-1"/>
+<wire x1="48.328" y1="12.243" x2="51.328" y2="12.243" width="0" layer="19" extent="1-1"/>
+<wire x1="50.331" y1="8.763" x2="51.328" y2="12.243" width="0" layer="19" extent="1-16"/>
+<wire x1="46.736" y1="7.024" x2="50.331" y2="8.763" width="0" layer="19" extent="16-16"/>
+<wire x1="45.847" y1="1.69" x2="46.736" y2="7.024" width="0" layer="19" extent="16-16"/>
 <wire x1="41.478" y1="0.393" x2="41.478" y2="1.393" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="8.393" x2="46.736" y2="7.024" width="0" layer="19" extent="1-16"/>
 <wire x1="41.478" y1="-5.107" x2="41.478" y2="0.393" width="0" layer="19" extent="1-1"/>
 <wire x1="41.478" y1="-7.607" x2="41.478" y2="-5.107" width="0" layer="19" extent="1-1"/>
 <wire x1="45.593" y1="-4.533" x2="41.478" y2="-5.107" width="0" layer="19" extent="1-16"/>
 <wire x1="46.328" y1="-9.957" x2="41.478" y2="-7.607" width="0" layer="19" extent="1-1"/>
 <wire x1="51.828" y1="-9.957" x2="46.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 <wire x1="56.828" y1="-9.957" x2="51.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
-<wire x1="62.65" y1="21.59" x2="61.38" y2="12.7" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="1.393" x2="44.192" y2="1.393" width="0.2032" layer="1"/>
+<wire x1="44.192" y1="1.393" x2="44.323" y2="1.524" width="0.2032" layer="1"/>
+<via x="44.323" y="1.524" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="44.323" y1="1.524" x2="45.681" y2="1.524" width="0.2032" layer="16"/>
+<wire x1="45.681" y1="1.524" x2="45.847" y2="1.69" width="0.2032" layer="16"/>
 </signal>
 <signal name="128MHZCLK_OUT_TO_GCLK_FPGA">
 <contactref element="Q7" pad="3"/>
@@ -10242,27 +10246,36 @@ design rules under a new name.</description>
 <signal name="FPGA_L46P_1">
 <contactref element="U$6" pad="P81"/>
 <contactref element="TP166" pad="TP"/>
-<wire x1="63.678" y1="-3.607" x2="87.503" y2="-21.336" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-3.607" x2="76.403" y2="-3.607" width="0.2032" layer="1"/>
+<wire x1="76.403" y1="-3.607" x2="78.359" y2="-1.651" width="0.2032" layer="1"/>
+<wire x1="78.359" y1="-1.651" x2="82.042" y2="-1.651" width="0.2032" layer="1"/>
+<wire x1="82.042" y1="-1.651" x2="83.439" y2="-0.254" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L45N_1">
 <contactref element="U$6" pad="P82"/>
 <contactref element="TP167" pad="TP"/>
-<wire x1="63.678" y1="-3.107" x2="87.503" y2="-17.145" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-3.107" x2="74.363" y2="-3.107" width="0.2032" layer="1"/>
+<wire x1="74.363" y1="-3.107" x2="75.438" y2="-2.032" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L45P_1">
 <contactref element="U$6" pad="P83"/>
 <contactref element="TP168" pad="TP"/>
-<wire x1="63.678" y1="-2.607" x2="87.503" y2="-12.954" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-2.607" x2="72.196" y2="-2.607" width="0.2032" layer="1"/>
+<wire x1="72.196" y1="-2.607" x2="75.057" y2="0.254" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L43N_1">
 <contactref element="U$6" pad="P84"/>
 <contactref element="TP169" pad="TP"/>
-<wire x1="63.678" y1="-2.107" x2="87.503" y2="-8.763" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-2.107" x2="70.029" y2="-2.107" width="0.2032" layer="1"/>
+<wire x1="70.029" y1="-2.107" x2="71.628" y2="-0.508" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L43P_1">
 <contactref element="U$6" pad="P85"/>
 <contactref element="TP170" pad="TP"/>
-<wire x1="63.678" y1="-1.607" x2="87.503" y2="-4.572" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-1.607" x2="68.243" y2="-1.607" width="0.2032" layer="1"/>
+<wire x1="68.243" y1="-1.607" x2="71.628" y2="1.778" width="0.2032" layer="1"/>
+<wire x1="71.628" y1="1.778" x2="72.39" y2="1.778" width="0.2032" layer="1"/>
+<wire x1="72.39" y1="1.778" x2="72.644" y2="2.032" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L42N_GCLK6_TRDY1_1">
 <contactref element="U$6" pad="P87"/>
@@ -10273,32 +10286,45 @@ design rules under a new name.</description>
 <signal name="FPGA_L83N_3">
 <contactref element="U$6" pad="P1"/>
 <contactref element="TP218" pad="TP"/>
-<wire x1="41.478" y1="9.893" x2="30.353" y2="10.795" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="9.893" x2="31.255" y2="9.893" width="0.2032" layer="1"/>
+<wire x1="31.255" y1="9.893" x2="30.353" y2="10.795" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L83P_3">
 <contactref element="U$6" pad="P2"/>
 <contactref element="TP219" pad="TP"/>
-<wire x1="41.478" y1="9.393" x2="27.051" y2="8.001" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="9.393" x2="27.437" y2="9.393" width="0.2032" layer="1"/>
+<wire x1="27.437" y1="9.393" x2="26.162" y2="10.668" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L44N_3">
 <contactref element="U$6" pad="P14"/>
 <contactref element="TP220" pad="TP"/>
-<wire x1="41.478" y1="3.393" x2="27.813" y2="3.556" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="3.393" x2="37.247" y2="3.393" width="0.2032" layer="1"/>
+<wire x1="37.247" y1="3.393" x2="36.068" y2="4.572" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L44P_3">
 <contactref element="U$6" pad="P15"/>
 <contactref element="TP221" pad="TP"/>
-<wire x1="41.478" y1="2.893" x2="24.257" y2="2.032" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="2.893" x2="34.826" y2="2.893" width="0.2032" layer="1"/>
+<wire x1="34.826" y1="2.893" x2="34.417" y2="3.048" width="0.2032" layer="1"/>
+<wire x1="34.417" y1="3.048" x2="34.036" y2="3.302" width="0.2032" layer="1"/>
+<wire x1="34.036" y1="3.302" x2="33.274" y2="4.699" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L43N_3">
 <contactref element="U$6" pad="P16"/>
 <contactref element="TP222" pad="TP"/>
-<wire x1="41.478" y1="2.393" x2="24.384" y2="-0.508" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="2.393" x2="33.04" y2="2.393" width="0.2032" layer="1"/>
+<wire x1="33.04" y1="2.393" x2="33.02" y2="2.413" width="0.2032" layer="1"/>
+<wire x1="33.02" y1="2.413" x2="32.639" y2="2.413" width="0.2032" layer="1"/>
+<wire x1="32.639" y1="2.413" x2="27.559" y2="7.493" width="0.2032" layer="1"/>
+<wire x1="27.559" y1="7.493" x2="20.32" y2="7.493" width="0.2032" layer="1"/>
+<wire x1="20.32" y1="7.493" x2="20.193" y2="7.366" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L43P_3">
 <contactref element="U$6" pad="P17"/>
 <contactref element="TP223" pad="TP"/>
-<wire x1="41.478" y1="1.893" x2="90.424" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="1.893" x2="32.397" y2="1.893" width="0.2032" layer="1"/>
+<wire x1="32.397" y1="1.893" x2="28.702" y2="5.588" width="0.2032" layer="1"/>
+<wire x1="28.702" y1="5.588" x2="25.781" y2="5.588" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L32N_1">
 <contactref element="U$6" pad="P101"/>
@@ -10321,7 +10347,7 @@ design rules under a new name.</description>
 <signal name="FPGA_L65N_0">
 <contactref element="U$6" pad="P114"/>
 <contactref element="TP195" pad="TP"/>
-<wire x1="60.706" y1="19.177" x2="58.828" y2="12.243" width="0" layer="19" extent="1-1"/>
+<wire x1="58.828" y1="12.243" x2="60.96" y2="24.003" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L65P_0">
 <contactref element="U$6" pad="P115"/>
@@ -10356,62 +10382,107 @@ design rules under a new name.</description>
 <signal name="FPGA_L42N_3">
 <contactref element="U$6" pad="P21"/>
 <contactref element="TP224" pad="TP"/>
-<wire x1="41.478" y1="-0.107" x2="94.615" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-0.107" x2="36.302" y2="-0.107" width="0.2032" layer="1"/>
+<wire x1="36.302" y1="-0.107" x2="35.179" y2="1.016" width="0.2032" layer="1"/>
+<wire x1="35.179" y1="1.016" x2="32.512" y2="1.016" width="0.2032" layer="1"/>
+<wire x1="32.512" y1="1.016" x2="30.099" y2="3.429" width="0.2032" layer="1"/>
+<wire x1="30.099" y1="3.429" x2="24.892" y2="3.429" width="0.2032" layer="1"/>
+<wire x1="24.892" y1="3.429" x2="24.638" y2="3.175" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L42P_3">
 <contactref element="U$6" pad="P22"/>
 <contactref element="TP225" pad="TP"/>
-<wire x1="41.478" y1="-0.607" x2="98.806" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-0.607" x2="35.786" y2="-0.607" width="0.2032" layer="1"/>
+<wire x1="35.786" y1="-0.607" x2="34.798" y2="0.381" width="0.2032" layer="1"/>
+<wire x1="34.798" y1="0.381" x2="32.258" y2="0.381" width="0.2032" layer="1"/>
+<wire x1="32.258" y1="0.381" x2="29.718" y2="2.921" width="0.2032" layer="1"/>
+<wire x1="29.718" y1="2.921" x2="27.305" y2="2.921" width="0.2032" layer="1"/>
+<wire x1="27.305" y1="2.921" x2="27.051" y2="2.667" width="0.2032" layer="1"/>
+<wire x1="27.051" y1="2.667" x2="27.051" y2="1.651" width="0.2032" layer="1"/>
+<wire x1="27.051" y1="1.651" x2="26.543" y2="1.143" width="0.2032" layer="1"/>
+<wire x1="26.543" y1="1.143" x2="21.717" y2="1.143" width="0.2032" layer="1"/>
+<wire x1="21.717" y1="1.143" x2="20.574" y2="0" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L41N_3">
 <contactref element="U$6" pad="P23"/>
 <contactref element="TP228" pad="TP"/>
-<wire x1="41.478" y1="-1.107" x2="111.379" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-1.107" x2="35.524" y2="-1.107" width="0.2032" layer="1"/>
+<wire x1="35.524" y1="-1.107" x2="34.671" y2="-0.254" width="0.2032" layer="1"/>
+<wire x1="34.671" y1="-0.254" x2="31.75" y2="-0.254" width="0.2032" layer="1"/>
+<wire x1="31.75" y1="-0.254" x2="30.48" y2="1.016" width="0.2032" layer="1"/>
+<wire x1="30.48" y1="1.016" x2="28.702" y2="1.016" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L41P_3">
 <contactref element="U$6" pad="P24"/>
 <contactref element="TP229" pad="TP"/>
-<wire x1="41.478" y1="-1.607" x2="115.57" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-1.607" x2="35.135" y2="-1.607" width="0.2032" layer="1"/>
+<wire x1="35.135" y1="-1.607" x2="34.417" y2="-0.889" width="0.2032" layer="1"/>
+<wire x1="34.417" y1="-0.889" x2="31.623" y2="-0.889" width="0.2032" layer="1"/>
+<wire x1="31.623" y1="-0.889" x2="30.988" y2="-0.254" width="0.2032" layer="1"/>
+<wire x1="30.988" y1="-0.254" x2="25.019" y2="-0.254" width="0.2032" layer="1"/>
+<wire x1="25.019" y1="-0.254" x2="24.892" y2="-0.381" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L37N_3">
 <contactref element="U$6" pad="P26"/>
 <contactref element="TP230" pad="TP"/>
-<wire x1="41.478" y1="-2.607" x2="119.761" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-2.607" x2="35.373" y2="-2.607" width="0.2032" layer="1"/>
+<wire x1="35.373" y1="-2.607" x2="34.29" y2="-1.524" width="0.2032" layer="1"/>
+<wire x1="34.29" y1="-1.524" x2="30.226" y2="-1.524" width="0.2032" layer="1"/>
+<wire x1="30.226" y1="-1.524" x2="30.099" y2="-1.651" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L37P_3">
 <contactref element="U$6" pad="P27"/>
 <contactref element="TP232" pad="TP"/>
-<wire x1="41.478" y1="-3.107" x2="128.143" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-3.107" x2="33.46" y2="-3.107" width="0.2032" layer="1"/>
+<wire x1="33.46" y1="-3.107" x2="33.274" y2="-2.921" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L36N_3">
 <contactref element="U$6" pad="P29"/>
 <contactref element="TP231" pad="TP"/>
-<wire x1="41.478" y1="-4.107" x2="123.952" y2="7.874" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-4.107" x2="41.191" y2="-4.107" width="0.2032" layer="1"/>
+<wire x1="41.191" y1="-4.107" x2="41.148" y2="-4.064" width="0.2032" layer="1"/>
+<wire x1="41.148" y1="-4.064" x2="28.702" y2="-4.064" width="0.2032" layer="1"/>
+<wire x1="28.702" y1="-4.064" x2="27.432" y2="-2.794" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L36P_3">
 <contactref element="U$6" pad="P30"/>
 <contactref element="TP233" pad="TP"/>
-<wire x1="29.591" y1="-4.318" x2="41.478" y2="-4.607" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-4.607" x2="26.07" y2="-4.607" width="0.2032" layer="1"/>
+<wire x1="26.07" y1="-4.607" x2="24.765" y2="-3.302" width="0.2032" layer="1"/>
+<wire x1="24.765" y1="-3.302" x2="19.685" y2="-3.302" width="0.2032" layer="1"/>
+<wire x1="19.685" y1="-3.302" x2="19.304" y2="-3.683" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L2N_3">
 <contactref element="U$6" pad="P32"/>
 <contactref element="TP217" pad="TP"/>
-<wire x1="23.749" y1="-4.826" x2="41.478" y2="-5.607" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-5.607" x2="33.42" y2="-5.607" width="0.2032" layer="1"/>
+<wire x1="33.42" y1="-5.607" x2="32.766" y2="-4.953" width="0.2032" layer="1"/>
+<wire x1="32.766" y1="-4.953" x2="23.876" y2="-4.953" width="0.2032" layer="1"/>
+<wire x1="23.876" y1="-4.953" x2="23.749" y2="-4.826" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L2P_3">
 <contactref element="U$6" pad="P33"/>
 <contactref element="TP216" pad="TP"/>
-<wire x1="27.813" y1="-6.731" x2="41.478" y2="-6.107" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-6.107" x2="33.031" y2="-6.107" width="0.2032" layer="1"/>
+<wire x1="33.031" y1="-6.107" x2="32.512" y2="-5.588" width="0.2032" layer="1"/>
+<wire x1="32.512" y1="-5.588" x2="28.956" y2="-5.588" width="0.2032" layer="1"/>
+<wire x1="28.956" y1="-5.588" x2="27.813" y2="-6.731" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L1N_3">
 <contactref element="U$6" pad="P34"/>
 <contactref element="TP215" pad="TP"/>
-<wire x1="28.575" y1="-11.303" x2="41.478" y2="-6.607" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-6.607" x2="35.303" y2="-6.607" width="0.2032" layer="1"/>
+<wire x1="35.303" y1="-6.607" x2="34.544" y2="-7.366" width="0.2032" layer="1"/>
+<wire x1="34.544" y1="-7.366" x2="31.877" y2="-7.366" width="0.2032" layer="1"/>
+<wire x1="31.877" y1="-7.366" x2="31.623" y2="-7.112" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L1P_3">
 <contactref element="U$6" pad="P35"/>
 <contactref element="TP214" pad="TP"/>
-<wire x1="27.559" y1="-9.906" x2="41.478" y2="-7.107" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="-7.107" x2="36.073" y2="-7.107" width="0.2032" layer="1"/>
+<wire x1="36.073" y1="-7.107" x2="33.782" y2="-9.398" width="0.2032" layer="1"/>
+<wire x1="33.782" y1="-9.398" x2="30.734" y2="-9.398" width="0.2032" layer="1"/>
+<wire x1="30.734" y1="-9.398" x2="30.353" y2="-9.017" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_PROGRAM_B_2">
 <contactref element="U$6" pad="P37"/>
@@ -10557,38 +10628,38 @@ design rules under a new name.</description>
 <signal name="FPGA_L12P_2">
 <contactref element="U$6" pad="P62"/>
 <contactref element="TP186" pad="TP"/>
-<wire x1="70.485" y1="-23.368" x2="56.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
+<wire x1="61.849" y1="-25.527" x2="56.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L3N_2">
 <contactref element="U$6" pad="P64"/>
 <contactref element="TP117" pad="TP"/>
 <wire x1="57.328" y1="-9.957" x2="57.328" y2="-17.069" width="0.2032" layer="1"/>
-<wire x1="57.328" y1="-17.069" x2="59.69" y2="-18.542" width="0.2032" layer="1"/>
+<wire x1="57.328" y1="-17.069" x2="59.436" y2="-18.669" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L3P_2">
 <contactref element="U$6" pad="P65"/>
 <contactref element="TP172" pad="TP"/>
-<wire x1="67.945" y1="-26.289" x2="57.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
+<wire x1="59.944" y1="-15.621" x2="57.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L2N_2">
 <contactref element="U$6" pad="P66"/>
 <contactref element="TP173" pad="TP"/>
-<wire x1="72.136" y1="-26.289" x2="58.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
+<wire x1="62.738" y1="-19.304" x2="58.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L2P_2">
 <contactref element="U$6" pad="P67"/>
 <contactref element="TP175" pad="TP"/>
-<wire x1="58.828" y1="-9.957" x2="80.518" y2="-26.289" width="0" layer="19" extent="1-1"/>
+<wire x1="66.548" y1="-19.939" x2="58.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L1N_2">
 <contactref element="U$6" pad="P69"/>
 <contactref element="TP174" pad="TP"/>
-<wire x1="76.327" y1="-26.289" x2="59.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
+<wire x1="63.881" y1="-16.51" x2="59.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L1P_2">
 <contactref element="U$6" pad="P70"/>
 <contactref element="TP176" pad="TP"/>
-<wire x1="60.328" y1="-9.957" x2="84.709" y2="-26.289" width="0" layer="19" extent="1-1"/>
+<wire x1="63.119" y1="-22.098" x2="60.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_DONE_2">
 <contactref element="U$6" pad="P71"/>
@@ -10604,27 +10675,37 @@ design rules under a new name.</description>
 <signal name="FPGA_L74N_1">
 <contactref element="U$6" pad="P74"/>
 <contactref element="TP177" pad="TP"/>
-<wire x1="63.678" y1="-7.107" x2="88.9" y2="-26.289" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-7.107" x2="71.623" y2="-7.107" width="0.2032" layer="1"/>
+<wire x1="71.623" y1="-7.107" x2="73.914" y2="-9.398" width="0.2032" layer="1"/>
+<wire x1="73.914" y1="-9.398" x2="77.216" y2="-9.398" width="0.2032" layer="1"/>
+<wire x1="77.216" y1="-9.398" x2="77.47" y2="-9.144" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L74P_1">
 <contactref element="U$6" pad="P75"/>
 <contactref element="TP178" pad="TP"/>
-<wire x1="63.678" y1="-6.607" x2="93.091" y2="-26.289" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-6.607" x2="76.711" y2="-6.607" width="0.2032" layer="1"/>
+<wire x1="76.711" y1="-6.607" x2="76.835" y2="-6.731" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L47N_1">
 <contactref element="U$6" pad="P78"/>
 <contactref element="TP171" pad="TP"/>
-<wire x1="63.678" y1="-5.107" x2="87.503" y2="-0.381" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-5.107" x2="80.237" y2="-5.107" width="0.2032" layer="1"/>
+<wire x1="80.237" y1="-5.107" x2="80.264" y2="-5.08" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L47P_1">
 <contactref element="U$6" pad="P79"/>
 <contactref element="TP143" pad="TP"/>
-<wire x1="87.503" y1="-29.718" x2="63.678" y2="-4.607" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-4.607" x2="77.689" y2="-4.607" width="0.2032" layer="1"/>
+<wire x1="77.689" y1="-4.607" x2="79.121" y2="-3.175" width="0.2032" layer="1"/>
+<wire x1="79.121" y1="-3.175" x2="82.042" y2="-3.175" width="0.2032" layer="1"/>
+<wire x1="82.042" y1="-3.175" x2="82.931" y2="-4.064" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L46N_1">
 <contactref element="U$6" pad="P80"/>
 <contactref element="TP165" pad="TP"/>
-<wire x1="87.503" y1="-25.527" x2="63.678" y2="-4.107" width="0" layer="19" extent="1-1"/>
+<wire x1="63.678" y1="-4.107" x2="76.919" y2="-4.107" width="0.2032" layer="1"/>
+<wire x1="76.919" y1="-4.107" x2="78.74" y2="-2.286" width="0.2032" layer="1"/>
+<wire x1="78.74" y1="-2.286" x2="86.233" y2="-2.286" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L40N_1_MODULEB_ISOLATOR">
 <contactref element="U$6" pad="P94"/>
@@ -10698,7 +10779,7 @@ design rules under a new name.</description>
 <signal name="FPGA_L49P_3_MODULEH_ISOLATOR">
 <contactref element="U$6" pad="P12"/>
 <contactref element="U$31" pad="5"/>
-<wire x1="41.478" y1="4.393" x2="106.038" y2="-39.243" width="0" layer="19" extent="1-1"/>
+<wire x1="41.478" y1="4.393" x2="106.038" y2="-39.37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CONGND">
 <contactref element="L7" pad="2"/>
@@ -11580,7 +11661,7 @@ design rules under a new name.</description>
 <signal name="N$109">
 <contactref element="X12" pad="2"/>
 <contactref element="U$31" pad="2"/>
-<wire x1="111.939" y1="-50.546" x2="108.338" y2="-39.243" width="0" layer="19" extent="1-1"/>
+<wire x1="111.939" y1="-50.546" x2="108.338" y2="-39.37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$110">
 <contactref element="X12" pad="3"/>
@@ -11590,12 +11671,12 @@ design rules under a new name.</description>
 <signal name="N$111">
 <contactref element="U17" pad="14"/>
 <contactref element="U$31" pad="1"/>
-<wire x1="108.338" y1="-41.743" x2="121.24055" y2="-37.592" width="0" layer="19" extent="1-1"/>
+<wire x1="108.338" y1="-41.87" x2="121.24055" y2="-37.592" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$112">
 <contactref element="U17" pad="12"/>
 <contactref element="U$31" pad="3"/>
-<wire x1="108.338" y1="-36.743" x2="121.24055" y2="-40.132" width="0" layer="19" extent="1-1"/>
+<wire x1="108.338" y1="-36.87" x2="121.24055" y2="-40.132" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$113">
 <contactref element="U17" pad="11"/>
@@ -11616,7 +11697,7 @@ design rules under a new name.</description>
 <signal name="VIAH">
 <contactref element="U17" pad="3"/>
 <contactref element="U$31" pad="4"/>
-<wire x1="106.038" y1="-41.743" x2="112.18545" y2="-37.592" width="0" layer="19" extent="1-1"/>
+<wire x1="106.038" y1="-41.87" x2="112.18545" y2="-37.592" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VIBH">
 <contactref element="U17" pad="4"/>
@@ -11626,7 +11707,7 @@ design rules under a new name.</description>
 <signal name="VOCH">
 <contactref element="U17" pad="5"/>
 <contactref element="U$31" pad="6"/>
-<wire x1="106.038" y1="-36.743" x2="112.18545" y2="-40.132" width="0" layer="19" extent="1-1"/>
+<wire x1="106.038" y1="-36.87" x2="112.18545" y2="-40.132" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VODH">
 <contactref element="U17" pad="6"/>

@@ -8066,6 +8066,13 @@ design rules under a new name.</description>
 <wire x1="69.85" y1="53.34" x2="70.231" y2="52.959" width="0.2032" layer="1"/>
 <wire x1="70.231" y1="52.959" x2="70.231" y2="51.8922" width="0.2032" layer="1"/>
 <wire x1="70.231" y1="51.8922" x2="70.1548" y2="51.816" width="0.2032" layer="1"/>
+<wire x1="133.29285" y1="-3.7338" x2="131.84505" y2="-2.286" width="0.2032" layer="1"/>
+<wire x1="131.84505" y1="-2.286" x2="128.651" y2="-2.286" width="0.2032" layer="1"/>
+<via x="128.651" y="-2.286" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="128.651" y1="-2.286" x2="114.046" y2="12.319" width="0.2032" layer="16"/>
+<wire x1="114.046" y1="12.319" x2="114.046" y2="13.462" width="0.2032" layer="16"/>
+<wire x1="114.046" y1="13.462" x2="114.173" y2="13.589" width="0.2032" layer="16"/>
+<wire x1="114.173" y1="13.589" x2="114.173" y2="58.039" width="0.2032" layer="16"/>
 <wire x1="90.805" y1="48.133" x2="92.314" y2="58.166" width="0" layer="19" extent="1-1"/>
 <wire x1="90.82" y1="46.101" x2="90.805" y2="48.133" width="0" layer="19" extent="1-1"/>
 <wire x1="81.788" y1="45.466" x2="86.995" y2="44.45" width="0" layer="19" extent="1-1"/>
@@ -8081,14 +8088,21 @@ design rules under a new name.</description>
 <wire x1="69.1642" y1="51.816" x2="70.1548" y2="51.816" width="0" layer="19" extent="1-1"/>
 <wire x1="62.777" y1="67.056" x2="60.818" y2="62.738" width="0" layer="19" extent="1-1"/>
 <wire x1="60.437" y1="55.626" x2="63.134" y2="59.817" width="0" layer="19" extent="1-1"/>
-<wire x1="133.29285" y1="-3.7338" x2="89.027" y2="38.453" width="0" layer="19" extent="1-1"/>
+<wire x1="114.173" y1="58.039" x2="95.377" y2="47.879" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="MCU_FNR_ENABLE">
 <contactref element="U2" pad="63"/>
 <contactref element="TP37" pad="TP"/>
 <contactref element="U20" pad="5"/>
 <wire x1="80.772" y1="59.436" x2="89.027" y2="59.436" width="0.2032" layer="1"/>
-<wire x1="133.29285" y1="-8.8138" x2="89.027" y2="59.436" width="0" layer="19" extent="1-1"/>
+<wire x1="133.29285" y1="-8.8138" x2="133.11505" y2="-8.636" width="0.2032" layer="1"/>
+<wire x1="133.11505" y1="-8.636" x2="129.794" y2="-8.636" width="0.2032" layer="1"/>
+<via x="129.794" y="-8.636" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="129.794" y1="-8.636" x2="129.159" y2="-8.001" width="0.2032" layer="16"/>
+<wire x1="129.159" y1="-8.001" x2="128.651" y2="-8.001" width="0.2032" layer="16"/>
+<wire x1="128.651" y1="-8.001" x2="111.76" y2="8.89" width="0.2032" layer="16"/>
+<wire x1="111.76" y1="8.89" x2="111.76" y2="57.15" width="0.2032" layer="16"/>
+<wire x1="111.76" y1="57.15" x2="89.027" y2="59.436" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$15">
 <contactref element="U2" pad="68"/>
@@ -8111,8 +8125,11 @@ design rules under a new name.</description>
 <wire x1="125.73" y1="-10.922" x2="124.46" y2="-9.779" width="0.2032" layer="1"/>
 <via x="124.46" y="-9.779" extent="1-16" drill="0.381"/>
 <wire x1="124.46" y1="-9.779" x2="123.571" y2="-9.017" width="0.2032" layer="16"/>
-<wire x1="123.571" y1="-9.017" x2="120.523" y2="-5.969" width="0.2032" layer="16"/>
-<wire x1="120.523" y1="-5.969" x2="88.7222" y2="62.4332" width="0" layer="19" extent="1-16"/>
+<wire x1="123.571" y1="-9.017" x2="108.839" y2="5.715" width="0.2032" layer="16"/>
+<wire x1="108.839" y1="5.715" x2="108.839" y2="7.112" width="0.2032" layer="16"/>
+<wire x1="108.839" y1="7.112" x2="108.712" y2="7.239" width="0.2032" layer="16"/>
+<wire x1="108.712" y1="7.239" x2="108.712" y2="58.674" width="0.2032" layer="16"/>
+<wire x1="108.712" y1="58.674" x2="88.773" y2="62.484" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MCU_DPOT_MOSI">
 <contactref element="TP26" pad="TP"/>
@@ -8126,7 +8143,9 @@ design rules under a new name.</description>
 <wire x1="131.318" y1="-15.367" x2="126.111" y2="-10.16" width="0.2032" layer="1"/>
 <via x="126.111" y="-10.16" extent="1-16" drill="0.381"/>
 <wire x1="126.111" y1="-10.16" x2="122.174" y2="-6.477" width="0.2032" layer="16"/>
-<wire x1="122.174" y1="-6.477" x2="91.8972" y2="62.9412" width="0" layer="19" extent="1-16"/>
+<wire x1="122.174" y1="-6.477" x2="109.474" y2="5.969" width="0.2032" layer="16"/>
+<wire x1="109.474" y1="5.969" x2="109.474" y2="58.674" width="0.2032" layer="16"/>
+<wire x1="109.474" y1="58.674" x2="91.948" y2="62.992" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MCU_DPOT_CLK">
 <contactref element="TP25" pad="TP"/>
@@ -8134,7 +8153,12 @@ design rules under a new name.</description>
 <contactref element="U20" pad="3"/>
 <wire x1="80.772" y1="63.4238" x2="90.2208" y2="63.4238" width="0.2032" layer="1"/>
 <wire x1="90.2208" y1="63.4238" x2="90.297" y2="63.5" width="0.2032" layer="1"/>
-<wire x1="133.29285" y1="-6.2738" x2="90.2208" y2="63.4238" width="0" layer="19" extent="1-1"/>
+<wire x1="133.29285" y1="-6.2738" x2="133.08965" y2="-6.477" width="0.2032" layer="1"/>
+<wire x1="133.08965" y1="-6.477" x2="130.81" y2="-6.477" width="0.2032" layer="1"/>
+<via x="130.81" y="-6.477" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="130.81" y1="-6.477" x2="113.284" y2="11.049" width="0.2032" layer="16"/>
+<wire x1="113.284" y1="11.049" x2="113.284" y2="57.404" width="0.2032" layer="16"/>
+<wire x1="113.284" y1="57.404" x2="90.297" y2="63.5" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MCU_DPOT_CS">
 <contactref element="TP24" pad="TP"/>
@@ -8146,8 +8170,9 @@ design rules under a new name.</description>
 <wire x1="129.5908" y1="-10.0838" x2="127.381" y2="-7.874" width="0.2032" layer="1"/>
 <wire x1="127.381" y1="-7.874" x2="124.968" y2="-5.588" width="0.2032" layer="1"/>
 <via x="124.968" y="-5.588" extent="1-16" drill="0.381"/>
-<wire x1="124.968" y1="-5.588" x2="122.174" y2="-2.794" width="0.2032" layer="16"/>
-<wire x1="65.532" y1="54.4322" x2="122.174" y2="-2.794" width="0" layer="19" extent="1-16"/>
+<wire x1="124.968" y1="-5.588" x2="111.379" y2="8.001" width="0.2032" layer="16"/>
+<wire x1="111.379" y1="8.001" x2="111.379" y2="56.515" width="0.2032" layer="16"/>
+<wire x1="65.532" y1="54.4322" x2="111.379" y2="56.515" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MCU_SCREEN_MISO">
 <contactref element="TP23" pad="TP"/>
@@ -8299,15 +8324,16 @@ design rules under a new name.</description>
 <via x="126.619" y="-4.699" extent="1-16" drill="0.381"/>
 <wire x1="126.619" y1="-4.699" x2="125.73" y2="-3.683" width="0.2032" layer="16"/>
 <wire x1="125.73" y1="-3.683" x2="125.476" y2="-3.683" width="0.2032" layer="16"/>
-<wire x1="125.476" y1="-3.683" x2="120.015" y2="1.778" width="0.2032" layer="16"/>
 <wire x1="120.269" y1="55.372" x2="118.872" y2="56.769" width="0.2032" layer="16"/>
 <wire x1="67.6402" y1="51.816" x2="67.6402" y2="47.0408" width="0.2032" layer="1"/>
 <wire x1="67.6402" y1="47.0408" x2="67.818" y2="46.863" width="0.2032" layer="1"/>
 <wire x1="67.818" y1="46.863" x2="67.818" y2="45.847" width="0.2032" layer="1"/>
 <wire x1="67.818" y1="45.847" x2="67.564" y2="45.593" width="0.2032" layer="1"/>
-<wire x1="93.345" y1="56.896" x2="118.872" y2="56.769" width="0" layer="19" extent="1-16"/>
+<wire x1="125.476" y1="-3.683" x2="112.395" y2="9.652" width="0.2032" layer="16"/>
+<wire x1="112.395" y1="9.652" x2="112.522" y2="56.515" width="0.2032" layer="16"/>
+<wire x1="112.522" y1="56.515" x2="118.872" y2="56.769" width="0" layer="19" extent="16-16"/>
+<wire x1="93.345" y1="56.896" x2="112.522" y2="56.515" width="0" layer="19" extent="1-16"/>
 <wire x1="67.6402" y1="51.816" x2="80.772" y2="56.9468" width="0" layer="19" extent="1-1"/>
-<wire x1="120.015" y1="1.778" x2="120.269" y2="55.372" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="N$74">
 <contactref element="U2" pad="3"/>
@@ -12834,8 +12860,9 @@ design rules under a new name.</description>
 <wire x1="131.318" y1="-14.351" x2="131.318" y2="-14.224" width="0.2032" layer="1"/>
 <wire x1="131.318" y1="-14.224" x2="125.095" y2="-8.001" width="0.2032" layer="1"/>
 <via x="125.095" y="-8.001" extent="1-16" drill="0.381"/>
-<wire x1="125.095" y1="-8.001" x2="122.555" y2="-5.461" width="0.2032" layer="16"/>
-<wire x1="122.555" y1="-5.461" x2="73.914" y2="45.085" width="0" layer="19" extent="1-16"/>
+<wire x1="125.095" y1="-8.001" x2="110.617" y2="6.35" width="0.2032" layer="16"/>
+<wire x1="110.617" y1="6.35" x2="110.617" y2="56.515" width="0.2032" layer="16"/>
+<wire x1="110.617" y1="56.515" x2="73.66" y2="51.816" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MCU_FNR_DIRECTIONO">
 <contactref element="U20" pad="13"/>

@@ -5250,8 +5250,8 @@ design rules under a new name.</description>
 <element name="TP60" library="testpad" package="B2,54" value="TPB2,54" x="91.567" y="64.897">
 <attribute name="TP_SIGNAL_NAME" value="" x="177.927" y="-72.263" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP61" library="testpad" package="B2,54" value="TPB2,54" x="80.137" y="68.072" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="217.297" y="160.782" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP61" library="testpad" package="B2,54" value="TPB2,54" x="42.545" y="25.527" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="179.705" y="118.237" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP62" library="testpad" package="B2,54" value="TPB2,54" x="44.196" y="16.256">
 <attribute name="TP_SIGNAL_NAME" value="" x="143.256" y="-120.904" size="1.778" layer="27" display="off"/>
@@ -5786,7 +5786,7 @@ design rules under a new name.</description>
 </element>
 <element name="JP5" library="jumper" package="JP2" value="" x="96.52" y="-10.541" rot="R90"/>
 <element name="U$7" library="connectors" package="JTAG14PIN" value="JTAG14PIN" x="70.358" y="18.288" rot="R90"/>
-<element name="R33" library="SparkFun-Passives" package="0603-RES" value="10k" x="80.01" y="-25.019" rot="R90"/>
+<element name="R33" library="SparkFun-Passives" package="0603-RES" value="10k" x="64.135" y="-10.795" rot="R270"/>
 <element name="U$11" library="shit" package="SOT-223" value="1.2VREG" x="92.4052" y="11.1252"/>
 <element name="C88" library="SparkFun-Capacitors" package="0603-CAP" value="10uF" x="89.789" y="-10.16"/>
 <element name="C89" library="SparkFun-Capacitors" package="0603-CAP" value="1uF" x="46.736" y="7.874" rot="MR90"/>
@@ -6236,14 +6236,14 @@ design rules under a new name.</description>
 </element>
 <element name="U$32" library="shit" package="MNR18" value="RHM1620CT-ND" x="44.196" y="26.924"/>
 <element name="U$4" library="shit" package="MNR18" value="RHM1620CT-ND" x="48.768" y="26.924"/>
-<element name="TP143" library="testpad" package="P1-13" value="TPPAD1-13" x="82.931" y="-4.064" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="82.931" y="-4.064" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP143" library="testpad" package="P1-13" value="TPPAD1-13" x="32.512" y="11.684" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="32.512" y="11.684" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP165" library="testpad" package="P1-13" value="TPPAD1-13" x="86.233" y="-2.286" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="86.233" y="-2.286" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP165" library="testpad" package="P1-13" value="TPPAD1-13" x="80.264" y="-3.937" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="80.264" y="-3.937" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP166" library="testpad" package="P1-13" value="TPPAD1-13" x="83.439" y="-0.254">
-<attribute name="TP_SIGNAL_NAME" value="" x="83.439" y="-0.254" size="1.778" layer="27" display="off"/>
+<element name="TP166" library="testpad" package="P1-13" value="TPPAD1-13" x="79.375" y="-1.524">
+<attribute name="TP_SIGNAL_NAME" value="" x="79.375" y="-1.524" size="1.778" layer="27" display="off"/>
 </element>
 <element name="TP167" library="testpad" package="P1-13" value="TPPAD1-13" x="75.438" y="-2.032">
 <attribute name="TP_SIGNAL_NAME" value="" x="75.438" y="-2.032" size="1.778" layer="27" display="off"/>
@@ -6257,8 +6257,8 @@ design rules under a new name.</description>
 <element name="TP170" library="testpad" package="P1-13" value="TPPAD1-13" x="72.644" y="2.032" rot="R180">
 <attribute name="TP_SIGNAL_NAME" value="" x="72.644" y="2.032" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="TP171" library="testpad" package="P1-13" value="TPPAD1-13" x="80.264" y="-5.08" rot="R180">
-<attribute name="TP_SIGNAL_NAME" value="" x="80.264" y="-5.08" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="TP171" library="testpad" package="P1-13" value="TPPAD1-13" x="31.242" y="9.271" rot="R180">
+<attribute name="TP_SIGNAL_NAME" value="" x="31.242" y="9.271" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="TP117" library="testpad" package="P1-13" value="TPPAD1-13" x="59.436" y="-18.669" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="59.436" y="-18.669" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6278,20 +6278,20 @@ design rules under a new name.</description>
 <element name="TP176" library="testpad" package="P1-13" value="TPPAD1-13" x="63.119" y="-22.098" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="63.119" y="-22.098" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP177" library="testpad" package="P1-13" value="TPPAD1-13" x="77.47" y="-9.144" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="77.47" y="-9.144" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP177" library="testpad" package="P1-13" value="TPPAD1-13" x="81.788" y="5.588" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="81.788" y="5.588" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP178" library="testpad" package="P1-13" value="TPPAD1-13" x="76.835" y="-6.731" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="76.835" y="-6.731" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP178" library="testpad" package="P1-13" value="TPPAD1-13" x="78.867" y="5.715" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="78.867" y="5.715" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP179" library="testpad" package="P1-13" value="TPPAD1-13" x="52.578" y="-15.748" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="52.578" y="-15.748" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP181" library="testpad" package="P1-13" value="TPPAD1-13" x="53.848" y="-25.781" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="53.848" y="-25.781" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP181" library="testpad" package="P1-13" value="TPPAD1-13" x="34.671" y="15.494" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="34.671" y="15.494" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP182" library="testpad" package="P1-13" value="TPPAD1-13" x="55.626" y="-27.813" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="55.626" y="-27.813" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP182" library="testpad" package="P1-13" value="TPPAD1-13" x="37.465" y="16.764" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="37.465" y="16.764" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP183" library="testpad" package="P1-13" value="TPPAD1-13" x="56.642" y="-23.622" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="56.642" y="-23.622" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6347,11 +6347,11 @@ design rules under a new name.</description>
 <element name="TP211" library="testpad" package="P1-13" value="TPPAD1-13" x="45.72" y="-25.4" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="45.72" y="-25.4" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP212" library="testpad" package="P1-13" value="TPPAD1-13" x="44.069" y="-22.225" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="44.069" y="-22.225" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP212" library="testpad" package="P1-13" value="TPPAD1-13" x="35.052" y="7.493" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="35.052" y="7.493" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP213" library="testpad" package="P1-13" value="TPPAD1-13" x="42.926" y="-18.796" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="42.926" y="-18.796" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP213" library="testpad" package="P1-13" value="TPPAD1-13" x="31.75" y="7.112" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="31.75" y="7.112" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP214" library="testpad" package="P1-13" value="TPPAD1-13" x="30.353" y="-9.017" rot="MR90">
 <attribute name="TP_SIGNAL_NAME" value="" x="30.353" y="-9.017" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -6365,11 +6365,11 @@ design rules under a new name.</description>
 <element name="TP217" library="testpad" package="P1-13" value="TPPAD1-13" x="23.749" y="-4.826" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="23.749" y="-4.826" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP218" library="testpad" package="P1-13" value="TPPAD1-13" x="30.353" y="10.795" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="30.353" y="10.795" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP218" library="testpad" package="P1-13" value="TPPAD1-13" x="84.963" y="4.953" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="84.963" y="4.953" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP219" library="testpad" package="P1-13" value="TPPAD1-13" x="26.162" y="10.668" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="26.162" y="10.668" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP219" library="testpad" package="P1-13" value="TPPAD1-13" x="87.884" y="5.08" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="87.884" y="5.08" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP220" library="testpad" package="P1-13" value="TPPAD1-13" x="36.068" y="4.572" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="36.068" y="4.572" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6398,14 +6398,14 @@ design rules under a new name.</description>
 <element name="TP230" library="testpad" package="P1-13" value="TPPAD1-13" x="30.099" y="-1.651" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="30.099" y="-1.651" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP231" library="testpad" package="P1-13" value="TPPAD1-13" x="27.432" y="-2.794" rot="R90">
-<attribute name="TP_SIGNAL_NAME" value="" x="27.432" y="-2.794" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="TP231" library="testpad" package="P1-13" value="TPPAD1-13" x="77.47" y="10.033" rot="R90">
+<attribute name="TP_SIGNAL_NAME" value="" x="77.47" y="10.033" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="TP232" library="testpad" package="P1-13" value="TPPAD1-13" x="33.274" y="-2.921" rot="R90">
 <attribute name="TP_SIGNAL_NAME" value="" x="33.274" y="-2.921" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="TP233" library="testpad" package="P1-13" value="TPPAD1-13" x="19.304" y="-3.683" rot="MR0">
-<attribute name="TP_SIGNAL_NAME" value="" x="19.304" y="-3.683" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="TP233" library="testpad" package="P1-13" value="TPPAD1-13" x="75.819" y="12.573" rot="MR0">
+<attribute name="TP_SIGNAL_NAME" value="" x="75.819" y="12.573" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="SV3" library="con-lstb" package="MA03-2" value="" x="147.32" y="77.851" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="147.32" y="77.851" size="1.778" layer="27" rot="R90" display="off"/>
@@ -7158,6 +7158,7 @@ design rules under a new name.</description>
 <wire x1="65.532" y1="55.9308" x2="61.737" y2="55.626" width="0" layer="19" extent="1-1"/>
 <wire x1="65.532" y1="57.4294" x2="65.532" y2="55.9308" width="0" layer="19" extent="1-1"/>
 <wire x1="41.478" y1="8.893" x2="41.478" y2="3.893" width="0" layer="19" extent="1-1"/>
+<wire x1="64.135" y1="-11.645" x2="59.309" y2="-9.938" width="0" layer="19" extent="1-1"/>
 <wire x1="139.2936" y1="54.6354" x2="138.557" y2="49.53" width="0" layer="19" extent="1-16"/>
 <wire x1="127.635" y1="53.682" x2="132.0038" y2="54.6354" width="0" layer="19" extent="1-1"/>
 <wire x1="68.6562" y1="51.816" x2="65.532" y2="55.9308" width="0" layer="19" extent="1-1"/>
@@ -7203,7 +7204,6 @@ design rules under a new name.</description>
 <wire x1="78.613" y1="11.723" x2="82.003" y2="12.446" width="0" layer="19" extent="1-1"/>
 <wire x1="81.407" y1="1.817" x2="82.677" y2="9.994" width="0" layer="19" extent="1-1"/>
 <wire x1="93.614" y1="58.166" x2="84.724" y2="58.166" width="0" layer="19" extent="1-1"/>
-<wire x1="80.01" y1="-24.169" x2="82.55" y2="-36.322" width="0" layer="19" extent="1-16"/>
 <wire x1="155.2956" y1="52.832" x2="141.8336" y2="57.1754" width="0" layer="19" extent="1-1"/>
 <wire x1="46.355" y1="38.115" x2="61.737" y2="55.626" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -8705,7 +8705,7 @@ design rules under a new name.</description>
 <contactref element="U$6" pad="P144"/>
 <wire x1="43.828" y1="12.243" x2="43.196" y2="12.875" width="0.2032" layer="1"/>
 <wire x1="43.196" y1="12.875" x2="43.196" y2="25.924" width="0.2032" layer="1"/>
-<wire x1="43.196" y1="25.924" x2="80.137" y2="68.072" width="0" layer="19" extent="1-1"/>
+<wire x1="43.196" y1="25.924" x2="42.545" y2="25.527" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_MCU_RES2">
 <contactref element="TP62" pad="TP"/>
@@ -10809,15 +10809,15 @@ design rules under a new name.</description>
 <wire x1="61.976" y1="16.129" x2="60.828" y2="14.981" width="0.2032" layer="1"/>
 <wire x1="60.828" y1="14.981" x2="60.828" y2="12.243" width="0.2032" layer="1"/>
 </signal>
-<signal name="FPGA_L41P_1_MODULEA_ISOLATOR">
-<contactref element="U$6" pad="P93"/>
+<signal name="FPGA_L46P_1_MODULEA_ISOLATOR">
 <contactref element="U$14" pad="5"/>
-<wire x1="63.678" y1="2.393" x2="105.283" y2="1.277" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P81"/>
+<wire x1="63.678" y1="-3.607" x2="105.283" y2="1.277" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L41N_1_MODULEA_ISOLATOR">
-<contactref element="U$6" pad="P92"/>
+<signal name="FPGA_L46N_1_MODULEA_ISOLATOR">
 <contactref element="U$13" pad="5"/>
-<wire x1="63.678" y1="1.893" x2="105.918" y2="-20.313" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P80"/>
+<wire x1="63.678" y1="-4.107" x2="105.918" y2="-20.313" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TDO">
 <contactref element="U$6" pad="P106"/>
@@ -10847,14 +10847,6 @@ design rules under a new name.</description>
 <wire x1="63.309" y1="14.224" x2="70.739" y2="14.224" width="0.2032" layer="1"/>
 <wire x1="70.739" y1="14.224" x2="71.628" y2="15.113" width="0.2032" layer="1"/>
 <wire x1="71.628" y1="15.113" x2="71.628" y2="15.208" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L46P_1">
-<contactref element="U$6" pad="P81"/>
-<contactref element="TP166" pad="TP"/>
-<wire x1="63.678" y1="-3.607" x2="76.403" y2="-3.607" width="0.2032" layer="1"/>
-<wire x1="76.403" y1="-3.607" x2="78.359" y2="-1.651" width="0.2032" layer="1"/>
-<wire x1="78.359" y1="-1.651" x2="82.042" y2="-1.651" width="0.2032" layer="1"/>
-<wire x1="82.042" y1="-1.651" x2="83.439" y2="-0.254" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L45N_1">
 <contactref element="U$6" pad="P82"/>
@@ -10891,18 +10883,6 @@ design rules under a new name.</description>
 <contactref element="U$6" pad="P88"/>
 <contactref element="TP180" pad="TP"/>
 <wire x1="63.678" y1="-0.107" x2="79.121" y2="3.175" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="FPGA_L83N_3">
-<contactref element="U$6" pad="P1"/>
-<contactref element="TP218" pad="TP"/>
-<wire x1="41.478" y1="9.893" x2="31.255" y2="9.893" width="0.2032" layer="1"/>
-<wire x1="31.255" y1="9.893" x2="30.353" y2="10.795" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L83P_3">
-<contactref element="U$6" pad="P2"/>
-<contactref element="TP219" pad="TP"/>
-<wire x1="41.478" y1="9.393" x2="27.437" y2="9.393" width="0.2032" layer="1"/>
-<wire x1="27.437" y1="9.393" x2="26.162" y2="10.668" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L44N_3">
 <contactref element="U$6" pad="P14"/>
@@ -11076,22 +11056,6 @@ design rules under a new name.</description>
 <wire x1="41.478" y1="-3.107" x2="33.46" y2="-3.107" width="0.2032" layer="1"/>
 <wire x1="33.46" y1="-3.107" x2="33.274" y2="-2.921" width="0.2032" layer="1"/>
 </signal>
-<signal name="FPGA_L36N_3">
-<contactref element="U$6" pad="P29"/>
-<contactref element="TP231" pad="TP"/>
-<wire x1="41.478" y1="-4.107" x2="41.191" y2="-4.107" width="0.2032" layer="1"/>
-<wire x1="41.191" y1="-4.107" x2="41.148" y2="-4.064" width="0.2032" layer="1"/>
-<wire x1="41.148" y1="-4.064" x2="28.702" y2="-4.064" width="0.2032" layer="1"/>
-<wire x1="28.702" y1="-4.064" x2="27.432" y2="-2.794" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L36P_3">
-<contactref element="U$6" pad="P30"/>
-<contactref element="TP233" pad="TP"/>
-<wire x1="41.478" y1="-4.607" x2="26.07" y2="-4.607" width="0.2032" layer="1"/>
-<wire x1="26.07" y1="-4.607" x2="24.765" y2="-3.302" width="0.2032" layer="1"/>
-<wire x1="24.765" y1="-3.302" x2="19.685" y2="-3.302" width="0.2032" layer="1"/>
-<wire x1="19.685" y1="-3.302" x2="19.304" y2="-3.683" width="0.2032" layer="1"/>
-</signal>
 <signal name="FPGA_L2N_3">
 <contactref element="U$6" pad="P32"/>
 <contactref element="TP217" pad="TP"/>
@@ -11108,36 +11072,8 @@ design rules under a new name.</description>
 <wire x1="32.512" y1="-5.588" x2="28.956" y2="-5.588" width="0.2032" layer="1"/>
 <wire x1="28.956" y1="-5.588" x2="27.813" y2="-6.731" width="0.2032" layer="1"/>
 </signal>
-<signal name="FPGA_L1N_3">
-<contactref element="U$6" pad="P34"/>
-<contactref element="TP215" pad="TP"/>
-<wire x1="41.478" y1="-6.607" x2="35.303" y2="-6.607" width="0.2032" layer="1"/>
-<wire x1="35.303" y1="-6.607" x2="34.544" y2="-7.366" width="0.2032" layer="1"/>
-<wire x1="34.544" y1="-7.366" x2="31.877" y2="-7.366" width="0.2032" layer="1"/>
-<wire x1="31.877" y1="-7.366" x2="31.623" y2="-7.112" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L1P_3">
-<contactref element="U$6" pad="P35"/>
-<contactref element="TP214" pad="TP"/>
-<wire x1="41.478" y1="-7.107" x2="36.073" y2="-7.107" width="0.2032" layer="1"/>
-<wire x1="36.073" y1="-7.107" x2="33.782" y2="-9.398" width="0.2032" layer="1"/>
-<wire x1="33.782" y1="-9.398" x2="30.734" y2="-9.398" width="0.2032" layer="1"/>
-<wire x1="30.734" y1="-9.398" x2="30.353" y2="-9.017" width="0.2032" layer="1"/>
-</signal>
 <signal name="FPGA_PROGRAM_B_2">
 <contactref element="U$6" pad="P37"/>
-</signal>
-<signal name="FPGA_L65N_2">
-<contactref element="U$6" pad="P38"/>
-<contactref element="TP213" pad="TP"/>
-<wire x1="44.328" y1="-9.957" x2="44.328" y2="-17.394" width="0.2032" layer="1"/>
-<wire x1="44.328" y1="-17.394" x2="42.926" y2="-18.796" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L65P_2">
-<contactref element="U$6" pad="P39"/>
-<contactref element="TP212" pad="TP"/>
-<wire x1="44.828" y1="-9.957" x2="44.828" y2="-21.466" width="0.2032" layer="1"/>
-<wire x1="44.828" y1="-21.466" x2="44.069" y2="-22.225" width="0.2032" layer="1"/>
 </signal>
 <signal name="FPGA_L64N_2">
 <contactref element="U$6" pad="P40"/>
@@ -11199,23 +11135,15 @@ design rules under a new name.</description>
 <wire x1="52.828" y1="-9.957" x2="52.828" y2="-15.49" width="0.2032" layer="1"/>
 <wire x1="52.828" y1="-15.49" x2="52.578" y2="-15.748" width="0.2032" layer="1"/>
 </signal>
-<signal name="FPGA_L14N_2">
-<contactref element="U$6" pad="P57"/>
+<signal name="FPGA_L50N_3">
 <contactref element="TP181" pad="TP"/>
-<wire x1="53.828" y1="-9.957" x2="53.828" y2="-14.204" width="0.2032" layer="1"/>
-<wire x1="53.828" y1="-14.204" x2="54.229" y2="-14.605" width="0.2032" layer="1"/>
-<wire x1="54.229" y1="-14.605" x2="54.229" y2="-21.717" width="0.2032" layer="1"/>
-<wire x1="54.229" y1="-21.717" x2="53.848" y2="-22.098" width="0.2032" layer="1"/>
-<wire x1="53.848" y1="-22.098" x2="53.848" y2="-25.781" width="0.2032" layer="1"/>
+<contactref element="U$6" pad="P9"/>
+<wire x1="41.478" y1="5.893" x2="34.671" y2="15.494" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L14P_2">
-<contactref element="U$6" pad="P58"/>
+<signal name="FPGA_L50P_3">
 <contactref element="TP182" pad="TP"/>
-<wire x1="54.328" y1="-9.957" x2="54.328" y2="-13.561" width="0.2032" layer="1"/>
-<wire x1="54.328" y1="-13.561" x2="54.864" y2="-14.097" width="0.2032" layer="1"/>
-<wire x1="54.864" y1="-14.097" x2="54.864" y2="-24.257" width="0.2032" layer="1"/>
-<wire x1="54.864" y1="-24.257" x2="55.626" y2="-25.019" width="0.2032" layer="1"/>
-<wire x1="55.626" y1="-25.019" x2="55.626" y2="-27.813" width="0.2032" layer="1"/>
+<contactref element="U$6" pad="P10"/>
+<wire x1="41.478" y1="5.393" x2="37.465" y2="16.764" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FPGA_L13N_2">
 <contactref element="U$6" pad="P59"/>
@@ -11290,116 +11218,81 @@ design rules under a new name.</description>
 <signal name="FPGA_SUSPEND">
 <contactref element="U$6" pad="P73"/>
 <contactref element="R33" pad="1"/>
-<wire x1="80.01" y1="-25.869" x2="63.678" y2="-7.607" width="0" layer="19" extent="1-1"/>
+<wire x1="64.135" y1="-9.945" x2="63.678" y2="-7.607" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L74N_1">
-<contactref element="U$6" pad="P74"/>
-<contactref element="TP177" pad="TP"/>
-<wire x1="63.678" y1="-7.107" x2="71.623" y2="-7.107" width="0.2032" layer="1"/>
-<wire x1="71.623" y1="-7.107" x2="73.914" y2="-9.398" width="0.2032" layer="1"/>
-<wire x1="73.914" y1="-9.398" x2="77.216" y2="-9.398" width="0.2032" layer="1"/>
-<wire x1="77.216" y1="-9.398" x2="77.47" y2="-9.144" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L74P_1">
-<contactref element="U$6" pad="P75"/>
-<contactref element="TP178" pad="TP"/>
-<wire x1="63.678" y1="-6.607" x2="76.711" y2="-6.607" width="0.2032" layer="1"/>
-<wire x1="76.711" y1="-6.607" x2="76.835" y2="-6.731" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L47N_1">
-<contactref element="U$6" pad="P78"/>
-<contactref element="TP171" pad="TP"/>
-<wire x1="63.678" y1="-5.107" x2="80.237" y2="-5.107" width="0.2032" layer="1"/>
-<wire x1="80.237" y1="-5.107" x2="80.264" y2="-5.08" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L47P_1">
-<contactref element="U$6" pad="P79"/>
-<contactref element="TP143" pad="TP"/>
-<wire x1="63.678" y1="-4.607" x2="77.689" y2="-4.607" width="0.2032" layer="1"/>
-<wire x1="77.689" y1="-4.607" x2="79.121" y2="-3.175" width="0.2032" layer="1"/>
-<wire x1="79.121" y1="-3.175" x2="82.042" y2="-3.175" width="0.2032" layer="1"/>
-<wire x1="82.042" y1="-3.175" x2="82.931" y2="-4.064" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L46N_1">
-<contactref element="U$6" pad="P80"/>
-<contactref element="TP165" pad="TP"/>
-<wire x1="63.678" y1="-4.107" x2="76.919" y2="-4.107" width="0.2032" layer="1"/>
-<wire x1="76.919" y1="-4.107" x2="78.74" y2="-2.286" width="0.2032" layer="1"/>
-<wire x1="78.74" y1="-2.286" x2="86.233" y2="-2.286" width="0.2032" layer="1"/>
-</signal>
-<signal name="FPGA_L40N_1_MODULEB_ISOLATOR">
-<contactref element="U$6" pad="P94"/>
+<signal name="FPGA_L74N_1_MODULEB_ISOLATOR">
 <contactref element="U$16" pad="5"/>
-<wire x1="80.271" y1="-39.878" x2="63.678" y2="2.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P74"/>
+<wire x1="80.271" y1="-39.878" x2="63.678" y2="-7.107" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L40P_1_MODULEB_ISOLATOR">
-<contactref element="U$6" pad="P95"/>
+<signal name="FPGA_L74P_1_MODULEB_ISOLATOR">
 <contactref element="U$17" pad="5"/>
-<wire x1="101.734" y1="-39.37" x2="63.678" y2="3.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P75"/>
+<wire x1="63.678" y1="-6.607" x2="101.734" y2="-39.37" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L34N_1_MODULEC_ISOLATOR">
-<contactref element="U$6" pad="P97"/>
+<signal name="FPGA_L36P_3_MODULEC_ISOLATOR">
 <contactref element="U$18" pad="5"/>
-<wire x1="3.937" y1="-15.755" x2="63.678" y2="4.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P30"/>
+<wire x1="3.937" y1="-15.755" x2="41.478" y2="-4.607" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L34P_1_MODULEC_ISOLATOR">
-<contactref element="U$6" pad="P98"/>
+<signal name="FPGA_L36N_3_MODULEC_ISOLATOR">
 <contactref element="U$19" pad="5"/>
-<wire x1="5.207" y1="7.867" x2="63.678" y2="4.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P29"/>
+<wire x1="5.207" y1="7.867" x2="41.478" y2="-4.107" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L33N_1_MODULED_ISOLATOR">
-<contactref element="U$6" pad="P99"/>
+<signal name="FPGA_L83P_3_MODULED_ISOLATOR">
 <contactref element="U$20" pad="5"/>
-<wire x1="3.048" y1="13.709" x2="63.678" y2="5.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P2"/>
+<wire x1="3.048" y1="13.709" x2="41.478" y2="9.393" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L33P_1_MODULED_ISOLATOR">
-<contactref element="U$6" pad="P100"/>
+<signal name="FPGA_L83N_3_MODULED_ISOLATOR">
 <contactref element="U$23" pad="5"/>
-<wire x1="2.032" y1="35.553" x2="63.678" y2="5.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P1"/>
+<wire x1="2.032" y1="35.553" x2="41.478" y2="9.893" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L52N_3_MODULEE_ISOLATOR">
-<contactref element="U$6" pad="P5"/>
+<signal name="FPGA_L65N_2_MODULEE_ISOLATOR">
 <contactref element="U$24" pad="5"/>
-<wire x1="22.105" y1="-36.322" x2="41.478" y2="7.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P38"/>
+<wire x1="22.105" y1="-36.322" x2="44.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L52P_3_MODULEE_ISOLATOR">
-<contactref element="U$6" pad="P6"/>
+<signal name="FPGA_L65P_2_MODULEE_ISOLATOR">
 <contactref element="U$25" pad="5"/>
-<wire x1="46.743" y1="-35.306" x2="41.478" y2="7.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P39"/>
+<wire x1="46.743" y1="-35.306" x2="44.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L51N_3_MODULEF_ISOLATOR">
-<contactref element="U$6" pad="P7"/>
+<signal name="FPGA_L1P_3_MODULEF_ISOLATOR">
 <contactref element="U$26" pad="5"/>
 <wire x1="3.175" y1="-44.965" x2="3.175" y2="-45.72" width="0.254" layer="1"/>
 <wire x1="3.175" y1="-45.72" x2="5.207" y2="-48.387" width="0.254" layer="1"/>
 <wire x1="5.207" y1="-48.387" x2="12.827" y2="-48.387" width="0.254" layer="1"/>
 <wire x1="12.827" y1="-48.387" x2="13.081" y2="-48.006" width="0.254" layer="1"/>
-<wire x1="13.081" y1="-48.006" x2="41.478" y2="6.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P35"/>
+<wire x1="13.081" y1="-48.006" x2="41.478" y2="-7.107" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L51P_3_MODULEF_ISOLATOR">
-<contactref element="U$6" pad="P8"/>
+<signal name="FPGA_L1N_3_MODULEF_ISOLATOR">
 <contactref element="U$27" pad="5"/>
-<wire x1="3.937" y1="-22.994" x2="41.478" y2="6.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P34"/>
+<wire x1="3.937" y1="-22.994" x2="41.478" y2="-6.607" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L50N_3_MODULEG_ISOLATOR">
-<contactref element="U$6" pad="P9"/>
+<signal name="FPGA_L14N_2_MODULEG_ISOLATOR">
 <contactref element="U$28" pad="5"/>
-<wire x1="53.347" y1="-37.338" x2="41.478" y2="5.893" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P57"/>
+<wire x1="53.347" y1="-37.338" x2="53.828" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L50P_3_MODULEG_ISOLATOR">
-<contactref element="U$6" pad="P10"/>
+<signal name="FPGA_L14P_2_MODULEG_ISOLATOR">
 <contactref element="U$29" pad="5"/>
-<wire x1="74.683" y1="-38.735" x2="41.478" y2="5.393" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P58"/>
+<wire x1="74.683" y1="-38.735" x2="54.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L49N_3_MODULEH_ISOLATOR">
-<contactref element="U$6" pad="P11"/>
+<signal name="FPGA_L47N_1_MODULEH_ISOLATOR">
 <contactref element="U$30" pad="5"/>
-<wire x1="41.478" y1="4.893" x2="107.703" y2="-39.243" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P78"/>
+<wire x1="63.678" y1="-5.107" x2="107.703" y2="-39.243" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="FPGA_L49P_3_MODULEH_ISOLATOR">
-<contactref element="U$6" pad="P12"/>
+<signal name="FPGA_L47P_1_MODULEH_ISOLATOR">
 <contactref element="U$31" pad="5"/>
-<wire x1="41.478" y1="4.393" x2="127.896" y2="-40.132" width="0" layer="19" extent="1-1"/>
+<contactref element="U$6" pad="P79"/>
+<wire x1="63.678" y1="-4.607" x2="127.896" y2="-40.132" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CONGND">
 <contactref element="L7" pad="2"/>
@@ -13105,6 +12998,76 @@ design rules under a new name.</description>
 <contactref element="U$6" pad="P44"/>
 <contactref element="TP206" pad="TP"/>
 <wire x1="48.387" y1="-30.48" x2="47.328" y2="-9.957" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L33N_1">
+<contactref element="U$6" pad="P99"/>
+<contactref element="TP218" pad="TP"/>
+<wire x1="63.678" y1="5.393" x2="84.963" y2="4.953" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L33P_1">
+<contactref element="U$6" pad="P100"/>
+<contactref element="TP219" pad="TP"/>
+<wire x1="63.678" y1="5.893" x2="87.884" y2="5.08" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L34P_1">
+<contactref element="U$6" pad="P98"/>
+<contactref element="TP233" pad="TP"/>
+<wire x1="63.678" y1="4.893" x2="75.819" y2="12.573" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L34N_1">
+<contactref element="U$6" pad="P97"/>
+<contactref element="TP231" pad="TP"/>
+<wire x1="63.678" y1="4.393" x2="77.47" y2="10.033" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L51P_3">
+<contactref element="U$6" pad="P8"/>
+<contactref element="TP214" pad="TP"/>
+<wire x1="30.353" y1="-9.017" x2="41.478" y2="6.393" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L51N_3">
+<contactref element="U$6" pad="P7"/>
+<contactref element="TP215" pad="TP"/>
+<wire x1="31.623" y1="-7.112" x2="41.478" y2="6.893" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L52N_3">
+<contactref element="U$6" pad="P5"/>
+<contactref element="TP213" pad="TP"/>
+<wire x1="31.75" y1="7.112" x2="41.478" y2="7.893" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L52P_3">
+<contactref element="U$6" pad="P6"/>
+<contactref element="TP212" pad="TP"/>
+<wire x1="35.052" y1="7.493" x2="41.478" y2="7.393" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L40N_1">
+<contactref element="U$6" pad="P94"/>
+<contactref element="TP177" pad="TP"/>
+<wire x1="63.678" y1="2.893" x2="81.788" y2="5.588" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L40P_1">
+<contactref element="U$6" pad="P95"/>
+<contactref element="TP178" pad="TP"/>
+<wire x1="63.678" y1="3.393" x2="78.867" y2="5.715" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L49N_3">
+<contactref element="U$6" pad="P11"/>
+<contactref element="TP171" pad="TP"/>
+<wire x1="31.242" y1="9.271" x2="41.478" y2="4.893" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L49P_3">
+<contactref element="U$6" pad="P12"/>
+<contactref element="TP143" pad="TP"/>
+<wire x1="32.512" y1="11.684" x2="41.478" y2="4.393" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L41N_1">
+<contactref element="U$6" pad="P92"/>
+<contactref element="TP165" pad="TP"/>
+<wire x1="63.678" y1="1.893" x2="80.264" y2="-3.937" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FPGA_L41P_1">
+<contactref element="U$6" pad="P93"/>
+<contactref element="TP166" pad="TP"/>
+<wire x1="63.678" y1="2.393" x2="79.375" y2="-1.524" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

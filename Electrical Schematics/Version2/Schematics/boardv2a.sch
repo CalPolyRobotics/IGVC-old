@@ -26934,7 +26934,7 @@ W = angled&lt;p&gt;
 <label x="-33.02" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="5V_SU_J" class="0">
+<net name="5V_SU_J123" class="0">
 <segment>
 <wire x1="26.67" y1="90.17" x2="27.94" y2="90.17" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="90.17" x2="66.04" y2="90.17" width="0.1524" layer="91"/>

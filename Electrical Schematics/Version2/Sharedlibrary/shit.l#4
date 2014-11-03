@@ -3194,20 +3194,20 @@
 </package>
 <package name="MNR18">
 <smd name="P$1" x="-1" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$2" x="-0.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$3" x="0" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$4" x="0.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$5" x="1" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$6" x="1.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$7" x="2" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$8" x="2.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$9" x="-1" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$10" x="-0.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$11" x="0" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$12" x="0.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$13" x="1" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$14" x="1.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
-<smd name="P$15" x="2" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$3" x="-0.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$5" x="0" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$7" x="0.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$9" x="1" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$11" x="1.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$13" x="2" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$15" x="2.5" y="-1" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$2" x="-1" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$4" x="-0.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$6" x="0" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$8" x="0.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$10" x="1" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$12" x="1.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
+<smd name="P$14" x="2" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
 <smd name="P$16" x="2.5" y="0.7" dx="0.7" dy="0.3" layer="1" rot="R90"/>
 <wire x1="-1.25" y1="-1" x2="-1.25" y2="0.6" width="0.127" layer="51"/>
 <wire x1="-1.25" y1="0.6" x2="2.75" y2="0.6" width="0.127" layer="51"/>
@@ -3658,12 +3658,12 @@
 <pin name="P$16" x="10.16" y="-53.34" length="middle" rot="R180"/>
 </symbol>
 <symbol name="RESISTOR">
-<wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
-<pin name="P$1" x="-10.16" y="0" length="middle" swaplevel="1"/>
-<pin name="P$2" x="10.16" y="0" length="middle" swaplevel="1" rot="R180"/>
+<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
+<pin name="P$1" x="-7.62" y="0" length="middle" swaplevel="1"/>
+<pin name="P$2" x="7.62" y="0" length="middle" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4238,10 +4238,10 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="RESISTORARRAY">
+<deviceset name="RHM1620CT-ND">
 <gates>
 <gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
-<gate name="G$2" symbol="RESISTOR" x="0" y="-7.62"/>
+<gate name="G$2" symbol="RESISTOR" x="0" y="-7.62" swaplevel="1"/>
 <gate name="G$3" symbol="RESISTOR" x="0" y="-15.24"/>
 <gate name="G$4" symbol="RESISTOR" x="0" y="-22.86"/>
 <gate name="G$5" symbol="RESISTOR" x="0" y="-30.48"/>
@@ -4251,6 +4251,24 @@
 </gates>
 <devices>
 <device name="" package="MNR18">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$2" pin="P$1" pad="P$3"/>
+<connect gate="G$2" pin="P$2" pad="P$4"/>
+<connect gate="G$3" pin="P$1" pad="P$5"/>
+<connect gate="G$3" pin="P$2" pad="P$6"/>
+<connect gate="G$4" pin="P$1" pad="P$7"/>
+<connect gate="G$4" pin="P$2" pad="P$8"/>
+<connect gate="G$5" pin="P$1" pad="P$9"/>
+<connect gate="G$5" pin="P$2" pad="P$10"/>
+<connect gate="G$6" pin="P$1" pad="P$11"/>
+<connect gate="G$6" pin="P$2" pad="P$12"/>
+<connect gate="G$7" pin="P$1" pad="P$13"/>
+<connect gate="G$7" pin="P$2" pad="P$14"/>
+<connect gate="G$8" pin="P$1" pad="P$15"/>
+<connect gate="G$8" pin="P$2" pad="P$16"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

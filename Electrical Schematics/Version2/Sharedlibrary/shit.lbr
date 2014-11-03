@@ -3214,6 +3214,13 @@
 <wire x1="2.75" y1="0.6" x2="2.75" y2="-1" width="0.127" layer="51"/>
 <wire x1="2.75" y1="-1" x2="-1.25" y2="-1" width="0.127" layer="51"/>
 </package>
+<package name="RFCMF1220100M3T">
+<smd name="P$1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="2" x="0" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+<smd name="3" x="1.45" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="4" x="1.45" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -4268,6 +4275,24 @@
 <connect gate="G$7" pin="P$2" pad="P$14"/>
 <connect gate="G$8" pin="P$1" pad="P$15"/>
 <connect gate="G$8" pin="P$2" pad="P$16"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RFCMF1220100M3T">
+<gates>
+<gate name="G$1" symbol="ACM3225-2P" x="-7.62" y="-10.16"/>
+</gates>
+<devices>
+<device name="" package="RFCMF1220100M3T">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+<connect gate="G$1" pin="P$4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>

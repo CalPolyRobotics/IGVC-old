@@ -3216,10 +3216,10 @@
 </package>
 <package name="RFCMF1220100M3T">
 <smd name="P$1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
-<smd name="P$2" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
-<smd name="P$4" x="0" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
-<smd name="P$5" x="1.45" y="0" dx="0.45" dy="0.45" layer="1"/>
-<smd name="P$6" x="1.45" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+<smd name="1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="2" x="0" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+<smd name="3" x="1.45" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="4" x="1.45" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
 </package>
 </packages>
 <symbols>

@@ -19689,7 +19689,7 @@ W = angled&lt;p&gt;
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.2032" drill="0.4064">
+<class number="0" name="default" width="0.2032" drill="0.254">
 <clearance class="0" value="0.1016"/>
 </class>
 </classes>
@@ -23992,9 +23992,12 @@ W = angled&lt;p&gt;
 <pinref part="JP85" gate="A" pin="1"/>
 <wire x1="-24.13" y1="105.41" x2="-22.86" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="105.41" x2="-20.32" y2="105.41" width="0.1524" layer="91"/>
-<wire x1="24.13" y1="58.42" x2="-22.86" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="24.13" y1="58.42" x2="22.86" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="58.42" x2="-22.86" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="58.42" x2="-22.86" y2="105.41" width="0.1524" layer="91"/>
 <junction x="-22.86" y="105.41"/>
+<pinref part="JP96" gate="A" pin="2"/>
+<junction x="22.86" y="58.42"/>
 </segment>
 </net>
 <net name="N$63" class="0">

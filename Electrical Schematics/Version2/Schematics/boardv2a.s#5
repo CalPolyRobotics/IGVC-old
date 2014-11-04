@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -23527,6 +23527,10 @@ W = angled&lt;p&gt;
 <junction x="10.16" y="99.06"/>
 <pinref part="JP88" gate="A" pin="2"/>
 <wire x1="15.24" y1="5.08" x2="22.86" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="K2" gate="2" pin="S"/>
+<wire x1="-12.7" y1="110.49" x2="-6.35" y2="110.49" width="0.1524" layer="91"/>
+<wire x1="-6.35" y1="110.49" x2="-6.35" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="-6.35" y1="99.06" x2="7.62" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -23815,8 +23819,7 @@ W = angled&lt;p&gt;
 <pinref part="SUPPLY68" gate="GND" pin="GND"/>
 <wire x1="7.62" y1="85.09" x2="-12.7" y2="85.09" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="85.09" x2="-12.7" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="60.96" x2="-22.86" y2="60.96" width="0.1524" layer="91"/>
-<label x="-22.86" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
+<label x="-12.7" y="60.96" size="1.778" layer="95" xref="yes"/>
 <junction x="7.62" y="85.09"/>
 <wire x1="7.62" y1="85.09" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
 </segment>

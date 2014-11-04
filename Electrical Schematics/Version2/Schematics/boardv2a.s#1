@@ -28564,14 +28564,14 @@ W = angled&lt;p&gt;
 <label x="129.54" y="50.8" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP5" gate="1" pin="3"/>
 <wire x1="99.06" y1="90.17" x2="99.06" y2="88.9" width="0.1524" layer="91"/>
 <label x="99.06" y="88.9" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP5" gate="1" pin="1"/>
 <wire x1="93.98" y1="90.17" x2="93.98" y2="87.63" width="0.1524" layer="91"/>
@@ -28587,24 +28587,6 @@ W = angled&lt;p&gt;
 <pinref part="U$13" gate="A" pin="COM1"/>
 <wire x1="119.38" y1="48.26" x2="119.38" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="25.4" x2="81.28" y2="25.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="3.3V_SUPERVISED" class="0">
-<segment>
-<pinref part="U9" gate="A" pin="VDD1"/>
-<wire x1="-15.24" y1="58.42" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="78.74" x2="-20.32" y2="78.74" width="0.1524" layer="91"/>
-<label x="-25.4" y="78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="C91" gate="G$1" pin="1"/>
-<wire x1="-20.32" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
-<junction x="-20.32" y="78.74"/>
-</segment>
-<segment>
-<pinref part="U9" gate="A" pin="VE1"/>
-<wire x1="-15.24" y1="43.18" x2="-22.86" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="43.18" x2="-22.86" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-22.86" y1="40.64" x2="-25.4" y2="40.64" width="0.1524" layer="91"/>
-<label x="-25.4" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$66" class="0">
@@ -28692,6 +28674,24 @@ W = angled&lt;p&gt;
 <junction x="45.72" y="45.72"/>
 </segment>
 </net>
+<net name="PP_3.3V_FPGA" class="0">
+<segment>
+<pinref part="U9" gate="A" pin="VDD1"/>
+<wire x1="-15.24" y1="58.42" x2="-15.24" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="78.74" x2="-20.32" y2="78.74" width="0.1524" layer="91"/>
+<label x="-25.4" y="78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="C91" gate="G$1" pin="1"/>
+<wire x1="-20.32" y1="78.74" x2="-25.4" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-20.32" y="78.74"/>
+</segment>
+<segment>
+<pinref part="U9" gate="A" pin="VE1"/>
+<wire x1="-15.24" y1="43.18" x2="-22.86" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="43.18" x2="-22.86" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="40.64" x2="-25.4" y2="40.64" width="0.1524" layer="91"/>
+<label x="-25.4" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -28762,14 +28762,14 @@ W = angled&lt;p&gt;
 <label x="177.8" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP6" gate="1" pin="3"/>
 <wire x1="147.32" y1="97.79" x2="147.32" y2="95.25" width="0.1524" layer="91"/>
 <label x="147.32" y="95.25" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP6" gate="1" pin="1"/>
 <wire x1="142.24" y1="97.79" x2="142.24" y2="95.25" width="0.1524" layer="91"/>
@@ -28785,26 +28785,6 @@ W = angled&lt;p&gt;
 <pinref part="U$16" gate="A" pin="COM1"/>
 <wire x1="167.64" y1="53.34" x2="167.64" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="30.48" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="3.3V_SUPERVISED" class="0">
-<segment>
-<pinref part="U11" gate="A" pin="VDD1"/>
-<wire x1="33.02" y1="63.5" x2="33.02" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="83.82" x2="27.94" y2="83.82" width="0.1524" layer="91"/>
-<label x="22.86" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="C93" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="83.82" x2="22.86" y2="83.82" width="0.1524" layer="91"/>
-<junction x="27.94" y="83.82"/>
-<junction x="33.02" y="63.5"/>
-</segment>
-<segment>
-<pinref part="U11" gate="A" pin="VE1"/>
-<wire x1="33.02" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="48.26" x2="25.4" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="45.72" x2="22.86" y2="45.72" width="0.1524" layer="91"/>
-<label x="22.86" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
-<junction x="33.02" y="48.26"/>
 </segment>
 </net>
 <net name="N$71" class="0">
@@ -28942,6 +28922,26 @@ W = angled&lt;p&gt;
 <pinref part="U$16" gate="A" pin="COM2"/>
 </segment>
 </net>
+<net name="PP_3.3V_FPGA" class="0">
+<segment>
+<pinref part="U11" gate="A" pin="VDD1"/>
+<wire x1="33.02" y1="63.5" x2="33.02" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="83.82" x2="27.94" y2="83.82" width="0.1524" layer="91"/>
+<label x="22.86" y="83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="C93" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="83.82" x2="22.86" y2="83.82" width="0.1524" layer="91"/>
+<junction x="27.94" y="83.82"/>
+<junction x="33.02" y="63.5"/>
+</segment>
+<segment>
+<pinref part="U11" gate="A" pin="VE1"/>
+<wire x1="33.02" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="48.26" x2="25.4" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="45.72" x2="22.86" y2="45.72" width="0.1524" layer="91"/>
+<label x="22.86" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
+<junction x="33.02" y="48.26"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -29012,14 +29012,14 @@ W = angled&lt;p&gt;
 <label x="193.04" y="53.34" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP7" gate="1" pin="3"/>
 <wire x1="162.56" y1="97.79" x2="162.56" y2="95.25" width="0.1524" layer="91"/>
 <label x="162.56" y="95.25" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP7" gate="1" pin="1"/>
 <wire x1="157.48" y1="97.79" x2="157.48" y2="95.25" width="0.1524" layer="91"/>
@@ -29037,7 +29037,7 @@ W = angled&lt;p&gt;
 <wire x1="182.88" y1="27.94" x2="144.78" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U12" gate="A" pin="VDD1"/>
 <wire x1="48.26" y1="60.96" x2="48.26" y2="81.28" width="0.1524" layer="91"/>
@@ -29261,14 +29261,14 @@ W = angled&lt;p&gt;
 <label x="190.5" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP8" gate="1" pin="3"/>
 <wire x1="160.02" y1="85.09" x2="160.02" y2="83.82" width="0.1524" layer="91"/>
 <label x="160.02" y="83.82" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP8" gate="1" pin="1"/>
 <wire x1="154.94" y1="85.09" x2="154.94" y2="83.82" width="0.1524" layer="91"/>
@@ -29286,7 +29286,7 @@ W = angled&lt;p&gt;
 <wire x1="180.34" y1="20.32" x2="142.24" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U13" gate="A" pin="VDD1"/>
 <wire x1="45.72" y1="53.34" x2="45.72" y2="73.66" width="0.1524" layer="91"/>
@@ -29511,14 +29511,14 @@ W = angled&lt;p&gt;
 <label x="187.96" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP9" gate="1" pin="3"/>
 <wire x1="157.48" y1="81.28" x2="157.48" y2="78.74" width="0.1524" layer="91"/>
 <label x="157.48" y="78.74" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP9" gate="1" pin="1"/>
 <wire x1="152.4" y1="81.28" x2="152.4" y2="78.74" width="0.1524" layer="91"/>
@@ -29536,7 +29536,7 @@ W = angled&lt;p&gt;
 <wire x1="177.8" y1="15.24" x2="139.7" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U14" gate="A" pin="VDD1"/>
 <wire x1="43.18" y1="48.26" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
@@ -29761,14 +29761,14 @@ W = angled&lt;p&gt;
 <label x="190.5" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP10" gate="1" pin="3"/>
 <wire x1="160.02" y1="72.39" x2="160.02" y2="69.85" width="0.1524" layer="91"/>
 <label x="160.02" y="69.85" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP10" gate="1" pin="1"/>
 <wire x1="154.94" y1="72.39" x2="154.94" y2="69.85" width="0.1524" layer="91"/>
@@ -29786,7 +29786,7 @@ W = angled&lt;p&gt;
 <wire x1="180.34" y1="12.7" x2="142.24" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U15" gate="A" pin="VDD1"/>
 <wire x1="45.72" y1="45.72" x2="45.72" y2="66.04" width="0.1524" layer="91"/>
@@ -30011,14 +30011,14 @@ W = angled&lt;p&gt;
 <label x="182.88" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP11" gate="1" pin="3"/>
 <wire x1="152.4" y1="71.12" x2="152.4" y2="69.85" width="0.1524" layer="91"/>
 <label x="152.4" y="69.85" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
+<net name="5V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP11" gate="1" pin="1"/>
 <wire x1="147.32" y1="71.12" x2="147.32" y2="69.85" width="0.1524" layer="91"/>
@@ -30036,7 +30036,7 @@ W = angled&lt;p&gt;
 <wire x1="172.72" y1="12.7" x2="134.62" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U16" gate="A" pin="VDD1"/>
 <wire x1="38.1" y1="45.72" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
@@ -30261,18 +30261,14 @@ W = angled&lt;p&gt;
 <label x="177.8" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="PP_3.3V_MODULARCONNECTOR" class="0">
+<net name="3.3V_SUPERVISED" class="0">
 <segment>
 <pinref part="JP12" gate="1" pin="3"/>
 <wire x1="147.32" y1="76.2" x2="147.32" y2="73.66" width="0.1524" layer="91"/>
 <label x="147.32" y="73.66" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="PP_5V_MODULARCONNECTOR" class="0">
-<segment>
-<pinref part="JP12" gate="1" pin="1"/>
-<wire x1="142.24" y1="76.2" x2="142.24" y2="73.66" width="0.1524" layer="91"/>
-<label x="142.24" y="73.66" size="1.27" layer="95" rot="R180" xref="yes"/>
+<junction x="147.32" y="76.2"/>
+<wire x1="147.32" y1="76.2" x2="154.94" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="76.2" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$110" class="0">
@@ -30286,7 +30282,7 @@ W = angled&lt;p&gt;
 <wire x1="167.64" y1="15.24" x2="129.54" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="3.3V_SUPERVISED" class="0">
+<net name="PP_3.3V_FPGA" class="0">
 <segment>
 <pinref part="U17" gate="A" pin="VDD1"/>
 <wire x1="33.02" y1="48.26" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
@@ -30439,6 +30435,15 @@ W = angled&lt;p&gt;
 <label x="132.08" y="5.08" size="1.27" layer="95" xref="yes"/>
 <wire x1="132.08" y1="5.08" x2="129.54" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="U$30" gate="A" pin="COM2"/>
+</segment>
+</net>
+<net name="5V_SUPERVISED" class="0">
+<segment>
+<pinref part="JP12" gate="1" pin="1"/>
+<wire x1="142.24" y1="76.2" x2="142.24" y2="73.66" width="0.1524" layer="91"/>
+<label x="142.24" y="73.66" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="142.24" y1="76.2" x2="127" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="127" y1="76.2" x2="127" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

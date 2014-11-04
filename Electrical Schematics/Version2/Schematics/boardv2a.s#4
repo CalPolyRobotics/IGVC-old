@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -23779,9 +23779,12 @@ W = angled&lt;p&gt;
 <junction x="187.96" y="55.88"/>
 </segment>
 <segment>
-<wire x1="-21.59" y1="125.73" x2="-36.83" y2="125.73" width="0.1524" layer="91"/>
+<wire x1="-21.59" y1="125.73" x2="-22.86" y2="125.73" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="125.73" x2="-36.83" y2="125.73" width="0.1524" layer="91"/>
 <wire x1="-36.83" y1="125.73" x2="-36.83" y2="133.35" width="0.1524" layer="91"/>
 <label x="-38.1" y="133.35" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="K2" gate="1" pin="2"/>
+<junction x="-22.86" y="125.73"/>
 </segment>
 </net>
 <net name="N$176" class="0">

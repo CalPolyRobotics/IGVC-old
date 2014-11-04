@@ -4238,7 +4238,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="RESISTORARRAY">
+<deviceset name="RHM1620CT-ND">
 <gates>
 <gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
 <gate name="G$2" symbol="RESISTOR" x="0" y="-7.62" swaplevel="1"/>

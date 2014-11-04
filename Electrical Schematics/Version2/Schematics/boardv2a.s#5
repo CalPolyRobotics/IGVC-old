@@ -22645,10 +22645,13 @@ W = angled&lt;p&gt;
 <wire x1="-180.34" y1="66.04" x2="-208.28" y2="66.04" width="0.1524" layer="91"/>
 <junction x="-180.34" y="66.04"/>
 <wire x1="-165.1" y1="66.04" x2="-180.34" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-165.1" y1="81.28" x2="-165.1" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="-162.56" y1="81.28" x2="-165.1" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="U$32" gate="G$7" pin="P$1"/>
 <label x="-213.36" y="66.04" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="-165.1" y1="78.74" x2="-165.1" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="81.28" x2="-165.1" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U$32" gate="G$6" pin="P$1"/>
+<wire x1="-165.1" y1="78.74" x2="-157.48" y2="78.74" width="0.1524" layer="91"/>
+<junction x="-157.48" y="78.74"/>
+<junction x="-165.1" y="78.74"/>
 </segment>
 </net>
 <net name="MCU_TEMP_A0" class="0">
@@ -23387,10 +23390,11 @@ W = angled&lt;p&gt;
 <wire x1="-180.34" y1="60.96" x2="-208.28" y2="60.96" width="0.1524" layer="91"/>
 <junction x="-180.34" y="60.96"/>
 <wire x1="-160.02" y1="60.96" x2="-180.34" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-160.02" y1="78.74" x2="-160.02" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-157.48" y1="78.74" x2="-160.02" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="U$32" gate="G$6" pin="P$1"/>
+<wire x1="-160.02" y1="81.28" x2="-160.02" y2="60.96" width="0.1524" layer="91"/>
 <label x="-213.36" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$32" gate="G$7" pin="P$1"/>
+<wire x1="-160.02" y1="81.28" x2="-162.56" y2="81.28" width="0.1524" layer="91"/>
+<junction x="-162.56" y="81.28"/>
 </segment>
 </net>
 <net name="FPGA_MCU_RWJ" class="0">

@@ -1,0 +1,24 @@
+synch : process (CLK) begin 
+	if(rising_edge(CLK)) then 
+		PS <= NS;
+	end if;
+end process; 
+
+combin : process (PS, count, timer) begin
+case PS is 
+	when currentCount =>
+		tempCount <= count; 
+		if(timer = "1010") then 
+			NS <= nextCount; 
+		else 
+			NS <= currentCount; 
+		end if; 
+	when nextCount => 
+		tempCount <= count - tempCount; 
+		if(timer = "1010") then
+			NS <= currentCount; 
+		else 
+			NS <= nextCount; 
+		end if;
+end case;
+end process; 

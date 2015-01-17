@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.004" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="4" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -1755,14 +1755,14 @@
 <pad name="L3" x="4.09" y="7.51" drill="0.9"/>
 <pad name="L2" x="11.66" y="5.99" drill="0.9"/>
 <pad name="L1" x="14.2" y="7.51" drill="0.9"/>
-<hole x="0.1" y="13.94" drill="1.6"/>
-<hole x="15.65" y="13.94" drill="1.6"/>
-<hole x="13.59" y="10.89" drill="3.25"/>
-<hole x="2.16" y="10.89" drill="3.25"/>
 <wire x1="0" y1="0" x2="15.75" y2="0" width="0.127" layer="51"/>
 <wire x1="15.75" y1="0" x2="15.75" y2="21.72" width="0.127" layer="51"/>
 <wire x1="15.75" y1="21.72" x2="0" y2="21.72" width="0.127" layer="51"/>
 <wire x1="0" y1="21.72" x2="0" y2="0" width="0.127" layer="51"/>
+<pad name="P$1" x="2.16" y="10.89" drill="3.25"/>
+<pad name="P$2" x="13.59" y="10.89" drill="3.25"/>
+<pad name="P$3" x="0.1" y="13.94" drill="1.6"/>
+<pad name="P$4" x="15.65" y="13.94" drill="1.6"/>
 </package>
 <package name="MUB10A">
 <smd name="1" x="-2.1844" y="0.9906" dx="1.3716" dy="0.3302" layer="1"/>

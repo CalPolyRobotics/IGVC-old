@@ -25024,7 +25024,7 @@ W = angled&lt;p&gt;
 <label x="17.78" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="3.3V_TEMP_PWR" class="0">
+<net name="MCU_+3.3V" class="0">
 <segment>
 <pinref part="JP97" gate="1" pin="2"/>
 <wire x1="40.64" y1="96.52" x2="17.78" y2="96.52" width="0.1524" layer="91"/>

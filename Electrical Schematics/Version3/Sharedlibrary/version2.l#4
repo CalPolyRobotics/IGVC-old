@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -2044,6 +2044,28 @@
 <wire x1="2.5" y1="-1.6" x2="-2.5" y2="-1.6" width="0.127" layer="51"/>
 <wire x1="-2.5" y1="-1.6" x2="-2.5" y2="1.6" width="0.127" layer="51"/>
 </package>
+<package name="RB1-125BAG1A">
+<pad name="R1" x="3.43" y="17.23" drill="0.9" shape="square" rot="R90"/>
+<pad name="R2" x="4.7" y="19.475" drill="0.9"/>
+<pad name="R3" x="5.97" y="17.23" drill="0.9"/>
+<pad name="R6" x="9.78" y="19.475" drill="0.9"/>
+<pad name="R4" x="7.24" y="19.475" drill="0.9"/>
+<pad name="R5" x="8.51" y="17.23" drill="0.9"/>
+<pad name="R7" x="11.11" y="17.23" drill="0.9"/>
+<pad name="R8" x="12.38" y="19.475" drill="0.9"/>
+<pad name="L4" x="1.55" y="5.99" drill="0.9" rot="R180"/>
+<pad name="L3" x="4.09" y="7.51" drill="0.9"/>
+<pad name="L2" x="11.66" y="5.99" drill="0.9"/>
+<pad name="L1" x="14.2" y="7.51" drill="0.9"/>
+<hole x="0.1" y="13.94" drill="1.6"/>
+<hole x="15.65" y="13.94" drill="1.6"/>
+<hole x="13.59" y="10.89" drill="3.25"/>
+<hole x="-2.92" y="10.89" drill="3.25"/>
+<wire x1="0" y1="0" x2="15.75" y2="0" width="0.127" layer="51"/>
+<wire x1="15.75" y1="0" x2="15.75" y2="21.72" width="0.127" layer="51"/>
+<wire x1="15.75" y1="21.72" x2="0" y2="21.72" width="0.127" layer="51"/>
+<wire x1="0" y1="21.72" x2="0" y2="0" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TMS570LS0432_PZ_100">
@@ -2162,6 +2184,26 @@
 <wire x1="5.08" y1="-2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
 <text x="-5.08" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 <text x="-5.08" y="2.54" size="1.778" layer="96">&gt;NAME</text>
+</symbol>
+<symbol name="RB1-125BAG1A">
+<wire x1="-10" y1="-8" x2="-10" y2="6" width="0.254" layer="94"/>
+<wire x1="-10" y1="6" x2="8" y2="6" width="0.254" layer="94"/>
+<wire x1="8" y1="6" x2="8" y2="-8" width="0.254" layer="94"/>
+<wire x1="8" y1="-8" x2="-10" y2="-8" width="0.254" layer="94"/>
+<pin name="R1" x="-8" y="8" length="middle" rot="R270"/>
+<pin name="R2" x="-6" y="8" length="middle" rot="R270"/>
+<pin name="R3" x="-4" y="8" length="middle" rot="R270"/>
+<pin name="R4" x="-2" y="8" length="middle" rot="R270"/>
+<pin name="R5" x="0" y="8" length="middle" rot="R270"/>
+<pin name="R6" x="2" y="8" length="middle" rot="R270"/>
+<pin name="R7" x="4" y="8" length="middle" rot="R270"/>
+<pin name="R8" x="6" y="8" length="middle" rot="R270"/>
+<pin name="L4" x="-8" y="-12" length="middle" rot="R90"/>
+<pin name="L3" x="-6" y="-12" length="middle" rot="R90"/>
+<pin name="L1" x="6" y="-12" length="middle" rot="R90"/>
+<pin name="L2" x="4" y="-12" length="middle" rot="R90"/>
+<text x="-10" y="10" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6" y="-10" size="1.778" layer="95">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2292,6 +2334,18 @@
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 <connect gate="G$1" pin="P$2" pad="P$2"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="7A-25.000MAAJ-T">
+<gates>
+<gate name="G$1" symbol="7A-16.000MAAJ-T" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="2-SMD">
 <technologies>
 <technology name=""/>
 </technologies>

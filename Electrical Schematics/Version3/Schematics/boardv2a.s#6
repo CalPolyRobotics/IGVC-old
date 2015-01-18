@@ -7097,16 +7097,6 @@ FQP27P06 -
 <text x="-2.8702" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="-3.4544" y="-0.635" size="1.27" layer="27" ratio="6" rot="SR0">&gt;VALUE</text>
 </package>
-<package name="ACM3225-2P">
-<smd name="1" x="0" y="0" dx="1.4" dy="1.5" layer="1"/>
-<smd name="2" x="3.1" y="0" dx="1.4" dy="1.5" layer="1"/>
-<smd name="4" x="3.1" y="2.5" dx="1.4" dy="1.5" layer="1"/>
-<smd name="3" x="0" y="2.5" dx="1.4" dy="1.5" layer="1"/>
-<text x="-2.54" y="-1.27" size="1.27" layer="21">1</text>
-<text x="5.08" y="-1.27" size="1.27" layer="21">2</text>
-<text x="-2.54" y="2.54" size="1.27" layer="21">3</text>
-<text x="5.08" y="2.54" size="1.27" layer="21">4</text>
-</package>
 <package name="MUB10A">
 <smd name="1" x="-2.1844" y="0.9906" dx="1.3716" dy="0.3302" layer="1"/>
 <smd name="2" x="-2.1844" y="0.508" dx="1.3716" dy="0.3302" layer="1"/>
@@ -7457,6 +7447,13 @@ FQP27P06 -
 <wire x1="2.75" y1="0.6" x2="2.75" y2="-1" width="0.127" layer="51"/>
 <wire x1="2.75" y1="-1" x2="-1.25" y2="-1" width="0.127" layer="51"/>
 </package>
+<package name="RFCMF1220100M3T">
+<smd name="P$1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="1" x="0" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="2" x="0" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+<smd name="3" x="1.45" y="0" dx="0.45" dy="0.45" layer="1"/>
+<smd name="4" x="1.45" y="-0.75" dx="0.45" dy="0.45" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CP2130-GM">
@@ -7491,26 +7488,6 @@ FQP27P06 -
 <wire x1="124.46" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
 <text x="61.3156" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="60.3758" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
-</symbol>
-<symbol name="ACM3225-2P">
-<wire x1="-22.86" y1="17.78" x2="-7.62" y2="17.78" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="17.78" x2="-2.54" y2="17.78" width="0.254" layer="94" curve="180"/>
-<wire x1="-2.54" y1="17.78" x2="2.54" y2="17.78" width="0.254" layer="94" curve="180"/>
-<wire x1="2.54" y1="17.78" x2="7.62" y2="17.78" width="0.254" layer="94" curve="180"/>
-<wire x1="7.62" y1="17.78" x2="12.7" y2="17.78" width="0.254" layer="94" curve="180"/>
-<wire x1="-7.62" y1="12.7" x2="12.7" y2="12.7" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="10.16" x2="12.7" y2="10.16" width="0.254" layer="94"/>
-<wire x1="12.7" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
-<wire x1="27.94" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
-<wire x1="12.7" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94" curve="180"/>
-<wire x1="7.62" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94" curve="180"/>
-<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94" curve="180"/>
-<wire x1="-2.54" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94" curve="180"/>
-<wire x1="-7.62" y1="5.08" x2="-22.86" y2="5.08" width="0.254" layer="94"/>
-<pin name="P$1" x="-27.94" y="17.78" length="middle"/>
-<pin name="P$2" x="-27.94" y="5.08" length="middle"/>
-<pin name="P$3" x="33.02" y="17.78" length="middle" rot="R180"/>
-<pin name="P$4" x="33.02" y="5.08" length="middle" rot="R180"/>
 </symbol>
 <symbol name="LM25061PMM-1">
 <pin name="SENSE" x="0" y="0" length="middle" direction="in"/>
@@ -7638,6 +7615,26 @@ FQP27P06 -
 <pin name="P$1" x="-7.62" y="0" length="middle" swaplevel="1"/>
 <pin name="P$2" x="7.62" y="0" length="middle" swaplevel="1" rot="R180"/>
 </symbol>
+<symbol name="ACM3225-2P">
+<wire x1="-22.86" y1="17.78" x2="-7.62" y2="17.78" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="17.78" x2="-2.54" y2="17.78" width="0.254" layer="94" curve="180"/>
+<wire x1="-2.54" y1="17.78" x2="2.54" y2="17.78" width="0.254" layer="94" curve="180"/>
+<wire x1="2.54" y1="17.78" x2="7.62" y2="17.78" width="0.254" layer="94" curve="180"/>
+<wire x1="7.62" y1="17.78" x2="12.7" y2="17.78" width="0.254" layer="94" curve="180"/>
+<wire x1="-7.62" y1="12.7" x2="12.7" y2="12.7" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="10.16" x2="12.7" y2="10.16" width="0.254" layer="94"/>
+<wire x1="12.7" y1="17.78" x2="27.94" y2="17.78" width="0.254" layer="94"/>
+<wire x1="27.94" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="12.7" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94" curve="180"/>
+<wire x1="7.62" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94" curve="180"/>
+<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94" curve="180"/>
+<wire x1="-2.54" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94" curve="180"/>
+<wire x1="-7.62" y1="5.08" x2="-22.86" y2="5.08" width="0.254" layer="94"/>
+<pin name="P$1" x="-27.94" y="17.78" length="middle"/>
+<pin name="P$2" x="-27.94" y="5.08" length="middle"/>
+<pin name="P$3" x="33.02" y="17.78" length="middle" rot="R180"/>
+<pin name="P$4" x="33.02" y="5.08" length="middle" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="CP2130-GM" prefix="U">
@@ -7678,24 +7675,6 @@ FQP27P06 -
 <attribute name="MANUFACTURER_PART_NUMBER" value="cp2130-gm" constant="no"/>
 <attribute name="VENDOR" value="Silicon Labs" constant="no"/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="ACM3225-2P">
-<gates>
-<gate name="A" symbol="ACM3225-2P" x="-2.54" y="-2.54"/>
-</gates>
-<devices>
-<device name="" package="ACM3225-2P">
-<connects>
-<connect gate="A" pin="P$1" pad="3"/>
-<connect gate="A" pin="P$2" pad="1"/>
-<connect gate="A" pin="P$3" pad="4"/>
-<connect gate="A" pin="P$4" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -7942,6 +7921,24 @@ FQP27P06 -
 <connect gate="G$7" pin="P$2" pad="P$14"/>
 <connect gate="G$8" pin="P$1" pad="P$15"/>
 <connect gate="G$8" pin="P$2" pad="P$16"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RFCMF1220100M3T">
+<gates>
+<gate name="G$1" symbol="ACM3225-2P" x="-7.62" y="-10.16"/>
+</gates>
+<devices>
+<device name="" package="RFCMF1220100M3T">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+<connect gate="G$1" pin="P$4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -19689,7 +19686,7 @@ W = angled&lt;p&gt;
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.2032" drill="0.4064">
+<class number="0" name="default" width="0.2032" drill="0.254">
 <clearance class="0" value="0.1016"/>
 </class>
 </classes>
@@ -19706,7 +19703,6 @@ W = angled&lt;p&gt;
 <part name="SUPPLY54" library="supply2" deviceset="GND" device=""/>
 <part name="C38" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
 <part name="C39" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
-<part name="U$8" library="shit" deviceset="ACM3225-2P" device=""/>
 <part name="L1" library="inductors" deviceset="BLM15H" device="" technology="B121SN1"/>
 <part name="L2" library="inductors" deviceset="BLM15H" device="" technology="B121SN1"/>
 <part name="C40" library="eagle-ltspice" deviceset="C" device="C0603" value="0.1uF"/>
@@ -20450,6 +20446,7 @@ W = angled&lt;p&gt;
 <part name="R42" library="SparkFun-Passives" deviceset="RESISTOR" device="0603-RES" value="10k"/>
 <part name="TP216" library="testpad" deviceset="TP" device="B1,27"/>
 <part name="TP217" library="testpad" deviceset="TP" device="B1,27"/>
+<part name="U$8" library="shit" deviceset="RFCMF1220100M3T" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20798,7 +20795,6 @@ W = angled&lt;p&gt;
 <instance part="SUPPLY54" gate="GND" x="162.56" y="-10.16"/>
 <instance part="C38" gate="G$1" x="132.08" y="-2.54"/>
 <instance part="C39" gate="G$1" x="132.08" y="-10.16"/>
-<instance part="U$8" gate="A" x="15.24" y="-35.56"/>
 <instance part="L1" gate="G$1" x="0" y="2.54"/>
 <instance part="L2" gate="G$1" x="0" y="-35.56"/>
 <instance part="C40" gate="G$1" x="78.74" y="0"/>
@@ -20836,6 +20832,7 @@ W = angled&lt;p&gt;
 <instance part="C45" gate="G$1" x="2.54" y="43.18"/>
 <instance part="C112" gate="G$1" x="-45.72" y="57.15"/>
 <instance part="C113" gate="G$1" x="-52.07" y="57.15"/>
+<instance part="U$8" gate="G$1" x="12.7" y="-35.56"/>
 </instances>
 <busses>
 </busses>
@@ -20989,21 +20986,23 @@ W = angled&lt;p&gt;
 </net>
 <net name="N$148" class="0">
 <segment>
-<pinref part="U$8" gate="A" pin="P$1"/>
-<wire x1="-12.7" y1="-17.78" x2="-17.78" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="-12.7" y="-17.78"/>
+<wire x1="-12.7" y1="-17.78" x2="-15.24" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="JP81" gate="G$1" pin="D-"/>
+<wire x1="-15.24" y1="-17.78" x2="-17.78" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-17.78" y1="-17.78" x2="-20.32" y2="-17.78" width="0.1524" layer="91"/>
 <junction x="-17.78" y="-17.78"/>
+<pinref part="U$8" gate="G$1" pin="P$1"/>
+<junction x="-15.24" y="-17.78"/>
 </segment>
 </net>
 <net name="N$149" class="0">
 <segment>
 <pinref part="JP81" gate="G$1" pin="D+"/>
 <wire x1="-17.78" y1="-20.32" x2="-17.78" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="-30.48" x2="-12.7" y2="-30.48" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="A" pin="P$2"/>
-<junction x="-12.7" y="-30.48"/>
+<wire x1="-17.78" y1="-30.48" x2="-15.24" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="P$2"/>
+<wire x1="-15.24" y1="-30.48" x2="-12.7" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="-15.24" y="-30.48"/>
 </segment>
 </net>
 <net name="N$150" class="0">
@@ -21280,22 +21279,15 @@ W = angled&lt;p&gt;
 </net>
 <net name="N$160" class="0">
 <segment>
-<pinref part="U$8" gate="A" pin="P$3"/>
 <pinref part="RES604" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="-17.78" x2="50.8" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="48.26" y="-17.78"/>
 <junction x="50.8" y="-17.78"/>
 <pinref part="TP17" gate="G$1" pin="TP"/>
-</segment>
-</net>
-<net name="N$161" class="0">
-<segment>
-<pinref part="U$8" gate="A" pin="P$4"/>
-<pinref part="24OHMS3" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="-30.48" x2="50.8" y2="-30.48" width="0.1524" layer="91"/>
-<junction x="48.26" y="-30.48"/>
-<junction x="50.8" y="-30.48"/>
-<pinref part="TP18" gate="G$1" pin="TP"/>
+<wire x1="43.18" y1="-17.78" x2="45.72" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="48.26" y="-17.78"/>
+<pinref part="U$8" gate="G$1" pin="P$3"/>
+<wire x1="45.72" y1="-17.78" x2="48.26" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="45.72" y="-17.78"/>
 </segment>
 </net>
 <net name="N$162" class="0">
@@ -21332,6 +21324,18 @@ W = angled&lt;p&gt;
 <pinref part="U1" gate="A" pin="GPIO.3/*CS3/RTR"/>
 <wire x1="160.02" y1="50.8" x2="172.72" y2="50.8" width="0.1524" layer="91"/>
 <label x="173.99" y="50.8" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$115" class="0">
+<segment>
+<pinref part="U$8" gate="G$1" pin="P$4"/>
+<wire x1="43.18" y1="-30.48" x2="45.72" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="24OHMS3" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="-30.48" x2="50.8" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="50.8" y="-30.48"/>
+<pinref part="TP18" gate="G$1" pin="TP"/>
+<wire x1="45.72" y1="-30.48" x2="48.26" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="48.26" y="-30.48"/>
 </segment>
 </net>
 </nets>
@@ -23992,9 +23996,12 @@ W = angled&lt;p&gt;
 <pinref part="JP85" gate="A" pin="1"/>
 <wire x1="-24.13" y1="105.41" x2="-22.86" y2="105.41" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="105.41" x2="-20.32" y2="105.41" width="0.1524" layer="91"/>
-<wire x1="24.13" y1="58.42" x2="-22.86" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="24.13" y1="58.42" x2="22.86" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="58.42" x2="-22.86" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="58.42" x2="-22.86" y2="105.41" width="0.1524" layer="91"/>
 <junction x="-22.86" y="105.41"/>
+<pinref part="JP96" gate="A" pin="2"/>
+<junction x="22.86" y="58.42"/>
 </segment>
 </net>
 <net name="N$63" class="0">
